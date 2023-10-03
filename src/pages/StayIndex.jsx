@@ -35,9 +35,9 @@ export function StayIndex() {
 
   async function onUpdateStay(stay) {
     const price = +prompt('New price?')
-    const stayToSave = { ...stay, price }
+    const cartoSave = { ...stay, price }
     try {
-      const savedStay = await updateStay(stayToSave)
+      const savedStay = await updateStay(cartoSave)
       showSuccessMsg(`Stay updated, new price: ${savedStay.price}`)
     } catch (err) {
       showErrorMsg('Cannot update stay')
