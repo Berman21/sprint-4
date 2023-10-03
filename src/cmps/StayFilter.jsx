@@ -39,7 +39,7 @@ export function StayFilter({ filterBy, onSetFilter }) {
   const { country } = filterByToEdit
 
   return (
-    <section className='filter-container flex'>
+    <section className='filter-container'>
       <input type='text' value={country} name='country' id='country' onChange={handleChange} placeholder='Search destinations' />
     </section>
   )

@@ -45,12 +45,10 @@ export function AppHeader() {
 
   return (
     <header className='app-header'>
-      <article className='filter-nav flex'>
-        <div className='logo-container'>
-          <img src={logo} style={{ maxWidth: '100px' }} />
-        </div>
-        <StayFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-      </article>
+      <div className='logo-container'>
+        <img src={logo} style={{ maxWidth: '100px' }} />
+      </div>
+      <StayFilter filterBy={filterBy} onSetFilter={onSetFilter} />
       {/* <nav>
                 {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)} */}
 
