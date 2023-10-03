@@ -9,10 +9,11 @@ import { StayList } from '../cmps/StayList.jsx'
 
 export function StayIndex() {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
+  const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
 
   useEffect(() => {
-    loadStays()
-  }, [])
+    loadStays(filterBy)
+  }, [filterBy])
 
   async function onRemoveStay(stayId) {
     try {
@@ -56,7 +57,6 @@ export function StayIndex() {
   }
   return (
     <div>
-      <h3>Stay App</h3>
       <main>
         <button onClick={onAddStay}>Add Stay ⛐</button>
         <StayList stays={stays} />

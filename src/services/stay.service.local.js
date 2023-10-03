@@ -119,12 +119,13 @@ export const stayService = {
 // debug trick
 window.bs = stayService
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = {}) {
   var stays = await storageService.query(STORAGE_KEY)
-  if (filterBy.txt) {
-    const regex = new RegExp(filterBy.txt, 'i')
-    stays = stays.filter((stay) => regex.test(stay.title) || regex.test(stay.description))
+  if (filterBy.country) {
+    const regex = new RegExp(filterBy.country, 'i')
+    stays = stays.filter((stay) => regex.test(stay.loc.country) || regex.test(stay.description))
   }
+
   if (filterBy.price) {
     stays = stays.filter((stay) => stay.price <= filterBy.price)
   }

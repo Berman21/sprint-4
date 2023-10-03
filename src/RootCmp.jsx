@@ -9,20 +9,19 @@ import { UserDetails } from './pages/UserDetails'
 import { StayDetails } from './pages/StayDetails'
 
 export function RootCmp() {
-
-    return (
-        <div>
-            <AppHeader />
-            <main>
-                <Routes>
-                    {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
-                    <Route path="user/:id" element={<UserDetails />} />
-                    <Route path="stay/:id" element={<StayDetails />} />
-                </Routes>
-            </main>
-            <AppFooter />
-        </div>
-    )
+  return (
+    <div>
+      <AppHeader />
+      <main>
+        <Routes>
+          {routes.map((route) => (
+            <Route key={route.path} exact={true} element={route.component} path={route.path} />
+          ))}
+          <Route path='user/:id' element={<UserDetails />} />
+          <Route path='stay/:id' element={<StayDetails />} />
+        </Routes>
+      </main>
+      <AppFooter />
+    </div>
+  )
 }
-
-
