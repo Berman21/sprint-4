@@ -5,7 +5,7 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { utilService } from "../services/util.service.js"
 import { useSelector } from "react-redux"
 
-export function StayDetails(){
+export function StayDetails() {
 
     const [stay, setStay] = useState(null)
     const { stayId } = useParams()
@@ -13,7 +13,7 @@ export function StayDetails(){
 
     useEffect(() => {
         loadStay()
-    }, [toyId])
+    }, [stayId])
 
     async function loadStay() {
         try {
@@ -25,6 +25,8 @@ export function StayDetails(){
             navigate('/stay')
         }
     }
+
+    if (!stay) return <div>loading..</div>
 
     return (
         <section>
