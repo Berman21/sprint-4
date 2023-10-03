@@ -1,8 +1,8 @@
-.main-container {
+.app-container {
     display: grid;
-    grid-template-columns: 20px 1fr 20px;
+    grid-template-columns: 80px 1fr 80px;
 
-    > * {
+    >* {
         grid-column: 2;
 
         &.full {
@@ -10,29 +10,56 @@
         }
     }
 
-    @include for-narrow-layout {
-        grid-template-columns: 
-            minmax(20px, 1fr)
-            minmax(auto, $mobile-breakpoint)
-            minmax(20px, 1fr);
-    }
-    @include for-normal-layout {
-        grid-template-columns: 
-            minmax(20px, 1fr)
-            minmax(auto, $narrow-breakpoint)
-            minmax(20px, 1fr);
-    }
-    @include for-wide-layout {
-        grid-template-columns: 
-            minmax(20px, 1fr)
-            minmax(auto, $normal-breakpoint)
-            minmax(20px, 1fr);
-    }
+    // @include for-narrow-layout {
+    //     grid-template-columns: 
+    //         minmax(20px, 1fr)
+    //         minmax(auto, $mobile-breakpoint)
+    //         minmax(20px, 1fr);
+    // }
+    // @include for-normal-layout {
+    //     grid-template-columns: 
+    //         minmax(20px, 1fr)
+    //         minmax(auto, $narrow-breakpoint)
+    //         minmax(20px, 1fr);
+    // }
+    // @include for-wide-layout {
+    //     grid-template-columns: 
+    //         minmax(20px, 1fr)
+    //         minmax(auto, $normal-breakpoint)
+    //         minmax(20px, 1fr);
+    // }
 }
 
-.card-grid {
+.stays-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(267px, 1fr));
     grid-gap: 20px;
 }
 
+.stay-preview {
+    display: grid;
+
+    img {
+        width: 267px;
+        height: 253px;
+        object-fit: cover;
+        object-position: 25% 25%;
+        border-radius: 10px;
+    }
+
+    .stay-loc {
+        color: $clr2;
+        font-size: 16px;
+    }
+    
+    .stay-price {
+        font-size: 15px;
+        font-weight: 600;
+        
+        span {
+            color: $clr2;
+            font-weight: 400;
+
+        }
+    }
+}
