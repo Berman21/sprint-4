@@ -29,6 +29,10 @@ export function StayDetails() {
         }
     }
 
+    function onReserve(stayId){
+        console.log('onReserve',stayId);
+    }
+
     if (!stay) return <div>loading..</div>
 
     return (
@@ -54,34 +58,47 @@ export function StayDetails() {
                         <img src={heartSvg} alt="" />
                         Save
                     </div>
-                    
+
                 </div>
             </div>
 
             <div className="detail-gallery">
-                {stay.imgUrls.map((imgUrl) => (
-                    <img src={imgUrl} alt="" key={imgUrl} />
+                {stay.imgUrls.map((imgUrl, index) => (
+                    <img src={imgUrl} alt="" key={index} />
                 ))}
             </div>
 
             <div className="mid-section">
                 <div className="stay-details">
-                <h2>{stay.type} hosted by {stay.host.fullname}</h2>
+                    <h2>{stay.type} hosted by {stay.host.fullname}</h2>
                     <div>
-                    <span>•</span>
-                    {stay.capacity} guests
-                    <span>•</span>
-                    {stay.capacity/2} bedrooms
-                    <span>•</span>
-                    {stay.capacity} beds
-                    <span>•</span>
-                    {stay.capacity/2} bathrooms
+                        <span>•</span>
+                        {stay.capacity} guests
+                        <span>•</span>
+                        {stay.capacity / 2} bedrooms
+                        <span>•</span>
+                        {stay.capacity} beds
+                        <span>•</span>
+                        {stay.capacity / 2} bathrooms
                     </div>
                 </div>
 
                 <div className="reservation-section">
                     <div className="reservation-container">
-
+                        <div>
+                            <div>
+                                <p><span>{stay.price} night</span></p>
+                                <div>
+                                    <span>
+                                        <div><img src={starSvg} alt="" /></div>
+                                        4
+                                    </span>
+                                    <span>•</span>
+                                    <span>20 reviews</span>
+                                </div>
+                            </div>
+                            <button onClick={() => onReserve(stay._id)}>reserve</button>
+                        </div>
                     </div>
                 </div>
             </div>
