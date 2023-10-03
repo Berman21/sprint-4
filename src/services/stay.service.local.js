@@ -2,43 +2,43 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-const stay = {
-  _id: 's101',
-  name: 'Ribeira Charming Duplex',
-  type: 'House',
-  imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
-  price: 80.0,
-  summary: 'Fantastic duplex apartment...',
-  capacity: 8,
-  amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
-  labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
-  host: {
-    _id: 'u101',
-    fullname: 'Davit Pok',
-    imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
-  },
-  loc: {
-    country: 'Portugal',
-    countryCode: 'PT',
-    city: 'Lisbon',
-    address: '17 Kombo st',
-    lat: -8.61308,
-    lng: 41.1413,
-  },
-  reviews: [
-    {
-      id: 'madeId',
-      txt: 'Very helpful hosts. Cooked traditional...',
-      rate: 4,
-      by: {
-        _id: 'u102',
-        fullname: 'user2',
-        imgUrl: '/img/img2.jpg',
-      },
-    },
-  ],
-  likedByUsers: ['mini-user'],
-}
+// const stay = {
+//   _id: 's101',
+//   name: 'Ribeira Charming Duplex',
+//   type: 'House',
+//   imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+//   price: 80.0,
+//   summary: 'Fantastic duplex apartment...',
+//   capacity: 8,
+//   amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+//   labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+//   host: {
+//     _id: 'u101',
+//     fullname: 'Davit Pok',
+//     imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+//   },
+//   loc: {
+//     country: 'Portugal',
+//     countryCode: 'PT',
+//     city: 'Lisbon',
+//     address: '17 Kombo st',
+//     lat: -8.61308,
+//     lng: 41.1413,
+//   },
+//   reviews: [
+//     {
+//       id: 'madeId',
+//       txt: 'Very helpful hosts. Cooked traditional...',
+//       rate: 4,
+//       by: {
+//         _id: 'u102',
+//         fullname: 'user2',
+//         imgUrl: '/img/img2.jpg',
+//       },
+//     },
+//   ],
+//   likedByUsers: ['mini-user'],
+// }
 
 const orders = [
   {
@@ -106,15 +106,15 @@ const users = [
 //  loggeinUser.isOwner = userStays.length > 0
 
 const STORAGE_KEY = 'stay'
+_createStays()
 
 export const stayService = {
   query,
   getById,
   save,
   remove,
-  getEmptyStay,
   addStayMsg,
-  getActualEmptyStay,
+  getEmptyStay,
 }
 // debug trick
 window.bs = stayService
@@ -168,7 +168,7 @@ async function addStayMsg(stayId, txt) {
   return msg
 }
 
-function getActualEmptyStay() {
+function getEmptyStay() {
   return {
     id: '',
     name: '',
@@ -185,43 +185,456 @@ function getActualEmptyStay() {
   }
 }
 
-function getEmptyStay() {
-  return {
-    _id: utilService.makeId(),
-    name: 'Ribeira Charming Duplex',
-    type: 'House',
-    imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
-    price: utilService.getRandomIntInclusive(100, 1000),
-    summary: 'Fantastic duplex apartment...',
-    capacity: utilService.getRandomIntInclusive(1, 8),
-    amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
-    labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
-    host: {
-      _id: 'u101',
-      fullname: 'Davit Pok',
-      imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
-    },
-    loc: {
-      country: 'Portugal',
-      countryCode: 'PT',
-      city: 'Lisbon',
-      address: '17 Kombo st',
-      lat: -8.61308,
-      lng: 41.1413,
-    },
-    reviews: [
+function _createStays() {
+  let stays = utilService.loadFromStorage(STORAGE_KEY)
+  if (!stays || !stays.length) {
+    stays = [
       {
-        id: 'madeId',
-        txt: 'Very helpful hosts. Cooked traditional...',
-        rate: utilService.getRandomIntInclusive(1, 5),
-        by: {
-          _id: 'u102',
-          fullname: 'user2',
-          imgUrl: '/img/img2.jpg',
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
         },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
       },
-    ],
-    likedByUsers: ['mini-user'],
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+      {
+        _id: utilService.makeId(),
+        name: 'Ribeira Charming Duplex',
+        type: 'House',
+        imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+        price: utilService.getRandomIntInclusive(100, 1000),
+        summary: 'Fantastic duplex apartment...',
+        capacity: utilService.getRandomIntInclusive(1, 8),
+        amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+        labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+        host: {
+          _id: 'u101',
+          fullname: 'Davit Pok',
+          imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+        },
+        loc: {
+          country: 'Portugal',
+          countryCode: 'PT',
+          city: 'Lisbon',
+          address: '17 Kombo st',
+          lat: -8.61308,
+          lng: 41.1413,
+        },
+        reviews: [
+          {
+            id: 'madeId',
+            txt: 'Very helpful hosts. Cooked traditional...',
+            rate: utilService.getRandomIntInclusive(1, 5),
+            by: {
+              _id: 'u102',
+              fullname: 'user2',
+              imgUrl: '/img/img2.jpg',
+            },
+          },
+        ],
+        likedByUsers: ['mini-user'],
+      },
+    ]
+    utilService.saveToStorage(STORAGE_KEY, stays)
   }
 }
 

@@ -24,7 +24,7 @@ export function StayIndex() {
   }
 
   async function onAddStay() {
-    const stay = stayService.getActualEmptyStay()
+    const stay = stayService.getEmptyStay()
     stay.title = prompt('Title?')
     try {
       const savedStay = await addStay(stay)
