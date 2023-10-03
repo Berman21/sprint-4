@@ -3,96 +3,83 @@ import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
 const stay = {
-  _id: "s101",
-  name: "Ribeira Charming Duplex",
-  type: "House",
-  imgUrls: ["https://e26e9b.jpg", "otherImg.jpg"],
-  price: 80.00,
-  summary: "Fantastic duplex apartment...",
+  _id: 's101',
+  name: 'Ribeira Charming Duplex',
+  type: 'House',
+  imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+  price: 80.0,
+  summary: 'Fantastic duplex apartment...',
   capacity: 8,
-  amenities: [
-    "TV",
-    "Wifi",
-    "Kitchen",
-    "Smoking allowed",
-    "Pets allowed",
-    "Cooking basics"
-  ],
-  labels: [
-    "Top of the world",
-    "Trending",
-    "Play",
-    "Tropical"
-  ],
+  amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+  labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
   host: {
-    _id: "u101",
-    fullname: "Davit Pok",
-    imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    _id: 'u101',
+    fullname: 'Davit Pok',
+    imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
   },
   loc: {
-    country: "Portugal",
-    countryCode: "PT",
-    city: "Lisbon",
-    address: "17 Kombo st",
+    country: 'Portugal',
+    countryCode: 'PT',
+    city: 'Lisbon',
+    address: '17 Kombo st',
     lat: -8.61308,
-    lng: 41.1413
+    lng: 41.1413,
   },
   reviews: [
     {
-      id: "madeId",
-      txt: "Very helpful hosts. Cooked traditional...",
+      id: 'madeId',
+      txt: 'Very helpful hosts. Cooked traditional...',
       rate: 4,
       by: {
-        _id: "u102",
-        fullname: "user2",
-        imgUrl: "/img/img2.jpg"
-      }
-    }
+        _id: 'u102',
+        fullname: 'user2',
+        imgUrl: '/img/img2.jpg',
+      },
+    },
   ],
-  likedByUsers: ['mini-user']
+  likedByUsers: ['mini-user'],
 }
-
 
 const orders = [
   {
-    "_id": "o1225",
-    "hostId": "u102",
-    "buyer": {
-      "_id": "u101",
-      "fullname": "User 1"
+    _id: 'o1225',
+    hostId: 'u102',
+    buyer: {
+      _id: 'u101',
+      fullname: 'User 1',
     },
-    "totalPrice": 160,
-    "startDate": "2025/10/15",
-    "endDate": "2025/10/17",
-    "guests": {
-      "adults": 1,
-      "kids": 2
+    totalPrice: 160,
+    startDate: '2025/10/15',
+    endDate: '2025/10/17',
+    guests: {
+      adults: 1,
+      kids: 2,
     },
-    "stay": {
-      "_id": "h102",
-      "name": "House Of Uncle My",
-      "price": 80.00
+    stay: {
+      _id: 'h102',
+      name: 'House Of Uncle My',
+      price: 80.0,
     },
-    "msgs": [],
-    "status": "pending" // approved, rejected
-  }
+    msgs: [],
+    status: 'pending', // approved, rejected
+  },
 ]
 
 const users = [
   {
-    _id: "u101",
-    fullname: "User 1",
-    imgUrl: "/img/img1.jpg",
-    username: "user1",
-    password: "secret"
+    _id: 'u101',
+    fullname: 'User 1',
+    imgUrl: '/img/img1.jpg',
+    username: 'user1',
+    password: 'secret',
   },
   {
-    _id: "u102",
-    fullname: "User 2",
-    imgUrl: "/img/img2.jpg",
-    username: "user2",
-    password: "secret",
-  }
+    _id: 'u102',
+    fullname: 'User 2',
+    imgUrl: '/img/img2.jpg',
+    username: 'user2',
+    password: 'secret',
+  },
 ]
 // Homepage: TOP categories: Best Rate / Houses / Kitchen  - show all - link to Explore
 // Renders a <StayList> with <StayPreview> with Link to <StayDetails>   url: /stay/123
@@ -113,13 +100,10 @@ const users = [
 // Order, confirm Order
 // Lastly: StayExplore, Filtering
 
-
-
 // Example - figuring up if the user is an owner:
 // userService.login()
-  //  const userStays = stayService.query({ownerId: loggeinUser._id})
-  //  loggeinUser.isOwner = userStays.length > 0
-
+//  const userStays = stayService.query({ownerId: loggeinUser._id})
+//  loggeinUser.isOwner = userStays.length > 0
 
 const STORAGE_KEY = 'stay'
 
@@ -130,6 +114,7 @@ export const stayService = {
   remove,
   getEmptyStay,
   addStayMsg,
+  getActualEmptyStay,
 }
 // debug trick
 window.bs = stayService
@@ -183,55 +168,60 @@ async function addStayMsg(stayId, txt) {
   return msg
 }
 
+function getActualEmptyStay() {
+  return {
+    id: '',
+    name: '',
+    type: 'house',
+    price: '50',
+    loc: {
+      country: 'Portugal',
+      countryCode: 'PT',
+      city: 'Lisbon',
+      address: '17 Kombo st',
+      lat: -8.61308,
+      lng: 41.1413,
+    },
+  }
+}
+
 function getEmptyStay() {
   return {
     _id: utilService.makeId(),
-    name: "Ribeira Charming Duplex",
-    type: "House",
-    imgUrls: ["https://e26e9b.jpg", "otherImg.jpg"],
-    price: utilService.getRandomIntInclusive(100,1000),
-    summary: "Fantastic duplex apartment...",
-    capacity: utilService.getRandomIntInclusive(1,8),
-    amenities: [
-      "TV",
-      "Wifi",
-      "Kitchen",
-      "Smoking allowed",
-      "Pets allowed",
-      "Cooking basics"
-    ],
-    labels: [
-      "Top of the world",
-      "Trending",
-      "Play",
-      "Tropical"
-    ],
+    name: 'Ribeira Charming Duplex',
+    type: 'House',
+    imgUrls: ['https://e26e9b.jpg', 'otherImg.jpg'],
+    price: utilService.getRandomIntInclusive(100, 1000),
+    summary: 'Fantastic duplex apartment...',
+    capacity: utilService.getRandomIntInclusive(1, 8),
+    amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+    labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
     host: {
-      _id: "u101",
-      fullname: "Davit Pok",
-      imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      _id: 'u101',
+      fullname: 'Davit Pok',
+      imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
     },
     loc: {
-      country: "Portugal",
-      countryCode: "PT",
-      city: "Lisbon",
-      address: "17 Kombo st",
+      country: 'Portugal',
+      countryCode: 'PT',
+      city: 'Lisbon',
+      address: '17 Kombo st',
       lat: -8.61308,
-      lng: 41.1413
+      lng: 41.1413,
     },
     reviews: [
       {
-        id: "madeId",
-        txt: "Very helpful hosts. Cooked traditional...",
-        rate: utilService.getRandomIntInclusive(1,5),
+        id: 'madeId',
+        txt: 'Very helpful hosts. Cooked traditional...',
+        rate: utilService.getRandomIntInclusive(1, 5),
         by: {
-          _id: "u102",
-          fullname: "user2",
-          imgUrl: "/img/img2.jpg"
-        }
-      }
+          _id: 'u102',
+          fullname: 'user2',
+          imgUrl: '/img/img2.jpg',
+        },
+      },
     ],
-    likedByUsers: ['mini-user']
+    likedByUsers: ['mini-user'],
   }
 }
 

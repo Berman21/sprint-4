@@ -19,11 +19,11 @@ const routes = [
   //     component: <SurveyIndex />,
   //     label: 'Take our survey'
   // },
-  {
-    path: 'car',
-    component: <CarIndex />,
-    label: 'Cars',
-  },
+  //   {
+  //     path: 'car',
+  //     component: <CarIndex />,
+  //     label: 'Cars',
+  //   },
   {
     path: 'stay',
     component: <StayIndex />,

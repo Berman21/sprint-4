@@ -5,6 +5,7 @@ import { loadStays, addStay, updateStay, removeStay } from '../store/stay.action
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { userService } from '../services/user.service.js'
 import { stayService } from '../services/stay.service.local.js'
+import { StayList } from '../cmps/StayList.jsx'
 
 export function StayIndex() {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
@@ -23,7 +24,7 @@ export function StayIndex() {
   }
 
   async function onAddStay() {
-    const stay = stayService.getEmptyStay()
+    const stay = stayService.getActualEmptyStay()
     stay.title = prompt('Title?')
     try {
       const savedStay = await addStay(stay)
@@ -35,9 +36,9 @@ export function StayIndex() {
 
   async function onUpdateStay(stay) {
     const price = +prompt('New price?')
-    const cartoSave = { ...stay, price }
+    const staytoSave = { ...stay, price }
     try {
-      const savedStay = await updateStay(cartoSave)
+      const savedStay = await updateStay(staytoSave)
       showSuccessMsg(`Stay updated, new price: ${savedStay.price}`)
     } catch (err) {
       showErrorMsg('Cannot update stay')
@@ -53,13 +54,13 @@ export function StayIndex() {
     if (user.isAdmin) return true
     return stay.owner?._id === user._id
   }
-
   return (
     <div>
       <h3>Stay App</h3>
       <main>
         <button onClick={onAddStay}>Add Stay ⛐</button>
-        <ul className='stay-list'>
+        <StayList stays={stays} />
+        {/* <ul className='stay-list'>
           {stays.map((stay) => (
             <li className='stay-preview' key={stay._id}>
               <h4>{stay.title}</h4>
@@ -98,7 +99,7 @@ export function StayIndex() {
               </button>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </main>
     </div>
   )
