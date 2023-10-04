@@ -5,10 +5,13 @@ import { stayReducer } from './stay.reducer.js'
 import { userReducer } from './user.reducer.js'
 import { reviewReducer } from './review.reducer'
 import { systemReducer } from './system.reducer'
+import { orderReducer } from './order.reducer.js'
+
 
 const rootReducer = combineReducers({
   carModule: carReducer,
   stayModule: stayReducer,
+  orderModule: orderReducer,
   userModule: userReducer,
   systemModule: systemReducer,
   reviewModule: reviewReducer,

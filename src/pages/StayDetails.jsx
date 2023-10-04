@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { stayService } from "../services/stay.service.local.js"
+import { orderService } from "../services/order.service.local.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { utilService } from "../services/util.service.js"
 import { useSelector } from "react-redux"
+
+import { loadOrders, removeOrder, updateOrder } from '../store/order.actions.js' //REMOVE AFTER MAKING ORDER INDEX
 
 import starSvg from '../assets/img/star.svg'
 import heartSvg from '../assets/img/heart.svg'
@@ -31,6 +34,19 @@ export function StayDetails() {
 
     function onReserve(stayId){
         console.log('onReserve',stayId);
+        onAddOrder(stayId)
+    }
+
+    async function onAddOrder(stayId) {
+        try {
+            const orderToSave = orderService.getEmptyOrder()
+            orderToSave.stay._id = stayId
+            const savedOrder = await updateOrder(orderToSave)
+            showSuccessMsg(`Order added (id: ${savedOrder._id})`)
+        } catch (err) {
+            console.error('Cannot add order', err)
+            showErrorMsg('Cannot add order')
+        }
     }
 
     if (!stay) return <div>loading..</div>
