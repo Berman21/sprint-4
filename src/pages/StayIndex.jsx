@@ -59,7 +59,7 @@ export function StayIndex() {
     <div>
       <main>
         <button onClick={onAddStay}>Add Stay ⛐</button>
-        <StayList stays={stays} />
+        <StayList filterBy={filterBy} stays={stays} />
         {/* <ul className='stay-list'>
           {stays.map((stay) => (
             <li className='stay-preview' key={stay._id}>

@@ -1,4 +1,4 @@
-import logo from '../assets/favicon/airbnb_favicon.png'
+import logo from '../assets/img/Airbnb-Logo.png'
 import search from '../assets/img/search.svg'
 import hamburger from '../assets/img/hamburger.svg'
 import userIcon from '../assets/img/user.svg'
@@ -7,8 +7,9 @@ import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER, OPEN_EXPANDED_HEADER
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { FilterExpanded } from './FilterExpanded'
+import { Link } from 'react-router-dom'
 
-export function DesktopHeader() {
+export function DesktopHeader({ onSetFilter }) {
   const [selectedExperience, setSelectedExperience] = useState('stays')
   const [selectedFilterBox, setSelectedFilterBox] = useState('where')
   const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
@@ -47,20 +48,21 @@ export function DesktopHeader() {
 
   return (
     <header className='app-header'>
-      <div className='logo-container'>
-        <img src={logo} style={{ maxWidth: '100px' }} />
-      </div>
+      <Link to={'/'} className='logo-container'>
+        <img className='logo' src={logo} style={{ maxWidth: '100px' }} />
+        <p>airbnb</p>
+      </Link>
       {!isFilterExpanded && (
         <button className='any-container' onClick={onExpandedFilter}>
-          <div>Anywhere</div>
+          <div className='search-txt anywhere'>Anywhere</div>
           <div className='separator'></div>
-          <div>Any week</div>
+          <div className='search-txt any-week'>Any week</div>
           <div className='separator'></div>
-          <div className='guests'>Add guests </div>
+          <div className='guests search-txt'>Add guests </div>
           <div className='search-container'>
-            <div className='btn-search'>
+            <button className='btn-search'>
               <img src={search} />
-            </div>
+            </button>
           </div>
         </button>
       )}
@@ -86,7 +88,12 @@ export function DesktopHeader() {
         <img className='user-icon' src={userIcon} />
       </button>
 
-      <FilterExpanded isFilterExpanded={isFilterExpanded} selectedFilterBox={selectedFilterBox} onSetSelectedFilterBox={onSetSelectedFilterBox} />
+      <FilterExpanded
+        onSetFilter={onSetFilter}
+        isFilterExpanded={isFilterExpanded}
+        selectedFilterBox={selectedFilterBox}
+        onSetSelectedFilterBox={onSetSelectedFilterBox}
+      />
     </header>
   )
 }

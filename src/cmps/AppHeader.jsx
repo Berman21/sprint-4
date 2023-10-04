@@ -46,7 +46,7 @@ export function AppHeader() {
   }
 
   return (
-    <DesktopHeader />
+    <DesktopHeader onSetFilter={onSetFilter} />
     //     {/* <div className='search-bar'>
     //         <StayFilter filterBy={filterBy} onSetFilter={onSetFilter} />
     //       </div> */}

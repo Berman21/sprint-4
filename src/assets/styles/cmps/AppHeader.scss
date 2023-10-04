@@ -8,7 +8,7 @@
   border-bottom: 1px solid #ddd;
   grid-column: 1 / 4;
   // z-index: 200;
-  padding-inline: 40px;
+  padding-inline: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,47 +23,60 @@
   }
 
   .any-container {
+    background-color: white;
     font-size: 0.875rem;
     cursor: pointer;
-    gap: 0.5rem;
     display: flex;
     border: 1px solid #dddddd;
-    border-radius: 100px;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    border-radius: rem(100px);
+    margin-right: rem(28px);
+    // padding-top: 0.5rem;
+    // padding-bottom: 0.5rem;
+    // padding-left: 1rem;
+    // padding-right: 1rem;
     align-items: center;
     justify-content: space-between;
-    width: 352px;
-    height: 48px;
+    width: rem(352px);
+    height: rem(48px);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1);
 
     &:hover {
       box-shadow: 0 2px 4px #0000002e;
     }
+    .search-txt {
+      padding-inline: rem(16px);
+    }
+
+    .anywhere {
+      font-family: Airbnb_Cereal-Book;
+      font-weight: 500;
+    }
+
     .guests {
       color: #717171;
     }
     .search-container {
+      display: flex;
+      align-items: center;
       height: 100%;
     }
 
     .btn-search {
+      cursor: pointer;
+
       background-color: $clr1;
       height: 32px;
       width: 32px;
       border-radius: 50%;
       border: none;
-      display: flex;
+
       img {
         height: 12px;
         width: 12px;
         filter: brightness(0) invert(1);
         object-fit: cover;
-        margin-bottom: 1px;
-        justify-self: center;
+        margin-top: 3px;
       }
     }
   }
@@ -132,8 +145,8 @@
     border-radius: 100px;
     background-color: $clr6;
     align-items: center;
-    height: 48px;
     border: 1px solid rgb(221, 221, 221);
+    z-index: 200;
 
     .user-icon {
       width: 30px;
@@ -165,6 +178,19 @@
   .logo-container {
     display: flex;
     align-items: center;
+    height: 64px;
+    z-index: 300;
+
+    img {
+      height: 40px;
+    }
+
+    p {
+      align-self: center;
+      margin: 0;
+      color: $clr1;
+      font-size: rem(21px);
+    }
   }
 
   .user-info {
