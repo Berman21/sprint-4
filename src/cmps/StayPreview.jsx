@@ -12,7 +12,7 @@ export function StayPreview({ stay }) {
 
   return (
     <section className='stay-preview' onClick={() => onStay(stay._id)} >
-      <img className="stay-img" src={stay.imgUrls[0]} />
+      {/* <img className="stay-img" src={stay.imgUrls[0]} /> */}
       <div className='stay-loc'>Herzliya, Isrrael</div>
       {/* <div className='stay-loc'>{stay.loc.city}, {stay.loc.country}</div> */}
       <div className="stay-rating">

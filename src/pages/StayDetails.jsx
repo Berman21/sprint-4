@@ -7,6 +7,7 @@ import { utilService } from "../services/util.service.js"
 import { useSelector } from "react-redux"
 
 import { loadOrders, removeOrder, updateOrder } from '../store/order.actions.js' //REMOVE AFTER MAKING ORDER INDEX
+import { loadStays, removeStay, updateStay } from '../store/stay.actions.js' //REMOVE AFTER MAKING ORDER INDEX
 
 import starSvg from '../assets/img/star.svg'
 import heartSvg from '../assets/img/heart.svg'
@@ -36,6 +37,18 @@ export function StayDetails() {
         console.log('onReserve', stayId);
         onAddOrder(stayId)
     }
+
+    async function onRemove(stayId) {
+        try {
+            await removeStay(stayId)
+            navigate('/')
+        } catch {
+            console.log('Had issues in stay details', err)
+            showErrorMsg('Cannot remove stay')
+        }
+    }
+
+    
 
     async function onAddOrder(stayId) {
         try {
@@ -102,7 +115,7 @@ export function StayDetails() {
             <div className="detail-gallery">
                 {stay.imgUrls.map((imgUrl, index) => (
                     <div key={index}>
-                        <img src={imgUrl} alt=""  />
+                        <img src={imgUrl} alt="" />
                     </div>
                 ))}
             </div>
@@ -137,6 +150,8 @@ export function StayDetails() {
                                 </div>
                             </div>
                             <button onClick={() => onReserve(stay._id)}>reserve</button>
+                            <button onClick={() => onRemove(stay._id)}>remove stay</button>
+                            <Link to="/stay/edit">edit stay</Link>
                         </div>
                     </div>
                 </div>
