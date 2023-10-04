@@ -1,7 +1,7 @@
 import { stayService } from '../services/stay.service.local.js'
 import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { ADD_STAY, SET_FILTER_BY, REMOVE_STAY, SET_STAYS, UNDO_REMOVE_STAY, UPDATE_STAY } from './stay.reducer.js'
+import { ADD_STAY, SET_FILTER_BY, REMOVE_STAY, SET_STAYS, UNDO_REMOVE_STAY, UPDATE_STAY, SET_MODAL_OPEN } from './stay.reducer.js'
 
 // Action Creators:
 export function getActionRemoveStay(stayId) {
@@ -98,4 +98,8 @@ export function onRemoveStayOptimistic(stayId) {
 
 export function setFilterBy(filterBy) {
   store.dispatch({ type: SET_FILTER_BY, filterBy: filterBy })
+}
+
+export async function setModal(isModalOpen) {
+  store.dispatch({ type: SET_MODAL_OPEN, isModalOpen })
 }

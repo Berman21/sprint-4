@@ -5,17 +5,17 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './LoginSignup.jsx'
 
-import logo from '../assets/img/Airbnb-Logo.png'
-import search from '../assets/img/search.svg'
-import hamburger from '../assets/img/hamburger.svg'
-import userIcon from '../assets/img/user.svg'
 import { StayFilter } from './StayFilter'
 import { SET_FILTER_BY } from '../store/stay.reducer'
+import { useState } from 'react'
+import { DesktopHeader } from './DesktopHeader'
 
 export function AppHeader() {
   const dispatch = useDispatch()
   const user = useSelector((storeState) => storeState.userModule.user)
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+  const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false)
 
   async function onLogin(credentials) {
     try {
@@ -47,49 +47,29 @@ export function AppHeader() {
   }
 
   return (
-    <header className='app-header'>
-      <div className='logo-container'>
-        <img src={logo} style={{ maxWidth: '100px' }} />
-      </div>
-      <div className='any-container'>
-        <div>Anywhere</div>
-        <div className='separator'></div>
-        <div>Any week</div>
-        <div className='separator'></div>
-        <div className='guests'>Any guests </div>
-        <div className='search-container'>
-          <button className='btn-search'>
-            <img src={search} />
-          </button>
-        </div>
-      </div>
-      <button className='user-container'>
-        <img className='hamburger' src={hamburger} />
-        <img className='user-icon' src={userIcon} />
-      </button>
-      {/* <div className='search-bar'>
-          <StayFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-        </div> */}
+    <DesktopHeader isFilterExpanded={isFilterExpanded} />
+    //     {/* <div className='search-bar'>
+    //         <StayFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+    //       </div> */}
 
-      {/* <nav>
-                // {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)} */}
+    //     {/* <nav>
+    //               // {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)} */}
 
-      {/* {user &&
-  //                   <span className="user-info">
-  //                       <Link to={`user/${user._id}`}>
-  //                           {user.imgUrl && <img src={user.imgUrl} />}
-  //                           {user.fullname}
-  //                       </Link>
-  //                       <span className="score">{user.score?.toLocaleString()}</span>
-  //                       <button onClick={onLogout}>Logout</button>
-  //                   </span>
-  //               }
-  //               {!user &&
-  //                   <section className="user-info">
-  //                       <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-  //                   </section>
-  //               } */}
-      {/* </nav> */}
-    </header>
+    //     {/* {user &&
+    // //                   <span className="user-info">
+    // //                       <Link to={`user/${user._id}`}>
+    // //                           {user.imgUrl && <img src={user.imgUrl} />}
+    // //                           {user.fullname}
+    // //                       </Link>
+    // //                       <span className="score">{user.score?.toLocaleString()}</span>
+    // //                       <button onClick={onLogout}>Logout</button>
+    // //                   </span>
+    // //               }
+    // //               {!user &&
+    // //                   <section className="user-info">
+    // //                       <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+    // //                   </section>
+    // //               } */}
+    //     {/* </nav> */}
   )
 }

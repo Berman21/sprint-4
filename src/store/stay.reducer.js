@@ -6,11 +6,13 @@ export const ADD_STAY = 'ADD_STAY'
 export const UPDATE_STAY = 'UPDATE_STAY'
 export const UNDO_REMOVE_STAY = 'UNDO_REMOVE_STAY'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
+export const SET_MODAL_OPEN = 'SET_MODAL_OPEN'
 
 const initialState = {
   stays: [],
   lastRemovedStay: null,
   filterBy: stayService.getDefaultFilter(),
+  isModalOpen: false,
 }
 
 export function stayReducer(state = initialState, action) {
@@ -44,6 +46,10 @@ export function stayReducer(state = initialState, action) {
 
     case SET_FILTER_BY:
       return { ...state, filterBy: { ...action.filterBy } }
+
+    case SET_MODAL_OPEN:
+      newState = { ...state, isModalOpen: action.isModalOpen }
+      break
 
     default:
   }
