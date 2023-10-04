@@ -6,6 +6,7 @@ import { store } from '../store/store'
 import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER, OPEN_EXPANDED_HEADER_MODAL } from '../store/system.reducer'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { FilterExpanded } from './FilterExpanded'
 
 export function DesktopHeader() {
   const [selectedExperience, setSelectedExperience] = useState('stays')
@@ -49,7 +50,6 @@ export function DesktopHeader() {
       <div className='logo-container'>
         <img src={logo} style={{ maxWidth: '100px' }} />
       </div>
-
       {!isFilterExpanded && (
         <button className='any-container' onClick={onExpandedFilter}>
           <div>Anywhere</div>
@@ -64,7 +64,6 @@ export function DesktopHeader() {
           </div>
         </button>
       )}
-
       {isFilterExpanded && (
         <section className='searchbar'>
           <section className='experiences'>
@@ -86,6 +85,8 @@ export function DesktopHeader() {
         <img className='hamburger' src={hamburger} />
         <img className='user-icon' src={userIcon} />
       </button>
+
+      <FilterExpanded isFilterExpanded={isFilterExpanded} selectedFilterBox={selectedFilterBox} onSetSelectedFilterBox={onSetSelectedFilterBox} />
     </header>
   )
 }

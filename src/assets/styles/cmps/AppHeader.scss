@@ -56,14 +56,14 @@
       width: 32px;
       border-radius: 50%;
       border: none;
-
+      display: flex;
       img {
         height: 12px;
         width: 12px;
         filter: brightness(0) invert(1);
         object-fit: cover;
-        vertical-align: middle;
         margin-bottom: 1px;
+        justify-self: center;
       }
     }
   }
