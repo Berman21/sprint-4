@@ -13,7 +13,7 @@ export function WishlistIcon({ onWishlistIcon, setClr }) {
             focusable="false"
             style={{
                 position: 'relative',
-                top: '45px',
+                top: '46px',
                 left: '230px',
                 fill: setClr,
                 height: '24px',

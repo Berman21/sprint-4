@@ -1,0 +1,61 @@
+.stay-preview {
+    padding: 0;
+    cursor: pointer;
+
+    .stay-img {
+        width: 270px;
+        height: 256px;
+        object-fit: cover;
+        object-position: 50% 25%;
+    }
+
+    .stay-loc {
+        margin-block-start: em(10px);
+        color: $clr2;
+        font-size: em(15px);
+        font-weight: 600;
+        padding: 0;
+        line-height: 1.6;
+    }
+
+    .stay-rating {
+        margin-block-start: em(10px);
+        font-size: em(15px);
+        font-family: Airbnb_Cereal-Book;
+
+        img {
+            height: 12px;
+            width: 12px;
+            margin-inline-end: 4px;
+        }
+    }
+
+    .stay-price {
+        font-size: em(15px);
+        font-weight: 600;
+        padding: 0;
+        font-family: Airbnb_Cereal-Book;
+        line-height: 2;
+
+        span {
+            color: $clr2;
+            font-weight: 400;
+        }
+    }
+
+    .stay-date,
+    .stay-distance {
+        color: $clr3;
+        font-size: em(15.2px);
+        margin: 0;
+        font-family: Airbnb_Cereal-Book;
+    }
+
+    .stay-distance {
+        line-height: 1.2;
+    }
+}
+
+.wishlist-icon {
+    cursor: pointer;
+}
