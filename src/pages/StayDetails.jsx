@@ -32,8 +32,8 @@ export function StayDetails() {
         }
     }
 
-    function onReserve(stayId){
-        console.log('onReserve',stayId);
+    function onReserve(stayId) {
+        console.log('onReserve', stayId);
         onAddOrder(stayId)
     }
 
@@ -53,34 +53,57 @@ export function StayDetails() {
 
     return (
         <section className="detail-container">
+
             <div className="detail-title">
 
                 <h1>{stay.summary}</h1>
 
-                <div className="detail-subtitle flex">
+                <div className="flex space-between">
 
                     <div className="flex">
-                        <img src={starSvg} alt="" />
-                        <span>4</span>
+                        <div className="detail-subtitle">
+
+                            <span>
+                                <span>
+                                    <span>
+                                        (star svg)
+                                    </span>
+                                    <span>
+                                        4
+                                    </span>
+                                </span>
+
+                                <button>
+                                    <span>{stay.reviews.length}</span> reviews
+                                </button>
+
+                            </span>
+
+                            <span>•</span>
+
+                            <span>{stay.loc.city},{stay.loc.country}</span>
+
+                            <div className="">
+                            </div>
+                        </div>
                     </div>
 
-                    <span>•</span>
-                    {stay.reviews.length} reviews
-                    <span>•</span>
-                    {stay.loc.city},{stay.loc.country}
-                    <span>•</span>
 
-                    <div className="flex">
-                        <img src={heartSvg} alt="" />
+
+                    <button>
+                        (heart svg)
                         Save
-                    </div>
+                    </button>
+
 
                 </div>
             </div>
 
             <div className="detail-gallery">
                 {stay.imgUrls.map((imgUrl, index) => (
-                    <img src={imgUrl} alt="" key={index} />
+                    <div>
+                        <img src={imgUrl} alt="" key={index} />
+                    </div>
                 ))}
             </div>
 

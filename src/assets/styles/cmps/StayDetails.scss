@@ -1,0 +1,26 @@
+.detail-container{
+    border: 1px solid red;
+    .detail-title{
+        
+    }
+
+    .detail-subtitle{   
+        
+    }
+
+    .detail-gallery{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 0.5rem;
+        border-radius: 2em;
+
+        :first-child{
+            grid-area: span 2/span 2;
+        }
+        
+        img{
+            object-fit: cover;
+            height:100%; 
+        }
+    }
+}
