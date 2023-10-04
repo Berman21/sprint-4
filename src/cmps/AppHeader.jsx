@@ -14,7 +14,6 @@ export function AppHeader() {
   const dispatch = useDispatch()
   const user = useSelector((storeState) => storeState.userModule.user)
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
-  const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
   const [isSearchExpanded, setIsSearchExpanded] = useState(false)
 
   async function onLogin(credentials) {
@@ -47,7 +46,7 @@ export function AppHeader() {
   }
 
   return (
-    <DesktopHeader isFilterExpanded={isFilterExpanded} />
+    <DesktopHeader />
     //     {/* <div className='search-bar'>
     //         <StayFilter filterBy={filterBy} onSetFilter={onSetFilter} />
     //       </div> */}

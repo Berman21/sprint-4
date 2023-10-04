@@ -67,6 +67,61 @@
       }
     }
   }
+
+  & .searchbar {
+    & .experiences {
+      display: flex;
+      justify-content: center;
+      font-size: rem(16px);
+      padding-block: 11.21px;
+      & > * {
+        & span {
+          line-height: 20px;
+          letter-spacing: normal;
+          margin-inline: 16px;
+          padding-block: 10px;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            background-color: black;
+            height: 2px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+
+            transition: transform 0.2s ease;
+            transform: scaleX(0);
+          }
+          &:hover {
+            color: rgb(138, 138, 138);
+            &::after {
+              transform: scaleX(1);
+              background-color: rgb(138, 138, 138);
+            }
+          }
+        }
+        &.selected span {
+          &::after {
+            color: black;
+            transform: scaleX(1);
+          }
+          &:hover {
+            color: black;
+
+            &::after {
+              background-color: black;
+            }
+          }
+        }
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
   .user-container {
     cursor: pointer;
     height: 42px;
