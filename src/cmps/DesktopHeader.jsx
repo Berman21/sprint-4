@@ -1,4 +1,4 @@
-import logo from '../assets/img/Airbnb-Logo.png'
+import logo from '../assets/favicon/airbnb_favicon.png'
 import search from '../assets/img/search.svg'
 import hamburger from '../assets/img/hamburger.svg'
 import userIcon from '../assets/img/user.svg'
