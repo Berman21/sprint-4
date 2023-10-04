@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 import starSvg from '../assets/img/star.svg'
 
 export function StayPreview({ stay }) {
-
   const navigate = useNavigate()
 
   function onStay(stayId) {

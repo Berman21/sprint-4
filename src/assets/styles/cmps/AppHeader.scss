@@ -1,14 +1,93 @@
 .app-header {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  // display: grid;
+  // grid-template-columns: 1fr auto 1fr;
+  position: sticky;
+  height: 80px;
+  top: 0;
   height: rem(80px);
   border-bottom: 1px solid #ddd;
-  padding: 0 1rem;
+  grid-column: 1 / 4;
+  z-index: 200;
+  padding-inline: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .separator {
+    border-left: solid #ddd 1px;
+    height: 20px;
+  }
+
+  .any-container {
+    gap: 0.5rem;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    border-radius: 100px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-items: center;
+    height: 48px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+    .guests {
+      color: #717171;
+    }
+    .search-container {
+      height: 100%;
+    }
+
+    .btn-search {
+      background-color: $clr1;
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      border: none;
+
+      img {
+        height: 12px;
+        width: 12px;
+        filter: brightness(0) invert(1);
+        object-fit: cover;
+        vertical-align: middle;
+        margin-bottom: 1px;
+      }
+    }
+  }
+  .user-container {
+    gap: 0.5rem;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    border-radius: 100px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-items: center;
+    height: 48px;
+    background-color: white;
+
+    .user-icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .hamburger {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: rem(16px);
+  }
 
   .filter-container {
     height: rem(48px);
     display: flex;
-    align-self: center;
+    align-items: center;
     grid-column: 2;
     border-radius: rem(32px);
     border: 1px solid transparent;
@@ -22,7 +101,6 @@
 
   .logo-container {
     display: flex;
-    grid-column: 1;
     align-items: center;
   }
 
@@ -52,21 +130,21 @@
     color: $clr2;
   }
 
-  nav {
-    font-size: 0.8em;
-    background-color: $clr5;
-    padding: 5px;
-  }
+  // nav {
+  //   font-size: 0.8em;
+  //   background-color: $clr5;
+  //   padding: 5px;
+  // }
 
-  nav a:first-child {
-    margin-right: 30px;
-  }
+  // nav a:first-child {
+  //   margin-right: 30px;
+  // }
 
-  nav a:not(:first-child) {
-    border-top: 1px solid $clr1;
-    padding: 0 5px;
-    margin: 10px;
-  }
+  // nav a:not(:first-child) {
+  //   border-top: 1px solid $clr1;
+  //   padding: 0 5px;
+  //   margin: 10px;
+  // }
 
   nav .active {
     color: $clr1;
