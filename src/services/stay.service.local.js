@@ -238,7 +238,7 @@ function _createStays() {
         name: 'Ribeira Charming Duplex',
         type: 'House',
         imgUrls: [
-          'https://a0.muscache.com/im/pictures/prohost-api/Hosting-923567396711072416/original/b3fa79d4-1900-4969-ad45-060e43d8b5b5.jpeg?im_w=1200',
+          'https://a0.muscache.com/im/pictures/miso/Hosting-814472348722110926/original/260271f5-19f6-4c5d-9eb0-20f20094dbc3.jpeg?im_w=720',
           'https://a0.muscache.com/im/pictures/prohost-api/Hosting-923567396711072416/original/b3fa79d4-1900-4969-ad45-060e43d8b5b5.jpeg?im_w=1200',
           'https://a0.muscache.com/im/pictures/prohost-api/Hosting-923567396711072416/original/b3fa79d4-1900-4969-ad45-060e43d8b5b5.jpeg?im_w=1200',
           'https://a0.muscache.com/im/pictures/prohost-api/Hosting-923567396711072416/original/b3fa79d4-1900-4969-ad45-060e43d8b5b5.jpeg?im_w=1200',
