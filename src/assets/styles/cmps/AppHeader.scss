@@ -55,17 +55,16 @@
     }
   }
   .user-container {
-    gap: 0.5rem;
+    height: 42px;
+    width: 77px;
     display: flex;
+    gap: 8px;
     border-bottom: 1px solid #ddd;
     border-radius: 100px;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    background-color: $clr6;
     align-items: center;
     height: 48px;
-    background-color: white;
+    border: 1px solid rgb(221, 221, 221);
 
     .user-icon {
       width: 30px;
@@ -75,6 +74,7 @@
     .hamburger {
       width: 16px;
       height: 16px;
+      margin-inline-start: 8px;
     }
   }
   .main-nav {

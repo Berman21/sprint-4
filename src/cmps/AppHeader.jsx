@@ -8,7 +8,7 @@ import { LoginSignup } from './LoginSignup.jsx'
 import logo from '../assets/img/Airbnb-Logo.png'
 import search from '../assets/img/search.svg'
 import hamburger from '../assets/img/hamburger.svg'
-import user from '../assets/img/user.svg'
+import userIcon from '../assets/img/user.svg'
 import { StayFilter } from './StayFilter'
 import { SET_FILTER_BY } from '../store/stay.reducer'
 
@@ -65,7 +65,7 @@ export function AppHeader() {
       </div>
       <button className='user-container'>
         <img className='hamburger' src={hamburger} />
-        <img className='user-icon' src={user} />
+        <img className='user-icon' src={userIcon} />
       </button>
       {/* <div className='search-bar'>
           <StayFilter filterBy={filterBy} onSetFilter={onSetFilter} />
