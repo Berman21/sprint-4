@@ -1,0 +1,33 @@
+.filter-expanded-container {
+  width: 100%;
+  justify-items: center;
+  padding-inline: rem(40px);
+  height: rem(80px);
+  transition: all 0.2s;
+  position: absolute;
+  margin-block-start: rem(80px);
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+
+  & .filter-expanded {
+    max-width: 850px;
+    width: 100%;
+    grid-column: 2;
+    grid-template-columns: minmax(auto, 325.391px) repeat(3, auto);
+    align-items: center;
+    height: fit-content;
+    white-space: nowrap;
+    border-radius: 32px;
+    position: relative;
+    border: 1px solid gray;
+  }
+
+  &.folded {
+    display: none;
+    translate: 0px -73px;
+    opacity: 0;
+    scale: 48% 82%;
+    height: 0;
+    pointer-events: none;
+  }
+}
