@@ -1,20 +1,32 @@
-.detail-container{
-    border: 1px solid red;
-    
+.detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1120px 1fr;
 
-    .detail-gallery{
+    >* {
+        grid-column: 2;
+
+        &.full {
+            grid-column: 1 /-1;
+        }
+    }
+
+    .detail-title {}
+
+    .detail-subtitle {}
+
+    .detail-gallery {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 0.5rem;
         border-radius: 2em;
 
-        :first-child{
+        :first-child {
             grid-area: span 2/span 2;
         }
-        
-        img{
+
+        img {
             object-fit: cover;
-            height:100%; 
+            height: 100%;
         }
     }
 }

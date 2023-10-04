@@ -101,8 +101,8 @@ export function StayDetails() {
 
             <div className="detail-gallery">
                 {stay.imgUrls.map((imgUrl, index) => (
-                    <div>
-                        <img src={imgUrl} alt="" key={index} />
+                    <div key={index}>
+                        <img src={imgUrl} alt=""  />
                     </div>
                 ))}
             </div>
@@ -129,7 +129,7 @@ export function StayDetails() {
                                 <p><span>{stay.price} night</span></p>
                                 <div>
                                     <span>
-                                        <div><img src={starSvg} alt="" /></div>
+                                        <div>(starSvg)</div>
                                         4
                                     </span>
                                     <span>•</span>
