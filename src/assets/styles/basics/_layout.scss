@@ -39,59 +39,18 @@
 .stay-preview {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 0;
-    cursor: pointer;
 
     .stay-img {
-        width: 270px;
-        height: 256px;
-        object-fit: cover;
-        object-position: 45% 25%;
         border-radius: 10px;
-
         grid-column: 1 /-1
-    }
-
-    .stay-loc {
-        margin-block-start: 10px;
-        color: $clr2;
-        font-size: 15px;
-        font-weight: 600;
-        padding: 0;
     }
 
     .stay-rating {
         justify-self: end;
-        margin-block-start: 10px;
-        font-size: 15px;
-
-        img {
-            height: 13px;
-            width: 13px;
-            margin-inline-end: 2px;
-        }
-    }
-
-    .stay-price {
-        font-size: 15px;
-        font-weight: 600;
-        padding: 0;
-
-        span {
-            color: $clr2;
-            font-weight: 400;
-        }
     }
 
     .stay-date,
     .stay-distance {
-        color: $clr3;
-        font-size: 14px;
-        margin: 0;
         grid-column: 1 /-1;
     }
-}
-
-.wishlist-icon {
-    cursor: pointer;
 }
