@@ -34,9 +34,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 24px;
-    // grid-template-columns: repeat(auto-fill, 267px);
-    // align-items: center;
-    // justify-items: center;
 }
 
 .stay-preview {
@@ -88,6 +85,6 @@
         color: $clr3;
         font-size: 14px;
         margin: 0;
-        grid-column: 1 /-1
+        grid-column: 1 /-1;
     }
 }
