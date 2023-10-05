@@ -11,11 +11,12 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
     if (!isFilterExpanded) isFirstTimeExpandedRef.current = true
   }, [isFilterExpanded])
 
-  function handleChange({ target }) {
-    const field = target.name
-    const value = target.type === 'number' ? +target.value : target.value
-    setFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
-  }
+  // function handleChange({ target }) {
+  //   const field = target.name
+  //   const value = target.type === 'number' ? +target.value : target.value
+  //   setFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
+  // }
+
   return (
     <section className={`filter-expanded-container full ${isFilterExpanded ? '' : 'folded'}`}>
       <section className={`filter-expanded ${selectedFilterBox === 'all' ? ' all' : ''}`}>

@@ -115,6 +115,7 @@ export const stayService = {
   remove,
   addStayMsg,
   getEmptyStay,
+  getRandomStay,
 }
 // debug trick
 window.bs = stayService
@@ -184,6 +185,55 @@ function getEmptyStay() {
       lng: 41.1413,
     },
   }
+}
+
+function getRandomStay() {
+  let stays = utilService.loadFromStorage(STORAGE_KEY)
+  let stay = {
+    _id: '',
+    name: 'Ribeira Charming Duplex',
+    type: 'House',
+    imgUrls: [
+      'https://a0.muscache.com/im/pictures/miso/Hosting-814472348722110926/original/260271f5-19f6-4c5d-9eb0-20f20094dbc3.jpeg?im_w=720',
+      'https://a0.muscache.com/im/pictures/prohost-api/Hosting-923567396711072416/original/b3fa79d4-1900-4969-ad45-060e43d8b5b5.jpeg?im_w=1200',
+      'https://a0.muscache.com/im/pictures/prohost-api/Hosting-923567396711072416/original/b3fa79d4-1900-4969-ad45-060e43d8b5b5.jpeg?im_w=1200',
+      'https://a0.muscache.com/im/pictures/prohost-api/Hosting-923567396711072416/original/b3fa79d4-1900-4969-ad45-060e43d8b5b5.jpeg?im_w=1200',
+      'https://a0.muscache.com/im/pictures/prohost-api/Hosting-923567396711072416/original/b3fa79d4-1900-4969-ad45-060e43d8b5b5.jpeg?im_w=1200',
+    ],
+    price: utilService.getRandomIntInclusive(100, 1000),
+    summary: 'Fantastic duplex apartment...',
+    capacity: utilService.getRandomIntInclusive(1, 8),
+    amenities: ['TV', 'Wifi', 'Kitchen', 'Smoking allowed', 'Pets allowed', 'Cooking basics'],
+    labels: ['Top of the world', 'Trending', 'Play', 'Tropical'],
+    host: {
+      _id: 'u101',
+      fullname: 'Davit Pok',
+      imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
+    },
+    loc: {
+      country: 'Portugal',
+      countryCode: 'PT',
+      city: 'Lisbon',
+      address: '17 Kombo st',
+      lat: -8.61308,
+      lng: 41.1413,
+    },
+    reviews: [
+      {
+        id: 'madeId',
+        txt: 'Very helpful hosts. Cooked traditional...',
+        rate: utilService.getRandomIntInclusive(1, 5),
+        by: {
+          _id: 'u102',
+          fullname: 'user2',
+          imgUrl: '/img/img2.jpg',
+        },
+      },
+    ],
+    likedByUsers: ['mini-user'],
+  }
+  stays.push(stay)
+  return stays
 }
 
 function createStay() {

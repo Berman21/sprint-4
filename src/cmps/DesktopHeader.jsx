@@ -60,9 +60,9 @@ export function DesktopHeader({ onSetFilter }) {
           <div className='separator'></div>
           <div className='guests search-txt'>Add guests </div>
           <div className='search-container'>
-            <button className='btn-search'>
+            <div className='btn-search'>
               <img src={search} />
-            </button>
+            </div>
           </div>
         </button>
       )}

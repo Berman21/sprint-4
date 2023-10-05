@@ -7,7 +7,7 @@
   height: rem(80px);
   border-bottom: 1px solid #ddd;
   grid-column: 1 / 4;
-  // z-index: 200;
+  z-index: 200;
   padding-inline: 80px;
   display: flex;
   justify-content: space-between;
@@ -19,7 +19,7 @@
 
   .separator {
     border-left: solid #ddd 1px;
-    height: 20px;
+    height: rem(20px);
   }
 
   .any-container {
@@ -66,17 +66,19 @@
       cursor: pointer;
 
       background-color: $clr1;
-      height: 32px;
-      width: 32px;
+      height: rem(32px);
+      width: rem(32px);
       border-radius: 50%;
       border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       img {
-        height: 12px;
-        width: 12px;
+        height: rem(12px);
+        width: rem(12px);
         filter: brightness(0) invert(1);
         object-fit: cover;
-        margin-top: 3px;
       }
     }
   }
@@ -86,13 +88,13 @@
       display: flex;
       justify-content: center;
       font-size: rem(16px);
-      padding-block: 11.21px;
+      padding-block: rem(11.21px);
       & > * {
         & span {
           line-height: 20px;
           letter-spacing: normal;
-          margin-inline: 16px;
-          padding-block: 10px;
+          margin-inline: rem(16px);
+          padding-block: rem(10px);
           position: relative;
 
           &::after {
@@ -137,26 +139,26 @@
 
   .user-container {
     cursor: pointer;
-    height: 42px;
-    width: 77px;
+    height: rem(42px);
+    width: rem(77px);
     display: flex;
-    gap: 8px;
+    gap: rem(8px);
     border-bottom: 1px solid #ddd;
-    border-radius: 100px;
+    border-radius: rem(100px);
     background-color: $clr6;
     align-items: center;
     border: 1px solid rgb(221, 221, 221);
     z-index: 200;
 
     .user-icon {
-      width: 30px;
-      height: 30px;
+      width: rem(30px);
+      height: rem(30px);
     }
 
     .hamburger {
-      width: 16px;
-      height: 16px;
-      margin-inline-start: 8px;
+      width: rem(16px);
+      height: rem(16px);
+      margin-inline-start: rem(8px);
     }
   }
 
@@ -178,11 +180,11 @@
   .logo-container {
     display: flex;
     align-items: center;
-    height: 64px;
+    height: rem(64px);
     z-index: 300;
 
     img {
-      height: 40px;
+      height: rem(40px);
     }
 
     p {
@@ -196,7 +198,7 @@
   .user-info {
     // background-color: $clr2;
     // padding: 2px 8px;
-    padding-left: 100px;
+    padding-inline-start: rem(100px);
     color: $clr1;
 
     .score {
@@ -208,8 +210,8 @@
     }
 
     img {
-      width: 32px;
-      height: 32px;
+      width: rem(32px);
+      height: rem(32px);
       border-radius: 50%;
       object-fit: cover;
     }
