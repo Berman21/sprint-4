@@ -6,6 +6,8 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { utilService } from "../services/util.service.js"
 import { useSelector } from "react-redux"
 
+import { Reservation } from "../cmps/Reservation.jsx"
+
 import { loadOrders, removeOrder, updateOrder } from '../store/order.actions.js' //REMOVE AFTER MAKING ORDER INDEX
 import { loadStays, removeStay, updateStay } from '../store/stay.actions.js' //REMOVE AFTER MAKING ORDER INDEX
 
@@ -155,7 +157,11 @@ export function StayDetails() {
                     <Link to="/stay/edit">edit stay</Link>
                 </div>
 
-                <div className="reservation-section">
+                {/* ////////////////////////////////////////////////////////////// */}
+
+                <Reservation stay={stay} onReserve={onReserve}/>
+
+                {/* <div className="reservation-section">
                     <div className="reservation-container">
 
                         <div className="reservation-details">
@@ -198,7 +204,11 @@ export function StayDetails() {
                         </div>
 
                     </div>
-                </div>
+                </div> */}
+
+                {/* ////////////////////////////////////////////////////////////// */}
+
+
             </div>
 
             <section>
