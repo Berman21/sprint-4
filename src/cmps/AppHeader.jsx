@@ -4,7 +4,6 @@ import routes from '../routes'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './LoginSignup.jsx'
-
 import { StayFilter } from './StayFilter'
 import { SET_FILTER_BY } from '../store/stay.reducer'
 import { useState } from 'react'
