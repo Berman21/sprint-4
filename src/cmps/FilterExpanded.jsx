@@ -90,7 +90,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
             <section className='who'>
               <h3 className='fs12 lh16 ff-circular-bold'>Who</h3>
               <span className='fs14 lh18'>
-                <StayDate />
+                {/* <StayDate /> */}
                 Add guests
                 {/* {filterBy.guests.adults > 0 ? <LongTxt txt={displayGuestsFilter()} length={11} askShowMore={false} /> : } */}
               </span>
