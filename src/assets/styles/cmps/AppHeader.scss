@@ -101,7 +101,6 @@
       }
 
       .anywhere {
-        font-family: Airbnb_Cereal-Book;
         font-weight: 500;
       }
 
@@ -123,7 +122,8 @@
     & .searchbar {
       & .experiences {
         z-index: 500;
-
+        font-family: Airbnb_Cereal-Medium;
+        font-weight: 400;
         display: flex;
         justify-content: center;
         font-size: rem(16px);
@@ -202,21 +202,6 @@
       }
     }
 
-    // .filter-container {
-    //   height: rem(48px);
-    //   display: flex;
-    //   align-items: center;
-    //   grid-column: 2;
-    //   border-radius: rem(32px);
-    //   border: 1px solid transparent;
-    //   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    //   cursor: pointer;
-
-    //   #country {
-    //     border: none;
-    //   }
-    // }
-
     .logo-container {
       justify-self: start;
       text-decoration: none;
@@ -236,8 +221,6 @@
     }
 
     .user-info {
-      // background-color: $clr2;
-      // padding: 2px 8px;
       padding-inline-start: rem(100px);
       color: $clr1;
 
@@ -260,22 +243,6 @@
     .user-info .btn-link {
       color: $clr2;
     }
-
-    // nav {
-    //   font-size: 0.8em;
-    //   background-color: $clr5;
-    //   padding: 5px;
-    // }
-
-    // nav a:first-child {
-    //   margin-right: 30px;
-    // }
-
-    // nav a:not(:first-child) {
-    //   border-top: 1px solid $clr1;
-    //   padding: 0 5px;
-    //   margin: 10px;
-    // }
 
     nav .active {
       color: $clr1;

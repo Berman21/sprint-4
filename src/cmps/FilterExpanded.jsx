@@ -71,6 +71,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
           <section className='check-in'>
             <h3 className='fs12 lh16 ff-circular-bold'>Check in</h3>
             <span className='fs14 lh18'>{filterBy ? format(filterBy, 'y-MM-dd') : 'Add dates'}</span>
+            {/* <StayDate /> */}
           </section>
         </article>
 
@@ -90,7 +91,6 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
             <section className='who'>
               <h3 className='fs12 lh16 ff-circular-bold'>Who</h3>
               <span className='fs14 lh18'>
-                {/* <StayDate /> */}
                 Add guests
                 {/* {filterBy.guests.adults > 0 ? <LongTxt txt={displayGuestsFilter()} length={11} askShowMore={false} /> : } */}
               </span>

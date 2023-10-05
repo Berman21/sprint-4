@@ -1,7 +1,7 @@
 .filter-expanded-container {
   background-color: white;
   grid-column: 1/ -1;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
   display: grid;
   grid-template-rows: none;
   height: rem(80px);
@@ -117,7 +117,7 @@
 
           h3 {
             margin: 0;
-            font-family: 'Airbnb_Cereal-Bold';
+            font-family: Airbnb_Cereal-Medium;
           }
         }
         &:is(.check-in, .check-out),
