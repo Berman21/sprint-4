@@ -10,20 +10,69 @@
         }
     }
 
-    .detail-title {}
+    .detail-title {
+        font-family: Airbnb_Cereal-Book;
 
-    .detail-subtitle {}
+        h1 {
+            font-family: Airbnb_Cereal-Medium;
+            font-size: 26px;
+            font-weight: 100;
+            text-transform: uppercase;
+        }
+
+    }
+
+    .detail-subtitle {
+        display: inline-flex;
+
+        .stay-rating {
+            margin-block-start: em(10px);
+            font-size: em(15px);
+            font-family: Airbnb_Cereal-Book;
+            margin: 0;
+
+            img {
+                height: 12px;
+                width: 12px;
+                margin-inline-end: 4px;
+            }
+        }
+
+        span {
+            margin: 0 5px;
+            font-size: 14px;
+        }
+
+        .stay-review,
+        .stay-loc {
+            text-decoration: underline;
+            font-family: Airbnb_Cereal-Book;
+            font-size: 14px;
+        }
+
+    }
+
 
     .detail-gallery {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
         gap: 0.5rem;
-        border-radius: 2em;
+        height: 490px;
 
         margin-block-end: 3rem;
 
-        :first-child {
+        img:nth-child(1) {
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
             grid-area: span 2/span 2;
+        }
+
+        img:nth-child(3) {
+            border-top-right-radius: 10px;
+        }
+
+        img:nth-child(5) {
+            border-bottom-right-radius: 10px;
         }
 
         img {
@@ -34,10 +83,14 @@
 
     .mid-section {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         padding-block-end: 3rem;
-
-        
     }
 }
 
+.detail-wishlist-icon {
+    height: 16px;
+    width: 16px;
+
+    cursor: pointer;
+    }

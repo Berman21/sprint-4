@@ -13,10 +13,12 @@ import { loadStays, removeStay, updateStay } from '../store/stay.actions.js' //R
 
 import starSvg from '../assets/img/star.svg'
 import heartSvg from '../assets/img/heart.svg'
+import { WishlistIcon } from "../cmps/WishlistIcon.jsx"
 
 export function StayDetails() {
 
     const [stay, setStay] = useState(null)
+    const [setClr, onSetClr] = useState('#00000080')
     const { stayId } = useParams()
     const navigate = useNavigate()
 
@@ -35,6 +37,14 @@ export function StayDetails() {
         }
     }
 
+    function onWishlistIcon() {
+        if (setClr === '#00000080') {
+          onSetClr('#ff385c')
+        } else {
+          onSetClr('#00000080')
+        }
+      }
+    
     function onReserve(stayId) {
         console.log('onReserve', stayId);
         onAddOrder(stayId)
@@ -69,56 +79,30 @@ export function StayDetails() {
     return (
         <section className="detail-container">
 
-            <div className="detail-title">
+            <section className="detail-title">
 
                 <h1>{stay.summary}</h1>
 
                 <div className="flex space-between">
-
-                    <div className="flex">
-                        <div className="detail-subtitle">
-
-                            <span>
-                                <span>
-                                    <span>
-                                        (star svg)
-                                    </span>
-                                    <span>
-                                        4
-                                    </span>
-                                </span>
-
-                                <button>
-                                    <span>{stay.reviews.length}</span> reviews
-                                </button>
-
-                            </span>
-
-                            <span>•</span>
-
-                            <span>{stay.loc.city},{stay.loc.country}</span>
-
-                            <div className="">
-                            </div>
-                        </div>
+                    <div className="detail-subtitle">
+                        <div className='stay-rating'><img src={starSvg} />5.0</div>
+                        <span>•</span>
+                        <p className='stay-review'>{stay.reviews.length} reviews</p> 
+                        <span>•</span>
+                        <p className='stay-loc'>{stay.loc.city}, {stay.loc.country}</p>
                     </div>
 
-
-
                     <button>
-                        (heart svg)
+                    <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={setClr} className='detail-wishlist-icon' />
                         Save
                     </button>
-
-
                 </div>
-            </div>
+
+            </section>
 
             <div className="detail-gallery">
                 {stay.imgUrls.map((imgUrl, index) => (
-                    <div key={index}>
-                        <img src={imgUrl} alt="" />
-                    </div>
+                    <img key={index} src={imgUrl} alt="" />
                 ))}
             </div>
 
@@ -159,7 +143,7 @@ export function StayDetails() {
 
                 {/* ////////////////////////////////////////////////////////////// */}
 
-                <Reservation stay={stay} onReserve={onReserve}/>
+                <Reservation stay={stay} onReserve={onReserve} />
 
                 {/* <div className="reservation-section">
                     <div className="reservation-container">

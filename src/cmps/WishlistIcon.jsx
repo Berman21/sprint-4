@@ -1,9 +1,9 @@
 import React from 'react'
 
-export function WishlistIcon({ onWishlistIcon, setClr }) {
+export function WishlistIcon({ onWishlistIcon, setClr, className }) {
     return (
         <svg
-            className='wishlist-icon'
+            className={className}
             onClick={() => onWishlistIcon()}
             // onClick={props.updateWishList}
             viewBox="0 0 32 32"
@@ -12,12 +12,7 @@ export function WishlistIcon({ onWishlistIcon, setClr }) {
             role="presentation"
             focusable="false"
             style={{
-                position: 'relative',
-                top: '46px',
-                left: '230px',
                 fill: setClr,
-                height: '24px',
-                width: '24px',
                 stroke: 'rgb(255, 255, 255)',
                 strokeWidth: '2',
                 overflow: 'visible',

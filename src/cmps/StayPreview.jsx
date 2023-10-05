@@ -13,8 +13,7 @@ export function StayPreview({ stay }) {
     return navigate(`/stay/${stayId}`)
   }
 
-  function onWishlistIcon(ev) {
-    console.log('ev' ,ev);
+  function onWishlistIcon() {
     if (setClr === '#00000080') {
       onSetClr('#ff385c')
     } else {
@@ -24,7 +23,7 @@ export function StayPreview({ stay }) {
 
   return (
     <Fragment>
-      <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={setClr} />
+      <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={setClr} className='preview-wishlist-icon' />
       <section className='stay-preview' onClick={() => onStay(stay._id)} >
 
         <img className='stay-img' src={stay.imgUrls[0]} />
