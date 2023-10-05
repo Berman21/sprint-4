@@ -1,11 +1,15 @@
 .detail-container {
   button {
     border: 0;
-    background-color: $clr1;
-    color: whitesmoke;
-    padding: 5px 10px;
-    margin: 5px;
+    background-color: white;
+    padding: 10;
+    margin: 0;
     cursor: pointer;
+    
+    &:hover {
+      background-color: $clr4;
+    }
+
   }
 
   form > * {

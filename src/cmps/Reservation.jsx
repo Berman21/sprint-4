@@ -35,7 +35,7 @@ export function Reservation({ stay, onReserve }) {
                             </div>
                         </div>
 
-                        <div className='flex space-between'>
+                        <div className='guest-container flex space-between'>
                             <div className='guest'>
                                 <div>GUESTS</div>
                                 <div>guests</div>
@@ -55,9 +55,8 @@ export function Reservation({ stay, onReserve }) {
                 </div>
 
                 <div className="reservation-pricing">
-                    <div></div>
-                    <div>{stay.price}x{ }</div>
-                    <div className='flex space-between'>
+                    <div className='summery'>{stay.price}x{'Num days'}</div>
+                    <div className='total flex space-between'>
                         <div>Total</div>
                         <div>₪555</div>
                     </div>
