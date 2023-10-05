@@ -162,20 +162,20 @@
     }
   }
 
-  .filter-container {
-    height: rem(48px);
-    display: flex;
-    align-items: center;
-    grid-column: 2;
-    border-radius: rem(32px);
-    border: 1px solid transparent;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+  // .filter-container {
+  //   height: rem(48px);
+  //   display: flex;
+  //   align-items: center;
+  //   grid-column: 2;
+  //   border-radius: rem(32px);
+  //   border: 1px solid transparent;
+  //   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  //   cursor: pointer;
 
-    #country {
-      border: none;
-    }
-  }
+  //   #country {
+  //     border: none;
+  //   }
+  // }
 
   .logo-container {
     display: flex;

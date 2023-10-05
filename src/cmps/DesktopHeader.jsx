@@ -92,6 +92,7 @@ export function DesktopHeader({ onSetFilter }) {
         onSetFilter={onSetFilter}
         isFilterExpanded={isFilterExpanded}
         selectedFilterBox={selectedFilterBox}
+        setSelectedFilterBox={setSelectedFilterBox}
         onSetSelectedFilterBox={onSetSelectedFilterBox}
       />
     </header>
