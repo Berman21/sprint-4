@@ -47,46 +47,50 @@ export function DesktopHeader({ onSetFilter }) {
   }
 
   return (
-    <header className='app-header'>
-      <Link to={'/'} className='logo-container'>
-        <img className='logo' src={logo} style={{ maxWidth: '100px' }} />
-        <p>airbnb</p>
-      </Link>
-      {!isFilterExpanded && (
-        <button className='any-container' onClick={onExpandedFilter}>
-          <div className='search-txt anywhere'>Anywhere</div>
-          <div className='separator'></div>
-          <div className='search-txt any-week'>Any week</div>
-          <div className='separator'></div>
-          <div className='guests search-txt'>Add guests </div>
-          <div className='search-container'>
-            <div className='btn-search'>
-              <img src={search} />
-            </div>
-          </div>
-        </button>
-      )}
-      {isFilterExpanded && (
-        <section className='searchbar'>
-          <section className='experiences'>
-            <article className={selectedExperience === 'stays' ? 'selected' : ''} name='stays' onClick={toggleSelected}>
-              <span>Stays</span>
-            </article>
-
-            <article className={selectedExperience === 'experiences' ? 'selected' : ''} name='experiences' onClick={toggleSelected}>
-              <span>Experiences</span>
-            </article>
-
-            <article className={selectedExperience === 'online' ? 'selected' : ''} name='online' onClick={toggleSelected}>
-              <span>Online Experiences</span>
-            </article>
+    <>
+      <header className='app-header'>
+        <Link to={'/'} className='logo-container'>
+          <img className='logo' src={logo} style={{ maxWidth: '100px' }} />
+          <p>airbnb</p>
+        </Link>
+        {!isFilterExpanded && (
+          <section className='any-container' onClick={onExpandedFilter}>
+            <button>
+              <div className='search-txt anywhere'>Anywhere</div>
+              <div className='separator'></div>
+              <div className='search-txt any-week'>Any week</div>
+              <div className='separator'></div>
+              <div className='guests search-txt'>Add guests </div>
+              <div className='search-container'>
+                <div className='btn-search'>
+                  <img src={search} />
+                </div>
+              </div>
+            </button>
           </section>
-        </section>
-      )}
-      <button className='user-container'>
-        <img className='hamburger' src={hamburger} />
-        <img className='user-icon' src={userIcon} />
-      </button>
+        )}
+        {isFilterExpanded && (
+          <section className='searchbar'>
+            <section className='experiences'>
+              <article className={selectedExperience === 'stays' ? 'selected' : ''} name='stays' onClick={toggleSelected}>
+                <span>Stays</span>
+              </article>
+
+              <article className={selectedExperience === 'experiences' ? 'selected' : ''} name='experiences' onClick={toggleSelected}>
+                <span>Experiences</span>
+              </article>
+
+              <article className={selectedExperience === 'online' ? 'selected' : ''} name='online' onClick={toggleSelected}>
+                <span>Online Experiences</span>
+              </article>
+            </section>
+          </section>
+        )}
+        <button className='user-container'>
+          <img className='hamburger' src={hamburger} />
+          <img className='user-icon' src={userIcon} />
+        </button>
+      </header>
 
       <FilterExpanded
         onSetFilter={onSetFilter}
@@ -95,6 +99,6 @@ export function DesktopHeader({ onSetFilter }) {
         setSelectedFilterBox={setSelectedFilterBox}
         onSetSelectedFilterBox={onSetSelectedFilterBox}
       />
-    </header>
+    </>
   )
 }

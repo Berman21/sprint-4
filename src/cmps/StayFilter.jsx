@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { utilService } from '../services/util.service'
 import { useRef } from 'react'
@@ -39,8 +39,8 @@ export function StayFilter({ filterBy, onSetFilter }) {
   const { country } = filterByToEdit
 
   return (
-    <section className='filter-container'>
+    <React.Fragment>
       <input type='text' value={country} name='country' id='country' onChange={handleChange} placeholder='Search destinations' />
-    </section>
+    </React.Fragment>
   )
 }
