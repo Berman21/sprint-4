@@ -1,10 +1,7 @@
-import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 
-
 import starSvg from '../assets/img/star.svg'
-import heartSvg from '../assets/img/heart.svg'
 import { WishlistIcon } from './WishlistIcon'
 
 export function StayPreview({ stay }) {
@@ -16,7 +13,8 @@ export function StayPreview({ stay }) {
     return navigate(`/stay/${stayId}`)
   }
 
-  function onWishlistIcon() {
+  function onWishlistIcon(ev) {
+    console.log('ev' ,ev);
     if (setClr === '#00000080') {
       onSetClr('#ff385c')
     } else {

@@ -20,6 +20,8 @@
         gap: 0.5rem;
         border-radius: 2em;
 
+        margin-block-end: 3rem;
+
         :first-child {
             grid-area: span 2/span 2;
         }
@@ -29,4 +31,13 @@
             height: 100%;
         }
     }
+
+    .mid-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-block-end: 3rem;
+
+        
+    }
 }
+
