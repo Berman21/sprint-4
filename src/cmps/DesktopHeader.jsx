@@ -53,18 +53,20 @@ export function DesktopHeader({ onSetFilter }) {
         <p>airbnb</p>
       </Link>
       {!isFilterExpanded && (
-        <button className='any-container' onClick={onExpandedFilter}>
-          <div className='search-txt anywhere'>Anywhere</div>
-          <div className='separator'></div>
-          <div className='search-txt any-week'>Any week</div>
-          <div className='separator'></div>
-          <div className='guests search-txt'>Add guests </div>
-          <div className='search-container'>
-            <div className='btn-search'>
-              <img src={search} />
+        <section className='any-container' onClick={onExpandedFilter}>
+          <button>
+            <div className='search-txt anywhere'>Anywhere</div>
+            <div className='separator'></div>
+            <div className='search-txt any-week'>Any week</div>
+            <div className='separator'></div>
+            <div className='guests search-txt'>Add guests </div>
+            <div className='search-container'>
+              <div className='btn-search'>
+                <img src={search} />
+              </div>
             </div>
-          </div>
-        </button>
+          </button>
+        </section>
       )}
       {isFilterExpanded && (
         <section className='searchbar'>
