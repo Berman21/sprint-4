@@ -13,7 +13,6 @@
   grid-template-columns: 40px 1fr 40px;
   width: 100%;
   padding-top: 0;
-
   z-index: 100;
 
   & .filter-expanded {
@@ -25,15 +24,36 @@
     display: grid;
     grid-column: 2;
     grid-template-columns: minmax(auto, 325.391px) repeat(3, auto);
-    height: fit-content;
+    height: rem(66px);
     max-width: 850px;
     position: relative;
     white-space: nowrap;
     width: 100%;
+
+    .check-in-container {
+      margin-right: 5px;
+    }
+
+    .who-container {
+      margin-left: 5px;
+    }
+
+    .check-out-container {
+      margin-left: 5px;
+    }
+
     & :is(.where-container, .check-in-container, .check-out-container, .who-container) {
       &:is(.check-in-container, .check-out-container) {
         margin-left: 1px;
         min-width: 124px;
+      }
+
+      h3 {
+        font-size: rem(12px);
+        font-family: Airbnb_Cereal-Bold;
+        font-weight: 800;
+        height: 16px;
+        margin: 0;
       }
 
       &.who-container .who-search .who span {
@@ -47,8 +67,8 @@
         width: 1px;
         top: 17px;
         left: -3px;
-        // border-left: 1px solid transparent;
-        // border-right: 1px solid gray;
+        border-left: 1px solid transparent;
+        border-right: 1px solid rgb(221, 221, 221);
       }
 
       &.check-in-container::before {
@@ -74,14 +94,17 @@
           & > * {
             &:first-child {
               letter-spacing: 0.48px;
-              padding-block-end: 2px;
               font-weight: 400;
             }
 
             &:last-child {
-              font-family: Circular-Regular;
+              font-family: Airbnb_Cereal-Book;
               color: gray;
               letter-spacing: 0;
+              font-size: rem(14px);
+              font-weight: 400;
+              height: rem(18px);
+              line-height: 18px;
 
               &:is(span) {
                 display: block;
@@ -96,10 +119,6 @@
                 width: 100%;
                 display: block;
 
-                &::placeholder {
-                  font-family: Circular-Regular;
-                }
-
                 &:focus-visible {
                   outline: none;
                 }
@@ -110,21 +129,31 @@
 
         &.where {
           padding-inline: 32px;
-          height: rem(66px);
+          height: rem(64px);
+          margin-top: 1px;
+
+          h3 {
+            margin-top: 1px;
+          }
 
           #country {
             border: none;
             padding: 0;
-          }
+            height: 18px;
 
-          h3 {
-            margin: 0;
-            font-family: Airbnb_Cereal-Medium;
+            &::placeholder {
+              font-size: 14px;
+              font-family: Airbnb_Cereal-Book;
+              font-weight: 100;
+              letter-spacing: normal;
+            }
           }
         }
+
         &:is(.check-in, .check-out),
         &.who-search .who {
           padding-inline: 24px;
+          line-height: 20.02px;
 
           & h3 {
             margin: 0;
@@ -141,18 +170,36 @@
           padding: 0;
 
           & .who {
-            margin-right: 2.5px;
+            margin-right: 10.5px;
             flex: 1 1 auto;
           }
 
           & .btn-search-container {
             position: relative;
-            margin-block: auto;
-            margin-block: 8px;
-            margin-inline-end: 8px;
+            // margin-block: auto;
+            // margin-block: 8px;
+            margin-inline-end: 13px;
             margin-inline-start: 0px;
+            margin-block-end: 1px;
             width: 111.75px;
             transition: width 0.2s ease-in, margin-inline-start 0.2s ease-in;
+            align-self: center;
+
+            .btn-filter {
+              display: flex;
+              border: none;
+              width: 48px;
+              height: 48px;
+              border-radius: 50%;
+              background-color: #ff385c;
+              justify-content: center;
+              align-items: center;
+
+              img {
+                width: rem(16px);
+                height: rem(16px);
+              }
+            }
 
             & .search {
               display: flex;
@@ -172,6 +219,8 @@
 
                 &:first-child {
                   height: 16px;
+                  letter-spacing: 0.48px;
+                  line-height: 16px;
                 }
 
                 &:last-child {
@@ -182,6 +231,8 @@
                   max-width: 63.75px;
                   opacity: 1;
                   transition: max-width 0.2s ease-in, opacity 0.2s;
+                  line-height: 18px;
+                  background-color: blue;
                 }
               }
 
@@ -218,7 +269,7 @@
       }
 
       &:not(.active):hover {
-        background-color: lightgray;
+        background-color: #ddd;
         border-radius: 32px;
       }
 

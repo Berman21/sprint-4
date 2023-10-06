@@ -122,7 +122,7 @@
     & .searchbar {
       & .experiences {
         z-index: 500;
-        font-family: Airbnb_Cereal-Medium;
+        font-family: Airbnb_Cereal-Book;
         font-weight: 400;
         display: flex;
         justify-content: center;
@@ -182,7 +182,7 @@
       height: rem(42px);
       width: rem(77px);
       display: flex;
-      gap: rem(8px);
+      gap: rem(10px);
       border-bottom: 1px solid #ddd;
       border-radius: rem(100px);
       background-color: $clr6;
@@ -193,12 +193,13 @@
       .user-icon {
         width: rem(30px);
         height: rem(30px);
+        margin-left: 2px;
       }
 
       .hamburger {
         width: rem(16px);
         height: rem(16px);
-        margin-inline-start: rem(8px);
+        margin-inline-start: rem(6px);
       }
     }
 
