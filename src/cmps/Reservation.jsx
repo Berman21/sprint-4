@@ -1,28 +1,38 @@
 import React from 'react'
 
 import { Link, useNavigate, useParams } from "react-router-dom"
-
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from "react"
+
+import { utilService } from '../services/util.service'
+import { SET_ORDER } from '../store/order.reducer'
 
 import starSvg from '../assets/img/star.svg'
 import arrowDownSvg from '../assets/img/arrow-down.svg'
 import arrowUpSvg from '../assets/img/arrow-up.svg'
 
 export function Reservation({ stay, onReserve }) {
-
+    const dispatch = useDispatch()
+    const order = useSelector(storeState => storeState.orderModule.order)
+    console.log(order);
     const [isOpen, setIsOpen] = useState(false)
     const navigate = useNavigate()
 
-    
+    function onUpdateOrder(order) {
+        dispatch({ type: SET_ORDER, order })
+    }
+
     function onOpenModal() {
         setIsOpen(!isOpen)
     }
 
-    function onReservePage(){
+    function onReservePage() {
         return navigate(`/stay/reserve`)
     }
 
+    function changeCount(type, diff) {
+        order.guests[type] += diff
+    }
 
     return (
         <div className="reservation-section">
@@ -38,7 +48,7 @@ export function Reservation({ stay, onReserve }) {
 
                         <div className='rating'>
                             <img src={starSvg} alt="" />
-                            <span>{stay.score || 4}•</span>
+                            <span>{stay.reviews.rate}•</span>
                             <span>{stay.reviews.length} reviews</span>
                         </div>
                     </div>
@@ -50,7 +60,7 @@ export function Reservation({ stay, onReserve }) {
                                 <div>21/12/21</div>
                             </div>
                             <div className='check-out'>
-                                <div>CHECK OUT</div>
+                                <div>CHECKOUT</div>
                                 <div>23/12/21</div>
                             </div>
                         </div>
@@ -61,8 +71,8 @@ export function Reservation({ stay, onReserve }) {
                                 <div>guests</div>
                             </div>
                             <div>
-                                {!isOpen &&<img src={arrowDownSvg} alt="" />}
-                                {isOpen &&<img src={arrowUpSvg} alt="" />}
+                                {!isOpen && <img src={arrowDownSvg} alt="" />}
+                                {isOpen && <img src={arrowUpSvg} alt="" />}
                             </div>
                         </div>
                     </div>
@@ -78,9 +88,13 @@ export function Reservation({ stay, onReserve }) {
                         </div>
 
                         <div>
-                            <button>-</button>
-                            1
-                            <button>+</button>
+                            <button onClick={() => {
+                                changeCount(1)
+                            }}>+</button>
+                            {order.guests.adults}
+                            <button onClick={() => {
+                                changeCount(10)
+                            }}>+10</button>
                         </div>
                     </div>}
 

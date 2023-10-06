@@ -1,0 +1,38 @@
+.reservation-page {
+
+    font-family: Airbnb_Cereal-Book;
+
+    h2 {
+        font-family: Airbnb_Cereal-Book;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+
+
+    section {
+        padding: 0;
+    }
+
+    .reservation-page-heading {
+        img {
+            
+            width: 1rem;
+            padding: 0;
+        }
+        .return-to-details{
+            width: 2rem;
+            justify-content: space-around;
+            border-radius: 50%;
+        }
+        .return-to-details:hover{
+            background-color: rgb(221, 221, 221);
+            transition: 0.6s;
+        }
+    }
+
+    .reservation-details{
+        display: grid;
+        grid-template-columns: 1fr 1fr  ;
+    }
+}

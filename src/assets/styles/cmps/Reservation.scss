@@ -5,6 +5,7 @@
 .reservation-container {
     position: sticky;
     top: 7rem;
+    font-family: Airbnb_Cereal-Book;
 
     border-radius: rem(12px);
     border: 1px solid rgb(221, 221, 221);
@@ -25,17 +26,19 @@
 
         .price:first-child {
             font-size: rem(22px);
+            font-family: Circular-Medium;
         }
 
         .price span:last-child {
             color: #717171;
-            font-family: Circular-Medium;
+            font-family: Airbnb_Cereal-Book;
             font-size: 1rem;
 
         }
 
         .rating span {
             padding: 0 0 0 0.25rem;
+            
         }
 
         .rating :nth-child(2) {
@@ -44,7 +47,9 @@
 
         .rating:last-child {
             color: #717171;
-            font-family: Circular-Medium;
+            // font-family: Circular-Medium;
+            // font-family: Airbnb_Cereal-Book;
+
             font-size: rem(14px);
         }
 
@@ -54,6 +59,7 @@
 
         .btn-reserve {
             text-align: center;
+            font-family: Circular-Medium;
             color: white;
             border-radius: 0.5rem;
             background-image: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
@@ -63,6 +69,9 @@
             padding: 0.8rem;
             margin: 1rem 0;
 
+        }
+        .btn-reserve:hover{
+            
         }
     }
 
@@ -89,6 +98,7 @@
             left: 12px;
             right: 12px;
 
+            font-family: Circular-Medium;
             font-size: 0.625rem;
         }
 
@@ -132,11 +142,13 @@
     }
 
     .reservation-pricing {
+        
         .summery {
             text-decoration: underline;
         }
 
         .total {
+            font-family: Circular-Medium;
             border-block-start: 1px solid #717171;
             padding: rem(24px) 0 0 0;
             margin-block-start: rem(24px);

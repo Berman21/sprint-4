@@ -14,11 +14,11 @@ export function ReservePage() {
 
     return (
 
-        <section>
+        <section className="reservation-page ">
 
-            <article>
+            <article className="reservation-page-heading flex">
 
-                <section>
+                <section className="return-to-details flex">
                     <img src={arrowLeftSvg} alt="" />
                 </section>
 
@@ -31,9 +31,28 @@ export function ReservePage() {
 
 
 
-            <article className="flex space-between">
+            <article className="reservation-details">
 
                 <section>
+                    <h2>Your Trip</h2>
+
+                    <article>
+
+                        <section className="flex space-between">
+                            <article>Dates</article>
+                            <article>21/12-23/12</article>
+                        </section>
+
+                        <section className="flex space-between">
+                            <article>Guests</article>
+                            <article>1 Guest</article>
+                        </section>
+
+                    </article>
+
+
+
+                    <article></article>
 
                 </section>
 
@@ -41,8 +60,8 @@ export function ReservePage() {
 
                 </section>
 
-            </article>
+            </article >
 
-        </section>
+        </section >
     )
 }
