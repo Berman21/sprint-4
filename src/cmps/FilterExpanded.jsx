@@ -110,19 +110,17 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
           </section>
         </article>
 
-        {/* <div className='size-less'>
+        <div className='size-less'>
           {isExpandedModalOpen && selectedFilterBox !== 'all' && (
             <div className={`modal ${`${selectedFilterBox}-modal`}`}>
-              {selectedFilterBox === 'where' && <LocationFilter filterBy={filterBy} onSubmit={onSubmit} handleChange={handleChange} />}
-              {(selectedFilterBox === 'check-in' || selectedFilterBox === 'check-out') && (
-                <DateFilter filterBy={filterBy} onSetFilterDates={onSetFilterDates} />
-              )}
-              {selectedFilterBox === 'who' && (
+              {/* {selectedFilterBox === 'where' && <LocationFilter filterBy={filterBy} onSubmit={onSubmit} handleChange={handleChange} />} */}
+              {(selectedFilterBox === 'check-in' || selectedFilterBox === 'check-out') && <StayDate />}
+              {/* {selectedFilterBox === 'who' && (
                 <GuestCountFilter filterBy={filterBy} setFilterBy={setFilterBy} handleGuestCountChange={handleGuestCountChange} />
-              )}
+              )} */}
             </div>
           )}
-        </div> */}
+        </div>
       </section>
     </section>
   )

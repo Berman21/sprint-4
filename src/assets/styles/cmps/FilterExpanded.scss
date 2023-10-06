@@ -4,7 +4,7 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
   display: grid;
   grid-template-rows: none;
-  height: rem(80px);
+  height: rem(96px);
   justify-items: center;
   margin-block-start: rem(80px);
   padding-inline: rem(80px);
@@ -18,7 +18,7 @@
   & .filter-expanded {
     padding: 0;
     align-items: center;
-    background-color: white;
+    background-color: rgb(235, 235, 235);
     border: 1px solid #ddd;
     border-radius: rem(32px);
     display: grid;
@@ -107,6 +107,7 @@
             }
           }
         }
+
         &.where {
           padding-inline: 32px;
 
@@ -238,6 +239,28 @@
         }
       }
     }
+    .size-less {
+      height: 0;
+      width: 0;
+
+      .modal {
+        background-color: white;
+        position: absolute;
+        border-radius: rem(32px);
+        margin-block-start: rem(12px);
+        padding-inline: rem(32px);
+        padding-block: 16px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
+
+        &:is(.check-in-modal, .check-out-modal) {
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+  .filter-expanded.all {
+    background-color: white;
   }
 
   &.folded {
