@@ -6,14 +6,29 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { userService } from '../services/user.service.js'
 import { stayService } from '../services/stay.service.local.js'
 import { StayList } from '../cmps/StayList.jsx'
+import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL } from '../store/system.reducer.js'
+import { useDispatch } from 'react-redux'
 
 export function StayIndex() {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     loadStays(filterBy)
   }, [filterBy])
+
+  useEffect(() => {
+    function handleScroll() {
+      dispatch({ type: CLOSE_EXPANDED_HEADER })
+      dispatch({ type: CLOSE_EXPANDED_HEADER_MODAL })
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   async function onRemoveStay(stayId) {
     try {

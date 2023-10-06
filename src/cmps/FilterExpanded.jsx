@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER_MODAL } from '../store/system.reducer'
 import { StayFilter } from './StayFilter'
 import { DayPicker } from 'react-day-picker'
@@ -8,16 +8,17 @@ import { useClickOutside } from '../customHooks/useCloseModule'
 import { store } from '../store/store'
 import { LongTxt } from './LongTxt'
 import { StayDate } from './StayDate'
+import { StayLocation } from './StayLocation'
 
 export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, selectedFilterBox, onSetSelectedFilterBox, setSelectedFilterBox }) {
   const isExpandedModalOpen = useSelector((storeState) => storeState.systemModule.isExpandedModalOpen)
   const isFirstTimeExpandedRef = useRef(true)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (!isFilterExpanded) isFirstTimeExpandedRef.current = true
   }, [isFilterExpanded])
-
-  const dropdownRef = useClickOutside(onClickModal)
+  const modalContainerRef = useRef(null)
 
   // function handleChange({ target }) {
   //   const field = target.name
@@ -28,14 +29,21 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
   function onClickModal() {
     if (isFilterExpanded) {
       if (!isFirstTimeExpandedRef.current) {
-        store.dispatch({ type: CLOSE_EXPANDED_HEADER_MODAL })
+        dispatch({ type: CLOSE_EXPANDED_HEADER_MODAL })
         setSelectedFilterBox('all')
       } else {
-        store.dispatch({ type: OPEN_EXPANDED_HEADER_MODAL })
+        dispatch({ type: OPEN_EXPANDED_HEADER_MODAL })
       }
       isFirstTimeExpandedRef.current = false
     }
   }
+
+  const dropdownRef = useClickOutside(() => {
+    if (modalContainerRef.current && modalContainerRef.current.contains(event.target)) {
+      return
+    }
+    onClickModal()
+  })
 
   // function displayGuestsFilter() {
   //   // ******** At least 1 Adult from this point ********
@@ -71,7 +79,6 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
           <section className='check-in'>
             <h3 className='fs12 lh16 ff-circular-bold'>Check in</h3>
             <span className='fs14 lh18'>{filterBy ? format(filterBy, 'y-MM-dd') : 'Add dates'}</span>
-            {/* <StayDate /> */}
           </section>
         </article>
 
@@ -110,19 +117,17 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
           </section>
         </article>
 
-        {/* <div className='size-less'>
+        <div className='size-less'>
           {isExpandedModalOpen && selectedFilterBox !== 'all' && (
             <div className={`modal ${`${selectedFilterBox}-modal`}`}>
-              {selectedFilterBox === 'where' && <LocationFilter filterBy={filterBy} onSubmit={onSubmit} handleChange={handleChange} />}
-              {(selectedFilterBox === 'check-in' || selectedFilterBox === 'check-out') && (
-                <DateFilter filterBy={filterBy} onSetFilterDates={onSetFilterDates} />
-              )}
-              {selectedFilterBox === 'who' && (
+              {selectedFilterBox === 'where' && <StayLocation />}
+              {(selectedFilterBox === 'check-in' || selectedFilterBox === 'check-out') && <StayDate />}
+              {/* {selectedFilterBox === 'who' && (
                 <GuestCountFilter filterBy={filterBy} setFilterBy={setFilterBy} handleGuestCountChange={handleGuestCountChange} />
-              )}
+              )} */}
             </div>
           )}
-        </div> */}
+        </div>
       </section>
     </section>
   )
