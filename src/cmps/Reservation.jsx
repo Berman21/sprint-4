@@ -1,7 +1,27 @@
+import React from 'react'
+
+import { Link, useNavigate, useParams } from "react-router-dom"
+
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from "react"
+
 import starSvg from '../assets/img/star.svg'
 import arrowDownSvg from '../assets/img/arrow-down.svg'
+import arrowUpSvg from '../assets/img/arrow-up.svg'
 
 export function Reservation({ stay, onReserve }) {
+
+    const [isOpen, setIsOpen] = useState(false)
+    const navigate = useNavigate()
+
+    
+    function onOpenModal() {
+        setIsOpen(!isOpen)
+    }
+
+    function onReservePage(){
+        return navigate(`/stay/reserve`)
+    }
 
 
     return (
@@ -35,17 +55,36 @@ export function Reservation({ stay, onReserve }) {
                             </div>
                         </div>
 
-                        <div className='guest-container flex space-between'>
+                        <div className='guest-container flex space-between' onClick={() => onOpenModal()}>
                             <div className='guest'>
                                 <div>GUESTS</div>
                                 <div>guests</div>
                             </div>
-                            <div><img src={arrowDownSvg} alt="" /></div>
+                            <div>
+                                {!isOpen &&<img src={arrowDownSvg} alt="" />}
+                                {isOpen &&<img src={arrowUpSvg} alt="" />}
+                            </div>
                         </div>
                     </div>
 
+                    {isOpen && <div className='guest-list flex space-between'>
+                        <div>
+                            <div>
+                                Adults
+                            </div>
+                            <div>
+                                Age 13+
+                            </div>
+                        </div>
 
-                    <div className='btn-reserve' onClick={() => onReserve(stay._id)}>
+                        <div>
+                            <button>-</button>
+                            1
+                            <button>+</button>
+                        </div>
+                    </div>}
+
+                    <div className='btn-reserve' onClick={() => onReservePage()}>
                         Reserve
                     </div>
                 </div>

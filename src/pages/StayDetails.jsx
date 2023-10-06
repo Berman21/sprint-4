@@ -6,6 +6,11 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { utilService } from "../services/util.service.js"
 import { useSelector } from "react-redux"
 
+import userIcon from '../assets/img/user.svg'
+import checkInIcon from '../assets/img/self-check-in.svg'
+import superhostIcon from '../assets/img/superhost.svg'
+import cancellationIcon from '../assets/img/free-cancellation.svg'
+
 import { Reservation } from "../cmps/Reservation.jsx"
 
 import { loadOrders, removeOrder, updateOrder } from '../store/order.actions.js' //REMOVE AFTER MAKING ORDER INDEX
@@ -18,7 +23,8 @@ import { WishlistIcon } from "../cmps/WishlistIcon.jsx"
 export function StayDetails() {
 
     const [stay, setStay] = useState(null)
-    const [setClr, onSetClr] = useState('#00000080')
+    const [clr, setClr] = useState('#00000080')
+    const [btnTxt, setBtnTxt] = useState('Save')
     const { stayId } = useParams()
     const navigate = useNavigate()
 
@@ -38,13 +44,15 @@ export function StayDetails() {
     }
 
     function onWishlistIcon() {
-        if (setClr === '#00000080') {
-          onSetClr('#ff385c')
+        if (clr === '#00000080') {
+            setClr('#ff385c')
+            setBtnTxt('Saved')
         } else {
-          onSetClr('#00000080')
+            setClr('#00000080')
+            setBtnTxt('Save')
         }
-      }
-    
+    }
+
     function onReserve(stayId) {
         console.log('onReserve', stayId);
         onAddOrder(stayId)
@@ -87,152 +95,121 @@ export function StayDetails() {
                     <div className="detail-subtitle">
                         <div className='stay-rating'><img src={starSvg} />5.0</div>
                         <span>•</span>
-                        <p className='stay-review'>{stay.reviews.length} reviews</p> 
+                        <p className='stay-review'>{stay.reviews.length} reviews</p>
                         <span>•</span>
                         <p className='stay-loc'>{stay.loc.city}, {stay.loc.country}</p>
                     </div>
 
-                    <button>
-                    <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={setClr} className='detail-wishlist-icon' />
-                        Save
+                    <button onClick={() => onWishlistIcon()}>
+                        <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={clr} className='detail-wishlist-icon' />
+                        {btnTxt}
                     </button>
                 </div>
 
             </section>
 
             <div className="detail-gallery">
-                {stay.imgUrls.map((imgUrl, index) => (
-                    <img key={index} src={imgUrl} alt="" />
+                {stay.imgUrls.map((imgUrl, idx) => (
+                    <img key={idx} src={imgUrl} alt="" />
                 ))}
             </div>
 
-            <div className="mid-section">
+            <section className="mid-section">
                 <div className="stay-details">
-                    <h2>{stay.type} hosted by {stay.host.fullname}</h2>
-                    <div>
-                        <span>•</span>
-                        {stay.capacity} guests
-                        <span>•</span>
-                        {stay.capacity / 2} bedrooms
-                        <span>•</span>
-                        {stay.capacity} beds
-                        <span>•</span>
-                        {stay.capacity / 2} bathrooms
+
+                    <div className="about-host border-bottom">
+                        <h2>Entire {stay.type} hosted by {stay.host.fullname}</h2>
+
+                        <article>
+                            <p>3 guests</p>
+                            <span>•</span>
+                            <p>1 bedroom</p>
+                            <span>•</span>
+                            <p>1 bed</p>
+                            <span>•</span>
+                            <p>1 bath</p>
+                        </article>
+
+                        <img className='user-icon' src={userIcon} />
                     </div>
 
-                    <div>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, neque quae. Veritatis debitis dolorem possimus magnam vitae. Impedit dicta incidunt cumque. Delectus, vitae natus impedit earum nobis qui nihil alias!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam assumenda dolor minima, in maxime magni optio! Architecto, aut ullam. Cum placeat id, explicabo quod exercitationem asperiores corrupti perferendis deleniti natus!
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint asperiores illo repudiandae magnam. Mollitia, consequuntur deserunt! A alias hic suscipit corporis sint illum odio, quidem laboriosam nam ipsa magnam itaque.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita modi ipsam delectus aperiam nostrum, iste itaque quam nemo, neque molestias quo tenetur deleniti rerum fuga esse autem, sunt placeat atque.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et magni expedita eligendi inventore quibusdam, optio enim, reprehenderit eum aut, veritatis nesciunt? Tenetur laudantium perferendis harum, iusto sed doloremque voluptates necessitatibus?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, neque quae. Veritatis debitis dolorem possimus magnam vitae. Impedit dicta incidunt cumque. Delectus, vitae natus impedit earum nobis qui nihil alias!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam assumenda dolor minima, in maxime magni optio! Architecto, aut ullam. Cum placeat id, explicabo quod exercitationem asperiores corrupti perferendis deleniti natus!
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint asperiores illo repudiandae magnam. Mollitia, consequuntur deserunt! A alias hic suscipit corporis sint illum odio, quidem laboriosam nam ipsa magnam itaque.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita modi ipsam delectus aperiam nostrum, iste itaque quam nemo, neque molestias quo tenetur deleniti rerum fuga esse autem, sunt placeat atque.
-                        Lorem ipsum do
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, neque quae. Veritatis debitis dolorem possimus magnam vitae. Impedit dicta incidunt cumque. Delectus, vitae natus impedit earum nobis qui nihil alias!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam assumenda dolor minima, in maxime magni optio! Architecto, aut ullam. Cum placeat id, explicabo quod exercitationem asperiores corrupti perferendis deleniti natus!
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint asperiores illo repudiandae magnam. Mollitia, consequuntur deserunt! A alias hic suscipit corporis sint illum odio, quidem laboriosam nam ipsa magnam itaque.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita modi ipsam delectus aperiam nostrum, iste itaque quam nemo, neque molestias quo tenetur deleniti rerum fuga esse autem, sunt placeat atque.
-                        Lorem ipsum do
+                    <div className='stay-highlights border-bottom'>
+                        <article>
+                            <img src={checkInIcon} />
+                            <h4>Self check-in</h4>
+                            <p>Check yourself in with the lockbox.</p>
+                        </article>
+
+                        <article>
+                            <h4>{stay.host.fullname} is a Superhost</h4>
+                            <p>Superhosts are experienced, highly rated Hosts.</p>
+                            <img src={superhostIcon} />
+                        </article>
+
+                        <article>
+                            <img src={cancellationIcon} />
+                            <h4 className='one-rows'>Free cancellation before Nov 24.</h4>
+                        </article>
                     </div>
-                    <button onClick={() => onRemove(stay._id)}>remove stay</button>
-                    <Link to="/stay/edit">edit stay</Link>
+
+                    <div className='stay-description border-bottom'>
+                        <p>Nestled on the slope of the ridgeline running above Boone, NC lies Chalet Ruisseau.
+                            Surrounded by hardwoods and with the Doe Fork running through your backyard you feel hidden away in the heart of the Blue Ridge,
+                            even though you're minutes from town.</p>
+
+                        {/* <h3>The space</h3>
+                        <p>The space is for the private upper two floors of the house. The owner stays in a separate...</p> */}
+                        <button>Show more</button>
+                    </div>
+
+                    <section className="stay-amenities border-bottom">
+                        <h2>What this place offers</h2>
+
+                        <div>
+                            {stay.amenities.map((amenity, idx) => (
+                                <article key={idx}>
+                                    <img className='self-check-in' src={`/src/assets/img/${amenity}.svg`} />
+                                    <p>{amenity}</p>
+                                </article>
+                            ))}
+                        </div>
+
+                    </section>
+
+                    {/* <button onClick={() => onRemove(stay._id)}>remove stay</button>
+                    <Link to="/stay/edit">edit stay</Link> */}
+
                 </div>
-
-                {/* ////////////////////////////////////////////////////////////// */}
 
                 <Reservation stay={stay} onReserve={onReserve} />
 
-                {/* <div className="reservation-section">
-                    <div className="reservation-container">
-
-                        <div className="reservation-details">
-
-                            <div className="flex space-between">
-                                <div>
-                                    <span>{stay.price}</span>
-                                    <span> night</span>
-                                </div>
-
-                                <div>
-                                    <span>{stay.score || 4}</span>
-                                    <span>{stay.reviews.length}</span>
-                                </div>
-                            </div>
-
-                            <div className="reservation-selection">
-                                <div className="flex">
-                                    <div>checkin</div>
-                                    <div>checkout</div>
-                                </div>
-
-                                <div>guests</div>
-                            </div>
+            </section>
 
 
-                            <div>
-                                <button onClick={() => onReserve(stay._id)}>reserve</button>
-                            </div>
-                        </div>
 
-                        <div className="reservation-notice">
-
-                        </div>
-
-                        <div className="reservation-pricing">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-
-                    </div>
-                </div> */}
-
-                {/* ////////////////////////////////////////////////////////////// */}
-
-
-            </div>
 
             <section>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
 
-
-
-
-
-
-
-
-
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
 
             </section>
 
