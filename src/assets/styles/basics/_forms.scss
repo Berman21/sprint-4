@@ -1,9 +1,12 @@
 .detail-container {
   button {
     border: 0;
+    height: 34px;
     background-color: white;
-    padding: 10;
+    padding: 0px 15px;
     margin: 0;
+    text-decoration: underline;
+    border-radius: 5px;
     cursor: pointer;
     
     &:hover {
