@@ -8,6 +8,7 @@ import { useClickOutside } from '../customHooks/useCloseModule'
 import { store } from '../store/store'
 import { LongTxt } from './LongTxt'
 import { StayDate } from './StayDate'
+import { StayLocation } from './StayLocation'
 
 export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, selectedFilterBox, onSetSelectedFilterBox, setSelectedFilterBox }) {
   const isExpandedModalOpen = useSelector((storeState) => storeState.systemModule.isExpandedModalOpen)
@@ -119,7 +120,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
         <div className='size-less'>
           {isExpandedModalOpen && selectedFilterBox !== 'all' && (
             <div className={`modal ${`${selectedFilterBox}-modal`}`}>
-              {/* {selectedFilterBox === 'where' && <LocationFilter filterBy={filterBy} onSubmit={onSubmit} handleChange={handleChange} />} */}
+              {selectedFilterBox === 'where' && <StayLocation />}
               {(selectedFilterBox === 'check-in' || selectedFilterBox === 'check-out') && <StayDate />}
               {/* {selectedFilterBox === 'who' && (
                 <GuestCountFilter filterBy={filterBy} setFilterBy={setFilterBy} handleGuestCountChange={handleGuestCountChange} />
