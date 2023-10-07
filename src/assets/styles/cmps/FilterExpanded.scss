@@ -304,6 +304,52 @@
         padding-block: 16px;
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 8px 16px rgba(0, 0, 0, 0.15);
 
+        &.who-modal {
+          right: 0;
+
+          .guests-preview-container {
+            padding-inline: rem(6px);
+            padding-block: 0;
+          }
+
+          .guests-preview:not(:last-child) {
+            border-bottom: 1px solid #ebebeb;
+            content: '';
+          }
+          .guests-preview {
+            display: flex;
+            justify-content: space-between;
+            padding-block: rem(24px);
+            padding-inline-end: rem(4px);
+            white-space: nowrap;
+            width: rem(326px);
+            line-height: rem(22.4px);
+
+            .guests-content {
+              padding: 0;
+
+              h3 {
+                font-size: rem(16px);
+                font-family: Airbnb_Cereal-Medium;
+                font-weight: 400;
+                margin: 0;
+              }
+
+              p {
+                font-size: rem(14px);
+                font-family: Airbnb_Cereal-Book;
+                font-weight: 400;
+                color: rgb(113, 113, 113);
+                margin: 0;
+                padding-block-start: rem(4px);
+              }
+              .pets {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
         &:is(.check-in-modal, .check-out-modal) {
           left: 0;
           right: 0;
