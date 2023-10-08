@@ -55,10 +55,16 @@
   }
 }
 
-.stay-amenities {
 
-  div {
-    display: grid;
-    grid-template-columns: repeat(2, 300px);
+.mid-section {
+  display: grid;
+  grid-template-columns: 653px 465px;
+
+  .stay-amenities {
+
+    div {
+      display: grid;
+      grid-template-columns: repeat(2, 300px);
+    }
   }
 }
