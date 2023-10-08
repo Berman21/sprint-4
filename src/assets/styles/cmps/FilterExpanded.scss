@@ -9,11 +9,11 @@
   margin-block-start: rem(80px);
   padding-inline: rem(80px);
   position: absolute;
-  transition: all 0.2s;
   grid-template-columns: 40px 1fr 40px;
   width: 100%;
   padding-top: 0;
   z-index: 100;
+  transition: all 0.2s;
 
   & .filter-expanded {
     padding: 0;
@@ -325,6 +325,31 @@
             width: rem(326px);
             line-height: rem(22.4px);
 
+            .guests-counter {
+              display: flex;
+              align-items: center;
+              gap: rem(15px);
+              justify-content: space-between;
+              width: rem(104px);
+              padding: 0;
+
+              button {
+                background-color: white;
+                border: 1px solid #b0b0b0;
+                color: #717171;
+                padding-block: rem(9px);
+                padding-inline: rem(9px);
+                border-radius: 50%;
+                height: rem(32px);
+                cursor: pointer;
+              }
+
+              span {
+                color: #222;
+                font-size: rem(16px);
+                font-family: Airbnb_Cereal-Book;
+              }
+            }
             .guests-content {
               padding: 0;
 
