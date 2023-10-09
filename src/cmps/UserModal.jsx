@@ -17,16 +17,16 @@ export function UserModal({ setIsDropdownActive }) {
     <section className='dropdown-modal flex'>
       {loggedInUser ? (
         <>
-          <Link>
+          <Link className='dropdown-option'>
             <span>Trips</span>
           </Link>
-          <Link>
+          <Link className='dropdown-option'>
             <span>Wishlist</span>
           </Link>
-          <Link>
+          <Link className='dropdown-option'>
             <span>Dashboard</span>
           </Link>
-          <Link>
+          <Link className='dropdown-option'>
             <span>Logout</span>
           </Link>
         </>

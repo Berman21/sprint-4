@@ -148,7 +148,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
             <div className={`modal ${`${selectedFilterBox}-modal`}`}>
               {selectedFilterBox === 'where' && (
                 <>
-                  <CountryFilter handleItemClick={handleItemClick} filterBy={filterBy} onSetFilter={onSetFilter} /> <StayLocation />
+                  <CountryFilter handleItemClick={handleItemClick} /> <StayLocation handleItemClick={handleItemClick} />
                 </>
               )}
               {(selectedFilterBox === 'check-in' || selectedFilterBox === 'check-out') && <StayDate />}

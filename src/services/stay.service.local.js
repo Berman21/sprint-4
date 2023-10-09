@@ -124,7 +124,9 @@ async function query(filterBy = {}) {
   var stays = await storageService.query(STORAGE_KEY)
   if (filterBy.country) {
     const regex = new RegExp(filterBy.country, 'i')
-    stays = stays.filter((stay) => regex.test(stay.loc.country) || regex.test(stay.loc.city) || regex.test(stay.description))
+    stays = stays.filter(
+      (stay) => regex.test(stay.loc.country) || regex.test(stay.loc.region) || regex.test(stay.loc.city) || regex.test(stay.description)
+    )
   }
 
   if (filterBy.price) {
@@ -305,6 +307,7 @@ function _createStays() {
           imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
         },
         loc: {
+          region: 'Middle East',
           country: 'Portugal',
           countryCode: 'PT',
           city: 'Lisbon',
@@ -348,6 +351,7 @@ function _createStays() {
           imgUrl: 'https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small',
         },
         loc: {
+          region: 'Italy',
           country: 'Portugal',
           countryCode: 'PT',
           city: 'Lisbon',
