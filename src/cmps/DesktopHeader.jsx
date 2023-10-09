@@ -8,11 +8,19 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { FilterExpanded } from './FilterExpanded'
 import { Link } from 'react-router-dom'
+import { UserModal } from './UserModal'
+import { LoginSignup } from './LoginSignup'
 
 export function DesktopHeader({ onSetFilter }) {
   const [selectedExperience, setSelectedExperience] = useState('stays')
   const [selectedFilterBox, setSelectedFilterBox] = useState('where')
   const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
+  const [isDropdownActive, setIsDropdownActive] = useState(false)
+
+  function toggleDropdown(ev) {
+    ev.preventDefault()
+    setIsDropdownActive((prevDropdown) => !prevDropdown)
+  }
 
   function onExpandedFilter(ev) {
     ev.preventDefault()
@@ -86,10 +94,14 @@ export function DesktopHeader({ onSetFilter }) {
             </section>
           </section>
         )}
-        <button className='user-container'>
-          <img className='hamburger' src={hamburger} />
-          <img className='user-icon' src={userIcon} />
-        </button>
+        {/* <LoginSignup /> */}
+        <section className='user-container' onClick={(ev) => toggleDropdown(ev)}>
+          <button className='user-btn'>
+            <img className='hamburger' src={hamburger} />
+            <img className='user-icon' src={userIcon} />
+          </button>
+          {isDropdownActive && <UserModal setIsDropdownActive={setIsDropdownActive} />}
+        </section>
       </header>
 
       <FilterExpanded
