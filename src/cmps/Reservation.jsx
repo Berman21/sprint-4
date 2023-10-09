@@ -8,21 +8,21 @@ import { useEffect, useState } from "react"
 import starSvg from '../assets/img/star.svg'
 import arrowDownSvg from '../assets/img/arrow-down.svg'
 import arrowUpSvg from '../assets/img/arrow-up.svg'
+import { AirbnbBtn } from './AirbnbBtn'
 
 export function Reservation({ stay, onReserve }) {
 
     const [isOpen, setIsOpen] = useState(false)
     const navigate = useNavigate()
 
-    
+
     function onOpenModal() {
         setIsOpen(!isOpen)
     }
 
-    function onReservePage(){
+    function onReservePage() {
         return navigate(`/stay/reserve`)
     }
-
 
     return (
         <div className="reservation-section">
@@ -38,7 +38,7 @@ export function Reservation({ stay, onReserve }) {
 
                         <div className='rating'>
                             <img src={starSvg} alt="" />
-                            <span>{stay.score || 4}•</span>
+                            <span>{stay.score || '5.0'} •</span>
                             <span>{stay.reviews.length} reviews</span>
                         </div>
                     </div>
@@ -58,11 +58,11 @@ export function Reservation({ stay, onReserve }) {
                         <div className='guest-container flex space-between' onClick={() => onOpenModal()}>
                             <div className='guest'>
                                 <div>GUESTS</div>
-                                <div>guests</div>
+                                <div>1 guests</div>
                             </div>
                             <div>
-                                {!isOpen &&<img src={arrowDownSvg} alt="" />}
-                                {isOpen &&<img src={arrowUpSvg} alt="" />}
+                                {!isOpen && <img src={arrowDownSvg} alt="" />}
+                                {isOpen && <img src={arrowUpSvg} alt="" />}
                             </div>
                         </div>
                     </div>
@@ -84,25 +84,26 @@ export function Reservation({ stay, onReserve }) {
                         </div>
                     </div>}
 
-                    <div className='btn-reserve' onClick={() => onReservePage()}>
-                        Reserve
-                    </div>
+
+                    <AirbnbBtn onReservePage={onReservePage} />
+
                 </div>
 
                 <div className="reservation-notice">
                     You won't be charged yet
                 </div>
 
-                <div className="reservation-pricing">
-                    <div className='summery'>{stay.price}x{'Num days'}</div>
-                    <div className='total flex space-between'>
-                        <div>Total</div>
-                        <div>₪555</div>
-                    </div>
+                <div className='summery flex space-between'>
+                    <span>₪{stay.price} x 2 nights</span>
+                    <span>₪1,242</span>
+                </div>
+
+                <div className='total flex space-between'>
+                    <div>Total</div>
+                    <div>₪1,242</div>
                 </div>
 
             </div>
         </div>
-
     )
 }

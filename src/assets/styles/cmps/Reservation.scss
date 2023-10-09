@@ -1,153 +1,168 @@
-///////////////////////////////////////////////////////////////
+ .reservation-container {
+     position: sticky;
+     top: 7rem;
 
+     border-radius: rem(12px);
+     border: 1px solid rgb(221, 221, 221);
+     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 
+     padding: rem(24px);
+     margin-inline-start: 6rem;
 
-.reservation-container {
-    position: sticky;
-    top: 7rem;
+     .reservation-details {
+         display: grid;
+         grid-auto-flow: row;
 
-    border-radius: rem(12px);
-    border: 1px solid rgb(221, 221, 221);
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+         .reservation-header {
+             margin-block-end: rem(24px);
+             line-height: rem(20px);
+             align-items: end;
+         }
 
-    padding: rem(24px);
-    margin-inline-start: 6rem;
+         .price:first-child {
+             font-size: rem(22px);
+             color: $clr2;
+         }
 
-    .reservation-details {
-        display: grid;
-        grid-auto-flow: row;
+         .price span:last-child {
+             color: $clr2;
+             font-family: Airbnb_Cereal-Book;
+             font-size: 1rem;
+         }
 
-        .reservation-header {
-            margin-block-end: rem(24px);
-            line-height: rem(20px);
-            align-items: end;
-        }
+         .rating span {
+             padding: 0 0 0 0.25rem;
+         }
 
-        .price:first-child {
-            font-size: rem(22px);
-        }
+         .rating :nth-child(2) {
+             color: black;
+         }
 
-        .price span:last-child {
-            color: #717171;
-            font-family: Circular-Medium;
-            font-size: 1rem;
+         .rating:last-child {
+             color: $clr3;
+             font-family: Airbnb_Cereal-Book;
+             font-size: rem(14px);
+         }
 
-        }
+         img {
+             width: rem(12px);
+         }
 
-        .rating span {
-            padding: 0 0 0 0.25rem;
-        }
+         .btn-reserve {
+             --mouse-x: 50;
+             --mouse-y: 50;
 
-        .rating :nth-child(2) {
-            color: black;
-        }
+             text-align: center;
+             color: white;
+             text-decoration: none;
+             margin: 1rem 0;
 
-        .rating:last-child {
-            color: #717171;
-            font-family: Circular-Medium;
-            font-size: rem(14px);
-        }
+             min-width: 322px;
+             min-height: 48px;
+             background-size: 200% 200%;
+             background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+             background-image: radial-gradient(circle, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+             cursor: pointer;
+             border-radius: 10px;
 
-        img {
-            width: rem(12px);
-        }
+             font-size: 16px;
+             font-weight: 600;
+             font-family: Airbnb_Cereal-Bold;
+         }
+     }
 
-        .btn-reserve {
-            text-align: center;
-            color: white;
-            border-radius: 0.5rem;
-            background-image: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+     .reservation-selection {
+         border: 1px solid gray;
+         border-radius: 0.5rem;
 
-            background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+         .date {
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             border-bottom: 1px solid gray;
+         }
 
-            padding: 0.8rem;
-            margin: 1rem 0;
+         .check-in {
+             border-inline-end: 1px solid gray;
+         }
 
-        }
-    }
+         .check-in :first-child,
+         .check-out :first-child,
+         .guest :first-child {
+             position: absolute;
+             top: 12px;
+             left: 12px;
+             right: 12px;
 
-    .reservation-selection {
-        border: 1px solid gray;
-        border-radius: 0.5rem;
+             font-size: 0.625rem;
+         }
 
-        .date {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            // padding: 26px 12px 10px;
-            border-bottom: 1px solid gray;
-        }
+         .check-in :last-child,
+         .check-out :last-child,
+         .guest :last-child {
+             color: $clr2;
+             font-family: Airbnb_Cereal-Book;
+         }
 
-        .check-in {
-            border-inline-end: 1px solid gray;
-        }
+         .check-in,
+         .check-out,
+         .guest {
+             position: relative;
+             padding: 26px 12px 10px;
+             font-size: 14px;
+         }
 
-        .check-in :first-child,
-        .check-out :first-child,
-        .guest :first-child {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            right: 12px;
+         .check-in:hover,
+         .check-out:hover,
+         .guest-container:hover {
+             cursor: pointer;
+         }
 
-            font-size: 0.625rem;
-        }
+         img {
+             width: 1rem;
+             position: relative;
+             top: 1.3em;
+             right: 1.3rem;
 
-        .check-in,
-        .check-out,
-        .guest {
-            position: relative;
-            padding: 26px 12px 10px;
-        }
+         }
+     }
 
-        .check-in:hover,
-        .check-out:hover,
-        .guest-container:hover {
-            cursor: pointer;
-        }
+     .guest-list {
+         position: absolute;
+         top: 200px;
+         width: 89%;
+         z-index: 999;
 
-        img {
-            width: 1rem;
-            position: relative;
-            top: 1.3em;
-            right: 1.3rem;
+         background-color: white;
+         border-radius: 0.5rem;
+         border: 1px solid rgb(221, 221, 221);
+         box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+         align-items: center;
 
-        }
-    }
+         padding: 1rem;
+     }
 
-    .guest-list {
-        position: absolute;
-        top: 200px;
-        width: 89%;
-        z-index: 999;
+     .reservation-notice {
+         color: $clr2;
+         font-family: Airbnb_Cereal-Book;
+         font-size: rem(14px);
 
+         text-align: center;
+         margin-block-end: 20px;
+     }
 
-        
-        background-color: white;
-        border-radius: 0.5rem;
-        border: 1px solid rgb(221, 221, 221);
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
-        align-items: center;
-        
-        padding: 1rem;
-    }
+     .summery {
+         color: $clr2;
+         font-family: Airbnb_Cereal-Book;
 
-    .reservation-pricing {
-        .summery {
-            text-decoration: underline;
-        }
+         &:first-child {
+             text-decoration: underline;
+             // first-child dose not have a affect
+         }
+     }
 
-        .total {
-            border-block-start: 1px solid #717171;
-            padding: rem(24px) 0 0 0;
-            margin-block-start: rem(24px);
-        }
-    }
-
-
-
-
-
-}
-
-
-////////////////////////////////////////////////////////////////
+     .total {
+         border-block-start: 1px solid #dedede;
+         padding: rem(24px) 0 0 0;
+         margin-block-start: rem(24px);
+     }
+ }
