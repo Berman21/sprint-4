@@ -124,7 +124,7 @@ async function query(filterBy = {}) {
   var stays = await storageService.query(STORAGE_KEY)
   if (filterBy.country) {
     const regex = new RegExp(filterBy.country, 'i')
-    stays = stays.filter((stay) => regex.test(stay.loc.country) || regex.test(stay.description))
+    stays = stays.filter((stay) => regex.test(stay.loc.country) || regex.test(stay.loc.city) || regex.test(stay.description))
   }
 
   if (filterBy.price) {

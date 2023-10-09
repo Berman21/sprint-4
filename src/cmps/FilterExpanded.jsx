@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER_MODAL } from '../store/system.reducer'
 import { StayFilter } from './StayFilter'
@@ -11,9 +11,12 @@ import { StayDate } from './StayDate'
 import { StayLocation } from './StayLocation'
 import searchFilter from '../assets/img/search-filter.svg'
 import { StayGusts } from './StayGuests'
+import { CountryFilter } from './CountryFilter'
 
 export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, selectedFilterBox, onSetSelectedFilterBox, setSelectedFilterBox }) {
   const isExpandedModalOpen = useSelector((storeState) => storeState.systemModule.isExpandedModalOpen)
+  const [filterByToEdit, setFilterByToEdit] = useState({ country: '', ...filterBy })
+
   const isFirstTimeExpandedRef = useRef(true)
   const dispatch = useDispatch()
 
@@ -27,6 +30,34 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
   //   const value = target.type === 'number' ? +target.value : target.value
   //   setFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
   // }
+
+  function handleChange({ target }) {
+    const field = target.name
+    let value = target.value
+    switch (target.type) {
+      case 'number':
+      case 'range':
+        value = +value || ''
+        break
+
+      case 'checkbox':
+        value = target.checked
+        break
+
+      case 'select-multiple':
+        const selectedOptions = Array.from(target.selectedOptions, (option) => option.value)
+        value = selectedOptions
+        break
+
+      default:
+        break
+    }
+    setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+  }
+
+  function handleItemClick(item) {
+    setFilterByToEdit((prevFilter) => ({ ...prevFilter, country: item }))
+  }
 
   function onClickModal() {
     if (isFilterExpanded) {
@@ -69,7 +100,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
         <article className={`where-container${selectedFilterBox === 'where' ? ' active' : ''}`} name='where' onClick={onSetSelectedFilterBox}>
           <section className='where'>
             <h3>Where</h3>
-            <StayFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+            <StayFilter handleChange={handleChange} filterByToEdit={filterByToEdit} onSetFilter={onSetFilter} />
           </section>
         </article>
 
@@ -115,7 +146,11 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
         <div className='size-less'>
           {isExpandedModalOpen && selectedFilterBox !== 'all' && (
             <div className={`modal ${`${selectedFilterBox}-modal`}`}>
-              {selectedFilterBox === 'where' && <StayLocation />}
+              {selectedFilterBox === 'where' && (
+                <>
+                  <CountryFilter handleItemClick={handleItemClick} filterBy={filterBy} onSetFilter={onSetFilter} /> <StayLocation />
+                </>
+              )}
               {(selectedFilterBox === 'check-in' || selectedFilterBox === 'check-out') && <StayDate />}
               {selectedFilterBox === 'who' && <StayGusts />}
             </div>
