@@ -1,11 +1,6 @@
-///////////////////////////////////////////////////////////////
-
-
-
 .reservation-container {
     position: sticky;
     top: 7rem;
-    font-family: Airbnb_Cereal-Book;
 
     border-radius: rem(12px);
     border: 1px solid rgb(221, 221, 221);
@@ -26,19 +21,17 @@
 
         .price:first-child {
             font-size: rem(22px);
-            font-family: Circular-Medium;
+            color: $clr2;
         }
 
         .price span:last-child {
-            color: #717171;
+            color: $clr2;
             font-family: Airbnb_Cereal-Book;
             font-size: 1rem;
-
         }
 
         .rating span {
             padding: 0 0 0 0.25rem;
-            
         }
 
         .rating :nth-child(2) {
@@ -46,10 +39,8 @@
         }
 
         .rating:last-child {
-            color: #717171;
-            // font-family: Circular-Medium;
-            // font-family: Airbnb_Cereal-Book;
-
+            color: $clr3;
+            font-family: Airbnb_Cereal-Book;
             font-size: rem(14px);
         }
 
@@ -58,20 +49,25 @@
         }
 
         .btn-reserve {
+            --mouse-x: 50;
+            --mouse-y: 50;
+
             text-align: center;
-            font-family: Circular-Medium;
             color: white;
-            border-radius: 0.5rem;
-            background-image: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
-
-            background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
-
-            padding: 0.8rem;
+            text-decoration: none;
             margin: 1rem 0;
 
-        }
-        .btn-reserve:hover{
-            
+            font-size: 16px;
+            font-weight: 600;
+            font-family: Airbnb_Cereal-Bold;
+
+            min-width: 322px;
+            min-height: 48px;
+            background-size: 200% 200%;
+            background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+            background-image: radial-gradient(circle, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+            border-radius: 10px;
+            cursor: pointer;
         }
     }
 
@@ -82,7 +78,6 @@
         .date {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            // padding: 26px 12px 10px;
             border-bottom: 1px solid gray;
         }
 
@@ -98,8 +93,14 @@
             left: 12px;
             right: 12px;
 
-            font-family: Circular-Medium;
             font-size: 0.625rem;
+        }
+
+        .check-in :last-child,
+        .check-out :last-child,
+        .guest :last-child {
+            color: $clr2;
+            font-family: Airbnb_Cereal-Book;
         }
 
         .check-in,
@@ -107,6 +108,7 @@
         .guest {
             position: relative;
             padding: 26px 12px 10px;
+            font-size: 14px;
         }
 
         .check-in:hover,
@@ -130,36 +132,36 @@
         width: 89%;
         z-index: 999;
 
-
-        
         background-color: white;
         border-radius: 0.5rem;
         border: 1px solid rgb(221, 221, 221);
         box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
         align-items: center;
-        
+
         padding: 1rem;
     }
 
-    .reservation-pricing {
-        
-        .summery {
-            text-decoration: underline;
-        }
+    .reservation-notice {
+        color: $clr2;
+        font-family: Airbnb_Cereal-Book;
+        font-size: rem(14px);
 
-        .total {
-            font-family: Circular-Medium;
-            border-block-start: 1px solid #717171;
-            padding: rem(24px) 0 0 0;
-            margin-block-start: rem(24px);
+        text-align: center;
+        margin-block-end: 20px;
+    }
+
+    .summery {
+        color: $clr2;
+        font-family: Airbnb_Cereal-Book;
+
+        & span:first-child {
+            text-decoration: underline;
         }
     }
 
-
-
-
-
+    .total {
+        border-block-start: 1px solid #dedede;
+        padding: rem(24px) 0 0 0;
+        margin-block-start: rem(24px);
+    }
 }
-
-
-////////////////////////////////////////////////////////////////

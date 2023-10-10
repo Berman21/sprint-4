@@ -159,7 +159,12 @@ export function StayDetails() {
 
                         {/* <h3>The space</h3>
                         <p>The space is for the private upper two floors of the house. The owner stays in a separate...</p> */}
-                        <button>Show more</button>
+
+                        <div>
+                            <button>Show more</button>
+                            <img className='self-check-in' src="/src/assets/img/arrow-right.svg" />
+                        </div>
+
                     </div>
 
                     <section className="stay-amenities border-bottom">
@@ -185,11 +190,7 @@ export function StayDetails() {
 
             </section>
 
-
-
-
-            <section>
-
+            {/* <section>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
@@ -200,18 +201,7 @@ export function StayDetails() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-
-            </section>
+            </section> */}
 
         </section>
     )
