@@ -74,7 +74,7 @@ export function StayIndex() {
   return (
     <div>
       <main>
-        <button onClick={onAddStay}>Add Stay ⛐</button>
+        {/* <button onClick={onAddStay}>Add Stay ⛐</button> */}
         <StayList filterBy={filterBy} stays={stays} />
         {/* <ul className='stay-list'>
           {stays.map((stay) => (

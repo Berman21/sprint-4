@@ -7,11 +7,14 @@ export const CLOSE_EXPANDED_HEADER_MODAL = 'CLOSE_EXPANDED_HEADER_MODAL'
 export const SET_MODAL_LOGIN = 'SET_MODAL_LOGIN'
 export const SET_MODAL_SIGNUP = 'SET_MODAL_SIGNUP'
 export const CLOSE_APP_MODAL = 'CLOSE_APP_MODAL'
+export const SET_FOCUSED_MODAL = 'SET_FOCUSED_MODAL'
+export const REMOVE_FOCUSED_MODAL = 'REMOVE_FOCUSED_MODAL'
 const initialState = {
   isLoading: false,
   isFilterExpanded: false,
   isExpandedModalOpen: false,
   appModal: null,
+  isFocusedModal: false,
 }
 
 export function systemReducer(state = initialState, action = {}) {
@@ -20,6 +23,10 @@ export function systemReducer(state = initialState, action = {}) {
       return { ...state, isLoading: true }
     case LOADING_DONE:
       return { ...state, isLoading: false }
+    case SET_FOCUSED_MODAL:
+      return { ...state, isFocusedModal: true }
+    case REMOVE_FOCUSED_MODAL:
+      return { ...state, isFocusedModal: false }
     case CLOSE_EXPANDED_HEADER:
       return { ...state, isFilterExpanded: false }
     case OPEN_EXPANDED_HEADER:
