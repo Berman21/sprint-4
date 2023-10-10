@@ -1,10 +1,10 @@
 import plus from '../assets/img/plus.svg'
 import minus from '../assets/img/minus.svg'
 
-export function StayGusts() {
+export function StayGusts({ width = 326 }) {
   return (
     <section className='guests-preview-container'>
-      <article className='guests-preview'>
+      <article className='guests-preview' style={{ width: `${width}px` }}>
         <section className='guests-content'>
           <h3>Adults</h3>
           <p>Ages 13 or above</p>
@@ -19,7 +19,7 @@ export function StayGusts() {
           </button>
         </section>
       </article>
-      <article className='guests-preview'>
+      <article className='guests-preview' style={{ width: `${width}px` }}>
         <section className='guests-content'>
           <h3>Children</h3>
           <p>Ages 2-12</p>
@@ -34,7 +34,7 @@ export function StayGusts() {
           </button>
         </section>
       </article>
-      <article className='guests-preview'>
+      <article className='guests-preview' style={{ width: `${width}px` }}>
         <section className='guests-content'>
           <h3>Infants</h3>
           <p>Under 2</p>
@@ -49,7 +49,7 @@ export function StayGusts() {
           </button>
         </section>
       </article>
-      <article className='guests-preview'>
+      <article className='guests-preview' style={{ width: `${width}px` }}>
         <section className='guests-content'>
           <h3>Pets</h3>
           <p className='pets'>Bringing a service animal?</p>

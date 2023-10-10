@@ -9,6 +9,7 @@ import starSvg from '../assets/img/star.svg'
 import arrowDownSvg from '../assets/img/arrow-down.svg'
 import arrowUpSvg from '../assets/img/arrow-up.svg'
 import { AirbnbBtn } from './AirbnbBtn'
+import { StayGusts } from './StayGuests'
 
 export function Reservation({ stay, onReserve }) {
 
@@ -67,7 +68,13 @@ export function Reservation({ stay, onReserve }) {
                         </div>
                     </div>
 
-                    {isOpen && <div className='guest-list flex space-between'>
+                    {isOpen &&
+                        <div className='guest-list'>
+                            <StayGusts width={281}/>
+                        </div>}
+
+
+                    {/* {isOpen && <div className='guest-list flex space-between'>
                         <div>
                             <div>
                                 Adults
@@ -82,7 +89,7 @@ export function Reservation({ stay, onReserve }) {
                             1
                             <button>+</button>
                         </div>
-                    </div>}
+                    </div>} */}
 
 
                     <AirbnbBtn onReservePage={onReservePage} />
