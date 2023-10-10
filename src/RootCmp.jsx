@@ -18,8 +18,8 @@ export function RootCmp() {
           <Route path='/' element={<StayIndex />} />
           <Route path='user/:id' element={<UserDetails />} />
           <Route path='stay/:stayId' element={<StayDetails />} />
-          <Route path="/stay/edit" element={<StayEdit />} />
-          <Route path="/stay/reserve" element={<ReservePage />} />
+          <Route path='/stay/edit' element={<StayEdit />} />
+          <Route path='/stay/reserve' element={<ReservePage />} />
         </Routes>
       </main>
       <AppFooter />

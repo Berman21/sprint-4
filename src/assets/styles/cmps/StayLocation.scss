@@ -1,20 +1,22 @@
 .locations-container {
   width: 414px;
-  margin-block-start: 8px;
+  margin-block-start: 24px;
   margin-block-end: 32px;
-  padding-block-start: 16px;
+  padding-block-start: 0;
+  // padding-block-start: 16px;
   //   padding-inline: 20px;
   height: rem(402px);
-
+  border-left: 1px solid #ebebeb;
   h3 {
     padding-inline-start: 4px;
     font-size: 14px;
     font-family: Airbnb_Cereal-Bold;
-    margin: 0 0 rem(20px) rem(5px);
+    margin: 0 0 rem(20px) rem(30px);
     padding: rem(8px) 0;
   }
 
   .locations {
+    margin-inline-start: rem(26px);
     width: 406px;
     display: grid;
     grid-template-columns: 124px 124px 124px;
@@ -54,6 +56,12 @@
         width: 122px;
         border-radius: rem(12px);
         object-fit: cover;
+        cursor: pointer;
+        border: 1px solid transparent;
+
+        &:hover {
+          border: 1px solid black;
+        }
       }
     }
   }

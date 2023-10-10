@@ -8,7 +8,7 @@
   z-index: 50;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 40px 1fr 40px;
+  grid-template-columns: 80px 1fr 80px;
 
   .app-header {
     display: grid;
@@ -186,29 +186,38 @@
     }
 
     .user-container {
+      position: relative;
       justify-self: end;
-      cursor: pointer;
-      height: rem(42px);
-      width: rem(77px);
-      display: flex;
-      gap: rem(10px);
-      border-bottom: 1px solid #ddd;
-      border-radius: rem(100px);
-      background-color: $clr6;
-      align-items: center;
-      border: 1px solid rgb(221, 221, 221);
-      z-index: 200;
 
-      .user-icon {
-        width: rem(30px);
-        height: rem(30px);
-        margin-left: 2px;
-      }
+      .user-btn {
+        cursor: pointer;
+        height: rem(42px);
+        width: rem(77px);
+        display: flex;
+        gap: rem(10px);
+        border-bottom: 1px solid #ddd;
+        border-radius: rem(100px);
+        background-color: $clr6;
+        align-items: center;
+        border: 1px solid rgb(221, 221, 221);
+        z-index: 200;
+        transition: box-shadow 0.2s ease;
 
-      .hamburger {
-        width: rem(16px);
-        height: rem(16px);
-        margin-inline-start: rem(6px);
+        &:hover {
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+        }
+
+        .user-icon {
+          width: rem(30px);
+          height: rem(30px);
+          margin-left: 2px;
+        }
+
+        .hamburger {
+          width: rem(16px);
+          height: rem(16px);
+          margin-inline-start: rem(6px);
+        }
       }
     }
 

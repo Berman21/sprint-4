@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux'
 export function StayIndex() {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
+  const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const dispatch = useDispatch()
 
   useEffect(() => {

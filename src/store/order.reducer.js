@@ -1,4 +1,7 @@
+import { orderService } from "../services/order.service.local"
+
 export const SET_ORDERS = 'SET_ORDERS'
+export const SET_ORDER = 'SET_ORDER'
 export const REMOVE_ORDER = 'REMOVE_ORDER'
 export const ADD_ORDER = 'ADD_ORDER'
 export const UPDATE_ORDER = 'UPDATE_ORDER'
@@ -8,6 +11,7 @@ export const UNDO_REMOVE_ORDER = 'UNDO_REMOVE_ORDER'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 const initialState = {
+    order: orderService.getEmptyOrder(),
     orders: [],
     cart: [],
     lastRemovedOrder: null
@@ -18,6 +22,9 @@ export function orderReducer(state = initialState, action) {
     var orders
     var cart
     switch (action.type) {
+        case SET_ORDER:
+            newState = { ...state, order: action.order }
+            break
         case SET_ORDERS:
             newState = { ...state, orders: action.orders }
             break

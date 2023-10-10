@@ -6,36 +6,34 @@ export function ReservePage() {
 
     return (
 
-        <section className="reserve-container">
+        <section>
 
-            <div className="reserve-header">
-                <img src={arrowLeftSvg} alt="" />
-                <h1>Confirm and pay</h1>
-            </div>
+            <article>
 
-            {/* <section className="mid-section"> */}
-            <section>
+                <section>
+                    <img src={arrowLeftSvg} alt="" />
+                </section>
 
-                <div className="trip-details border-bottom">
-                    <h3>Your trip</h3>
-                    <div className="flex space-between">
-                        <article>
-                            <p>Dates</p>
-                            <p>21-23 Dec 2023</p>
-                        </article>
-                        <button>Edit</button>
-                    </div>
 
-                    <div className="flex space-between">
-                        <article>
-                            <p>Guests</p>
-                            <p>1 guest</p>
-                        </article>
-                        <button>Edit</button>
-                    </div>
-                </div>
+                <section>
+                    <h2>Request to book</h2>
+                </section>
+
+            </article>
+
+
+
+            <article className="flex space-between">
+
+                <section>
+
+                </section>
+
+                <section>
 
             </section>
+
+            </article>
 
         </section>
     )
