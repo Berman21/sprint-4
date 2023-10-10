@@ -1,0 +1,61 @@
+.reserve-container {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, 560px) 1fr;
+
+    >* {
+        grid-column: 2;
+
+        &.full {
+            grid-column: 1 /-1;
+        }
+    }
+
+    .reserve-header {
+        padding-block-start: 30px;
+
+        img {
+            position: relative;
+            right: 30px;
+            top: 32px;
+            width: 16px;
+        }
+
+        h1 {
+            font-family: Airbnb_Cereal-Book;
+            color: $clr2;
+            font-size: 32px;
+        }
+    }
+
+    .trip-details {
+        padding-block-end: 20px;
+
+        h3 {
+            font-family: Airbnb_Cereal-Book;
+            color: $clr2;
+            font-size: 22px;
+        }
+
+        p {
+            font-family: Airbnb_Cereal-Book;
+            line-height: 1;
+            color: $clr2;
+            margin: 15px 0;
+        }
+
+        p:first-child {
+            font-weight: 600;
+        }
+
+        button {
+            font-family: Airbnb_Cereal-Medium;
+            background-color: white;
+            border: none;
+            padding: 0;
+            height: 20px;
+            font-size: 16px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
