@@ -7,12 +7,9 @@ import minus from '../assets/img/minus.svg'
 
 export function StayGusts({ width = 326 }) {
 
-  const dispatch = useDispatch()
   const order = useSelector(store => store.orderModule.order)
-  console.log('TEST', order);
-
-  function onAddGuest(ev, type, diff) {
-    ev.stopPropagation()
+  
+  function onAddGuest(type, diff) {
     order.guests[type] += diff
     updateOrder(order)
     // console.log(order.guests);
@@ -28,11 +25,11 @@ export function StayGusts({ width = 326 }) {
         </section>
 
         <section className='guests-counter'>
-          <button onClick={(ev) => onAddGuest(ev, 'adults', -1)}>
+          <button onClick={() => onAddGuest('adults', -1)}>
             <img src={minus} />
           </button>
           <span>{order.guests.adults}</span>
-          <button onClick={(ev) => onAddGuest(ev, 'adults', 1)}>
+          <button onClick={() => onAddGuest('adults', 1)}>
             <img src={plus} />
           </button>
         </section>

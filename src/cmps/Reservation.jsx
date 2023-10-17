@@ -17,9 +17,7 @@ export function Reservation({ stay, onReserve }) {
     const navigate = useNavigate()
 
 
-    function onOpenModal(ev) {
-        // console.log(ev);
-        ev.stopPropagation()
+    function onOpenModal() {
         setIsOpen(!isOpen)
     }
 
@@ -58,7 +56,7 @@ export function Reservation({ stay, onReserve }) {
                             </div>
                         </div>
 
-                        <div className='guest-container flex space-between' onClick={(ev) => onOpenModal(ev)}>
+                        <div className='guest-container flex space-between' onClick={() => onOpenModal()}>
                             <div className='guest'>
                                 <div>GUESTS</div>
                                 <div>1 guests</div>
