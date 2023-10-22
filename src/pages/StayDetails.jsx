@@ -98,7 +98,7 @@ export function StayDetails() {
   return (
     <section className='detail-container'>
       <section className='detail-title'>
-        <h1>{stay.summary}</h1>
+        <h1>{stay.name}</h1>
 
         <div className='flex space-between'>
           <div className='detail-subtitle'>
@@ -135,13 +135,13 @@ export function StayDetails() {
             </h2>
 
             <article>
-              <p>3 guests</p>
+              <p>{stay.capacity} guests</p>
               <span>•</span>
-              <p>1 bedroom</p>
+              <p>2 bedrooms</p>
               <span>•</span>
-              <p>1 bed</p>
+              <p>3 beds</p>
               <span>•</span>
-              <p>1 bath</p>
+              <p>2 baths</p>
             </article>
 
             <img className='user-icon' src={userIcon} />
@@ -167,10 +167,7 @@ export function StayDetails() {
           </div>
 
           <div className='stay-description border-bottom'>
-            <p>
-              Nestled on the slope of the ridgeline running above Boone, NC lies Chalet Ruisseau. Surrounded by hardwoods and with the Doe Fork
-              running through your backyard you feel hidden away in the heart of the Blue Ridge, even though you're minutes from town.
-            </p>
+            <p>{stay.summary}</p>
 
             {/* <h3>The space</h3>
                         <p>The space is for the private upper two floors of the house. The owner stays in a separate...</p> */}

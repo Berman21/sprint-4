@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react'
+import { Link, useNavigate, useParams } from "react-router-dom"
 
-export function AirbnbBtn({ onReservePage }) {
+export function AirbnbBtn({ id }) {
     const buttonRef = useRef(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const button = buttonRef.current
@@ -22,6 +24,10 @@ export function AirbnbBtn({ onReservePage }) {
             button.removeEventListener('mousemove', handleMouseMove)
         }
     }, [])
+
+    function onReservePage() {
+        return navigate(`/stay/${id}/reserve`)
+    }
 
     return (
         <button ref={buttonRef} className="btn-reserve" onClick={onReservePage}>

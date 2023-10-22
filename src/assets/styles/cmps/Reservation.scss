@@ -49,27 +49,19 @@
         }
 
         .btn-reserve {
-            --mouse-x: 50;
-            --mouse-y: 50;
-
-            text-align: center;
             color: white;
             text-decoration: none;
             margin: 1rem 0;
 
-             font-size: 16px;
-             font-weight: 600;
-             font-family: Airbnb_Cereal-Bold;
+            min-width: 322px;
+            min-height: 48px;
 
-             min-width: 322px;
-             min-height: 48px;
-             background-size: 200% 200%;
-             background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
-             background-image: radial-gradient(circle, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
-             border-radius: 10px;
-             cursor: pointer;
-         }
-     }
+            font-size: 16px;
+            font-weight: 600;
+            font-family: Airbnb_Cereal-Bold;
+            border-radius: 10px;
+        }
+    }
 
     .reservation-selection {
         border: 1px solid gray;
@@ -154,10 +146,10 @@
         color: $clr2;
         font-family: Airbnb_Cereal-Book;
 
-         & span:first-child {
-             text-decoration: underline;
-         }
-     }
+        & span:first-child {
+            text-decoration: underline;
+        }
+    }
 
     .total {
         border-block-start: 1px solid #dedede;

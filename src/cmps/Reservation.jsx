@@ -1,9 +1,6 @@
 import React from 'react'
 
-import { Link, useNavigate, useParams } from "react-router-dom"
-
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 import starSvg from '../assets/img/star.svg'
 import arrowDownSvg from '../assets/img/arrow-down.svg'
@@ -14,16 +11,11 @@ import { StayGusts } from './StayGuests'
 export function Reservation({ stay, onReserve }) {
 
     const [isOpen, setIsOpen] = useState(false)
-    const navigate = useNavigate()
-
 
     function onOpenModal() {
         setIsOpen(!isOpen)
     }
 
-    function onReservePage() {
-        return navigate(`/stay/reserve`)
-    }
 
     return (
         <div className="reservation-section">
@@ -70,29 +62,10 @@ export function Reservation({ stay, onReserve }) {
 
                     {isOpen &&
                         <div className='guest-list'>
-                            <StayGusts width={281}/>
+                            <StayGusts width={281} />
                         </div>}
 
-
-                    {/* {isOpen && <div className='guest-list flex space-between'>
-                        <div>
-                            <div>
-                                Adults
-                            </div>
-                            <div>
-                                Age 13+
-                            </div>
-                        </div>
-
-                        <div>
-                            <button>-</button>
-                            1
-                            <button>+</button>
-                        </div>
-                    </div>} */}
-
-
-                    <AirbnbBtn onReservePage={onReservePage} />
+                    <AirbnbBtn id={stay._id} />
 
                 </div>
 

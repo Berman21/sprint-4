@@ -28,15 +28,15 @@ export function StayPreview({ stay }) {
 
         <img className='stay-img' src={stay.imgUrls[0]} />
 
-        <div className='stay-loc'>Herzliya, Israel</div>
-        {/* <div className='stay-loc'>{stay.loc.city}, {stay.loc.country}</div> */}
+        {/* <div className='stay-loc'>Herzliya, Israel</div> */}
+        <div className='stay-loc'>{stay.loc.city}, {stay.loc.country}</div>
 
         <div className='stay-rating'><img src={starSvg} />5.0</div>
         <p className='stay-distance'>13 miles to Ramat Gan National Park</p>
         <p className='stay-date'>6-11 Oct · Individual Host </p>
 
-        <div className='stay-price'>£1,187 <span>night</span></div>
-        {/* <div className='stay-price'>${stay.price} <span>total</span></div> */}
+        {/* <div className='stay-price'>£1,187 <span>night</span></div> */}
+        <div className='stay-price'>${stay.price} <span>total</span></div>
 
       </section>
     </Fragment>
