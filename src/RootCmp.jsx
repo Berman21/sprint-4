@@ -18,7 +18,7 @@ export function RootCmp() {
 
   function closeBackground(ev) {
     ev.preventDefault()
-    ev.storePropagation()
+    ev.stopPropagation()
     dispatch({ type: CLOSE_EXPANDED_HEADER })
     dispatch({ type: REMOVE_FOCUSED_MODAL })
   }

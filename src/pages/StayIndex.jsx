@@ -6,7 +6,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { userService } from '../services/user.service.js'
 import { stayService } from '../services/stay.service.local.js'
 import { StayList } from '../cmps/StayList.jsx'
-import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL } from '../store/system.reducer.js'
+import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer.js'
 import { useDispatch } from 'react-redux'
 import { FilterCarousel } from '../cmps/FilterCarousel.jsx'
 
@@ -24,6 +24,7 @@ export function StayIndex() {
     function handleScroll() {
       dispatch({ type: CLOSE_EXPANDED_HEADER })
       dispatch({ type: CLOSE_EXPANDED_HEADER_MODAL })
+      dispatch({ type: REMOVE_FOCUSED_MODAL })
     }
 
     window.addEventListener('scroll', handleScroll)

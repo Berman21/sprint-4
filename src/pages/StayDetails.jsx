@@ -19,7 +19,7 @@ import { loadStays, removeStay, updateStay } from '../store/stay.actions.js' //R
 import starSvg from '../assets/img/star.svg'
 import heartSvg from '../assets/img/heart.svg'
 import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
-import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL } from '../store/system.reducer.js'
+import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer.js'
 
 export function StayDetails() {
   const dispatch = useDispatch()
@@ -27,6 +27,7 @@ export function StayDetails() {
     function handleScroll() {
       dispatch({ type: CLOSE_EXPANDED_HEADER })
       dispatch({ type: CLOSE_EXPANDED_HEADER_MODAL })
+      dispatch({ type: REMOVE_FOCUSED_MODAL })
     }
 
     window.addEventListener('scroll', handleScroll)

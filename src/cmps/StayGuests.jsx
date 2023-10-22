@@ -1,13 +1,18 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector, useDispatch } from 'react-redux'
 
 import { updateOrder } from '../store/order.actions'
 
 import plus from '../assets/img/plus.svg'
 import minus from '../assets/img/minus.svg'
+import { useEffect } from 'react'
 
 export function StayGusts({ width = 326 }) {
 
   const order = useSelector(store => store.orderModule.order)
+  
+  useEffect(()=>{
+
+  },[order])
   
   function onAddGuest(type, diff) {
     order.guests[type] += diff
@@ -18,7 +23,6 @@ export function StayGusts({ width = 326 }) {
   return (
     <section className='guests-preview-container'>
       <article className='guests-preview' style={{ width: `${width}px` }}>
-
         <section className='guests-content'>
           <h3>Adults</h3>
           <p>Ages 13 or above</p>
@@ -33,9 +37,7 @@ export function StayGusts({ width = 326 }) {
             <img src={plus} />
           </button>
         </section>
-
       </article>
-
 
       <article className='guests-preview' style={{ width: `${width}px` }}>
         <section className='guests-content'>
@@ -54,7 +56,6 @@ export function StayGusts({ width = 326 }) {
         </section>
       </article>
 
-
       <article className='guests-preview' style={{ width: `${width}px` }}>
         <section className='guests-content'>
           <h3>Infants</h3>
@@ -71,7 +72,6 @@ export function StayGusts({ width = 326 }) {
         </section>
       </article>
 
-
       <article className='guests-preview' style={{ width: `${width}px` }}>
         <section className='guests-content'>
           <h3>Pets</h3>
@@ -87,8 +87,6 @@ export function StayGusts({ width = 326 }) {
           </button>
         </section>
       </article>
-
-
     </section>
   )
 }

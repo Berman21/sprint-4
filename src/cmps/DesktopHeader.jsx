@@ -3,9 +3,9 @@ import search from '../assets/img/search.svg'
 import hamburger from '../assets/img/hamburger.svg'
 import userIcon from '../assets/img/user.svg'
 import { store } from '../store/store'
-import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER, OPEN_EXPANDED_HEADER_MODAL } from '../store/system.reducer'
+import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER, OPEN_EXPANDED_HEADER_MODAL, SET_FOCUSED_MODAL } from '../store/system.reducer'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { FilterExpanded } from './FilterExpanded'
 import { Link } from 'react-router-dom'
 import { UserModal } from './UserModal'
@@ -16,7 +16,7 @@ export function DesktopHeader({ onSetFilter }) {
   const [selectedFilterBox, setSelectedFilterBox] = useState('where')
   const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
   const [isDropdownActive, setIsDropdownActive] = useState(false)
-
+  const dispatch = useDispatch()
   function toggleDropdown(ev) {
     ev.preventDefault()
     setIsDropdownActive((prevDropdown) => !prevDropdown)
@@ -24,12 +24,13 @@ export function DesktopHeader({ onSetFilter }) {
 
   function onExpandedFilter(ev) {
     ev.preventDefault()
-    store.dispatch({ type: OPEN_EXPANDED_HEADER })
+    dispatch({ type: OPEN_EXPANDED_HEADER })
+    dispatch({ type: SET_FOCUSED_MODAL })
   }
 
   function onSetSelectedFilterBox(ev) {
     ev.preventDefault()
-    store.dispatch({ type: OPEN_EXPANDED_HEADER_MODAL })
+    dispatch({ type: OPEN_EXPANDED_HEADER_MODAL })
     const field = ev.currentTarget.getAttribute('name')
     if (selectedFilterBox !== field) setSelectedFilterBox(field)
   }
