@@ -8,6 +8,7 @@ import { stayService } from '../services/stay.service.local.js'
 import { StayList } from '../cmps/StayList.jsx'
 import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL } from '../store/system.reducer.js'
 import { useDispatch } from 'react-redux'
+import { FilterCarousel } from '../cmps/FilterCarousel.jsx'
 
 export function StayIndex() {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
@@ -74,6 +75,7 @@ export function StayIndex() {
   return (
     <div>
       <main>
+        {/* <FilterCarousel /> */}
         {/* <button onClick={onAddStay}>Add Stay ⛐</button> */}
         <StayList filterBy={filterBy} stays={stays} />
         {/* <ul className='stay-list'>
