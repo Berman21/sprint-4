@@ -29,6 +29,7 @@
     position: relative;
     white-space: nowrap;
     width: 100%;
+    transition: all 0.2s;
 
     .check-in-container {
       margin-right: 5px;
@@ -323,6 +324,7 @@
   }
   .filter-expanded.all {
     background-color: white;
+    transition: all 0.2s;
   }
 
   &.folded {
@@ -332,5 +334,6 @@
     scale: 48% 82%;
     height: 0;
     pointer-events: none;
+    transition: all 0.2s;
   }
 }

@@ -9,6 +9,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 80px 1fr 80px;
+  transition: all 0.2s;
 
   .app-header {
     display: grid;
@@ -19,9 +20,11 @@
     // position: sticky;
     top: 0;
     align-items: center;
+    transition: all 0.2s;
 
     &.expanded {
       transform: scaleY(2.2);
+      transition: all 0.2s;
     }
 
     .any-container {
@@ -30,6 +33,7 @@
       align-items: center;
       display: flex;
       padding: 0;
+      transition: all 0.2s;
 
       button {
         align-items: center;
