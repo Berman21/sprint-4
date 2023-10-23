@@ -77,7 +77,7 @@ export function StayIndex() {
     <div>
       <section className='category-carousel-container'>
         <section className='category-carousel'>
-          <FilterCarousel />
+          <FilterCarousel filterBy={filterBy} />
         </section>
       </section>
       <main>
