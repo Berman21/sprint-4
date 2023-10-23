@@ -3,7 +3,12 @@
   align-items: center;
   grid-template-columns: auto auto;
   padding: 0;
-  padding-block-start: rem(15px);
+  margin-block-start: rem(20px);
+  position: sticky;
+  top: 80px;
+  z-index: 40;
+  background-color: white;
+  height: rem(78px);
 
   .category-carousel {
     display: grid;
@@ -16,11 +21,11 @@
       margin-inline-end: rem(30px);
 
       ul {
-        gap: 32px !important;
+        // gap: 32px !important;
       }
 
       li {
-        width: fit-content !important;
+        // width: fit-content !important;
       }
     }
 
@@ -76,6 +81,12 @@
         padding: 0;
         width: rem(28px);
         cursor: pointer;
+        transition: box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1);
+
+        &:hover {
+          transform: scale(1.04);
+          box-shadow: 0 rem(6px) rem(16px) rgba(0, 0, 0, 0.12);
+        }
 
         img {
           width: rem(12px);

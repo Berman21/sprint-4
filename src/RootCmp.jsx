@@ -26,7 +26,7 @@ export function RootCmp() {
       {isFocusedModal && <div className='gray-viewport' onClick={(ev) => closeBackground(ev)}></div>}
       <div className='app-container'>
         <AppHeader />
-        <main>
+        <main className='main-app'>
           <Routes>
             <Route path='/' element={<StayIndex />} />
             <Route path='stay/:stayId' element={<StayDetails />} />
