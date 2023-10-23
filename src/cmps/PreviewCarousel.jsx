@@ -2,8 +2,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 
-import arrowLeftSvg from '../assets/img/arrow-left.svg'
-import arrowRightSvg from '../assets/img/arrow-right.svg'
+import arrowLeftSvg from '../assets/img/preview-left-arrow.svg'
+import arrowRightSvg from '../assets/img/preview-right-arrow.svg'
 
 export function PreviewCarousel({ stay }) {
 
@@ -44,17 +44,12 @@ export function PreviewCarousel({ stay }) {
     }
 
     return (
-        // <section className='stay-img'>
+        <section>
 
             <div
                 style={{
                     width: '270px',
                     height: '256px',
-                    // overflow: hidden,
-                    // // object-fit: 'cover',
-                    // object-position: '50% 25%',
-                    // paddingBottom: '30px',
-                    // position: 'relative'
                 }}
             >
 
@@ -96,6 +91,6 @@ export function PreviewCarousel({ stay }) {
 
                 </Carousel>
             </div>
-        // </section>
+        </section>
     )
 }

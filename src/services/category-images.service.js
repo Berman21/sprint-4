@@ -19,6 +19,23 @@ import cities from '../assets/img/categories/iconic-cities.jpg'
 import historical from '../assets/img/categories/historical-homes.jpg'
 import piano from '../assets/img/categories/grand-piano.jpg'
 import golfing from '../assets/img/categories/golfing.jpg'
+import adapted from '../assets/img/categories/adapted.jpg'
+import aFrames from '../assets/img/categories/a-frames.jpg'
+import amazingPools from '../assets/img/categories/amazing-pools.jpg'
+import amazingViews from '../assets/img/categories/amazing-views.jpg'
+import arctics from '../assets/img/categories/arctics.jpg'
+import beach from '../assets/img/categories/beach.jpg'
+import beachfront from '../assets/img/categories/beachfront.jpg'
+import boats from '../assets/img/categories/boats.jpg'
+import breakfast from '../assets/img/categories/breakfast.jpg'
+import casasParticulares from '../assets/img/categories/casas-particulares.jpg'
+import castles from '../assets/img/categories/castles.jpg'
+import caves from '../assets/img/categories/caves.jpg'
+import chefsKitchen from '../assets/img/categories/chefs-kitchen.jpg'
+import container from '../assets/img/categories/container.jpg'
+import countryside from '../assets/img/categories/countryside.jpg'
+import creativeSpaces from '../assets/img/categories/creative-spaces.jpg'
+import desert from '../assets/img/categories/desert.jpg'
 import farms from '../assets/img/categories/farms.jpg'
 
 export const categoryImages = [
@@ -105,5 +122,77 @@ export const categoryImages = [
   {
     label: 'Farms',
     imgSrc: farms,
+  },
+  {
+    label: 'Towers',
+    imgSrc: towers,
+  },
+  {
+    label: 'Adapted',
+    imgSrc: adapted,
+  },
+  {
+    label: 'A-frames',
+    imgSrc: aFrames,
+  },
+  {
+    label: 'Amazing pools',
+    imgSrc: amazingPools,
+  },
+  {
+    label: 'Amazing views',
+    imgSrc: amazingViews,
+  },
+  {
+    label: 'Arctics',
+    imgSrc: arctics,
+  },
+  {
+    label: 'Beach',
+    imgSrc: beach,
+  },
+  {
+    label: 'Beachfront',
+    imgSrc: beachfront,
+  },
+  {
+    label: 'Boats',
+    imgSrc: boats,
+  },
+  {
+    label: 'Casas particulares',
+    imgSrc: casasParticulares,
+  },
+  {
+    label: 'Castles',
+    imgSrc: castles,
+  },
+  {
+    label: 'Caves',
+    imgSrc: caves,
+  },
+  {
+    label: "Chef's kitchen",
+    imgSrc: chefsKitchen,
+  },
+  {
+    label: 'Container',
+    imgSrc: container,
+  },
+  {
+    label: 'Countryside',
+    imgSrc: countryside,
+  },
+  {
+    label: 'Creative spaces',
+    imgSrc: creativeSpaces,
+  },
+  {
+    label: 'Desert',
+    imgSrc: desert,
+  },
+  {
+    label: 'Breakfast',
+    imgSrc: breakfast,
   },
 ]

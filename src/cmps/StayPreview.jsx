@@ -25,22 +25,25 @@ export function StayPreview({ stay }) {
   return (
     <Fragment>
 
+      <section className='preview-card'>
+
       <button className='wishlist-icon-btn'>
         <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={setClr} className='preview-wishlist-icon' />
       </button>
 
         <PreviewCarousel stay={stay} />
 
-      <section className='stay-preview' onClick={() => onStay(stay._id)} >
+        <article className='stay-preview' onClick={() => onStay(stay._id)} >
 
-        <div className='stay-loc'>{stay.loc.city}, {stay.loc.country}</div>
+          <div className='stay-loc'>{stay.loc.city}, {stay.loc.country}</div>
 
-        <div className='stay-rating'><img src={starSvg} />5.0</div>
-        <p className='stay-distance'>13 miles to Ramat Gan National Park</p>
-        <p className='stay-date'>6-11 Oct · Individual Host </p>
+          <div className='stay-rating'><img src={starSvg} />5.0</div>
+          <p className='stay-distance'>13 miles to Ramat Gan National Park</p>
+          <p className='stay-date'>6-11 Oct · Individual Host </p>
 
-        <div className='stay-price'>₪{stay.price} <span>total</span></div>
+          <div className='stay-price'>₪{stay.price} <span>total</span></div>
 
+        </article>
       </section>
     </Fragment>
   )
