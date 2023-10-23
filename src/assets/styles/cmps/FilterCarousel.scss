@@ -1,0 +1,35 @@
+.category-carousel-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto;
+
+  .category-carousel {
+    display: grid;
+    grid-template-columns: auto;
+    position: relative;
+    .category-container {
+      color: #717171;
+      display: flex;
+      flex-direction: column;
+      gap: rem(8px);
+      padding-block: rem(4px);
+      width: min-content;
+      min-width: rem(56px);
+      margin-inline: auto;
+
+      img {
+        display: block;
+        width: rem(24px);
+        height: rem(24px);
+        opacity: 0.6425339367;
+        object-fit: cover;
+      }
+
+      .category-label {
+        font-size: rem(12px);
+        text-align: center;
+        white-space: nowrap;
+      }
+    }
+  }
+}
