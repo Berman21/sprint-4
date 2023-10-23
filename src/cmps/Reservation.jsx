@@ -65,7 +65,7 @@ export function Reservation({ stay, onReserve }) {
                             <StayGusts width={281} />
                         </div>}
 
-                    <AirbnbBtn id={stay._id} />
+                    <AirbnbBtn id={stay._id} txt={'Reserve'} />
 
                 </div>
 
@@ -75,12 +75,12 @@ export function Reservation({ stay, onReserve }) {
 
                 <div className='summery flex space-between'>
                     <span>₪{stay.price} x 2 nights</span>
-                    <span>₪1,242</span>
+                    <span>₪{new Intl.NumberFormat('he-IL').format(stay.price * 2)}</span>
                 </div>
 
                 <div className='total flex space-between'>
                     <div>Total</div>
-                    <div>₪1,242</div>
+                    <div>₪{new Intl.NumberFormat('he-IL').format(stay.price * 2)}</div>
                 </div>
 
             </div>

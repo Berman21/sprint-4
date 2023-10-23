@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link, useNavigate, useParams } from "react-router-dom"
 
-export function AirbnbBtn({ id }) {
+export function AirbnbBtn({ id, txt }) {
     const buttonRef = useRef(null)
     const navigate = useNavigate()
 
@@ -31,7 +31,7 @@ export function AirbnbBtn({ id }) {
 
     return (
         <button ref={buttonRef} className="btn-reserve" onClick={onReservePage}>
-            Reserve
+            {txt}
         </button>
     )
 }

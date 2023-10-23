@@ -2,12 +2,12 @@
     padding: 0;
     cursor: pointer;
 
-    .stay-img {
-        width: 270px;
-        height: 256px;
-        object-fit: cover;
-        object-position: 50% 25%;
-    }
+        .stay-img {
+            width: 270px;
+            height: 256px;
+            object-fit: cover;
+            object-position: 50% 25%;
+        }
 
     .stay-loc {
         margin-block-start: em(10px);
@@ -54,16 +54,22 @@
     .stay-distance {
         line-height: 1.2;
     }
+
 }
 
-.preview-wishlist-icon {
+.wishlist-icon-btn {
     position: relative;
     top: 46px;
     left: 230px;
+    border: none;
+    padding: 0;
+    background-color: inherit;
+    z-index: 1;
+}
 
+.preview-wishlist-icon {
     height: 24px;
     width: 24px;
 
     cursor: pointer;
 }
-    

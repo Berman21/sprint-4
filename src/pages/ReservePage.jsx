@@ -38,7 +38,10 @@ export function ReservePage() {
         <section className="reserve-container">
 
             <div className="reserve-header">
-                <img onClick={onPrevPage} src={arrowLeftSvg} alt="" />
+                <button onClick={onPrevPage}>
+                    <img  src={arrowLeftSvg} alt="" />
+                </button>
+
                 <h1>Confirm and pay</h1>
             </div>
 
@@ -101,7 +104,7 @@ export function ReservePage() {
                 </div>
             </section>
 
-            <AirbnbBtn />
+            <AirbnbBtn txt={'Confirm and pay'} />
 
         </section >
     )
