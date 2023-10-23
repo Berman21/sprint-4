@@ -7,10 +7,13 @@ import minus from '../assets/img/minus.svg'
 import { useEffect } from 'react'
 
 export function StayGusts({ width = 326 }) {
-  const order = useSelector((store) => store.orderModule.order)
 
-  useEffect(() => {}, [order])
+  const order = useSelector(store => store.orderModule.order)
+  
+  useEffect(()=>{
 
+  },[order])
+  
   function onAddGuest(type, diff) {
     order.guests[type] += diff
     updateOrder(order)

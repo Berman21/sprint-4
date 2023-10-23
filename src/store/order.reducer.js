@@ -19,6 +19,7 @@ const initialState = {
 
 export function orderReducer(state = initialState, action) {
     var newState = state
+    var order
     var orders
     var cart
     switch (action.type) {

@@ -2,7 +2,7 @@ import { orderService } from "../services/order.service.local.js";
 import { userService } from "../services/user.service.js";
 import { store } from '../store/store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { ADD_ORDER, ADD_TO_CART, CLEAR_CART, REMOVE_ORDER, REMOVE_FROM_CART, SET_ORDERS, UNDO_REMOVE_ORDER, UPDATE_ORDER } from "./order.reducer.js";
+import { ADD_ORDER, ADD_TO_CART, CLEAR_CART, REMOVE_ORDER, REMOVE_FROM_CART, SET_ORDERS,SET_ORDER, UNDO_REMOVE_ORDER, UPDATE_ORDER } from "./order.reducer.js";
 import { SET_SCORE } from "./user.reducer.js";
 
 // Action Creators:
