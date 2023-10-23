@@ -7,13 +7,19 @@ import arrowDownSvg from '../assets/img/arrow-down.svg'
 import arrowUpSvg from '../assets/img/arrow-up.svg'
 import { AirbnbBtn } from './AirbnbBtn'
 import { StayGusts } from './StayGuests'
+import { StayDate } from './StayDate'
 
 export function Reservation({ stay, onReserve }) {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [dateSelection, setDateSelection] = useState(false)
 
     function onOpenModal() {
         setIsOpen(!isOpen)
+    }
+
+    function onSelectDate() {
+        setDateSelection(!dateSelection)
     }
 
 
@@ -38,11 +44,11 @@ export function Reservation({ stay, onReserve }) {
 
                     <div className="reservation-selection">
                         <div className="date">
-                            <div className='check-in'>
+                            <div className='check-in' onClick={() => onSelectDate()}>
                                 <div>CHECK IN</div>
                                 <div>21/12/21</div>
                             </div>
-                            <div className='check-out'>
+                            <div className='check-out' onClick={() => onSelectDate()}>
                                 <div>CHECK OUT</div>
                                 <div>23/12/21</div>
                             </div>
@@ -65,6 +71,10 @@ export function Reservation({ stay, onReserve }) {
                             <StayGusts width={281} />
                         </div>}
 
+                    {dateSelection &&
+                        <div className='check-out-modal'>
+                            <StayDate />
+                        </div>}
                     <AirbnbBtn id={stay._id} txt={'Reserve'} />
 
                 </div>
