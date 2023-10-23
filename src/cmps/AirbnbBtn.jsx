@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export function AirbnbBtn({ id, txt }) {
     const buttonRef = useRef(null)

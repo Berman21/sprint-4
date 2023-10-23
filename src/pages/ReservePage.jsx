@@ -1,5 +1,5 @@
 
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import { stayService } from "../services/stay.service.local.js"
@@ -39,7 +39,7 @@ export function ReservePage() {
 
             <div className="reserve-header">
                 <button onClick={onPrevPage}>
-                    <img  src={arrowLeftSvg} alt="" />
+                    <img src={arrowLeftSvg} alt="" />
                 </button>
 
                 <h1>Confirm and pay</h1>

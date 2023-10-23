@@ -33,9 +33,6 @@ export function StayPreview({ stay }) {
 
       <section className='stay-preview' onClick={() => onStay(stay._id)} >
 
-        {/* <img className='stay-img' src={stay.imgUrls[0]} /> */}
-        {/* <PreviewCarousel stay={stay} /> */}
-
         <div className='stay-loc'>{stay.loc.city}, {stay.loc.country}</div>
 
         <div className='stay-rating'><img src={starSvg} />5.0</div>

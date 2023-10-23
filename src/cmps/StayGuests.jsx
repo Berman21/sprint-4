@@ -17,7 +17,6 @@ export function StayGusts({ width = 326 }) {
   function onAddGuest(type, diff) {
     order.guests[type] += diff
     updateOrder(order)
-    // console.log(order.guests);
   }
 
   return (

@@ -2,8 +2,7 @@ import logo from '../assets/img/Airbnb-Logo.png'
 import search from '../assets/img/search.svg'
 import hamburger from '../assets/img/hamburger.svg'
 import userIcon from '../assets/img/user.svg'
-import { store } from '../store/store'
-import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER, OPEN_EXPANDED_HEADER_MODAL, SET_FOCUSED_MODAL } from '../store/system.reducer'
+import { OPEN_EXPANDED_HEADER, OPEN_EXPANDED_HEADER_MODAL, SET_FOCUSED_MODAL } from '../store/system.reducer'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FilterExpanded } from './FilterExpanded'
@@ -41,18 +40,6 @@ export function DesktopHeader({ onSetFilter }) {
     const value = ev.currentTarget.getAttribute('class')
     if (value === selectedExperience) return
     setSelectedExperience(`${field}`)
-  }
-
-  function onClickModal() {
-    if (isFilterExpanded) {
-      if (!isFirstTimeExpandedRef.current) {
-        store.dispatch({ type: CLOSE_EXPANDED_HEADER_MODAL })
-        setSelectedFilterBox('all')
-      } else {
-        store.dispatch({ type: OPEN_EXPANDED_HEADER_MODAL })
-      }
-      isFirstTimeExpandedRef.current = false
-    }
   }
 
   return (

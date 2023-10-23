@@ -1,23 +1,19 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { stayService } from '../services/stay.service.local.js'
 import { orderService } from '../services/order.service.local.js'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
-import { utilService } from '../services/util.service.js'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import userIcon from '../assets/img/user.svg'
 import checkInIcon from '../assets/img/self-check-in.svg'
 import superhostIcon from '../assets/img/superhost.svg'
 import cancellationIcon from '../assets/img/free-cancellation.svg'
+import starSvg from '../assets/img/star.svg'
 
 import { Reservation } from '../cmps/Reservation.jsx'
+import { updateOrder } from '../store/order.actions.js'
 
-import { loadOrders, removeOrder, updateOrder } from '../store/order.actions.js' //REMOVE AFTER MAKING ORDER INDEX
-import { loadStays, removeStay, updateStay } from '../store/stay.actions.js' //REMOVE AFTER MAKING ORDER INDEX
-
-import starSvg from '../assets/img/star.svg'
-import heartSvg from '../assets/img/heart.svg'
 import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
 import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer.js'
 
@@ -70,16 +66,6 @@ export function StayDetails() {
   function onReserve(stayId) {
     console.log('onReserve', stayId)
     onAddOrder(stayId)
-  }
-
-  async function onRemove(stayId) {
-    try {
-      await removeStay(stayId)
-      navigate('/')
-    } catch {
-      console.log('Had issues in stay details', err)
-      showErrorMsg('Cannot remove stay')
-    }
   }
 
   async function onAddOrder(stayId) {
@@ -170,9 +156,6 @@ export function StayDetails() {
           <div className='stay-description border-bottom'>
             <p>{stay.summary}</p>
 
-            {/* <h3>The space</h3>
-                        <p>The space is for the private upper two floors of the house. The owner stays in a separate...</p> */}
-
             <div>
               <button>Show more</button>
               <img className='self-check-in' src='/src/assets/img/arrow-right.svg' />
@@ -191,26 +174,10 @@ export function StayDetails() {
               ))}
             </div>
           </section>
-
-          {/* <button onClick={() => onRemove(stay._id)}>remove stay</button>
-                    <Link to="/stay/edit">edit stay</Link> */}
         </div>
 
         <Reservation stay={stay} onReserve={onReserve} />
       </section>
-
-      {/* <section>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nemo a neque inventore. Laudantium explicabo asperiores aut voluptates nesciunt, dolorem impedit dolores error illum vel temporibus repellendus, sint deleniti quis.
-            </section> */}
     </section>
   )
 }

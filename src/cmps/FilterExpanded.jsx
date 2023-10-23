@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER_MODAL } from '../store/system.reducer'
 import { StayFilter } from './StayFilter'
-import { DayPicker } from 'react-day-picker'
 import { format } from 'date-fns'
 import { useClickOutside } from '../customHooks/useCloseModule'
 import { store } from '../store/store'
@@ -24,12 +23,6 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
     if (!isFilterExpanded) isFirstTimeExpandedRef.current = true
   }, [isFilterExpanded])
   const modalContainerRef = useRef(null)
-
-  // function handleChange({ target }) {
-  //   const field = target.name
-  //   const value = target.type === 'number' ? +target.value : target.value
-  //   setFilterBy((prevFilter) => ({ ...prevFilter, [field]: value }))
-  // }
 
   function handleChange({ target }) {
     const field = target.name
@@ -78,22 +71,6 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
     onClickModal()
   })
 
-  // function displayGuestsFilter() {
-  //   // ******** At least 1 Adult from this point ********
-  //   let guestsStr = ''
-  //   const guests = filterBy.guests.adults + filterBy.guests.children
-  //   guestsStr += `${guests} ${guests > 1 ? 'guests' : 'guest'}` //keep it guests/guests in case of i18
-  //   const infants = filterBy.guests.infants
-  //   if (infants > 0) {
-  //     guestsStr += ` ,${infants} ${infants > 1 ? 'infants' : 'infant'}`
-  //   }
-  //   const pets = filterBy.guests.pets
-  //   if (pets > 0) {
-  //     guestsStr += ` ,${pets} ${pets > 1 ? 'pets' : 'pet'}`
-  //   }
-  //   return guestsStr
-  // }
-
   return (
     <section className={`filter-expanded-container full ${isFilterExpanded ? '' : 'folded'}`}>
       <section className={`filter-expanded ${selectedFilterBox === 'all' ? ' all' : ''}`} ref={dropdownRef}>
@@ -132,7 +109,6 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
               <h3>Who</h3>
               <span>
                 Add guests
-                {/* {filterBy.guests.adults > 0 ? <LongTxt txt={displayGuestsFilter()} length={11} askShowMore={false} /> : } */}
               </span>
             </section>
             <section className='btn-search-container'>
