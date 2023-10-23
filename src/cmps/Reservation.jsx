@@ -1,6 +1,7 @@
 import React from 'react'
-
 import { useState } from "react"
+import { useSelector } from 'react-redux'
+import { updateOrder } from '../store/order.actions'
 
 import starSvg from '../assets/img/star.svg'
 import arrowDownSvg from '../assets/img/arrow-down.svg'
@@ -11,8 +12,10 @@ import { StayDate } from './StayDate'
 
 export function Reservation({ stay, onReserve }) {
 
+    const [date,setDate] = useState()
     const [isOpen, setIsOpen] = useState(false)
     const [dateSelection, setDateSelection] = useState(false)
+    const order = useSelector(store => store.orderModule.order)
 
     function onOpenModal() {
         setIsOpen(!isOpen)
@@ -21,6 +24,20 @@ export function Reservation({ stay, onReserve }) {
     function onSelectDate() {
         setDateSelection(!dateSelection)
     }
+
+    function onSetDate(date){
+        console.log(date);
+        setDate(date)
+    }
+
+    function convertDateFormat(inputDate) {
+        const dateObj = new Date(inputDate);
+        const day = dateObj.getDate().toString().padStart(2, '0');
+        const month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are 0-based
+        const year = dateObj.getFullYear();
+      
+        return `${day}/${month}/${year}`;
+      }
 
 
     return (
@@ -72,8 +89,8 @@ export function Reservation({ stay, onReserve }) {
                         </div>}
 
                     {dateSelection &&
-                        <div className='check-out-modal'>
-                            <StayDate />
+                        <div className='modal check-out-modal'>
+                            <StayDate onSetDate={onSetDate}/>
                         </div>}
                     <AirbnbBtn id={stay._id} txt={'Reserve'} />
 

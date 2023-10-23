@@ -5,14 +5,20 @@ import 'react-day-picker/dist/style.css'
 
 const pastMonth = new Date()
 
-export function StayDate() {
+export function StayDate({ onSetDate }) {
   const disabledDays = []
   const defaultSelected = {
     from: pastMonth,
     to: addDays(pastMonth, 4),
   }
   const [range, setRange] = useState()
+  // const date = {
+  //   from: range.from,
+  //   to: range.to
+  // }
+  // onSetDate(date)
   const today = new Date()
+
   return (
     <section className='date-picker'>
       <DayPicker
