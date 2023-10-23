@@ -1,21 +1,99 @@
 .category-carousel-container {
   display: grid;
   align-items: center;
-  grid-template-columns: auto;
+  grid-template-columns: auto auto;
+  padding: 0;
+  padding-block-start: rem(15px);
 
   .category-carousel {
     display: grid;
     grid-template-columns: auto;
     position: relative;
+    padding: 0;
+
+    .category-bar {
+      position: static !important;
+      margin-inline-end: rem(30px);
+
+      ul {
+        gap: 32px !important;
+      }
+
+      li {
+        width: fit-content !important;
+      }
+    }
+
+    .custom-arrow-container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      height: 100%;
+      width: fit-content;
+      position: absolute;
+      opacity: 1;
+      padding: 0;
+
+      &.left {
+        left: 0;
+        background-image: linear-gradient(270deg, hsla(0, 0%, 100%, 0), #fff rem(40px));
+
+        &::after {
+          content: '';
+          height: 100%;
+          width: 40px;
+        }
+
+        & .custom-arrow {
+          grid-column: 1;
+        }
+      }
+      &.right {
+        right: 0;
+        background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0), #fff rem(40px));
+
+        &::before {
+          content: '';
+          height: 100%;
+          width: rem(40px);
+        }
+
+        & .custom-arrow {
+          grid-column: 2;
+        }
+      }
+
+      .custom-arrow {
+        align-items: center;
+        background-color: white;
+        border: 0.5px solid rgba(0, 0, 0, 0.3);
+        border-radius: rem(32px);
+        display: flex;
+        height: rem(28px);
+        justify-content: center;
+        margin: 0;
+        // margin-block-start: rem(20px);
+        padding: 0;
+        width: rem(28px);
+        cursor: pointer;
+
+        img {
+          width: rem(12px);
+          height: rem(12px);
+        }
+      }
+    }
     .category-container {
       color: #717171;
       display: flex;
       flex-direction: column;
       gap: rem(8px);
-      padding-block: rem(4px);
       width: min-content;
+      padding: 0;
       min-width: rem(56px);
       margin-inline: auto;
+      align-items: center;
+      cursor: pointer;
 
       img {
         display: block;
@@ -29,6 +107,9 @@
         font-size: rem(12px);
         text-align: center;
         white-space: nowrap;
+        margin: 0;
+        font-family: 'Airbnb_Cereal-Book';
+        line-height: rem(16px);
       }
     }
   }

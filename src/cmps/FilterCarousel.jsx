@@ -1,24 +1,42 @@
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { categoryImages } from '../services/category-images.service'
+import leftArrow from '../assets/img/left-arrow.svg'
+import rightArrow from '../assets/img/right-arrow.svg'
 
 export function FilterCarousel() {
+  const CustomLeftArrow = ({ onClick }) => (
+    <section className='custom-arrow-container left'>
+      <button className='custom-arrow left' onClick={onClick}>
+        <img src={leftArrow} />
+      </button>
+    </section>
+  )
+
+  const CustomRightArrow = ({ onClick }) => (
+    <section className='custom-arrow-container right'>
+      <button className='custom-arrow right' onClick={onClick}>
+        <img src={rightArrow} />
+      </button>
+    </section>
+  )
+
   const responsive = {
     desktop: {
       breakpoint: {
         max: 3000,
-        min: 1700,
+        min: 1550,
       },
       items: 13,
-      slidesToSlide: 6,
+      slidesToSlide: 9,
     },
     desktopSmall: {
       breakpoint: {
-        max: 1700,
+        max: 1550,
         min: 1400,
       },
-      items: 13,
-      slidesToSlide: 6,
+      items: 12,
+      slidesToSlide: 8,
     },
     tabletLarge: {
       breakpoint: {
@@ -26,7 +44,7 @@ export function FilterCarousel() {
         min: 1200,
       },
       items: 11,
-      slidesToSlide: 3,
+      slidesToSlide: 7,
     },
     tabletMedium: {
       breakpoint: {
@@ -72,23 +90,23 @@ export function FilterCarousel() {
 
   return (
     <Carousel
-      // centerMode={false}
+      centerMode={false}
       draggable={false}
-      // partialVisible={false}
-      // customLeftArrow={<CustomLeftArrow />}
-      // customRightArrow={<CustomRightArrow />}
-      // minimumTouchDrag={80}
-      // renderArrowsWhenDisabled={false}
-      // arrows
-      // className='category-bar'
-      // itemClass='category-item width-100-percent'
-      // renderButtonGroupOutside={false}
+      partialVisible={false}
+      customLeftArrow={<CustomLeftArrow />}
+      customRightArrow={<CustomRightArrow />}
+      minimumTouchDrag={80}
+      renderArrowsWhenDisabled={true}
+      arrows
+      className='category-bar'
+      itemClass='category-item width-100-percent'
+      renderButtonGroupOutside={false}
       responsive={responsive}
-      // rewind={true}
-      // rtl={false}
-      // slidesToSlide={1}
+      rewind={true}
+      rtl={false}
+      slidesToSlide={1}
       swipeable={true}
-      // infinite={false}
+      infinite={false}
     >
       {categoryImages.map((img, index) => (
         <section key={index} className={`category-container`}>
