@@ -156,4 +156,14 @@
         padding: rem(24px) 0 0 0;
         margin-block-start: rem(24px);
     }
+
+    .check-out-modal {
+        position: absolute;
+        right: 5%;
+        top: 30%;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+        z-index: 999;
+    }
 }
