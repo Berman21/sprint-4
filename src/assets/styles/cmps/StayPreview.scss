@@ -1,13 +1,18 @@
-.stay-preview {
+.preview-card {
     padding: 0;
+}
+
+.preview-card:hover .custom-arrow {
     cursor: pointer;
 
-        .stay-img {
-            width: 270px;
-            height: 256px;
-            object-fit: cover;
-            object-position: 50% 25%;
-        }
+    background-color: white;
+    opacity: 1;
+}
+
+.stay-preview {
+    padding: 0;
+    padding-left: 10px;
+    cursor: pointer;
 
     .stay-loc {
         margin-block-start: em(10px);
@@ -52,15 +57,15 @@
     }
 
     .stay-distance {
-        line-height: 1.2;
+        line-height: 1;
     }
 
 }
 
 .wishlist-icon-btn {
     position: relative;
-    top: 46px;
-    left: 230px;
+    top: 52px;
+    left: 237px;
     border: none;
     padding: 0;
     background-color: inherit;
