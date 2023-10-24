@@ -8,8 +8,8 @@ import { SET_FILTER_BY } from '../store/stay.reducer'
 import { useDispatch } from 'react-redux'
 
 export function FilterCarousel({ filterBy }) {
-  const [filterByToEdit, setFilterByToEdit] = useState({ labels: 'Countryside', ...filterBy })
-  const [selectedCategory, setSelectedCategory] = useState({ labels: 'Countryside', ...filterBy })
+  const [filterByToEdit, setFilterByToEdit] = useState({ labels: '', ...filterBy })
+  const [selectedCategory, setSelectedCategory] = useState({ labels: '', ...filterBy })
   const dispatch = useDispatch()
 
   useEffect(() => {

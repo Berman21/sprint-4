@@ -37,6 +37,23 @@ import countryside from '../assets/img/categories/countryside.jpg'
 import creativeSpaces from '../assets/img/categories/creative-spaces.jpg'
 import desert from '../assets/img/categories/desert.jpg'
 import farms from '../assets/img/categories/farms.jpg'
+import barns from '../assets/img/categories/barns.jpg'
+import campers from '../assets/img/categories/campers.jpg'
+import camping from '../assets/img/categories/camping.jpg'
+import dammusi from '../assets/img/categories/dammusi.jpg'
+import domes from '../assets/img/categories/domes.jpg'
+import hankos from '../assets/img/categories/hankos.jpg'
+import houseboats from '../assets/img/categories/houseboats.jpg'
+import lake from '../assets/img/categories/lake.jpg'
+import luxe from '../assets/img/categories/luxe.jpg'
+import minsus from '../assets/img/categories/minsus.jpg'
+import news from '../assets/img/categories/new.jpg'
+import riads from '../assets/img/categories/riads.jpg'
+import shepherdsHut from '../assets/img/categories/shepherds-huts.jpg'
+import skiInOut from '../assets/img/categories/ski-in-out.jpg'
+import surfing from '../assets/img/categories/surfing.jpg'
+import yurts from '../assets/img/categories/yurts.jpg'
+import earthHomes from '../assets/img/categories/earth-homes.jpg'
 
 export const categoryImages = [
   {
@@ -194,5 +211,73 @@ export const categoryImages = [
   {
     label: 'Breakfast',
     imgSrc: breakfast,
+  },
+  {
+    label: 'Barns',
+    imgSrc: barns,
+  },
+  {
+    label: 'Campers',
+    imgSrc: campers,
+  },
+  {
+    label: 'Camping',
+    imgSrc: camping,
+  },
+  {
+    label: 'Dammusi',
+    imgSrc: dammusi,
+  },
+  {
+    label: 'Domes',
+    imgSrc: domes,
+  },
+  {
+    label: 'Hankos',
+    imgSrc: hankos,
+  },
+  {
+    label: 'Houseboats',
+    imgSrc: houseboats,
+  },
+  {
+    label: 'Lake',
+    imgSrc: lake,
+  },
+  {
+    label: 'Luxe',
+    imgSrc: luxe,
+  },
+  {
+    label: 'Minsus',
+    imgSrc: minsus,
+  },
+  {
+    label: 'New',
+    imgSrc: news,
+  },
+  {
+    label: 'Riads',
+    imgSrc: riads,
+  },
+  {
+    label: "Shepherd's huts",
+    imgSrc: shepherdsHut,
+  },
+  {
+    label: 'Ski-in/out',
+    imgSrc: skiInOut,
+  },
+  {
+    label: 'Surfing',
+    imgSrc: surfing,
+  },
+  {
+    label: 'Yurts',
+    imgSrc: yurts,
+  },
+  {
+    label: 'Earth homes',
+    imgSrc: earthHomes,
   },
 ]
