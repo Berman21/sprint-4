@@ -11,26 +11,25 @@ import { StayGusts } from './StayGuests'
 import { StayDate } from './StayDate'
 
 export function Reservation({ stay,stayId }) {
-    const [date, setDate] = useState({ from: 'SELECT', to: 'SELECT' })
     const [isOpen, setIsOpen] = useState(false)
-    const [dateSelection, setDateSelection] = useState(false)
+    const [dateSelection, setIsDateOpen] = useState(false)
     const navigate = useNavigate()
 
     const order = useSelector(store => store.orderModule.order)
-
+    console.log(order);
 
 
     function onOpenModal() {
         setIsOpen(!isOpen)
     }
 
-    function onSelectDate() {
-        setDateSelection(!dateSelection)
+    function onOpenDateModal() {
+        setIsDateOpen(!dateSelection)
     }
 
     function onSetDate(date) {
-        console.log(date);
-        setDate(date)
+        order.startDate = date.from
+        order.endDate = date.to
     }
 
     function onReservePage() {
@@ -58,13 +57,13 @@ export function Reservation({ stay,stayId }) {
 
                     <div className="reservation-selection">
                         <div className="date">
-                            <div className='check-in' onClick={() => onSelectDate()}>
+                            <div className='check-in' onClick={() => onOpenDateModal()}>
                                 <div>CHECK IN</div>
-                                <div>{date.from}</div>
+                                <div>{order.startDate}</div>
                             </div>
-                            <div className='check-out' onClick={() => onSelectDate()}>
+                            <div className='check-out' onClick={() => onOpenDateModal()}>
                                 <div>CHECK OUT</div>
-                                <div>{date.to}</div>
+                                <div>{order.endDate}</div>
                             </div>
                         </div>
 
