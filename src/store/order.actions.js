@@ -20,7 +20,7 @@ export function getActionAddOrder(order) {
 }
 export function getActionUpdateOrder(order) {
     return {
-        type: UPDATE_ORDER,
+        type: SET_ORDER,
         order
     }
 }

@@ -1,21 +1,40 @@
 import React from 'react'
-
 import { useState } from "react"
+import { useSelector } from 'react-redux'
+import { useNavigate } from "react-router-dom"
 
 import starSvg from '../assets/img/star.svg'
 import arrowDownSvg from '../assets/img/arrow-down.svg'
 import arrowUpSvg from '../assets/img/arrow-up.svg'
 import { AirbnbBtn } from './AirbnbBtn'
 import { StayGusts } from './StayGuests'
+import { StayDate } from './StayDate'
 
-export function Reservation({ stay, onReserve }) {
-
+export function Reservation({ stay,stayId }) {
     const [isOpen, setIsOpen] = useState(false)
+    const [dateSelection, setIsDateOpen] = useState(false)
+    const navigate = useNavigate()
+
+    const order = useSelector(store => store.orderModule.order)
+    console.log(order);
+
 
     function onOpenModal() {
         setIsOpen(!isOpen)
     }
 
+    function onOpenDateModal() {
+        setIsDateOpen(!dateSelection)
+    }
+
+    function onSetDate(date) {
+        order.startDate = date.from
+        order.endDate = date.to
+    }
+
+    function onReservePage() {
+        return navigate(`/stay/${stayId}/reserve`)
+    }
 
     return (
         <div className="reservation-section">
@@ -38,13 +57,13 @@ export function Reservation({ stay, onReserve }) {
 
                     <div className="reservation-selection">
                         <div className="date">
-                            <div className='check-in'>
+                            <div className='check-in' onClick={() => onOpenDateModal()}>
                                 <div>CHECK IN</div>
-                                <div>21/12/21</div>
+                                <div>{order.startDate}</div>
                             </div>
-                            <div className='check-out'>
+                            <div className='check-out' onClick={() => onOpenDateModal()}>
                                 <div>CHECK OUT</div>
-                                <div>23/12/21</div>
+                                <div>{order.endDate}</div>
                             </div>
                         </div>
 
@@ -65,7 +84,11 @@ export function Reservation({ stay, onReserve }) {
                             <StayGusts width={281} />
                         </div>}
 
-                    <AirbnbBtn id={stay._id} txt={'Reserve'} />
+                    {dateSelection &&
+                        <div className='modal check-out-modal'>
+                            <StayDate onSetDate={onSetDate} />
+                        </div>}
+                    <AirbnbBtn id={stay._id} txt={'Reserve'} callBackFunction={onReservePage} />
 
                 </div>
 

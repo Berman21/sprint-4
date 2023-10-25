@@ -63,22 +63,7 @@ export function StayDetails() {
     }
   }
 
-  function onReserve(stayId) {
-    console.log('onReserve', stayId)
-    onAddOrder(stayId)
-  }
-
-  async function onAddOrder(stayId) {
-    try {
-      const orderToSave = orderService.getEmptyOrder()
-      orderToSave.stay._id = stayId
-      const savedOrder = await updateOrder(orderToSave)
-      showSuccessMsg(`Order added (id: ${savedOrder._id})`)
-    } catch (err) {
-      console.error('Cannot add order', err)
-      showErrorMsg('Cannot add order')
-    }
-  }
+  
 
   if (!stay) return <div>loading..</div>
 
@@ -176,7 +161,7 @@ export function StayDetails() {
           </section>
         </div>
 
-        <Reservation stay={stay} onReserve={onReserve} />
+        <Reservation stay={stay} stayId={stayId} />
       </section>
     </section>
   )

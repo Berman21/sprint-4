@@ -75,12 +75,12 @@ export function StayIndex() {
   }
   return (
     <div>
-      <main>
-        <section className='category-carousel-container'>
-          <section className='category-carousel'>
-            <FilterCarousel />
-          </section>
+      <section className='category-carousel-container'>
+        <section className='category-carousel'>
+          <FilterCarousel filterBy={filterBy} />
         </section>
+      </section>
+      <main>
         {/* <button onClick={onAddStay}>Add Stay ⛐</button> */}
         <StayList filterBy={filterBy} stays={stays} />
         {/* <ul className='stay-list'>

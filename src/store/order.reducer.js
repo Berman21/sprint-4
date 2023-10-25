@@ -15,11 +15,11 @@ const initialState = {
 
 export function orderReducer(state = initialState, action) {
     var newState = state
-    var order
     var orders
     switch (action.type) {
         case SET_ORDER:
             newState = { ...state, order: action.order }
+            console.log('NEW STATE',newState);
             break
         case SET_ORDERS:
             newState = { ...state, orders: action.orders }

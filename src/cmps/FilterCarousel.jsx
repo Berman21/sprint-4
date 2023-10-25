@@ -3,8 +3,29 @@ import 'react-multi-carousel/lib/styles.css'
 import { categoryImages } from '../services/category-images.service'
 import leftArrow from '../assets/img/left-arrow.svg'
 import rightArrow from '../assets/img/right-arrow.svg'
+import { useEffect, useState } from 'react'
+import { SET_FILTER_BY } from '../store/stay.reducer'
+import { useDispatch } from 'react-redux'
 
-export function FilterCarousel() {
+export function FilterCarousel({ filterBy }) {
+  const [filterByToEdit, setFilterByToEdit] = useState({ labels: '', ...filterBy })
+  const [selectedCategory, setSelectedCategory] = useState({ labels: '', ...filterBy })
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    onSetFilter(filterByToEdit)
+  }, [filterByToEdit])
+
+  function handleClick(ev, label) {
+    ev.preventDefault()
+    setSelectedCategory(label)
+    setFilterByToEdit({ ...selectedCategory, labels: label })
+  }
+
+  function onSetFilter(filterBy) {
+    dispatch({ type: SET_FILTER_BY, filterBy })
+  }
+
   const CustomLeftArrow = ({ onClick }) => (
     <section className='custom-arrow-container left'>
       <button className='custom-arrow left' onClick={onClick}>
@@ -52,7 +73,7 @@ export function FilterCarousel() {
         min: 1000,
       },
       items: 9,
-      slidesToSlide: 3,
+      slidesToSlide: 6,
     },
     tabletSmall: {
       breakpoint: {
@@ -60,7 +81,7 @@ export function FilterCarousel() {
         min: 800,
       },
       items: 7,
-      slidesToSlide: 3,
+      slidesToSlide: 5,
     },
     mobileLarge: {
       breakpoint: {
@@ -90,28 +111,26 @@ export function FilterCarousel() {
 
   return (
     <Carousel
-      centerMode={false}
       draggable={false}
-      partialVisible={false}
       customLeftArrow={<CustomLeftArrow />}
       customRightArrow={<CustomRightArrow />}
       minimumTouchDrag={80}
-      renderArrowsWhenDisabled={true}
-      arrows
+      renderArrowsWhenDisabled={false}
       className='category-bar'
       itemClass='category-item width-100-percent'
-      renderButtonGroupOutside={false}
       responsive={responsive}
-      rewind={true}
-      rtl={false}
-      slidesToSlide={1}
       swipeable={true}
-      infinite={false}
     >
       {categoryImages.map((img, index) => (
-        <section key={index} className={`category-container`}>
+        <section
+          key={index}
+          onClick={(ev) => handleClick(ev, img.label)}
+          className={`category-container${selectedCategory === img.label ? ' active' : ''}`}
+        >
           <img key={index} src={img.imgSrc} />
-          <p className='category-label'>{img.label}</p>
+          <label>
+            <span className='category-label'>{img.label}</span>
+          </label>
         </section>
       ))}
     </Carousel>

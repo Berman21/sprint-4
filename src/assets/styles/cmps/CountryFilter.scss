@@ -5,6 +5,19 @@
   width: rem(345px);
   height: rem(410px);
 
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-thumb {
+    width: rem(26px);
+    border-radius: rem(13px);
+    background-clip: padding-box;
+    border: rem(10px) solid transparent;
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 0 rem(10px);
+  }
+
   h3 {
     margin-inline-start: rem(24px);
     margin-block-end: rem(20px);
@@ -46,16 +59,4 @@
       }
     }
   }
-}
-::-webkit-scrollbar,
-::-webkit-scrollbar-thumb {
-  width: rem(26px);
-  border-radius: rem(13px);
-  background-clip: padding-box;
-  border: rem(10px) solid transparent;
-  color: rgba(0, 0, 0, 0.3);
-}
-
-::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 0 rem(10px);
 }

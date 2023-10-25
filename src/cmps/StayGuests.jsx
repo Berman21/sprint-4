@@ -1,19 +1,13 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { updateOrder } from '../store/order.actions'
 
 import plus from '../assets/img/plus.svg'
 import minus from '../assets/img/minus.svg'
-import { useEffect } from 'react'
 
 export function StayGusts({ width = 326 }) {
-
   const order = useSelector(store => store.orderModule.order)
-  
-  useEffect(()=>{
 
-  },[order])
-  
   function onAddGuest(type, diff) {
     order.guests[type] += diff
     updateOrder(order)
@@ -45,11 +39,11 @@ export function StayGusts({ width = 326 }) {
         </section>
 
         <section className='guests-counter'>
-          <button>
+          <button onClick={() => onAddGuest('children', -1)}>
             <img src={minus} />
           </button>
-          <span>0</span>
-          <button>
+          <span>{order.guests.children}</span>
+          <button onClick={() => onAddGuest('children', 1)}>
             <img src={plus} />
           </button>
         </section>
@@ -60,12 +54,13 @@ export function StayGusts({ width = 326 }) {
           <h3>Infants</h3>
           <p>Under 2</p>
         </section>
+
         <section className='guests-counter'>
-          <button>
+          <button onClick={() => onAddGuest('infants', -1)}>
             <img src={minus} />
           </button>
-          <span>0</span>
-          <button>
+          <span>{order.guests.infants}</span>
+          <button onClick={() => onAddGuest('infants', 1)}>
             <img src={plus} />
           </button>
         </section>
@@ -76,16 +71,19 @@ export function StayGusts({ width = 326 }) {
           <h3>Pets</h3>
           <p className='pets'>Bringing a service animal?</p>
         </section>
+
         <section className='guests-counter'>
-          <button>
+          <button onClick={() => onAddGuest('pets', -1)}>
             <img src={minus} />
           </button>
-          <span>0</span>
-          <button>
+          <span>{order.guests.pets}</span>
+          <button onClick={() => onAddGuest('pets', 1)}>
             <img src={plus} />
           </button>
         </section>
+
       </article>
+
     </section>
   )
 }
