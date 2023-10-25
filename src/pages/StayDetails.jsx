@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { stayService } from '../services/stay.service.local.js'
-import { orderService } from '../services/order.service.local.js'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { useDispatch } from 'react-redux'
 
@@ -13,8 +12,6 @@ import starSvg from '../assets/img/star.svg'
 
 import { Reservation } from '../cmps/Reservation.jsx'
 import { ReviewPreview } from '../cmps/ReviewPreview.jsx'
-import { updateOrder } from '../store/order.actions.js'
-
 import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
 import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer.js'
 
@@ -162,8 +159,8 @@ export function StayDetails() {
           </section>
         </div>
 
-        <Reservation stay={stay} onReserve={onReserve} />
-        <ReviewPreview stay={stay} />
+        <Reservation stay={stay} />
+        <ReviewPreview stay={stay} stayId={stayId} />
       </section>
     </section>
   )

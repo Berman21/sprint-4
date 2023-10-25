@@ -10,11 +10,15 @@ import starSvg from '../assets/img/star.svg'
 import { AirbnbBtn } from '../cmps/AirbnbBtn'
 import { updateOrder } from "../store/order.actions.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
+import { useSelector } from "react-redux"
+import { store } from "../store/store.js"
 
 export function ReservePage() {
 
     const { stayId } = useParams()
     const [currStay, setCurrStay] = useState(null)
+    const order = useSelector(store => store.orderModule.order)
+    console.log('RES PAGE',order);
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -124,7 +128,7 @@ export function ReservePage() {
                 </div>
             </section>
 
-            <AirbnbBtn txt={'Confirm and pay'} callBackFunction={onReserve}/>
+            <AirbnbBtn txt={'Confirm and pay'} callBackFunction={onReserve} />
 
 
         </section >

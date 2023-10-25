@@ -48,8 +48,7 @@ export function PreviewCarousel({ stay }) {
 
             <div
                 style={{
-                    width: '270px',
-                    height: '256px',
+                    width: '100%',
                 }}
             >
 

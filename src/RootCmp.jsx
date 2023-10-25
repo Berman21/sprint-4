@@ -9,6 +9,7 @@ import { ReservePage } from './pages/ReservePage'
 import { useDispatch, useSelector } from 'react-redux'
 import { store } from './store/store'
 import { CLOSE_EXPANDED_HEADER, REMOVE_FOCUSED_MODAL } from './store/system.reducer'
+import { Dashboard } from './cmps/Dashboard'
 
 export function RootCmp() {
   const isFocusedModal = useSelector((storeState) => storeState.systemModule.isFocusedModal)
@@ -29,6 +30,7 @@ export function RootCmp() {
         <main className='main-app'>
           <Routes>
             <Route path='/' element={<StayIndex />} />
+            <Route path='dashboard' element={<Dashboard />} />
             <Route path='stay/:stayId' element={<StayDetails />} />
             <Route path='/stay/:stayId/reserve' element={<ReservePage />} />
           </Routes>

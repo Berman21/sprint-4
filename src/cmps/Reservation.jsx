@@ -16,8 +16,6 @@ export function Reservation({ stay,stayId }) {
     const navigate = useNavigate()
 
     const order = useSelector(store => store.orderModule.order)
-    console.log(order);
-
 
     function onOpenModal() {
         setIsOpen(!isOpen)
