@@ -159,8 +159,8 @@ export function StayDetails() {
           </section>
         </div>
 
-        <Reservation stay={stay} />
-        <ReviewPreview stay={stay} stayId={stayId} />
+        <Reservation stay={stay} stayId={stayId} />
+        <ReviewPreview stay={stay} />
       </section>
     </section>
   )
