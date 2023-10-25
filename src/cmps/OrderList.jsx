@@ -1,7 +1,8 @@
 import { OrderPreview } from './OrderPreview'
 
-export function OrderList({ orders }) {
+export function OrderList({ orders, onChangeStatus }) {
 
+    if (!orders) return <div>Loading...</div>
     return (
         <section>
 
@@ -12,12 +13,13 @@ export function OrderList({ orders }) {
                 <p>Listing</p>
                 <p>Total Price</p>
                 <p>Status</p>
+                <p>To do</p>
             </article>
 
             <ul className='clean-list'>
                 {orders.map((order) => (
                     <li className='order' key={order._id}>
-                        <OrderPreview order={order} />
+                        <OrderPreview order={order} onChangeStatus={onChangeStatus} />
                     </li>
                 ))}
             </ul>

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 
-import { updateOrder } from '../store/order.actions'
+import { updateOrderDetails } from '../store/order.actions'
 
 import plus from '../assets/img/plus.svg'
 import minus from '../assets/img/minus.svg'
@@ -10,7 +10,7 @@ export function StayGusts({ width = 326 }) {
 
   function onAddGuest(type, diff) {
     order.guests[type] += diff
-    updateOrder(order)
+    updateOrderDetails(order)
   }
 
   return (

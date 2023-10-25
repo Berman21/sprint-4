@@ -2,7 +2,7 @@
 
 .order-list {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     padding: 10px;
 
     p {
@@ -13,12 +13,7 @@
         &:first-child {
             justify-self: start;
         }
-
-        &:last-child {
-            justify-self: end;
-        }
     }
-
 }
 
 
@@ -28,7 +23,7 @@
 
 .order-preview {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     padding: 10px;
 
     align-items: center;
@@ -53,10 +48,6 @@
         color: $clr2;
         font-family: Airbnb_Cereal-Book;
         justify-self: center;
-
-    //     &:last-child {
-    //         justify-self: end;
-    //     }
     }
 
     img {
@@ -66,24 +57,34 @@
     button {
         justify-self: end;
         padding: 5px 32px;
-        // margin-inline-end: 30px;
-        cursor: pointer;
-
+        
         font-size: 14px;
         font-family: Airbnb_Cereal-Medium;
         text-transform: capitalize;
         transition: .3s;
+        
+        cursor: pointer;
     }
 
     .pending {
-        @include status-btn($clr: #FFA500, $percentage: 40%);
+        @include status($clr: #FFA500);
     }
     
     .approve {
-        @include status-btn($clr: #67C23A, $percentage: 45%);
+        @include status($clr: #67C23A);
+    }
+    
+    .reject {
+        @include status($clr: #F56C6C);
     }
 
-    .reject {
+    .approve-btn {
+        @include status-btn($clr: #67C23A, $percentage: 45%);
+        margin-inline-end: 5px;
+    }
+
+    .reject-btn {
         @include status-btn($clr: #F56C6C, $percentage: 25%);
+        margin-inline-start: 5px;
     }
 }

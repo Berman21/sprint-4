@@ -1,20 +1,7 @@
 
-import { useState } from 'react'
 import userIcon from '../assets/img/user.svg'
-import { StatusModal } from './StatusModal'
 
-export function OrderPreview({ order }) {
-
-    const [isDropdownActive, setIsDropdownActive] = useState(false)
-
-    function toggleDropdown(ev) {
-        ev.preventDefault()
-        setIsDropdownActive((prevDropdown) => !prevDropdown)
-    }
-
-    function onChangeStatus(order, status) {
-
-    }
+export function OrderPreview({ order, onChangeStatus }) {
 
     return (
         <section className="order-preview border-bottom">
@@ -27,10 +14,12 @@ export function OrderPreview({ order }) {
             <p>{order.stay.name}</p>
             <p>₪{order.totalPrice}</p>
 
-            {/* <div onClick={(ev) => toggleDropdown(ev)}> */}
-            <button className={order.status} onClick={(ev) => toggleDropdown(ev)}>{order.status}</button>
-            {isDropdownActive && <StatusModal setIsDropdownActive={setIsDropdownActive} />}
-            {/* </div> */}
+            <p className={order.status}>{order.status}</p>
+
+            <div>
+                <button className='approve-btn' onClick={() => onChangeStatus(order, 'approve')}>Approve</button>
+                <button className='reject-btn' onClick={() => onChangeStatus(order, 'reject')}>Reject</button>
+            </div>
 
         </section>
     )

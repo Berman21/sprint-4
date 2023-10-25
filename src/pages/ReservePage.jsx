@@ -17,10 +17,8 @@ export function ReservePage() {
 
     const { stayId } = useParams()
     const [currStay, setCurrStay] = useState(null)
-    const order = useSelector(store => store.orderModule.order)
-    console.log('RES PAGE',order);
     const navigate = useNavigate()
-
+    let order = useSelector(store => store.orderModule.order)
     useEffect(() => {
         loadStay()
     }, [])
@@ -40,16 +38,18 @@ export function ReservePage() {
     }
 
     function onReserve() {
-        console.log('onReserve', stayId)
-        onAddOrder(stayId)
+        const { _id, name, price } = currStay
+        order = { ...order, stay:{ _id, name, price} }
+        console.log(order);
+        // console.log('onReserve', stayId)
+        onAddOrder(order)
     }
 
-    async function onAddOrder(stayId) {
+    async function onAddOrder(order) {
         try {
-            const orderToSave = orderService.getEmptyOrder()
-            orderToSave.stay._id = stayId
-            const savedOrder = await updateOrder(orderToSave)
+            const savedOrder = await updateOrder(order)
             showSuccessMsg(`Order added (id: ${savedOrder._id})`)
+            navigate('/')
         } catch (err) {
             console.error('Cannot add order', err)
             showErrorMsg('Cannot add order')
