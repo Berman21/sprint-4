@@ -4,7 +4,7 @@ import { BarChart } from './BarChart';
 import { OrderList } from './OrderList';
 
 import { useSelector } from 'react-redux';
-import { loadOrders } from '../store/order.actions';
+import { loadOrders, updateOrder } from '../store/order.actions';
 import { useEffect } from 'react';
 
 
@@ -16,6 +16,11 @@ export function Dashboard() {
         loadOrders()
     }, [])
 
+    function onChangeStatus(order, status) {
+        order.status = status
+        updateOrder(order)
+    }
+
     return (
         <section>
 
@@ -23,7 +28,7 @@ export function Dashboard() {
             <BarChart /> */}
 
             <h1>{orders.length} reservations</h1>
-            <OrderList orders={orders} />
+            <OrderList orders={orders} onChangeStatus={onChangeStatus} />
 
         </section>
     )

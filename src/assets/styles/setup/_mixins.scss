@@ -59,7 +59,7 @@
     }
 }
 
-@mixin status-btn($clr: #FFA500, $percentage: 40%) {
+@mixin status-btn($clr, $percentage) {
     background-color: lighten($clr, $percentage);
     color: darken($clr, 5%);
     border: 1px solid $clr;
@@ -69,4 +69,10 @@
         color: white;
         border: 1px solid $clr;
     }
+}
+
+@mixin status($clr) {
+    color: $clr;
+    text-transform: capitalize;
+    font-family: Airbnb_Cereal-Bold;
 }
