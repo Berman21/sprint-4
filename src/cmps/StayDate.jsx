@@ -12,12 +12,24 @@ export function StayDate({ onSetDate }) {
     to: addDays(pastMonth, 4),
   }
   const [range, setRange] = useState()
-  // const date = {
-  //   from: range.from,
-  //   to: range.to
-  // }
-  // onSetDate(date)
   const today = new Date()
+
+  function setDateRange(range) {
+    setRange(range)
+    const date = {
+      from: convertDateFormat(range.from),
+      to: convertDateFormat(range.to)
+    }
+    onSetDate(date)
+  }
+
+  function convertDateFormat(inputDate) {
+    const dateObj = new Date(inputDate);
+    const day = dateObj.getDate().toString().padStart(2, '0');
+    const month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are 0-based
+    const year = dateObj.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
 
   return (
     <section className='date-picker'>
@@ -30,7 +42,7 @@ export function StayDate({ onSetDate }) {
         defaultMonth={pastMonth}
         numberOfMonths={2}
         selected={range}
-        onSelect={setRange}
+        onSelect={setDateRange}
       />
     </section>
   )

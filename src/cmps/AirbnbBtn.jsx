@@ -1,9 +1,7 @@
 import { useEffect, useRef } from 'react'
-import { useNavigate } from "react-router-dom"
 
-export function AirbnbBtn({ id, txt }) {
+export function AirbnbBtn({ txt , callBackFunction }) {
     const buttonRef = useRef(null)
-    const navigate = useNavigate()
 
     useEffect(() => {
         const button = buttonRef.current
@@ -25,12 +23,8 @@ export function AirbnbBtn({ id, txt }) {
         }
     }, [])
 
-    function onReservePage() {
-        return navigate(`/stay/${id}/reserve`)
-    }
-
     return (
-        <button ref={buttonRef} className="btn-reserve" onClick={onReservePage}>
+        <button ref={buttonRef} className="btn-reserve" onClick={callBackFunction}>
             {txt}
         </button>
     )

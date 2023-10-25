@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react"
 import { useSelector } from 'react-redux'
-import { updateOrder } from '../store/order.actions'
+import { useNavigate } from "react-router-dom"
 
 import starSvg from '../assets/img/star.svg'
 import arrowDownSvg from '../assets/img/arrow-down.svg'
@@ -10,35 +10,31 @@ import { AirbnbBtn } from './AirbnbBtn'
 import { StayGusts } from './StayGuests'
 import { StayDate } from './StayDate'
 
-export function Reservation({ stay, onReserve }) {
-
-    const [date,setDate] = useState()
+export function Reservation({ stay,stayId }) {
     const [isOpen, setIsOpen] = useState(false)
-    const [dateSelection, setDateSelection] = useState(false)
+    const [dateSelection, setIsDateOpen] = useState(false)
+    const navigate = useNavigate()
+
     const order = useSelector(store => store.orderModule.order)
+    console.log(order);
+
 
     function onOpenModal() {
         setIsOpen(!isOpen)
     }
 
-    function onSelectDate() {
-        setDateSelection(!dateSelection)
+    function onOpenDateModal() {
+        setIsDateOpen(!dateSelection)
     }
 
-    function onSetDate(date){
-        console.log(date);
-        setDate(date)
+    function onSetDate(date) {
+        order.startDate = date.from
+        order.endDate = date.to
     }
 
-    function convertDateFormat(inputDate) {
-        const dateObj = new Date(inputDate);
-        const day = dateObj.getDate().toString().padStart(2, '0');
-        const month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are 0-based
-        const year = dateObj.getFullYear();
-      
-        return `${day}/${month}/${year}`;
-      }
-
+    function onReservePage() {
+        return navigate(`/stay/${stayId}/reserve`)
+    }
 
     return (
         <div className="reservation-section">
@@ -61,13 +57,13 @@ export function Reservation({ stay, onReserve }) {
 
                     <div className="reservation-selection">
                         <div className="date">
-                            <div className='check-in' onClick={() => onSelectDate()}>
+                            <div className='check-in' onClick={() => onOpenDateModal()}>
                                 <div>CHECK IN</div>
-                                <div>21/12/21</div>
+                                <div>{order.startDate}</div>
                             </div>
-                            <div className='check-out' onClick={() => onSelectDate()}>
+                            <div className='check-out' onClick={() => onOpenDateModal()}>
                                 <div>CHECK OUT</div>
-                                <div>23/12/21</div>
+                                <div>{order.endDate}</div>
                             </div>
                         </div>
 
@@ -90,9 +86,9 @@ export function Reservation({ stay, onReserve }) {
 
                     {dateSelection &&
                         <div className='modal check-out-modal'>
-                            <StayDate onSetDate={onSetDate}/>
+                            <StayDate onSetDate={onSetDate} />
                         </div>}
-                    <AirbnbBtn id={stay._id} txt={'Reserve'} />
+                    <AirbnbBtn id={stay._id} txt={'Reserve'} callBackFunction={onReservePage} />
 
                 </div>
 
