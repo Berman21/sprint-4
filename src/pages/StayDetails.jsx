@@ -12,6 +12,7 @@ import cancellationIcon from '../assets/img/free-cancellation.svg'
 import starSvg from '../assets/img/star.svg'
 
 import { Reservation } from '../cmps/Reservation.jsx'
+import { ReviewPreview } from '../cmps/ReviewPreview.jsx'
 import { updateOrder } from '../store/order.actions.js'
 
 import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
@@ -168,7 +169,7 @@ export function StayDetails() {
             <div>
               {stay.amenities.map((amenity, idx) => (
                 <article key={idx}>
-                  <img className='self-check-in' src={`/src/assets/img/${amenity}.svg`} />
+                  <img className='self-check-in' src={`/src/assets/img/amenities/${amenity}.svg`} />
                   <p>{amenity}</p>
                 </article>
               ))}
@@ -177,6 +178,7 @@ export function StayDetails() {
         </div>
 
         <Reservation stay={stay} onReserve={onReserve} />
+        <ReviewPreview stay={stay} />
       </section>
     </section>
   )

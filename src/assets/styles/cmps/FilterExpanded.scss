@@ -29,7 +29,6 @@
     position: relative;
     white-space: nowrap;
     width: 100%;
-    transition: all 0.2s;
 
     .check-in-container {
       margin-right: 5px;
@@ -92,7 +91,7 @@
         &.who-search .who {
           padding-block: 14px;
 
-          & > * {
+          &>* {
             &:first-child {
               letter-spacing: 0.48px;
               font-weight: 400;
@@ -215,7 +214,7 @@
               border: 0;
               border-radius: 32px;
 
-              & > * {
+              &>* {
                 color: lightgray;
                 width: fit-content;
 
@@ -287,12 +286,13 @@
         width: rem(48px);
         margin-inline-start: rem(64px);
 
-        & .search > :last-child {
+        & .search> :last-child {
           opacity: 0;
           max-width: 0px;
         }
       }
     }
+
     .size-less {
       height: 0;
       width: 0;
@@ -322,18 +322,16 @@
       }
     }
   }
+
   .filter-expanded.all {
     background-color: white;
-    transition: all 0.2s;
   }
 
   &.folded {
-    display: none;
     translate: 0px -73px;
     opacity: 0;
     scale: 48% 82%;
     height: 0;
     pointer-events: none;
-    transition: all 0.2s;
   }
 }
