@@ -220,16 +220,13 @@ function getEmptyOrder() {
         guests: {
             adults: 1,
             children: 0,
-            infants:0,
-            pets:0
+            infants: 0,
+            pets: 0
         },
-        stay: {
-            _id: 'h102',
-            name: 'House Of Uncle My',
-            price: 80.0,
-        }
+        status: 'pending'
     }
 }
+
 
 
 // TEST DATA

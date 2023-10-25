@@ -20,6 +20,13 @@ export function getActionAddOrder(order) {
 }
 export function getActionUpdateOrder(order) {
     return {
+        type: UPDATE_ORDER,
+        order
+    }
+}
+
+export function getActionSetOrder(order) {
+    return {
         type: SET_ORDER,
         order
     }
@@ -74,6 +81,11 @@ export function updateOrder(order) {
             console.log('Cannot save order', err)
             throw err
         })
+}
+
+export function updateOrderDetails(order) {
+    store.dispatch(getActionSetOrder(order))
+    return order
 }
 
 // Demo for Optimistic Mutation 
