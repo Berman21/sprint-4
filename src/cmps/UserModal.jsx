@@ -1,16 +1,21 @@
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { SET_MODAL_LOGIN, SET_MODAL_SIGNUP } from '../store/system.reducer'
 import { setAppModal } from '../store/system.action'
 
 export function UserModal({ setIsDropdownActive }) {
   const loggedInUser = useSelector((storeState) => storeState.userModule.user)
+  const navigate = useNavigate()
 
   function onOpenModal(ev, modalType) {
     ev.preventDefault()
     ev.stopPropagation()
     setIsDropdownActive(false)
     setAppModal(modalType)
+  }
+
+  function onDashboard() {
+    return navigate(`/dashboard`)
   }
 
   return (
@@ -37,6 +42,9 @@ export function UserModal({ setIsDropdownActive }) {
           </article>
           <article className='dropdown-option' onClick={(ev) => onOpenModal(ev, SET_MODAL_SIGNUP)}>
             <span>Sign up</span>
+          </article>
+          <article className='dropdown-option' onClick={() => onDashboard()}>
+            <span>Dashboard</span>
           </article>
         </>
       )}

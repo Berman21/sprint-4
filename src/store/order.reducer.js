@@ -5,15 +5,11 @@ export const SET_ORDER = 'SET_ORDER'
 export const REMOVE_ORDER = 'REMOVE_ORDER'
 export const ADD_ORDER = 'ADD_ORDER'
 export const UPDATE_ORDER = 'UPDATE_ORDER'
-export const ADD_TO_CART = 'ADD_TO_CART'
-export const CLEAR_CART = 'CLEAR_CART'
 export const UNDO_REMOVE_ORDER = 'UNDO_REMOVE_ORDER'
-export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 const initialState = {
-    order: orderService.getEmptyOrder(),
     orders: [],
-    cart: [],
+    order: orderService.getEmptyOrder(),
     lastRemovedOrder: null
 }
 
@@ -21,7 +17,6 @@ export function orderReducer(state = initialState, action) {
     var newState = state
     var order
     var orders
-    var cart
     switch (action.type) {
         case SET_ORDER:
             newState = { ...state, order: action.order }
@@ -40,16 +35,6 @@ export function orderReducer(state = initialState, action) {
         case UPDATE_ORDER:
             orders = state.orders.map(order => (order._id === action.order._id) ? action.order : order)
             newState = { ...state, orders }
-            break
-        case ADD_TO_CART:
-            newState = { ...state, cart: [...state.cart, action.order] }
-            break
-        case REMOVE_FROM_CART:
-            cart = state.cart.filter(order => order._id !== action.orderId)
-            newState = { ...state, cart }
-            break
-        case CLEAR_CART:
-            newState = { ...state, cart: [] }
             break
         case UNDO_REMOVE_ORDER:
             if (state.lastRemovedOrder) {

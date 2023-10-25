@@ -3,32 +3,8 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-const orders = [
-    {
-        _id: 'o1225',
-        hostId: 'u102',
-        buyer: {
-            _id: 'u101',
-            fullname: 'User 1',
-        },
-        totalPrice: 160,
-        startDate: '2025/10/15',
-        endDate: '2025/10/17',
-        guests: {
-            adults: 1,
-            children: 2,
-        },
-        stay: {
-            _id: 'h102',
-            name: 'House Of Uncle My',
-            price: 80.0,
-        },
-        msgs: [],
-        status: 'pending', // approved, rejected
-    },
-]
-
 const STORAGE_KEY = 'order'
+_createOrders()
 
 export const orderService = {
     query,
@@ -39,6 +15,148 @@ export const orderService = {
     addOrderMsg
 }
 window.cs = orderService
+
+
+function _createOrders() {
+    let orders = utilService.loadFromStorage(STORAGE_KEY)
+    if (!orders || !orders.length) {
+        orders = [
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u101',
+                    fullname: 'Mira',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '06/09/2023',
+                endDate: '14/09/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h102',
+                    name: 'Smoky Mountain Retreat',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u102',
+                    fullname: 'Trent',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '20/07/2023',
+                endDate: '02/08/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h103',
+                    name: 'Cherry Treesort',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u103',
+                    fullname: 'Nick',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '01/01/2024',
+                endDate: '10/01/2024',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h104',
+                    name: 'Thimble Rock Point',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u104',
+                    fullname: 'Mark',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '30/11/2022',
+                endDate: '06/12/2022',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h105',
+                    name: 'Beachfront Home',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u105',
+                    fullname: 'Sean',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '20/02/2023',
+                endDate: '28/02/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h106',
+                    name: 'Alpine Zen Estate',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u106',
+                    fullname: 'Kinnettles',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '10/05/2023',
+                endDate: '20/05/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h107',
+                    name: 'Kinnettles Mansion',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+        ]
+        utilService.saveToStorage(STORAGE_KEY, orders)
+    }
+}
 
 
 async function query(filterBy = { txt: '', price: 0 }) {
