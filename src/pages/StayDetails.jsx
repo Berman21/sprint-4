@@ -11,7 +11,7 @@ import cancellationIcon from '../assets/img/free-cancellation.svg'
 import starSvg from '../assets/img/star.svg'
 
 import { Reservation } from '../cmps/Reservation.jsx'
-
+import { ReviewPreview } from '../cmps/ReviewPreview.jsx'
 import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
 import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer.js'
 
@@ -61,7 +61,7 @@ export function StayDetails() {
     }
   }
 
-  
+
 
   if (!stay) return <div>loading..</div>
 
@@ -151,7 +151,7 @@ export function StayDetails() {
             <div>
               {stay.amenities.map((amenity, idx) => (
                 <article key={idx}>
-                  <img className='self-check-in' src={`/src/assets/img/${amenity}.svg`} />
+                  <img className='self-check-in' src={`/src/assets/img/amenities/${amenity}.svg`} />
                   <p>{amenity}</p>
                 </article>
               ))}
@@ -160,6 +160,7 @@ export function StayDetails() {
         </div>
 
         <Reservation stay={stay} stayId={stayId} />
+        <ReviewPreview stay={stay} />
       </section>
     </section>
   )

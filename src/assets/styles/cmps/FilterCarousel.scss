@@ -1,6 +1,5 @@
 .category-carousel-container {
   display: grid;
-  align-items: center;
   grid-template-columns: auto auto;
   padding: 0;
   margin-block-start: rem(20px);
@@ -28,6 +27,9 @@
       align-items: center;
       cursor: pointer;
 
+
+
+
       img {
         display: block;
         width: rem(24px);
@@ -48,11 +50,14 @@
         height: rem(16px);
         width: fit-content;
 
+
         & .category-label {
           display: block;
           transition: opacity 200ms ease, transform 200ms ease;
           white-space: nowrap;
           cursor: pointer;
+
+
         }
 
         &::after {
@@ -60,7 +65,7 @@
           background-color: black;
           display: block;
           height: 2px;
-          opacity: 1;
+          opacity: 0;
           position: relative;
           width: 100%;
           bottom: -12px;
@@ -78,10 +83,12 @@
         li {
           // width: fit-content !important;
           cursor: pointer;
+
           &:hover {
             & img {
               opacity: 1;
             }
+
             & label {
               color: black;
             }
@@ -93,6 +100,7 @@
               }
             }
           }
+
           .active {
             cursor: default;
             color: black;
@@ -103,6 +111,7 @@
 
             & label {
               color: black;
+
               &::after {
                 opacity: 1;
               }
@@ -140,6 +149,7 @@
           grid-column: 1;
         }
       }
+
       &.right {
         right: 0;
         background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0), #fff rem(40px));
