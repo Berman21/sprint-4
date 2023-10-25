@@ -16,6 +16,8 @@ import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
 import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer.js'
 
 export function StayDetails() {
+  // const firstTenAmenities = stay.amenities.slice(0, 10)
+
   const dispatch = useDispatch()
   useEffect(() => {
     function handleScroll() {
@@ -60,8 +62,11 @@ export function StayDetails() {
       setBtnTxt('Save')
     }
   }
-
-
+  // console.log(stay.amenities.slice(0, 6));
+  let firstTenAmenities
+  if (stay) {
+    firstTenAmenities = stay.amenities.slice(0, 10)
+  }
 
   if (!stay) return <div>loading..</div>
 
@@ -149,7 +154,7 @@ export function StayDetails() {
             <h2>What this place offers</h2>
 
             <div>
-              {stay.amenities.map((amenity, idx) => (
+              {firstTenAmenities.map((amenity, idx) => (
                 <article key={idx}>
                   <img className='self-check-in' src={`/src/assets/img/amenities/${amenity}.svg`} />
                   <p>{amenity}</p>
@@ -160,8 +165,8 @@ export function StayDetails() {
         </div>
 
         <Reservation stay={stay} stayId={stayId} />
-        <ReviewPreview stay={stay} />
       </section>
+      <ReviewPreview stay={stay} />
     </section>
   )
 }

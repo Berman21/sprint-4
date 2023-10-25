@@ -18,7 +18,7 @@ export function LongTxt({ txt, length = 100, askShowMore = true }) {
   return (
     <section>
       {getTxtToShow()}
-      {txt.length > length && askShowMore && <button onClick={handleClick}>{!isShowMore ? 'Show More' : 'Show Less'}</button>}
+      {txt.length > length && askShowMore && <button onClick={handleClick}>{!isShowMore ? 'Show more' : 'Show less'}</button>}
     </section>
   )
 }
