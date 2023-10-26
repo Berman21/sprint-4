@@ -27,7 +27,7 @@ export function Dashboard() {
             {/* <PieChart />
             <BarChart /> */}
 
-            <h1>{orders.length} reservations</h1>
+            <p className='order-count'>{orders.length} reservations</p>
             <OrderList orders={orders} onChangeStatus={onChangeStatus} />
 
         </section>
