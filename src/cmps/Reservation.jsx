@@ -24,7 +24,7 @@ export function Reservation({ stay,stayId }) {
     function onOpenDateModal() {
         setIsDateOpen(!dateSelection)
     }
-    
+
     function onReservePage() {
         return navigate(`/stay/${stayId}/reserve`)
     }
@@ -79,7 +79,7 @@ export function Reservation({ stay,stayId }) {
 
                     {dateSelection &&
                         <div className='modal check-out-modal'>
-                            <StayDate onSetDate={onSetDate} />
+                            <StayDate />
                         </div>}
                     <AirbnbBtn id={stay._id} txt={'Reserve'} callBackFunction={onReservePage} />
 
