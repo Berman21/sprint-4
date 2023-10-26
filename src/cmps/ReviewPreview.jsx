@@ -1,5 +1,6 @@
 import { LongTxt } from "./LongTxt"
 import starSvg from '../assets/img/star.svg'
+import rightArrow from '../assets/img/right-arrow.svg'
 
 export function ReviewPreview({ stay }) {
 
@@ -44,7 +45,8 @@ export function ReviewPreview({ stay }) {
                 </section>
               </article>
               <article className="review-content">
-                <p><LongTxt txt={review.txt} length='179' /></p>
+                <LongTxt img={rightArrow} txt={review.txt} length='179' />
+                {/* <img src={rightArrow} /> */}
               </article>
             </section>
           )

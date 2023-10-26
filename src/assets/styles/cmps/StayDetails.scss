@@ -12,12 +12,14 @@
 
     .detail-title {
         font-family: Airbnb_Cereal-Book;
-        margin-block-start: 7px;
+        margin-block-start: 24px;
 
         h1 {
             font-family: Airbnb_Cereal-Medium;
             font-size: 26px;
             font-weight: 100;
+            margin: 0;
+            height: rem(30px);
         }
 
     }
@@ -25,16 +27,27 @@
     .detail-subtitle {
         display: inline-flex;
         padding-block-start: 7px;
+        font-family: Airbnb_Cereal-Medium;
 
         .stay-rating {
             margin-block-start: em(10px);
             font-size: em(15px);
-            font-family: Airbnb_Cereal-Book;
+            // font-family: Airbnb_Cereal-Book;
             margin: 0;
+            display: flex;
+
+            .stay-rating-num {
+                margin: 0;
+                padding: 0;
+                margin-top: 1px;
+                font-size: 14px;
+
+            }
 
             img {
-                height: 12px;
-                width: 12px;
+                margin-top: 5px;
+                height: 14px;
+                width: 14px;
                 margin-inline-end: 4px;
             }
         }
@@ -43,16 +56,25 @@
             margin: 0;
         }
 
-        span {
-            margin: 0 5px;
+        .rating-dot {
+            margin: 0;
             font-size: 14px;
+            margin-top: 1px;
+            padding: 0;
+            width: 24px;
+            text-align: center;
+            color: rgb(113, 113, 113)
+        }
+
+        .stay-review {
+            padding-left: 4px;
         }
 
         .stay-review,
         .stay-loc {
             text-decoration: underline;
-            font-family: Airbnb_Cereal-Book;
             font-size: 14px;
+            margin-top: 1px;
         }
     }
 
@@ -63,8 +85,8 @@
         gap: 0.5rem;
         height: 490px;
 
-        margin-block-start: 24px;
-        margin-block-end: 3rem;
+        margin-block-start: 22px;
+        margin-block-end: rem(32px);
 
         img:nth-child(1) {
             border-bottom-left-radius: 10px;
@@ -96,7 +118,12 @@
         padding-block-end: 26px;
 
         h2 {
-            font-family: Airbnb_Cereal-Bold;
+            font-family: Airbnb_Cereal-Medium;
+            font-weight: 100;
+            font-size: 22px;
+            margin: 0;
+            height: 26px;
+
         }
 
         .user-icon {
@@ -110,6 +137,7 @@
             grid-column: 1;
             display: inline-flex;
             font-family: Airbnb_Cereal-Book;
+            height: 20px;
 
             p {
                 margin: 0;
@@ -144,8 +172,9 @@
             }
 
             h4 {
-                font-family: Airbnb_Cereal-Bold;
+                font-family: Airbnb_Cereal-Medium;
                 margin: 0;
+                font-weight: 100;
             }
 
             p {
@@ -192,7 +221,7 @@
 
         article {
             display: inline-flex;
-            margin-block-end: 30px;
+            margin-block-end: 16px;
 
             img {
                 width: 24px;

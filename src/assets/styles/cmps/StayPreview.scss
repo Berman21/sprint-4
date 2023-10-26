@@ -67,19 +67,23 @@
 
 }
 
-.wishlist-icon-btn {
+.wishlist-btn-container {
     position: relative;
-    bottom: 350px;
-    // left: 100px;
-    border: none;
-    padding: 0;
-    background-color: inherit;
-    z-index: 1;
-}
 
-.preview-wishlist-icon {
-    height: 24px;
-    width: 24px;
+    .wishlist-icon-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        border: none;
+        padding: 0;
+        background-color: inherit;
+        z-index: 1;
+    }
 
-    cursor: pointer;
+    .preview-wishlist-icon {
+        height: 24px;
+        width: 24px;
+
+        cursor: pointer;
+    }
 }

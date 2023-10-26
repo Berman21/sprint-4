@@ -1,6 +1,6 @@
 import flexible from '../assets/img/flexible.jpg'
 import middleEast from '../assets/img/middle-east.jpg'
-import italy from '../assets/img/italy.jpg'
+import portugal from '../assets/img/portugal.jpg'
 import unitedStates from '../assets/img/united-states.jpg'
 import greece from '../assets/img/greece.jpg'
 import southAmerica from '../assets/img/south-america.jpg'
@@ -23,10 +23,10 @@ export function StayLocation({ handleItemClick }) {
           <h5>Middle East</h5>
         </article>
         <article className='italy flex'>
-          <button className='regions' onClick={() => handleItemClick('Italy')}>
-            <img src={italy} />
+          <button className='regions' onClick={() => handleItemClick('portugal')}>
+            <img src={portugal} />
           </button>
-          <h5>Italy</h5>
+          <h5>portugal</h5>
         </article>
         <article className='united-states flex'>
           <button className='regions' onClick={() => handleItemClick('United States')}>

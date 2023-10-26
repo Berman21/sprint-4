@@ -79,11 +79,10 @@ export function StayDetails() {
           <div className='detail-subtitle'>
             <div className='stay-rating'>
               <img src={starSvg} />
-              5.0
+              <span className='stay-rating-num'>5.0 •</span>
             </div>
-            <span>•</span>
             <p className='stay-review'>{stay.reviews.length} reviews</p>
-            <span>•</span>
+            <span className='rating-dot'>•</span>
             <p className='stay-loc'>
               {stay.loc.city}, {stay.loc.country}
             </p>
