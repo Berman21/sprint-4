@@ -13,17 +13,23 @@
 
 .order-list {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    // grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
     padding: 10px;
 
     p {
         margin: 0;
         // color: $clr2;
         color: #909399;
-        justify-self: center;
+        // justify-self: center;
 
         &:first-child {
             justify-self: start;
+        }
+
+        &:last-child {
+            justify-self: center;
+            padding-inline-end: 100px;
         }
     }
 }
@@ -35,10 +41,11 @@
 
 .order-preview {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    // grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
     padding: 10px;
 
-    align-items: center;
+    // align-items: center;
 
     &:hover {
         background-color: darken($clr4, 5%);
@@ -60,20 +67,27 @@
         // color: $clr2;
         color: #606266;
         font-family: Airbnb_Cereal-Book;
-        justify-self: center;
+        // justify-self: center;
     }
 
     img {
         width: 30px;
     }
 
+    .btn-container {
+        // background-color: #67C23A;
+        // justify-self: end;
+        // justify-self: center;
+    }
     button {
         justify-self: end;
-        padding: 5px 32px;
+        min-width: 100px;
+        padding: 5px 0;
         
         font-size: 14px;
         font-family: Airbnb_Cereal-Medium;
         text-transform: capitalize;
+        // text-align: center;
         transition: .3s;
         
         cursor: pointer;

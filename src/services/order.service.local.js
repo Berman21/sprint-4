@@ -263,6 +263,72 @@ function _createOrders() {
                 msgs: [],
                 status: 'pending', // approved, rejected
             },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u112',
+                    fullname: 'Jenny',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '17/01/2023',
+                endDate: '21/01/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h113',
+                    name: 'Beachfront House',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u113',
+                    fullname: 'Christine',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '02/03/2023',
+                endDate: '10/03/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h114',
+                    name: 'Lakeside Maisonette',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u114',
+                    fullname: 'Otera',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '04/09/2023',
+                endDate: '08/09/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h115',
+                    name: 'temple hotel',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
         ]
         utilService.saveToStorage(STORAGE_KEY, orders)
     }
