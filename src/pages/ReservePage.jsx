@@ -37,8 +37,8 @@ export function ReservePage() {
 
     function onReserve() {
         const { _id, name, price } = currStay
-        order = { ...order, stay:{ _id, name, price} }
-        order.totalPrice = order.stay.price * calculateNights(order.startDate,order.endDate)
+        order = { ...order, stay: { _id, name, price } }
+        order.totalPrice = order.stay.price * calculateNights(order.startDate, order.endDate)
         onAddOrder(order)
     }
 
@@ -61,7 +61,7 @@ export function ReservePage() {
         const timeDiff = end - start;
         const nights = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
         return nights;
-      }
+    }
 
     if (!currStay) return <h4>loading...</h4>
     return (
@@ -118,19 +118,19 @@ export function ReservePage() {
                 <div className="price-details border-bottom">
                     <h1>Price details</h1>
                     <article className="price-calc flex space-between">
-                        <span>₪{currStay.price} x 2 nights</span>
-                        <span>₪{new Intl.NumberFormat('he-IL').format(currStay.price * 2)}</span>
+                        <span>${currStay.price} x 2 nights</span>
+                        <span>${new Intl.NumberFormat('he-IL').format(currStay.price * 2)}</span>
                     </article>
                     <article className="price-calc flex space-between">
                         <span>Service fee</span>
-                        <span>₪220</span>
+                        <span>$220</span>
                     </article>
                 </div>
 
                 <div className="total-price">
                     <article className="price-calc flex space-between">
                         <span>Total (NIS)</span>
-                        <span>₪{new Intl.NumberFormat('he-IL').format((currStay.price * 2) + 220)}</span>
+                        <span>${new Intl.NumberFormat('he-IL').format((currStay.price * 2) + 220)}</span>
                     </article>
                 </div>
             </section>

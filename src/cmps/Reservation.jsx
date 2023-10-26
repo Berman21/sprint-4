@@ -10,7 +10,7 @@ import { AirbnbBtn } from './AirbnbBtn'
 import { StayGusts } from './StayGuests'
 import { StayDate } from './StayDate'
 
-export function Reservation({ stay,stayId }) {
+export function Reservation({ stay, stayId }) {
     const [isOpen, setIsOpen] = useState(false)
     const [dateSelection, setIsDateOpen] = useState(false)
     const navigate = useNavigate()
@@ -19,7 +19,7 @@ export function Reservation({ stay,stayId }) {
 
     function onOpenModal() {
         setIsOpen(!isOpen)
-        
+
     }
 
     function onOpenDateModal() {
@@ -38,7 +38,7 @@ export function Reservation({ stay,stayId }) {
 
                     <div className="reservation-header flex space-between">
                         <div className='price'>
-                            <span>₪{stay.price}</span>
+                            <span>${stay.price}</span>
                             <span> night</span>
                         </div>
 
@@ -91,13 +91,13 @@ export function Reservation({ stay,stayId }) {
                 </div>
 
                 <div className='summery flex space-between'>
-                    <span>₪{stay.price} x 2 nights</span>
-                    <span>₪{new Intl.NumberFormat('he-IL').format(stay.price * 2)}</span>
+                    <span>${stay.price} x 2 nights</span>
+                    <span>${new Intl.NumberFormat('he-IL').format(stay.price * 2)}</span>
                 </div>
 
                 <div className='total flex space-between'>
                     <div>Total</div>
-                    <div>₪{new Intl.NumberFormat('he-IL').format(stay.price * 2)}</div>
+                    <div>${new Intl.NumberFormat('he-IL').format(stay.price * 2)}</div>
                 </div>
 
             </div>

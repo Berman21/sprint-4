@@ -27,9 +27,9 @@ export function StayPreview({ stay }) {
 
       <section className='preview-card'>
 
-      <button className='wishlist-icon-btn'>
-        <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={setClr} className='preview-wishlist-icon' />
-      </button>
+        <button className='wishlist-icon-btn'>
+          <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={setClr} className='preview-wishlist-icon' />
+        </button>
 
         <PreviewCarousel stay={stay} />
 
@@ -41,7 +41,7 @@ export function StayPreview({ stay }) {
           <p className='stay-distance'>13 miles to Ramat Gan National Park</p>
           <p className='stay-date'>6-11 Oct · Individual Host </p>
 
-          <div className='stay-price'>₪{stay.price} <span>total</span></div>
+          <div className='stay-price'>${stay.price} <span>night</span></div>
 
         </article>
       </section>

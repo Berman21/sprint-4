@@ -12,7 +12,7 @@ export function OrderPreview({ order, onChangeStatus }) {
             <p>{order.startDate}</p>
             <p>{order.endDate}</p>
             <p>{order.stay.name}</p>
-            <p>₪{order.totalPrice}</p>
+            <p>${order.totalPrice}</p>
 
             <p className={order.status}>{order.status}</p>
 
