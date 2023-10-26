@@ -16,7 +16,7 @@ export function OrderPreview({ order, onChangeStatus }) {
 
             <p className={order.status}>{order.status}</p>
 
-            <div>
+            <div className='btn-container'>
                 <button className='approve-btn' onClick={() => onChangeStatus(order, 'approve')}>Approve</button>
                 <button className='reject-btn' onClick={() => onChangeStatus(order, 'reject')}>Reject</button>
             </div>
