@@ -19,6 +19,7 @@ export function Reservation({ stay,stayId }) {
 
     function onOpenModal() {
         setIsOpen(!isOpen)
+        
     }
 
     function onOpenDateModal() {
