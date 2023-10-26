@@ -6,7 +6,12 @@
     cursor: pointer;
 
     background-color: white;
-    opacity: 1;
+    opacity: 0.85;
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1.05);
+    }
 }
 
 .stay-preview {
@@ -64,8 +69,8 @@
 
 .wishlist-icon-btn {
     position: relative;
-    top: 52px;
-    left: 237px;
+    bottom: 350px;
+    // left: 100px;
     border: none;
     padding: 0;
     background-color: inherit;
