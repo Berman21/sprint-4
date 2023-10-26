@@ -5,23 +5,23 @@ export function CountryFilter({ handleItemClick }) {
     <div className='country-filter-container'>
       <h3>Trending</h3>
       <ul className='country-filter clean-list'>
-        <li className='country' onClick={() => handleItemClick('Lisbon')}>
+        <li className='country' onClick={() => handleItemClick('Porto')}>
           <div className='location-container'>
             <img src={location} />
           </div>
-          <span>Lisbon, Portugal</span>
+          <span>Porto, Portugal</span>
         </li>
-        <li className='country' onClick={() => handleItemClick('Jerusalem')}>
+        <li className='country' onClick={() => handleItemClick('Montreal')}>
           <div className='location-container'>
             <img src={location} />
           </div>
-          <span>Jerusalem, Israel</span>
+          <span>Montreal, Canada</span>
         </li>
-        <li className='country' onClick={() => handleItemClick('Madrid')}>
+        <li className='country' onClick={() => handleItemClick('Barcelona')}>
           <div className='location-container'>
             <img src={location} />
           </div>
-          <span>Madrid, Spain</span>
+          <span>Barcelona, Spain</span>
         </li>
         <li className='country' onClick={() => handleItemClick('Berlin')}>
           <div className='location-container'>
