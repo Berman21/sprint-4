@@ -6,12 +6,21 @@ import plus from '../assets/img/plus.svg'
 import minus from '../assets/img/minus.svg'
 
 export function StayGusts({ width = 326 }) {
+
   const order = useSelector(store => store.orderModule.order)
+  console.log(order);
+
 
   function onAddGuest(type, diff) {
     order.guests[type] += diff
+    if (order.guests.adults < 1) {
+      order.guests.adults = 1
+    } else if (order.guests[type] < 0) {
+      order.guests[type] = 0
+    }
     updateOrderDetails(order)
   }
+
 
   return (
     <section className='guests-preview-container'>

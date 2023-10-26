@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import { stayService } from "../services/stay.service.local.js"
-import { orderService } from "../services/order.service.local.js"
 
 import arrowLeftSvg from '../assets/img/arrow-left.svg'
 import starSvg from '../assets/img/star.svg'
@@ -11,7 +10,6 @@ import { AirbnbBtn } from '../cmps/AirbnbBtn'
 import { updateOrder } from "../store/order.actions.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { useSelector } from "react-redux"
-import { store } from "../store/store.js"
 
 export function ReservePage() {
 
@@ -40,8 +38,7 @@ export function ReservePage() {
     function onReserve() {
         const { _id, name, price } = currStay
         order = { ...order, stay:{ _id, name, price} }
-        console.log(order);
-        // console.log('onReserve', stayId)
+        order.totalPrice = order.stay.price * calculateNights(order.startDate,order.endDate)
         onAddOrder(order)
     }
 
@@ -55,6 +52,16 @@ export function ReservePage() {
             showErrorMsg('Cannot add order')
         }
     }
+
+    function calculateNights(startDate, endDate) {
+        const [startDay, startMonth, startYear] = startDate.split('/');
+        const [endDay, endMonth, endYear] = endDate.split('/');
+        const start = new Date(`${startYear}-${startMonth}-${startDay}`);
+        const end = new Date(`${endYear}-${endMonth}-${endDay}`);
+        const timeDiff = end - start;
+        const nights = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
+        return nights;
+      }
 
     if (!currStay) return <h4>loading...</h4>
     return (
