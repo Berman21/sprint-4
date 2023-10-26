@@ -24,12 +24,7 @@ export function Reservation({ stay,stayId }) {
     function onOpenDateModal() {
         setIsDateOpen(!dateSelection)
     }
-
-    function onSetDate(date) {
-        order.startDate = date.from
-        order.endDate = date.to
-    }
-
+    
     function onReservePage() {
         return navigate(`/stay/${stayId}/reserve`)
     }
@@ -57,18 +52,18 @@ export function Reservation({ stay,stayId }) {
                         <div className="date">
                             <div className='check-in' onClick={() => onOpenDateModal()}>
                                 <div>CHECK IN</div>
-                                <div>{order.startDate}</div>
+                                <div>{order.startDate || 'SELECT'}</div>
                             </div>
                             <div className='check-out' onClick={() => onOpenDateModal()}>
                                 <div>CHECK OUT</div>
-                                <div>{order.endDate}</div>
+                                <div>{order.endDate || 'SELECT'}</div>
                             </div>
                         </div>
 
                         <div className='guest-container flex space-between' onClick={() => onOpenModal()}>
                             <div className='guest'>
                                 <div>GUESTS</div>
-                                <div>1 guests</div>
+                                <div>{order.guests.adults + order.guests.children + order.guests.infants} guests</div>
                             </div>
                             <div>
                                 {!isOpen && <img src={arrowDownSvg} alt="" />}
