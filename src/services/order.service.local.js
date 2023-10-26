@@ -153,6 +153,116 @@ function _createOrders() {
                 msgs: [],
                 status: 'pending', // approved, rejected
             },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u107',
+                    fullname: 'Debra',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '30/03/2023',
+                endDate: '06/04/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h108',
+                    name: 'Winderdome Resort',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u108',
+                    fullname: 'Rob',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '15/10/2022',
+                endDate: '21/10/2022',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h109',
+                    name: 'Lakeview home pool',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u109',
+                    fullname: 'Adam',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '01/06/2022',
+                endDate: '07/06/2022',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h110',
+                    name: 'Hemlock Valley',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u110',
+                    fullname: 'Julie',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '14/10/2023',
+                endDate: '20/10/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h111',
+                    name: 'Farmstays',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
+            {
+                _id: utilService.makeId(),
+                hostId: 'u102',
+                buyer: {
+                    _id: 'u111',
+                    fullname: 'Aiden',
+                },
+                totalPrice: utilService.getRandomIntInclusive(50, 550),
+                startDate: '24/08/2023',
+                endDate: '01/09/2023',
+                guests: {
+                    adults: 1,
+                    children: 2,
+                },
+                stay: {
+                    _id: 'h112',
+                    name: 'The Roost in Reinfeld',
+                    price: 80.0,
+                },
+                msgs: [],
+                status: 'pending', // approved, rejected
+            },
         ]
         utilService.saveToStorage(STORAGE_KEY, orders)
     }

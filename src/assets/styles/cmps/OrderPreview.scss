@@ -1,3 +1,14 @@
+// Dashboard cmp
+
+.order-count {
+    font-family: Airbnb_Cereal-Book;    
+    font-size: 24px;
+    margin-block-end: 5px;
+    margin-block-start: 20px;
+    padding-inline-start: 10px;
+}
+
+
 // list cmp
 
 .order-list {
@@ -7,7 +18,8 @@
 
     p {
         margin: 0;
-        color: $clr2;
+        // color: $clr2;
+        color: #909399;
         justify-self: center;
 
         &:first-child {
@@ -45,7 +57,8 @@
 
     p {
         margin: 0;
-        color: $clr2;
+        // color: $clr2;
+        color: #606266;
         font-family: Airbnb_Cereal-Book;
         justify-self: center;
     }
