@@ -1,13 +1,13 @@
 .preview-image-carousel {
-    margin-block-end: 12px;
+    // margin-block-end: 12px;
     border-radius: 12px;
     overflow: hidden;
 
     & .preview-img {
         width: 100%;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1.053 / 1;
         object-fit: cover;
-        object-position: 50% 25%;
+        // object-position: 50% 25%;
         border-radius: 10px;
     }
 
