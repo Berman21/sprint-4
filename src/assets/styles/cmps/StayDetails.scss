@@ -198,20 +198,40 @@
             font-family: Airbnb_Cereal-Book;
         }
 
-        button {
-            font-family: Airbnb_Cereal-Bold;
-            font-size: 16px;
-            padding: 0;
-            padding-inline-end: 5px;
-        }
+        div {
+            height: rem(21px);
+            margin-block-start: rem(16px);
 
-        img {
-            width: 12px;
+            button {
+                font-family: Airbnb_Cereal-Medium;
+                font-size: 16px;
+                padding: 0;
+                padding-inline-end: 5px;
+                background-color: white;
+                border: none;
+                text-decoration: underline;
+            }
+
+            img {
+                width: 12px;
+            }
         }
     }
 
     .stay-amenities {
         padding-block-end: 42px;
+
+        button {
+            height: rem(48px);
+            background-color: white;
+            border: 1px solid #222222;
+            border-radius: rem(8px);
+            font-size: rem(16px);
+            font-family: Airbnb_Cereal-Medium;
+            width: rem(208px);
+            margin-block-start: rem(24px);
+
+        }
 
         h2 {
             font-family: Airbnb_Cereal-Bold;

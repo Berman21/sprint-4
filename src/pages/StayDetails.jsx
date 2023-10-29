@@ -20,6 +20,10 @@ import { useClickOutside } from '../customHooks/useCloseModule.js'
 export function StayDetails() {
   // const firstTenAmenities = stay.amenities.slice(0, 10)
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
+  const isFocusedModal = useSelector((storeState) => storeState.systemModule.isFocusedModal)
+  const [isModalActive, setIsModalActive] = useState(false)
+
+
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -70,10 +74,16 @@ export function StayDetails() {
     // ev.stopPropagation()
     dispatch({ type: modalType })
     dispatch({ type: SET_FOCUSED_MODAL })
+    setIsModalActive((prevModal) => !prevModal)
     document.body.classList.add('modal-open')
-
   }
-  // console.log(stay.amenities.slice(0, 6));
+
+  function closeBackground(ev) {
+    ev.preventDefault()
+    ev.stopPropagation()
+    dispatch({ type: REMOVE_FOCUSED_MODAL })
+  }
+
   let firstTenAmenities
   if (stay) {
     firstTenAmenities = stay.amenities.slice(0, 10)
@@ -83,9 +93,10 @@ export function StayDetails() {
 
   return (
     <>
+      {/* {isFocusedModal && <div className='gray-viewport' onClick={(ev) => closeBackground(ev)}></div>} */}
       <section className='detail-container'>
         {appModal &&
-          <Modal modalType={appModal} stay={stay} />}
+          <Modal isModalActive={isModalActive} setIsModalActive={setIsModalActive} modalType={appModal} stay={stay} />}
         <section className='detail-title'>
           <h1>{stay.name}</h1>
 
@@ -102,7 +113,7 @@ export function StayDetails() {
               </p>
             </div>
 
-            <button onClick={() => onWishlistIcon()}>
+            <button className='btn-wish-list' onClick={() => onWishlistIcon()}>
               <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={clr} className='detail-wishlist-icon' />
               {btnTxt}
             </button>
@@ -174,6 +185,7 @@ export function StayDetails() {
                   </article>
                 ))}
               </div>
+              <button className=''>Show all {stay.amenities.length} amenities</button>
             </section>
           </div>
 

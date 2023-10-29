@@ -1,6 +1,17 @@
 .stay-review-container {
     padding: 0;
-    margin: 0;
+    margin-bottom: rem(48px);
+
+    button {
+        height: rem(48px);
+        background-color: white;
+        border: 1px solid #222222;
+        border-radius: rem(8px);
+        font-size: rem(16px);
+        font-family: Airbnb_Cereal-Medium;
+        width: rem(192px);
+    }
+
 
     .stay-review-header {
         display: flex;
@@ -19,6 +30,8 @@
         img {
             width: rem(16px);
         }
+
+
     }
 
     .stay-review-list {
@@ -91,16 +104,6 @@
                         align-items: center;
                         margin-block-start: rem(8px);
 
-                        button {
-                            font-size: rem(16px);
-                            font-weight: 600;
-                            color: rbg(34, 34, 34);
-                            display: block;
-                            width: fit-content;
-                            padding: 0;
-                            height: rem(20px);
-                            font-family: 'Airbnb_Cereal-Bold';
-                        }
 
                         img {
                             width: rem(12px);

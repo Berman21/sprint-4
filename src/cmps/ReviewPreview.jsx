@@ -52,6 +52,7 @@ export function ReviewPreview({ stay }) {
           )
         })}
       </div>
+      <button>Show all {stay.reviews.length} reviews</button>
     </div>
   )
 }
