@@ -19,6 +19,7 @@
 @import 'views/UserDetails';
 
 // Components
+@import 'cmps/Modal.scss';
 @import 'cmps/AppHeader';
 @import 'cmps/AppFooter';
 @import 'cmps/UserMsg';
@@ -34,8 +35,8 @@
 @import 'cmps/AirbnbBtn.scss';
 @import 'cmps/FilterCarousel.scss';
 @import 'cmps/PreviewCarousel';
-
 @import 'cmps/ReviewPreview.scss';
+@import 'cmps/AboutModal.scss';
 
 // @import 'cmps/StayList';
 @import 'cmps/SearchBar.scss'; // @import 'cmps/StayList';

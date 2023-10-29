@@ -18,9 +18,9 @@ export function LongTxt({ txt, length = 100, askShowMore = true, img }) {
   return (
     <section>
       {getTxtToShow()}
-      <div>
+      {/* <div>
         {txt.length > length && askShowMore && <button onClick={handleClick}>{!isShowMore ? 'Show more' : 'Show less'}</button>}
-        {img && askShowMore && txt.length > length && <img src={img} />} </div>
+        {img && askShowMore && txt.length > length && <img src={img} />} </div> */}
     </section>
   )
 }

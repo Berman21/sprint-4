@@ -9,16 +9,23 @@ import { FilterExpanded } from './FilterExpanded'
 import { Link } from 'react-router-dom'
 import { UserModal } from './UserModal'
 import { LoginSignup } from './LoginSignup'
+import { useClickOutside } from '../customHooks/useCloseModule'
 
 export function DesktopHeader({ onSetFilter }) {
   const [selectedExperience, setSelectedExperience] = useState('stays')
   const [selectedFilterBox, setSelectedFilterBox] = useState('where')
   const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
   const [isDropdownActive, setIsDropdownActive] = useState(false)
+  const dropdownRef = useClickOutside(onDropdownClickOutside)
+
   const dispatch = useDispatch()
   function toggleDropdown(ev) {
     ev.preventDefault()
     setIsDropdownActive((prevDropdown) => !prevDropdown)
+  }
+
+  function onDropdownClickOutside() {
+    setIsDropdownActive(false)
   }
 
   function onExpandedFilter(ev) {
@@ -83,7 +90,7 @@ export function DesktopHeader({ onSetFilter }) {
           </section>
         )}
         {/* <LoginSignup /> */}
-        <section className='user-container' onClick={(ev) => toggleDropdown(ev)}>
+        <section className='user-container' onClick={(ev) => toggleDropdown(ev)} ref={dropdownRef}>
           <button className='user-btn'>
             <img className='hamburger' src={hamburger} />
             <img className='user-icon' src={userIcon} />

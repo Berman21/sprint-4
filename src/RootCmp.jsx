@@ -10,9 +10,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { store } from './store/store'
 import { CLOSE_EXPANDED_HEADER, REMOVE_FOCUSED_MODAL } from './store/system.reducer'
 import { Dashboard } from './cmps/Dashboard'
+import { Modal } from './cmps/Modal'
 
 export function RootCmp() {
   const isFocusedModal = useSelector((storeState) => storeState.systemModule.isFocusedModal)
+  const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const dispatch = useDispatch()
 
   function closeBackground(ev) {
@@ -35,6 +37,7 @@ export function RootCmp() {
             <Route path='/stay/:stayId/reserve' element={<ReservePage />} />
           </Routes>
         </main>
+        <AppFooter />
       </div>
     </>
   )

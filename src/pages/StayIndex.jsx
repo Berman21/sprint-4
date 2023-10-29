@@ -9,6 +9,7 @@ import { StayList } from '../cmps/StayList.jsx'
 import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer.js'
 import { useDispatch } from 'react-redux'
 import { FilterCarousel } from '../cmps/FilterCarousel.jsx'
+import { Modal } from '../cmps/Modal.jsx'
 
 export function StayIndex() {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
@@ -74,16 +75,18 @@ export function StayIndex() {
     return stay.owner?._id === user._id
   }
   return (
-    <div>
-      <section className='category-carousel-container'>
-        <section className='category-carousel'>
-          <FilterCarousel filterBy={filterBy} />
+    <>
+      {appModal && <Modal />}
+      <div>
+        <section className='category-carousel-container'>
+          <section className='category-carousel'>
+            <FilterCarousel filterBy={filterBy} />
+          </section>
         </section>
-      </section>
-      <main>
-        {/* <button onClick={onAddStay}>Add Stay ⛐</button> */}
-        <StayList filterBy={filterBy} stays={stays} />
-        {/* <ul className='stay-list'>
+        <main>
+          {/* <button onClick={onAddStay}>Add Stay ⛐</button> */}
+          <StayList filterBy={filterBy} stays={stays} />
+          {/* <ul className='stay-list'>
           {stays.map((stay) => (
             <li className='stay-preview' key={stay._id}>
               <h4>{stay.title}</h4>
@@ -123,7 +126,9 @@ export function StayIndex() {
             </li>
           ))}
         </ul> */}
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
+
   )
 }
