@@ -8,7 +8,7 @@ import { StayIndex } from './pages/StayIndex'
 import { ReservePage } from './pages/ReservePage'
 import { useDispatch, useSelector } from 'react-redux'
 import { store } from './store/store'
-import { CLOSE_EXPANDED_HEADER, REMOVE_FOCUSED_MODAL } from './store/system.reducer'
+import { CLOSE_APP_MODAL, CLOSE_EXPANDED_HEADER, REMOVE_FOCUSED_MODAL } from './store/system.reducer'
 import { Dashboard } from './cmps/Dashboard'
 import { Modal } from './cmps/Modal'
 import { UserMsg } from './cmps/UserMsg'
@@ -23,6 +23,7 @@ export function RootCmp() {
     ev.stopPropagation()
     dispatch({ type: CLOSE_EXPANDED_HEADER })
     dispatch({ type: REMOVE_FOCUSED_MODAL })
+    dispatch({ type: CLOSE_APP_MODAL })
   }
 
   return (
@@ -39,7 +40,6 @@ export function RootCmp() {
             <Route path='/stay/:stayId/reserve' element={<ReservePage />} />
           </Routes>
         </main>
-        <AppFooter />
       </div>
     </>
   )
