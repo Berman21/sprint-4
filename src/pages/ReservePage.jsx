@@ -10,6 +10,7 @@ import { AirbnbBtn } from '../cmps/AirbnbBtn'
 import { updateOrder } from "../store/order.actions.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { useSelector } from "react-redux"
+import { utilService } from "../services/util.service.js"
 
 export function ReservePage() {
 
@@ -38,7 +39,7 @@ export function ReservePage() {
     function onReserve() {
         const { _id, name, price } = currStay
         order = { ...order, stay: { _id, name, price } }
-        order.totalPrice = order.stay.price * calculateNights(order.startDate, order.endDate)
+        order.totalPrice = order.stay.price * utilService.calculateNights(order.startDate, order.endDate)
         onAddOrder(order)
     }
 
@@ -51,16 +52,6 @@ export function ReservePage() {
             console.error('Cannot add order', err)
             showErrorMsg('Cannot add order')
         }
-    }
-
-    function calculateNights(startDate, endDate) {
-        const [startDay, startMonth, startYear] = startDate.split('/');
-        const [endDay, endMonth, endYear] = endDate.split('/');
-        const start = new Date(`${startYear}-${startMonth}-${startDay}`);
-        const end = new Date(`${endYear}-${endMonth}-${endDay}`);
-        const timeDiff = end - start;
-        const nights = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
-        return nights;
     }
 
     if (!currStay) return <h4>loading...</h4>
@@ -92,7 +83,7 @@ export function ReservePage() {
                     <div className="flex space-between">
                         <article>
                             <p>Guests</p>
-                            <p>1 guest</p>
+                            <p>{order.guests.adults + order.guests.children + order.guests.infants} {order.guests.adults + order.guests.children + order.guests.infants > 1 ? 'guests' : 'guest'}</p>
                         </article>
                         <button>Edit</button>
                     </div>
@@ -118,7 +109,7 @@ export function ReservePage() {
                 <div className="price-details border-bottom">
                     <h1>Price details</h1>
                     <article className="price-calc flex space-between">
-                        <span>${currStay.price} x 2 nights</span>
+                        <span>${currStay.price} x {utilService.calculateNights(order.startDate, order.endDate)} nights</span>
                         <span>${new Intl.NumberFormat('he-IL').format(currStay.price * 2)}</span>
                     </article>
                     <article className="price-calc flex space-between">
@@ -130,7 +121,7 @@ export function ReservePage() {
                 <div className="total-price">
                     <article className="price-calc flex space-between">
                         <span>Total (NIS)</span>
-                        <span>${new Intl.NumberFormat('he-IL').format((currStay.price * 2) + 220)}</span>
+                        <span>${new Intl.NumberFormat('he-IL').format((currStay.price * utilService.calculateNights(order.startDate, order.endDate)) + 220)}</span>
                     </article>
                 </div>
             </section>

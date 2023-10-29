@@ -6,7 +6,8 @@ export const utilService = {
     randomPastTime,
     saveToStorage,
     loadFromStorage,
-    getAssetSrc
+    getAssetSrc,
+    calculateNights
 }
 
 function makeId(length = 6) {
@@ -69,4 +70,14 @@ function getAssetSrc(name) {
     const modules = import.meta.glob('/src/assets/*', { eager: true })
     const mod = modules[path]
     return mod.default
+}
+
+function calculateNights(startDate, endDate) {
+    const [startDay, startMonth, startYear] = startDate.split('/');
+    const [endDay, endMonth, endYear] = endDate.split('/');
+    const start = new Date(`${startYear}-${startMonth}-${startDay}`);
+    const end = new Date(`${endYear}-${endMonth}-${endDay}`);
+    const timeDiff = end - start;
+    const nights = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
+    return nights;
 }

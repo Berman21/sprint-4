@@ -14,6 +14,8 @@ import { CountryFilter } from './CountryFilter'
 
 export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, selectedFilterBox, onSetSelectedFilterBox, setSelectedFilterBox }) {
   const isExpandedModalOpen = useSelector((storeState) => storeState.systemModule.isExpandedModalOpen)
+  const order = useSelector(store => store.orderModule.order)
+
   const [filterByToEdit, setFilterByToEdit] = useState({ country: '', ...filterBy })
 
   const isFirstTimeExpandedRef = useRef(true)
@@ -88,7 +90,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
         >
           <section className='check-in'>
             <h3>Check in</h3>
-            <span>{filterBy ? format(filterBy, 'y-MM-dd') : 'Add dates'}</span>
+            <span>{order.startDate}</span>
           </section>
         </article>
 
@@ -99,7 +101,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
         >
           <section className='check-out'>
             <h3>Check out</h3>
-            <span>{filterBy ? format(filterBy, 'y-MM-dd') : 'Add dates'}</span>
+            <span>{order.endDate}</span>
           </section>
         </article>
 
@@ -108,7 +110,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
             <section className='who'>
               <h3>Who</h3>
               <span>
-                Add guests
+                {order.guests.adults + order.guests.children + order.guests.infants > 1 ? order.guests.adults + order.guests.children + order.guests.infants : ''} {order.guests.adults + order.guests.children + order.guests.infants > 1 ? 'guests' : 'Add guests'}
               </span>
             </section>
             <section className='btn-search-container'>
