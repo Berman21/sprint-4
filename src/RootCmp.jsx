@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Routes, Route } from 'react-router'
 
 import { AppHeader } from './cmps/AppHeader'
@@ -13,7 +13,9 @@ import { Dashboard } from './cmps/Dashboard'
 import { Modal } from './cmps/Modal'
 
 export function RootCmp() {
+  const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
   const isFocusedModal = useSelector((storeState) => storeState.systemModule.isFocusedModal)
+  const [filterByToEdit, setFilterByToEdit] = useState({ country: '', labels: '', ...filterBy })
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const dispatch = useDispatch()
 
@@ -29,10 +31,10 @@ export function RootCmp() {
     <>
       {isFocusedModal && <div className='gray-viewport' onClick={(ev) => closeBackground(ev)}></div>}
       <div className='app-container'>
-        <AppHeader />
+        <AppHeader filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />
         <main className='main-app'>
           <Routes>
-            <Route path='/' element={<StayIndex />} />
+            <Route path='/' element={<StayIndex filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='stay/:stayId' element={<StayDetails />} />
             <Route path='/stay/:stayId/reserve' element={<ReservePage />} />

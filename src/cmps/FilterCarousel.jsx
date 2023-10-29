@@ -6,20 +6,25 @@ import rightArrow from '../assets/img/right-arrow.svg'
 import { useEffect, useState } from 'react'
 import { SET_FILTER_BY } from '../store/stay.reducer'
 import { useDispatch } from 'react-redux'
+import { updateFilterBy } from '../store/stay.actions'
 
-export function FilterCarousel({ filterBy }) {
-  const [filterByToEdit, setFilterByToEdit] = useState({ labels: '', ...filterBy })
+export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) {
   const [selectedCategory, setSelectedCategory] = useState({ labels: '', ...filterBy })
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    onSetFilter(filterByToEdit)
-  }, [filterByToEdit])
+  // useEffect(() => {
+  //   onSetFilter(filterByToEdit)
+  // }, [filterByToEdit])
 
   function handleClick(ev, label) {
     ev.preventDefault()
     setSelectedCategory(label)
-    setFilterByToEdit({ ...selectedCategory, labels: label })
+    setFilterByToEdit((prevFilter) => ({
+      ...prevFilter,
+      labels: label,
+    }));
+    updateFilterBy(filterByToEdit)
+
   }
 
   function onSetFilter(filterBy) {

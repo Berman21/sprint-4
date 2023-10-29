@@ -153,5 +153,5 @@ function getEmptyStay() {
 }
 
 function getDefaultFilter() {
-  return { country: '' }
+  return { country: '', labels: '' }
 }

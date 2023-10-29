@@ -6,11 +6,12 @@ import { useRef } from 'react'
 export function StayFilter({ handleChange, onSetFilter, filterByToEdit }) {
   onSetFilter = useRef(utilService.debounce(onSetFilter))
 
-  useEffect(() => {
-    onSetFilter.current(filterByToEdit)
-  }, [filterByToEdit])
+  // useEffect(() => {
+  //   onSetFilter.current(filterByToEdit)
+  //   console.log(filterByToEdit);
+  // }, [filterByToEdit])
 
-  const { country } = filterByToEdit
+  const { country = '' } = filterByToEdit
 
   return (
     <React.Fragment>

@@ -8,7 +8,6 @@ import minus from '../assets/img/minus.svg'
 export function StayGusts({ width = 326 }) {
 
   const order = useSelector(store => store.orderModule.order)
-  console.log(order);
 
 
   function onAddGuest(type, diff) {

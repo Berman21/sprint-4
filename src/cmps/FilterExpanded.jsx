@@ -11,10 +11,12 @@ import { StayLocation } from './StayLocation'
 import searchFilter from '../assets/img/search-filter.svg'
 import { StayGusts } from './StayGuests'
 import { CountryFilter } from './CountryFilter'
+import { updateFilterBy } from '../store/stay.actions'
+import { utilService } from '../services/util.service'
 
-export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, selectedFilterBox, onSetSelectedFilterBox, setSelectedFilterBox }) {
+export function FilterExpanded({ filterByToEdit, setFilterByToEdit, onSetFilter, filterBy, isFilterExpanded, selectedFilterBox, onSetSelectedFilterBox, setSelectedFilterBox }) {
   const isExpandedModalOpen = useSelector((storeState) => storeState.systemModule.isExpandedModalOpen)
-  const [filterByToEdit, setFilterByToEdit] = useState({ country: '', ...filterBy })
+  onSetFilter = useRef(utilService.debounce(onSetFilter))
 
   const isFirstTimeExpandedRef = useRef(true)
   const dispatch = useDispatch()
@@ -46,6 +48,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
         break
     }
     setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+
   }
 
   function handleItemClick(item) {
@@ -64,6 +67,11 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
     }
   }
 
+  function onSubmit(ev) {
+    ev.preventDefault()
+    updateFilterBy(filterByToEdit)
+  }
+
   const dropdownRef = useClickOutside(() => {
     if (modalContainerRef.current && modalContainerRef.current.contains(event.target)) {
       return
@@ -71,13 +79,17 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
     onClickModal()
   })
 
+  const { country = '' } = filterByToEdit
+
+
   return (
     <section className={`filter-expanded-container full ${isFilterExpanded ? '' : 'folded'}`}>
       <section className={`filter-expanded ${selectedFilterBox === 'all' ? ' all' : ''}`} ref={dropdownRef}>
         <article className={`where-container${selectedFilterBox === 'where' ? ' active' : ''}`} name='where' onClick={onSetSelectedFilterBox}>
           <section className='where'>
             <h3>Where</h3>
-            <StayFilter handleChange={handleChange} filterByToEdit={filterByToEdit} onSetFilter={onSetFilter} />
+            <input type='text' value={country} name='country' id='country' onChange={handleChange} placeholder='Search destinations' />
+
           </section>
         </article>
 
@@ -112,7 +124,7 @@ export function FilterExpanded({ onSetFilter, filterBy, isFilterExpanded, select
               </span>
             </section>
             <section className='btn-search-container'>
-              <button className='btn-filter'>
+              <button onClick={(ev) => onSubmit(ev)} className='btn-filter'>
                 <img src={searchFilter} />
               </button>
             </section>

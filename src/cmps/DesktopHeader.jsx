@@ -11,7 +11,7 @@ import { UserModal } from './UserModal'
 import { LoginSignup } from './LoginSignup'
 import { useClickOutside } from '../customHooks/useCloseModule'
 
-export function DesktopHeader({ onSetFilter }) {
+export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit }) {
   const [selectedExperience, setSelectedExperience] = useState('stays')
   const [selectedFilterBox, setSelectedFilterBox] = useState('where')
   const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
@@ -105,6 +105,8 @@ export function DesktopHeader({ onSetFilter }) {
         selectedFilterBox={selectedFilterBox}
         setSelectedFilterBox={setSelectedFilterBox}
         onSetSelectedFilterBox={onSetSelectedFilterBox}
+        filterByToEdit={filterByToEdit}
+        setFilterByToEdit={setFilterByToEdit}
       />
     </>
   )

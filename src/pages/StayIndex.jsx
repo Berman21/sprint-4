@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux'
 import { FilterCarousel } from '../cmps/FilterCarousel.jsx'
 import { Modal } from '../cmps/Modal.jsx'
 
-export function StayIndex() {
+export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
@@ -80,7 +80,7 @@ export function StayIndex() {
       <div>
         <section className='category-carousel-container'>
           <section className='category-carousel'>
-            <FilterCarousel filterBy={filterBy} />
+            <FilterCarousel setFilterByToEdit={setFilterByToEdit} filterByToEdit={filterByToEdit} filterBy={filterBy} />
           </section>
         </section>
         <main>

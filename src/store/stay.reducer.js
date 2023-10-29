@@ -7,7 +7,7 @@ export const UPDATE_STAY = 'UPDATE_STAY'
 export const UNDO_REMOVE_STAY = 'UNDO_REMOVE_STAY'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
 export const SET_MODAL_OPEN = 'SET_MODAL_OPEN'
-
+export const UPDATE_FILTER_BY = 'UPDATE_FILTER_BY'
 const initialState = {
   stays: [],
   lastRemovedStay: null,
@@ -43,9 +43,14 @@ export function stayReducer(state = initialState, action) {
       if (state.lastRemovedStay) {
         newState = { ...state, stays: [...state.stays, state.lastRemovedStay], lastRemovedStay: null }
       }
-
+      break
+      
     case SET_FILTER_BY:
       return { ...state, filterBy: { ...action.filterBy } }
+
+    case UPDATE_FILTER_BY:
+        newState = { ...state, filterBy: { ...state.filterBy, ...action.filterBy } }
+        break
 
     case SET_MODAL_OPEN:
       newState = { ...state, isModalOpen: action.isModalOpen }
