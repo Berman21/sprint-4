@@ -26,7 +26,7 @@ export function StayLocation({ handleItemClick }) {
           <button className='regions' onClick={() => handleItemClick('portugal')}>
             <img src={portugal} />
           </button>
-          <h5>portugal</h5>
+          <h5>Portugal</h5>
         </article>
         <article className='united-states flex'>
           <button className='regions' onClick={() => handleItemClick('United States')}>
