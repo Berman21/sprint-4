@@ -134,11 +134,11 @@ export function StayDetails() {
               </h2>
 
               <article>
-                <p>{stay.capacity} guests</p>
+                <p>{stay.capacity} {stay.capacity > 1 ? 'guests' : 'guest'}</p>
                 <span>•</span>
-                <p>2 bedrooms</p>
+                <p>{stay.bedrooms} {stay.bedrooms > 1 ? 'bedrooms' : 'bedroom'}</p>
                 <span>•</span>
-                <p>3 beds</p>
+                <p>{stay.capacity} {stay.capacity > 1 ? 'beds' : 'bed'}</p>
                 <span>•</span>
                 <p>2 baths</p>
               </article>

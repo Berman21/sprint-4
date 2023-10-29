@@ -64,7 +64,7 @@ export function Reservation({ stay, stayId }) {
                         <div className='guest-container flex space-between' onClick={() => onOpenModal()}>
                             <div className='guest'>
                                 <div>GUESTS</div>
-                                <div>{order.guests.adults + order.guests.children + order.guests.infants} guests</div>
+                                <div>{order.guests.adults + order.guests.children + order.guests.infants} {order.guests.adults + order.guests.children + order.guests.infants > 1 ? 'guests' : 'guest'}</div>
                             </div>
                             <div>
                                 {!isOpen && <img src={arrowDownSvg} alt="" />}
