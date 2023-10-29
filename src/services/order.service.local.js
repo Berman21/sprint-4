@@ -391,8 +391,8 @@ function getEmptyOrder() {
             _id: 'u101',
             fullname: 'User 1',
         },
-        startDate: 'Select',
-        endDate: 'Select',
+        // startDate: 'Select',
+        // endDate: 'Select',
         guests: {
             adults: 1,
             children: 0,
