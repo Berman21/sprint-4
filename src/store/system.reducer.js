@@ -10,6 +10,7 @@ export const REMOVE_FOCUSED_MODAL = 'REMOVE_FOCUSED_MODAL'
 export const SET_APP_MODAL_LOGIN = 'SET_APP_MODAL_LOGIN'
 export const SET_APP_MODAL_ABOUT = 'SET_APP_MODAL_ABOUT'
 export const SET_APP_MODAL_AMENITIES = 'SET_APP_MODAL_AMENITIES'
+export const SET_APP_MODAL_REVIEWS = 'SET_APP_MODAL_REVIEWS'
 export const CLOSE_APP_MODAL = 'CLOSE_APP_MODAL'
 const initialState = {
   isLoading: false,
@@ -45,6 +46,8 @@ export function systemReducer(state = initialState, action = {}) {
       return { ...state, appModal: SET_APP_MODAL_ABOUT }
     case SET_APP_MODAL_AMENITIES:
       return { ...state, appModal: SET_APP_MODAL_AMENITIES }
+    case SET_APP_MODAL_REVIEWS:
+      return { ...state, appModal: SET_APP_MODAL_REVIEWS }
     default:
       return state
   }
