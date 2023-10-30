@@ -24,6 +24,52 @@
     }
 }
 
+
+@mixin for-large-layout {
+    @media (min-width: $large-breakpoint) {
+        @content;
+    }
+}
+
+@mixin for-extra-large-layout {
+    @media (min-width: $extra-large-breakpoint) {
+        @content;
+    }
+}
+
+// Mixins for list
+
+@mixin for-narrow-list {
+    @media (min-width: calc($narrow-breakpoint - 170px)) {
+        @content;
+    }
+}
+
+@mixin for-normal-list {
+    @media (min-width: calc($normal-breakpoint - 10px)) {
+        @content;
+    }
+}
+
+@mixin for-large-list {
+    @media (min-width: calc($large-breakpoint - 175px)) {
+        @content;
+    }
+}
+
+@mixin for-extra-large-list {
+    @media (min-width: calc($extra-large-breakpoint + 200px)) {
+        @content;
+    }
+}
+
+@mixin for-huge-list {
+    @media (min-width: $huge-breakpoint) {
+        @content;
+    }
+}
+
+
 /* Media  Mixins */
 @mixin aspect-ratio($width, $height) {
     position: relative;
