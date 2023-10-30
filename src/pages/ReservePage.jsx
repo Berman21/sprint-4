@@ -100,7 +100,7 @@ export function ReservePage() {
 
                         <div className='rating'>
                             <img className="star-img" src={starSvg} alt="" />
-                            <p>5.0 <span>(1 reviews)</span></p>
+                            <p>{currStay.rating} <span>(1 reviews)</span></p>
                         </div>
 
                     </article>
@@ -110,18 +110,18 @@ export function ReservePage() {
                     <h1>Price details</h1>
                     <article className="price-calc flex space-between">
                         <span>${currStay.price} x {utilService.calculateNights(order.startDate, order.endDate)} nights</span>
-                        <span>${new Intl.NumberFormat('he-IL').format(currStay.price * 2)}</span>
+                        <span>${new Intl.NumberFormat('he-IL').format(currStay.price * utilService.calculateNights(order.startDate, order.endDate))}</span>
                     </article>
                     <article className="price-calc flex space-between">
                         <span>Service fee</span>
-                        <span>$220</span>
+                        <span>${new Intl.NumberFormat('he-IL').format(currStay.price * 0.2)}</span>
                     </article>
                 </div>
 
                 <div className="total-price">
                     <article className="price-calc flex space-between">
                         <span>Total (NIS)</span>
-                        <span>${new Intl.NumberFormat('he-IL').format((currStay.price * utilService.calculateNights(order.startDate, order.endDate)) + 220)}</span>
+                        <span>${new Intl.NumberFormat('he-IL').format(currStay.price * utilService.calculateNights(order.startDate, order.endDate) + currStay.price * 0.2)}</span>
                     </article>
                 </div>
             </section>

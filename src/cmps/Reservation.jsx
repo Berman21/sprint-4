@@ -45,7 +45,7 @@ export function Reservation({ stay, stayId }) {
 
                         <div className='rating'>
                             <img src={starSvg} alt="" />
-                            <span>{stay.score || '5.0'} •</span>
+                            <span>{stay.rating || '5.0'} •</span>
                             <span>{stay.reviews.length} reviews</span>
                         </div>
                     </div>
@@ -97,9 +97,14 @@ export function Reservation({ stay, stayId }) {
                         <span>${new Intl.NumberFormat('he-IL').format(stay.price * utilService.calculateNights(order.startDate, order.endDate))}</span>
                     </div>
 
+                    <div className='summery flex space-between'>
+                        <span>Airbnb service fee</span>
+                        <span>${new Intl.NumberFormat('he-IL').format(stay.price * 0.2)}</span>
+                    </div>
+
                     <div className='total flex space-between'>
                         <div>Total</div>
-                        <div>${new Intl.NumberFormat('he-IL').format(stay.price * utilService.calculateNights(order.startDate, order.endDate))}</div>
+                        <div>${new Intl.NumberFormat('he-IL').format(stay.price * utilService.calculateNights(order.startDate, order.endDate) + stay.price * 0.2)}</div>
                     </div>
                 </section>}
 

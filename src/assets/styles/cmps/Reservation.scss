@@ -146,6 +146,7 @@
     .summery {
         color: $clr2;
         font-family: Airbnb_Cereal-Book;
+        margin-block-end: rem(12px);
 
         & span:first-child {
             text-decoration: underline;
