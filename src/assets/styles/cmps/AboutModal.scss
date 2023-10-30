@@ -1,9 +1,57 @@
 .detail-container {
 
 
+    .modal {
+        border-radius: rem(12px);
+        width: fit-content;
+        max-height: rem(693px);
+        margin: 2rem auto;
+        background-color: #fff;
+
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            height: rem(64px);
+
+
+            button {
+                padding: 0;
+                margin-inline-start: rem(16px);
+                width: rem(32px);
+                height: rem(32px);
+                border: none;
+                background-color: #fff;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: rem(16px);
+                    height: rem(16px);
+                }
+
+                &:hover {
+                    background-color: #f7f7f7;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .modal-content {
+            position: relative;
+            background-clip: padding-box;
+            border-radius: 0.3rem;
+        }
+
+    }
+
     .modal-about-container {
 
         padding-inline: rem(24px);
+        width: rem(780px);
+
 
 
         .about-title {
