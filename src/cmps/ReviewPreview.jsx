@@ -1,11 +1,11 @@
 import { LongTxt } from "./LongTxt"
 import starSvg from '../assets/img/star.svg'
 import rightArrow from '../assets/img/right-arrow.svg'
+import { SET_APP_MODAL_REVIEWS } from "../store/system.reducer";
 
-export function ReviewPreview({ stay }) {
+export function ReviewPreview({ stay, handleShowMore }) {
 
   const firstSixReviews = stay.reviews.slice(0, 6)
-  const reviewCategories = ["Cleanliness", "Check-in", "Location", "Communication", "Accuracy", "Value"];
   return (
     <div className="stay-review-container">
       <section className="stay-review-header">
@@ -46,13 +46,12 @@ export function ReviewPreview({ stay }) {
               </article>
               <article className="review-content">
                 <LongTxt img={rightArrow} txt={review.txt} length='179' />
-                {/* <img src={rightArrow} /> */}
               </article>
             </section>
           )
         })}
       </div>
-      <button>Show all {stay.reviews.length} reviews</button>
+      <button onClick={() => handleShowMore(SET_APP_MODAL_REVIEWS)} >Show all {stay.reviews.length} reviews</button>
     </div>
   )
 }

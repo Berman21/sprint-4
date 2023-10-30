@@ -30,6 +30,16 @@
     white-space: nowrap;
     width: 100%;
 
+    .who-container:not(.active) .btn-search-content span,
+    .check-in-container:not(.active) .btn-search-content span,
+    .check-out-container:not(.active) .btn-search-content span,
+    .where-container:not(.active) .btn-search-content span {
+      opacity: 0;
+      padding: 0;
+    }
+
+
+
     .check-in-container {
       margin-right: 5px;
     }
@@ -185,6 +195,36 @@
             transition: width 0.2s ease-in, margin-inline-start 0.2s ease-in;
             align-self: center;
 
+            & .btn-reserve {
+
+              width: 100%;
+              height: rem(48px);
+              display: block;
+              border: none;
+              border-radius: rem(24px);
+              color: white;
+
+              .btn-search-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span {
+                  font-weight: 400;
+                  font-size: 1rem;
+                  font-family: Airbnb_Cereal-Bold;
+                  // opacity: 1;
+                  padding-inline-start: 0.5rem;
+                  padding-inline-end: 0.25rem;
+                }
+
+                img {
+                  width: 1rem;
+                  height: 1rem;
+                }
+              }
+            }
+
             .btn-filter {
               display: flex;
               border: none;
@@ -195,6 +235,7 @@
               justify-content: center;
               align-items: center;
               cursor: pointer;
+              display: none;
 
               &:hover {
                 background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
@@ -205,46 +246,6 @@
               img {
                 width: rem(16px);
                 height: rem(16px);
-              }
-            }
-
-            & .search {
-              display: flex;
-              align-items: center;
-
-              margin-block: auto;
-              padding: 0;
-              padding-block: 16px;
-              padding-inline: 16px;
-
-              border: 0;
-              border-radius: 32px;
-
-              &>* {
-                color: lightgray;
-                width: fit-content;
-
-                &:first-child {
-                  height: 16px;
-                  letter-spacing: 0.48px;
-                  line-height: 16px;
-                }
-
-                &:last-child {
-                  font-family: Circular-Semibold;
-                  padding-inline-start: 8px;
-                  padding-inline-end: 4px;
-                  font-weight: 400;
-                  max-width: 63.75px;
-                  opacity: 1;
-                  transition: max-width 0.2s ease-in, opacity 0.2s;
-                  line-height: 18px;
-                  background-color: blue;
-                }
-              }
-
-              &:hover {
-                cursor: pointer;
               }
             }
           }
@@ -292,8 +293,8 @@
         width: rem(48px);
         margin-inline-start: rem(64px);
 
-        & .search> :last-child {
-          opacity: 0;
+        span {
+          // opacity: 0;
           max-width: 0px;
         }
       }
@@ -340,4 +341,6 @@
     height: 0;
     pointer-events: none;
   }
+
+
 }

@@ -191,7 +191,7 @@ export function StayDetails() {
 
           <Reservation stay={stay} stayId={stayId} />
         </section>
-        <ReviewPreview stay={stay} />
+        <ReviewPreview handleShowMore={handleShowMore} stay={stay} />
       </section>
     </>
   )

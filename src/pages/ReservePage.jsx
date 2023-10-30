@@ -9,11 +9,11 @@ import starSvg from '../assets/img/star.svg'
 import { AirbnbBtn } from '../cmps/AirbnbBtn'
 import { updateOrder } from "../store/order.actions.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { utilService } from "../services/util.service.js"
+import { store } from "../store/store.js"
 
 export function ReservePage() {
-
     const { stayId } = useParams()
     const [currStay, setCurrStay] = useState(null)
     const navigate = useNavigate()

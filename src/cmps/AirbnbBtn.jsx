@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export function AirbnbBtn({ txt , callBackFunction }) {
+export function AirbnbBtn({ txt, callBackFunction, children }) {
     const buttonRef = useRef(null)
 
     useEffect(() => {
@@ -26,6 +26,7 @@ export function AirbnbBtn({ txt , callBackFunction }) {
     return (
         <button ref={buttonRef} className="btn-reserve" onClick={callBackFunction}>
             {txt}
+            {children}
         </button>
     )
 }

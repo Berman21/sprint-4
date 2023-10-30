@@ -10,6 +10,7 @@ import { AirbnbBtn } from './AirbnbBtn'
 import { StayGusts } from './StayGuests'
 import { StayDate } from './StayDate'
 import { utilService } from '../services/util.service'
+import { showErrorMsg } from '../services/event-bus.service'
 
 export function Reservation({ stay, stayId }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -28,6 +29,10 @@ export function Reservation({ stay, stayId }) {
     }
 
     function onReservePage() {
+        if (!order.endDate || !order.startDate) {
+            setIsDateOpen(!dateSelection)
+            return
+        }
         return navigate(`/stay/${stayId}/reserve`)
     }
 
@@ -54,11 +59,13 @@ export function Reservation({ stay, stayId }) {
                         <div className="date">
                             <div className='check-in' onClick={() => onOpenDateModal()}>
                                 <div>CHECK IN</div>
-                                <div>{order.startDate || 'SELECT'}</div>
+                                <div>
+                                    {order.startDate || 'Check availability'}</div>
+                                {/* <input type="text" /> */}
                             </div>
                             <div className='check-out' onClick={() => onOpenDateModal()}>
                                 <div>CHECK OUT</div>
-                                <div>{order.endDate || 'SELECT'}</div>
+                                <div>{order.endDate || 'Check availability'}</div>
                             </div>
                         </div>
 
@@ -87,13 +94,14 @@ export function Reservation({ stay, stayId }) {
 
                 </div>
 
-                <div className="reservation-notice">
-                    You won't be charged yet
-                </div>
 
                 {order.endDate && <section>
+                    <div className="reservation-notice">
+                        You won't be charged yet
+                    </div>
+                    
                     <div className='summery flex space-between'>
-                        <span>${stay.price} x {utilService.calculateNights(order.startDate, order.endDate)}</span>
+                        <span>${stay.price} x {utilService.calculateNights(order.startDate, order.endDate)} {utilService.calculateNights(order.startDate, order.endDate) > 1 ? 'nights' : 'night'}</span>
                         <span>${new Intl.NumberFormat('he-IL').format(stay.price * utilService.calculateNights(order.startDate, order.endDate))}</span>
                     </div>
 
