@@ -23,7 +23,7 @@ export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) 
       ...prevFilter,
       labels: label,
     }));
-    updateFilterBy(filterByToEdit)
+    updateFilterBy({ labels: label })
 
   }
 

@@ -1,21 +1,25 @@
-.modal-about-container {
-
-    padding-inline: rem(24px);
+.detail-container {
 
 
-    .about-title {
-        margin-block-start: 1rem;
-        font-family: Airbnb_Cereal-Bold;
-        font-size: rem(26px);
-        height: rem(30px);
-    }
+    .modal-about-container {
 
-    .about-summary {
-        font-size: rem(16px);
-        font-family: Airbnb_Cereal-Book;
-        font-weight: 100;
-        max-height: rem(567px);
-        overflow-y: auto;
-        padding-bottom: rem(56px);
+        padding-inline: rem(24px);
+
+
+        .about-title {
+            margin-block-start: 1rem;
+            font-family: Airbnb_Cereal-Bold;
+            font-size: rem(26px);
+            height: rem(30px);
+        }
+
+        .about-summary {
+            font-size: rem(16px);
+            font-family: Airbnb_Cereal-Book;
+            font-weight: 100;
+            max-height: rem(567px);
+            overflow-y: auto;
+            padding-bottom: rem(56px);
+        }
     }
 }

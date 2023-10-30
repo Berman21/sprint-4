@@ -13,6 +13,7 @@ import { StayGusts } from './StayGuests'
 import { CountryFilter } from './CountryFilter'
 import { updateFilterBy } from '../store/stay.actions'
 import { utilService } from '../services/util.service'
+import { AirbnbBtn } from './AirbnbBtn'
 
 export function FilterExpanded({ filterByToEdit, setFilterByToEdit, onSetFilter, filterBy, isFilterExpanded, selectedFilterBox, onSetSelectedFilterBox, setSelectedFilterBox }) {
   const isExpandedModalOpen = useSelector((storeState) => storeState.systemModule.isExpandedModalOpen)
@@ -126,6 +127,12 @@ export function FilterExpanded({ filterByToEdit, setFilterByToEdit, onSetFilter,
               </span>
             </section>
             <section className='btn-search-container'>
+              <AirbnbBtn callBackFunction={(ev) => onSubmit(ev)}>
+                <section className='btn-search-content'>
+                  <img src={searchFilter} />
+                  <span className='search-txt'>Search</span>
+                </section>
+              </AirbnbBtn>
               <button onClick={(ev) => onSubmit(ev)} className='btn-filter'>
                 <img src={searchFilter} />
               </button>
