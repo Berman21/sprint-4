@@ -192,4 +192,27 @@
       }
     }
   }
+
+  .filter-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-inline-start: 1.5rem;
+    .filter-btn{
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      padding: 1rem;
+
+      background-color: transparent;
+      border: 1px solid rgb(221, 221, 221);
+      border-radius: rem(12px);
+    }
+    img {
+      width: 1rem;
+      height: 1rem;
+      margin-inline-end: 10px;
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { loadStays, addStay, updateStay, removeStay } from '../store/stay.actions.js'
 
@@ -11,11 +11,15 @@ import { useDispatch } from 'react-redux'
 import { FilterCarousel } from '../cmps/FilterCarousel.jsx'
 import { Modal } from '../cmps/Modal.jsx'
 
+import filterSvg from '../assets/img/filterSvg.svg'
+import { FilterModal } from '../cmps/FilterModal.jsx'
+
 export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const dispatch = useDispatch()
+  const [isFilterModalOpen,setFilterModalOpen] = useState(false)
 
   useEffect(() => {
     loadStays(filterBy)
@@ -74,58 +78,32 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
     if (user.isAdmin) return true
     return stay.owner?._id === user._id
   }
+
+  function openFilterModal() {
+    setFilterModalOpen(!isFilterModalOpen)
+    console.log('TODO - ADD FILTER MODAL');
+  }
+
   return (
     <>
       {appModal && <Modal />}
       <div>
+
         <section className='category-carousel-container'>
+
           <section className='category-carousel'>
             <FilterCarousel setFilterByToEdit={setFilterByToEdit} filterByToEdit={filterByToEdit} filterBy={filterBy} />
           </section>
-        </section>
-        <main>
-          {/* <button onClick={onAddStay}>Add Stay ⛐</button> */}
-          <StayList filterBy={filterBy} stays={stays} />
-          {/* <ul className='stay-list'>
-          {stays.map((stay) => (
-            <li className='stay-preview' key={stay._id}>
-              <h4>{stay.title}</h4>
-              <h1>⛐</h1>
-              <p>
-                Price: <span>${stay.price.toLocaleString()}</span>
-              </p>
-              <p>
-                Owner: <span>{stay.owner && stay.owner.fullname}</span>
-              </p>
-              {shouldShowActionBtns(stay) && (
-                <div>
-                  <button
-                    onClick={() => {
-                      onRemoveStay(stay._id)
-                    }}
-                  >
-                    x
-                  </button>
-                  <button
-                    onClick={() => {
-                      onUpdateStay(stay)
-                    }}
-                  >
-                    Edit
-                  </button>
-                </div>
-              )}
 
-              <button
-                onClick={() => {
-                  onAddStayMsg(stay)
-                }}
-              >
-                Add stay msg
-              </button>
-            </li>
-          ))}
-        </ul> */}
+          <section className='filter-btn-container'>
+            <button className='filter-btn' onClick={openFilterModal}><img src={filterSvg} />Filters</button>
+          </section>
+
+        </section>
+        {isFilterModalOpen && <FilterModal />}
+        <main>
+          <StayList filterBy={filterBy} stays={stays} />
+
         </main>
       </div>
     </>

@@ -1,0 +1,59 @@
+.filter-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    background-color: white;
+    width: rem(780px);
+    height: 92vh;
+    border-radius: rem(12px);
+    padding: 0 rem(24px);
+    border: 1px solid black;
+
+}
+
+.filter-modal-header {
+
+    text-align: center;
+    border-bottom: 1px solid rgb(244, 244, 244);
+    padding: rem(24px);
+
+    button {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+
+        border: none;
+        background-color: transparent;
+
+        img {
+
+            position: absolute;
+            height: 1rem;
+            width: 1rem;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    button:hover {
+        background-color: rgb(244, 244, 244);
+    }
+}
+
+.filter-modal-container{
+    padding: rem(24px) 0;
+
+    .filter-btn-container{
+        display: flex;
+        justify-content: center;
+
+        button{
+            padding: rem(24px);
+        }
+    }
+}
