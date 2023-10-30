@@ -42,7 +42,7 @@ export function StayDate() {
     const month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are 0-based
     const year = dateObj.getFullYear();
     console.log(day);
-    if(day === 'NaN') return 'SELECT'
+    if(day === 'NaN') return
     return `${day}/${month}/${year}`;
   }
 
