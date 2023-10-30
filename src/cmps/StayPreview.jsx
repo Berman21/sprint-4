@@ -4,6 +4,7 @@ import { Fragment, useState } from 'react'
 import starSvg from '../assets/img/star.svg'
 import { WishlistIcon } from './WishlistIcon'
 import { PreviewCarousel } from './PreviewCarousel'
+import { showSuccessMsg } from '../services/event-bus.service'
 
 export function StayPreview({ stay }) {
 
@@ -17,6 +18,7 @@ export function StayPreview({ stay }) {
   function onWishlistIcon() {
     if (setClr === '#00000080') {
       onSetClr('#ff385c')
+      showSuccessMsg('Toy added')
     } else {
       onSetClr('#00000080')
     }
@@ -39,8 +41,8 @@ export function StayPreview({ stay }) {
           <div className='stay-loc'>{stay.loc.city}, {stay.loc.country}</div>
 
           <div className='stay-rating'><img src={starSvg} />{stay.rating}</div>
-          <p className='stay-distance'>13 miles to Ramat Gan National Park</p>
-          <p className='stay-date'>Oct 6-11 · Individual Host </p>
+          <p className='stay-distance'>3,267 kilometers away</p>
+          <p className='stay-date'>Oct 6-11</p>
 
           <div className='stay-price'>${stay.price} <span>night</span></div>
 

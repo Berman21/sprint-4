@@ -4,6 +4,7 @@ import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './LoginSignup.jsx'
 import { SET_FILTER_BY } from '../store/stay.reducer'
 import { DesktopHeader } from './DesktopHeader'
+import { UserMsg } from './UserMsg'
 
 export function AppHeader({ filterByToEdit, setFilterByToEdit }) {
   const dispatch = useDispatch()
@@ -40,6 +41,7 @@ export function AppHeader({ filterByToEdit, setFilterByToEdit }) {
 
   return (
     <div className='app-header-container'>
+      <UserMsg />
       <DesktopHeader filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} />
       {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
     </div>

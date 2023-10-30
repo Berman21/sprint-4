@@ -9,11 +9,11 @@ import starSvg from '../assets/img/star.svg'
 import { AirbnbBtn } from '../cmps/AirbnbBtn'
 import { updateOrder } from "../store/order.actions.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { utilService } from "../services/util.service.js"
+import { store } from "../store/store.js"
 
 export function ReservePage() {
-
     const { stayId } = useParams()
     const [currStay, setCurrStay] = useState(null)
     const navigate = useNavigate()
@@ -100,7 +100,7 @@ export function ReservePage() {
 
                         <div className='rating'>
                             <img className="star-img" src={starSvg} alt="" />
-                            <p>5.0 <span>(1 reviews)</span></p>
+                            <p>{currStay.rating} <span>(1 reviews)</span></p>
                         </div>
 
                     </article>
@@ -110,18 +110,18 @@ export function ReservePage() {
                     <h1>Price details</h1>
                     <article className="price-calc flex space-between">
                         <span>${currStay.price} x {utilService.calculateNights(order.startDate, order.endDate)} nights</span>
-                        <span>${new Intl.NumberFormat('he-IL').format(currStay.price * 2)}</span>
+                        <span>${new Intl.NumberFormat('he-IL').format(currStay.price * utilService.calculateNights(order.startDate, order.endDate))}</span>
                     </article>
                     <article className="price-calc flex space-between">
                         <span>Service fee</span>
-                        <span>$220</span>
+                        <span>${new Intl.NumberFormat('he-IL').format(currStay.price * 0.2)}</span>
                     </article>
                 </div>
 
                 <div className="total-price">
                     <article className="price-calc flex space-between">
                         <span>Total (NIS)</span>
-                        <span>${new Intl.NumberFormat('he-IL').format((currStay.price * utilService.calculateNights(order.startDate, order.endDate)) + 220)}</span>
+                        <span>${new Intl.NumberFormat('he-IL').format(currStay.price * utilService.calculateNights(order.startDate, order.endDate) + currStay.price * 0.2)}</span>
                     </article>
                 </div>
             </section>
