@@ -53,8 +53,8 @@ export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) 
         max: 3000,
         min: 1550,
       },
-      items: 13,
-      slidesToSlide: 9,
+      items: 17,
+      slidesToSlide: 17,
     },
     desktopSmall: {
       breakpoint: {
