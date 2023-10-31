@@ -18,36 +18,6 @@
   }
 }
 
-@include for-extra-large-layout {
-
-  .app-container {
-    // grid-template-columns: 80px 1fr 80px;
-
-  }
-
-
-
-
-  // @include for-narrow-layout {
-  //     grid-template-columns:
-  //         minmax(20px, 1fr)
-  //         minmax(auto, $mobile-breakpoint)
-  //         minmax(20px, 1fr);
-  // }
-  // @include for-normal-layout {
-  //     grid-template-columns:
-  //         minmax(20px, 1fr)
-  //         minmax(auto, $narrow-breakpoint)
-  //         minmax(20px, 1fr);
-  // }
-  // @include for-wide-layout {
-  //     grid-template-columns:
-  //         minmax(20px, 1fr)
-  //         minmax(auto, $normal-breakpoint)
-  //         minmax(20px, 1fr);
-  // }
-}
-
 .stays-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -116,13 +86,21 @@
 
 .mid-section {
   display: grid;
-  grid-template-columns: 653px 465px;
+  grid-template-columns: auto auto;
+  margin-top: 50px;
 
   .stay-amenities {
 
     div {
-      display: grid;
-      grid-template-columns: repeat(2, 300px);
+      // display: grid;
+      // grid-template-columns: repeat(2, 300px);
+      display: flex;
+      flex-direction: column;
+
+      @include for-large-list {
+        display: grid;
+        grid-template-columns: minmax(auto, 300px) minmax(auto, 300px);
+      }
     }
   }
 }

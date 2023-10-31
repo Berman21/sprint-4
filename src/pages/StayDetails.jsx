@@ -13,17 +13,14 @@ import starSvg from '../assets/img/star.svg'
 import { Reservation } from '../cmps/Reservation.jsx'
 import { ReviewPreview } from '../cmps/ReviewPreview.jsx'
 import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
-import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL, SET_APP_MODAL_ABOUT, SET_FOCUSED_MODAL } from '../store/system.reducer.js'
+import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL, SET_APP_MODAL_ABOUT, SET_APP_MODAL_AMENITIES, SET_FOCUSED_MODAL } from '../store/system.reducer.js'
 import { Modal } from '../cmps/Modal.jsx'
 import { useClickOutside } from '../customHooks/useCloseModule.js'
 
 export function StayDetails() {
-  // const firstTenAmenities = stay.amenities.slice(0, 10)
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const isFocusedModal = useSelector((storeState) => storeState.systemModule.isFocusedModal)
   const [isModalActive, setIsModalActive] = useState(false)
-
-
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -86,7 +83,7 @@ export function StayDetails() {
 
   let firstTenAmenities
   if (stay) {
-    firstTenAmenities = stay.amenities.slice(0, 10)
+    firstTenAmenities = stay.amenities.slice(0, 8)
   }
 
   if (!stay) return <div>loading..</div>
@@ -185,7 +182,7 @@ export function StayDetails() {
                   </article>
                 ))}
               </div>
-              <button className=''>Show all {stay.amenities.length} amenities</button>
+              <button className='' onClick={() => handleShowMore(SET_APP_MODAL_AMENITIES)}>Show all {stay.amenities.length} amenities</button>
             </section>
           </div>
 

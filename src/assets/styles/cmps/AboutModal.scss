@@ -7,7 +7,8 @@
         max-height: rem(693px);
         margin: 2rem auto;
         background-color: #fff;
-
+        z-index: 210;
+        position: relative;
 
         .modal-header {
             display: flex;

@@ -15,7 +15,7 @@
   z-index: 10;
   transition: all 0.2s;
 
-  & .filter-expanded {
+  .filter-expanded {
     padding: 0;
     align-items: center;
     background-color: rgb(235, 235, 235);
@@ -34,7 +34,7 @@
     .check-in-container:not(.active) .btn-search-content span,
     .check-out-container:not(.active) .btn-search-content span,
     .where-container:not(.active) .btn-search-content span {
-      opacity: 0;
+      // opacity: 0;
       padding: 0;
     }
 
@@ -216,6 +216,7 @@
                   // opacity: 1;
                   padding-inline-start: 0.5rem;
                   padding-inline-end: 0.25rem;
+                  transition: padding .4s;
                 }
 
                 img {
@@ -296,6 +297,8 @@
         span {
           // opacity: 0;
           max-width: 0px;
+          overflow: hidden;
+          padding: 0 !important
         }
       }
     }

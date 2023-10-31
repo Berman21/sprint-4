@@ -1,21 +1,24 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import closeBtn from '../assets/img/close-btn.svg'
 import { CLOSE_APP_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer'
 import { DynamicCmp } from './DynamicModal'
 import { useClickOutside } from '../customHooks/useCloseModule'
-import { useState } from 'react'
 
 export function Modal({ stay, modalType, isModalActive, setIsModalActive }) {
     const modalRef = useClickOutside(onModalClickOutside)
     const dispatch = useDispatch()
 
-    function onModalClickOutside() {
-        setIsModalActive(false)
+    function onModalClickOutside(event) {
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+            setIsModalActive(false);
+        }
+    }
+
+    function onModalClick(event) {
+        event.stopPropagation()
     }
 
     function onClose() {
-        // ev.preventDefault()
-        // ev.stopPropagation()
         dispatch({ type: CLOSE_APP_MODAL })
         dispatch({ type: REMOVE_FOCUSED_MODAL })
         setIsModalActive(false)
@@ -25,9 +28,9 @@ export function Modal({ stay, modalType, isModalActive, setIsModalActive }) {
     return (
         <>
             {isModalActive &&
-                <div className="modal-container" >
+                <div className="modal-container" onClick={onClose}>
 
-                    <div className="modal">
+                    <div className="modal" onClick={onModalClick}>
                         <div className="modal-header">
                             <button className='modal-close-btn' onClick={onClose}>
                                 <img src={closeBtn} />
