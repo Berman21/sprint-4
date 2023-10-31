@@ -1,25 +1,34 @@
-import React, { useState } from 'react'
-import { addDays, format } from 'date-fns'
+import React, { useEffect, useState } from 'react'
+import { addDays, format, isBefore, isSameDay } from 'date-fns'
 import { DayPicker } from 'react-day-picker'
 import { useSelector } from 'react-redux'
 import 'react-day-picker/dist/style.css'
-
 import { updateOrderDetails } from '../store/order.actions'
+
 
 
 const pastMonth = new Date()
 
 export function StayDate() {
-
+  const [numberOfMonths, setNumberOfMonths] = useState(window.innerWidth >= 850 ? 2 : 1)
   const order = useSelector(store => store.orderModule.order)
+  const [range, setRange] = useState()
 
-  const disabledDays = []
+  useEffect(() => {
+    function handleResize() {
+      setNumberOfMonths(window.innerWidth >= 885 ? 2 : 1);
+    }
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const defaultSelected = {
     from: pastMonth,
     to: addDays(pastMonth, 4),
   }
-  const [range, setRange] = useState()
-  const today = new Date()
 
   function setDateRange(range) {
     setRange(range)
@@ -34,7 +43,11 @@ export function StayDate() {
     order.startDate = date.from
     order.endDate = date.to
     updateOrderDetails(order)
-}
+  }
+
+  function isDateDisabled(date) {
+    return isBefore(date, new Date()) && !isSameDay(date, new Date())
+  }
 
   function convertDateFormat(inputDate) {
     const dateObj = new Date(inputDate);
@@ -42,7 +55,7 @@ export function StayDate() {
     const month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are 0-based
     const year = dateObj.getFullYear();
     console.log(day);
-    if(day === 'NaN') return
+    if (day === 'NaN') return
     return `${day}/${month}/${year}`;
   }
 
@@ -50,12 +63,11 @@ export function StayDate() {
     <section className='date-picker'>
       <DayPicker
         firstDayOfWeek={1}
-        disabledDays={[new Date(), { daysOfWeek: [0, 6] }, { before: new Date() }]}
-        // disabled={disabledDays}
+        disabled={isDateDisabled}
         id='test'
         mode='range'
         defaultMonth={pastMonth}
-        numberOfMonths={2}
+        numberOfMonths={numberOfMonths}
         selected={range}
         onSelect={setDateRange}
       />
