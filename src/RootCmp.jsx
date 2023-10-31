@@ -11,6 +11,7 @@ import { store } from './store/store'
 import { CLOSE_APP_MODAL, CLOSE_EXPANDED_HEADER, REMOVE_FOCUSED_MODAL } from './store/system.reducer'
 import { Dashboard } from './cmps/Dashboard'
 import { Modal } from './cmps/Modal'
+// const isDashboardPage = window.location.pathname === '/dashboard';
 
 export function RootCmp() {
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
@@ -31,6 +32,7 @@ export function RootCmp() {
     <>
       {isFocusedModal && <div className='gray-viewport' onClick={(ev) => closeBackground(ev)}></div>}
       <div className='app-container'>
+        {/* {!isDashboardPage && <AppHeader filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} */}
         <AppHeader filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />
         <main className='main-app'>
           <Routes>

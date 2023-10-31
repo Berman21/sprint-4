@@ -38,8 +38,8 @@ export function PieChart() {
     };
 
     return (
-            <div style={{ maxWidth: '20vw', margin: 'auto' }}>
-                <Pie data={data} options={options} />
-            </div>
+        <div className='pie-chart' style={{ maxWidth: '100%', maxHeight: '100%'}}>
+            <Pie data={data} options={options} />
+        </div>
     )
 }

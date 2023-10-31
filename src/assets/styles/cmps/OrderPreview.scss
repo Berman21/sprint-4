@@ -1,20 +1,76 @@
 // Dashboard cmp
 
+.dashboard {
+    display: grid;
+    grid-template-columns: 300px 1fr 70px;
+
+    // background-color: #606266;
+    background-color: #f3f3f3;
+    // padding-left: 350px;
+    // height: 100vh;
+
+    &>* {
+        grid-column: 2;
+    }
+
+    .dashboard-nav {
+        grid-column: 1;
+    }
+}
+
+.dashboard-user-icon {
+    width: 50px;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    background-color: #f3f3f3;
+    padding: 20px;
+    // height: 50vh;
+
+    &>* {
+        display: grid;
+        gap: 20px;
+
+        &:nth-child(1) {
+            grid-template-columns: 1.3fr 3fr;
+        }
+
+        &:nth-child(2) {
+            grid-template-columns: 2fr 3fr;
+        }
+    }
+}
+
+.dashboard-container>*>* {
+    background-color: white;
+    padding: 10px;
+    height: 390px;
+    border-radius: 10px;
+}
+
 .order-count {
-    font-family: Airbnb_Cereal-Book;    
+    font-family: Airbnb_Cereal-Book;
     font-size: 24px;
     margin-block-end: 5px;
     margin-block-start: 20px;
     padding-inline-start: 10px;
 }
 
-
 // list cmp
+
+.order-container {
+    max-height: 300px;
+    // height: 100%;
+    overflow: auto;
+}
 
 .order-list {
     display: grid;
-    // grid-template-columns: repeat(7, 1fr);
-    grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
+    // grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
+    grid-template-columns: 1.5fr 2.5fr 1.3fr 1.3fr 2fr;
     padding: 10px;
 
     p {
@@ -41,8 +97,8 @@
 
 .order-preview {
     display: grid;
-    // grid-template-columns: repeat(7, 1fr);
-    grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
+    // grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
+    grid-template-columns: 1.5fr 2.5fr 1.3fr 1.3fr 2fr;
     padding: 10px;
 
     // align-items: center;
@@ -75,16 +131,16 @@
     }
 
     // .btn-container {
-        // background-color: #67C23A;
-        // justify-self: end;
-        // justify-self: center;
+    // background-color: #67C23A;
+    // justify-self: end;
+    // justify-self: center;
     // }
-    
+
     button {
         justify-self: end;
         min-width: 100px;
         padding: 5px 0;
-        
+
         font-size: 14px;
         font-family: Airbnb_Cereal-Medium;
         text-transform: capitalize;
@@ -94,11 +150,11 @@
     .pending {
         @include status($clr: #FFA500);
     }
-    
+
     .approve {
         @include status($clr: #67C23A);
     }
-    
+
     .reject {
         @include status($clr: #F56C6C);
     }
@@ -111,5 +167,36 @@
     .reject-btn {
         @include status-btn($clr: #F56C6C, $percentage: 25%);
         margin-inline-start: 5px;
+    }
+}
+
+.stay-chart {
+    padding: 25px;
+
+    h1 {
+        font-size: 24px;
+        font-family: Airbnb_Cereal-Bold;
+    }
+
+    h2,
+    p {
+        font-size: 18px;
+    }
+
+    article:first-child {
+        margin-block-end: 50px;
+    }
+
+
+    .pending {
+        @include status($clr: #FFA500);
+    }
+
+    .approve {
+        @include status($clr: #67C23A);
+    }
+
+    .reject {
+        @include status($clr: #F56C6C);
     }
 }

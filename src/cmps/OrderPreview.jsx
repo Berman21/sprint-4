@@ -9,17 +9,17 @@ export function OrderPreview({ order, onChangeStatus }) {
                 <img className='user-icon' src={userIcon} />
                 <p>{order.buyer.fullname}</p>
             </div>
-            <p>{order.startDate}</p>
-            <p>{order.endDate}</p>
+            {/* <p>{order.startDate}</p> */}
+            {/* <p>{order.endDate}</p> */}
             <p>{order.stay.name}</p>
             <p>${order.totalPrice}</p>
 
             <p className={order.status}>{order.status}</p>
 
-            <div className='btn-container'>
+            {order.status === 'pending' && <div className='btn-container'>
                 <button className='approve-btn' onClick={() => onChangeStatus(order, 'approve')}>Approve</button>
                 <button className='reject-btn' onClick={() => onChangeStatus(order, 'reject')}>Reject</button>
-            </div>
+            </div>}
 
         </section>
     )

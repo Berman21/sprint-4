@@ -2,11 +2,13 @@
 import { PieChart } from './PieChart';
 import { BarChart } from './BarChart';
 import { OrderList } from './OrderList';
+import { StayChart } from './StayChart';
 
 import { useSelector } from 'react-redux';
 import { loadOrders, updateOrder } from '../store/order.actions';
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 
+import userIcon from '../assets/img/user.svg'
 
 export function Dashboard() {
 
@@ -22,14 +24,34 @@ export function Dashboard() {
     }
 
     return (
-        <section>
+        <Fragment>
+            <section className='dashboard'>
+                
+                {/* <div className='dashboard-nav'>
+                    <h1>Home</h1>
+                </div>
 
-            {/* <PieChart />
-            <BarChart /> */}
+                <div className='flex space-between'>
+                    <h1>Dashboard</h1>
+                    <img className='dashboard-user-icon' src={userIcon} />
+                </div> */}
 
-            <p className='order-count'>{orders.length} reservations</p>
-            <OrderList orders={orders} onChangeStatus={onChangeStatus} />
+                <div className='dashboard-container full'>
 
-        </section>
+                    {/* <p className='order-count'>{orders.length} reservations</p> */}
+                    <div>
+                        <StayChart />
+                        <BarChart />
+                    </div>
+
+                    <div>
+                        <PieChart />
+                        <OrderList orders={orders} onChangeStatus={onChangeStatus} />
+                    </div>
+
+                </div>
+
+            </section>
+        </Fragment>
     )
 }
