@@ -5,6 +5,10 @@
   width: rem(345px);
   height: rem(410px);
 
+  @include for-normal-header {
+    display: none;
+  }
+
   ::-webkit-scrollbar,
   ::-webkit-scrollbar-thumb {
     width: rem(26px);
@@ -39,6 +43,7 @@
       &:hover {
         background-color: #f7f7f7;
       }
+
       span {
         font-family: Airbnb_Cereal-Book;
         font-weight: 100;
@@ -54,6 +59,7 @@
         justify-content: center;
         display: inline-flex;
       }
+
       img {
         width: rem(22px);
       }

@@ -8,6 +8,15 @@
   z-index: 40;
   background-color: white;
   height: rem(78px);
+  padding-inline: rem(24px);
+
+  @include for-semi-narrow-list {
+    padding-inline: rem(40px);
+  }
+
+  @include for-extra-large-layout {
+    padding-inline: rem(80px);
+  }
 
   .category-carousel {
     display: grid;

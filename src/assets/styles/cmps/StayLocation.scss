@@ -7,6 +7,11 @@
   //   padding-inline: 20px;
   height: rem(402px);
   border-left: 1px solid #ebebeb;
+
+  @include for-normal-header {
+    border: none;
+  }
+
   h3 {
     padding-inline-start: 4px;
     font-size: 14px;

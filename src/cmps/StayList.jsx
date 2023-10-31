@@ -27,22 +27,22 @@ export function StayList({ stays }) {
 
   if (isLoading) return <div>loading...</div>
   return (
-    <InfiniteScroll
-      dataLength={visibleStays.length}
-      next={loadMoreStays}
-      hasMore={visibleStays.length < stays.length}
-      loader={<h4>Loading...</h4>}
-    >
-      <Fragment>
-        {stays.length < 1 && <NoMatches />}
-        <ul className='stays-list clean-list'>
-          {visibleStays.map((stay) => (
-            <li className='stay' key={stay._id}>
-              <StayPreview stay={stay} />
-            </li>
-          ))}
-        </ul>
-      </Fragment>
-    </InfiniteScroll>
+    // <InfiniteScroll
+    //   dataLength={visibleStays.length}
+    //   next={loadMoreStays}
+    //   hasMore={visibleStays.length < stays.length}
+    //   loader={<h4>Loading...</h4>}
+    // >
+    <Fragment>
+      {stays.length < 1 && <NoMatches />}
+      <ul className='stays-list clean-list'>
+        {stays.map((stay) => (
+          <li className='stay' key={stay._id}>
+            <StayPreview stay={stay} />
+          </li>
+        ))}
+      </ul>
+    </Fragment>
+    // {/* </InfiniteScroll> */ }
   )
 }

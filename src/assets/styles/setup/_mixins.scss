@@ -45,14 +45,27 @@
     }
 }
 
+@mixin for-semi-narrow-list {
+    @media (min-width: calc($narrow-breakpoint + 20px)) {
+        @content;
+    }
+}
+
 @mixin for-normal-list {
     @media (min-width: calc($normal-breakpoint - 10px)) {
         @content;
     }
 }
 
+
 @mixin for-large-list {
     @media (min-width: calc($large-breakpoint - 175px)) {
+        @content;
+    }
+}
+
+@mixin for-large-list-max {
+    @media (max-width: calc($large-breakpoint - 175px)) {
         @content;
     }
 }
@@ -69,6 +82,11 @@
     }
 }
 
+@mixin for-normal-header {
+    @media (max-width: $normal-breakpoint) {
+        @content
+    }
+}
 
 /* Media  Mixins */
 @mixin aspect-ratio($width, $height) {
