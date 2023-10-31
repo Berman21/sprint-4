@@ -99,7 +99,8 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
           </section>
 
         </section>
-        {isPlaceFilterOpen && <PlaceFilter togglePlaceFilter={togglePlaceFilter}/>}
+        {isStayFilterOpen && 
+        <StayFilter toggleStayFilter={toggleStayFilter} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit}/>}
         <main>
           <StayList filterBy={filterBy} stays={stays} />
 
