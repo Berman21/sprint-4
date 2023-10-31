@@ -19,7 +19,7 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const dispatch = useDispatch()
-  const [isPlaceFilterOpen,togglePlaceFilterOpen] = useState(false)
+  const [isPlaceFilterOpen, togglePlaceFilterOpen] = useState(false)
 
   useEffect(() => {
     loadStays(filterBy)
@@ -99,7 +99,7 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
           </section>
 
         </section>
-        {isPlaceFilterOpen && <PlaceFilter togglePlaceFilter={togglePlaceFilter}/>}
+        {isPlaceFilterOpen && <PlaceFilter togglePlaceFilter={togglePlaceFilter} />}
         <main>
           <StayList filterBy={filterBy} stays={stays} />
 
