@@ -12,14 +12,14 @@ import { FilterCarousel } from '../cmps/FilterCarousel.jsx'
 import { Modal } from '../cmps/Modal.jsx'
 
 import filterSvg from '../assets/img/filterSvg.svg'
-import { PlaceFilter } from '../cmps/PlaceFilter.jsx'
+import { StayFilter } from '../cmps/StayFilter.jsx'
 
 export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const dispatch = useDispatch()
-  const [isPlaceFilterOpen,togglePlaceFilterOpen] = useState(false)
+  const [isStayFilterOpen,toggleStayFilterOpen] = useState(false)
 
   useEffect(() => {
     loadStays(filterBy)
@@ -79,8 +79,8 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
     return stay.owner?._id === user._id
   }
 
-  function togglePlaceFilter() {
-    togglePlaceFilterOpen(!isPlaceFilterOpen)
+  function toggleStayFilter() {
+    toggleStayFilterOpen(!isStayFilterOpen)
   }
 
   return (
@@ -95,11 +95,15 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
           </section>
 
           <section className='filter-btn-container'>
-            <button className='filter-btn' onClick={togglePlaceFilter}><img src={filterSvg} />Filters</button>
+            <button className='filter-btn' onClick={toggleStayFilter}><img src={filterSvg} />Filters</button>
           </section>
 
         </section>
-        {isPlaceFilterOpen && <PlaceFilter togglePlaceFilter={togglePlaceFilter}/>}
+        {isStayFilterOpen && 
+        <StayFilter 
+        toggleStayFilter={toggleStayFilter} 
+        filterByToEdit={filterByToEdit} 
+        setFilterByToEdit={setFilterByToEdit}/>}
         <main>
           <StayList filterBy={filterBy} stays={stays} />
 

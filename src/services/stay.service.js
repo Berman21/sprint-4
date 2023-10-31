@@ -153,5 +153,5 @@ function getEmptyStay() {
 }
 
 function getDefaultFilter() {
-  return { country: '', labels: '' }
+  return { country: '', labels: '',minPrice:'',maxPrice:'',capacity:''}
 }

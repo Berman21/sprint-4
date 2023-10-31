@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER_MODAL } from '../store/system.reducer'
-import { StayFilter } from './StayFilter'
 import { format } from 'date-fns'
 import { useClickOutside } from '../customHooks/useCloseModule'
 import { store } from '../store/store'
