@@ -1,4 +1,4 @@
-.overlay{
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -21,6 +21,10 @@
     height: 92vh;
     border-radius: rem(12px);
     padding: 0 rem(24px);
+
+    .filter{
+        padding: rem(40px) 0;
+    }
 }
 
 .filter-modal-header {
@@ -54,15 +58,59 @@
     }
 }
 
-.filter-modal-container{
+.filter-modal-container {
     padding: rem(24px) 0;
 
-    .filter-btn-container{
+    .price-input-container{
         display: flex;
-        justify-content: center;
+        align-items: center;
 
-        button{
-            padding: rem(24px);
+    }
+    .price-input{
+        border: 1px solid rgba(0, 0, 0, 0.14);
+    }
+    input{
+        border: none;
+    }
+
+    .filter-btn-container {
+        display: flex;
+        padding: 0 rem(40px);
+
+        button {
+            line-height: rem(30px);
+            font-family: Airbnb_Cereal-Bold;
+            font-size: medium;
+            border: 1px solid rgba(0, 0, 0, 0.14);
+            background-color: transparent;
+
+            width: 100%;
+            padding: 1rem 0.5rem
+        }
+
+        .active {
+            color: white;
+            background-color: rgb(34, 34, 34);
+            box-shadow: rgb(0, 0, 0) 0px 2px 8px 0px inset;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0));
+        }
+
+        :hover {
+            border-color: black;
+        }
+
+    }
+
+    .capacity-filter {
+        button {
+            padding: 10px 24px;
+            margin: 4px 10px 4px 0;
+            border-radius: 2em;
+
+            background-color: transparent;
+
+            border: 1px solid rgba(0, 0, 0, 0.14);
+
         }
     }
 }
