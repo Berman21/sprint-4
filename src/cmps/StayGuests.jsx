@@ -30,7 +30,7 @@ export function StayGusts({ width = 326 }) {
         </section>
 
         <section className='guests-counter'>
-          <button onClick={() => onAddGuest('adults', -1)}>
+          <button className={order.guests.adults < 2 ? 'disabled' : ''} onClick={() => onAddGuest('adults', -1)}>
             <img src={minus} />
           </button>
           <span>{order.guests.adults}</span>
@@ -47,7 +47,7 @@ export function StayGusts({ width = 326 }) {
         </section>
 
         <section className='guests-counter'>
-          <button onClick={() => onAddGuest('children', -1)}>
+          <button className={order.guests.children < 1 ? 'disabled' : ''} onClick={() => onAddGuest('children', -1)}>
             <img src={minus} />
           </button>
           <span>{order.guests.children}</span>
@@ -64,7 +64,7 @@ export function StayGusts({ width = 326 }) {
         </section>
 
         <section className='guests-counter'>
-          <button onClick={() => onAddGuest('infants', -1)}>
+          <button className={order.guests.infants < 1 ? 'disabled' : ''} onClick={() => onAddGuest('infants', -1)}>
             <img src={minus} />
           </button>
           <span>{order.guests.infants}</span>
@@ -81,7 +81,7 @@ export function StayGusts({ width = 326 }) {
         </section>
 
         <section className='guests-counter'>
-          <button onClick={() => onAddGuest('pets', -1)}>
+          <button className={order.guests.pets < 1 ? 'disabled' : ''} onClick={() => onAddGuest('pets', -1)}>
             <img src={minus} />
           </button>
           <span>{order.guests.pets}</span>

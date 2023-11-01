@@ -74,19 +74,9 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
         )}
         {isFilterExpanded && (
           <section className='searchbar'>
-            <section className='experiences'>
-              <article className={selectedExperience === 'stays' ? 'selected' : ''} name='stays' onClick={toggleSelected}>
-                <span>Stays</span>
-              </article>
-
-              <article className={selectedExperience === 'experiences' ? 'selected' : ''} name='experiences' onClick={toggleSelected}>
-                <span>Experiences</span>
-              </article>
-
-              <article className={selectedExperience === 'online' ? 'selected' : ''} name='online' onClick={toggleSelected}>
-                <span>Online Experiences</span>
-              </article>
-            </section>
+           
+                <span className='experiences'>Search your next trip!</span>
+           
           </section>
         )}
         {/* <LoginSignup /> */}

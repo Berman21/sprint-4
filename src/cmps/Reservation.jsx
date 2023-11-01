@@ -60,12 +60,12 @@ export function Reservation({ stay, stayId }) {
                             <div className='check-in' onClick={() => onOpenDateModal()}>
                                 <div>CHECK IN</div>
                                 <div>
-                                    {order.startDate || 'Check availability'}</div>
+                                    {order.startDate || 'Add Dates'}</div>
                                 {/* <input type="text" /> */}
                             </div>
                             <div className='check-out' onClick={() => onOpenDateModal()}>
                                 <div>CHECK OUT</div>
-                                <div>{order.endDate || 'Check availability'}</div>
+                                <div>{order.endDate || 'Add Dates'}</div>
                             </div>
                         </div>
 
@@ -87,7 +87,7 @@ export function Reservation({ stay, stayId }) {
                         </div>}
 
                     {dateSelection &&
-                        <div className='modal check-out-modal'>
+                        <div className='check-out-modal'>
                             <StayDate />
                         </div>}
                     <AirbnbBtn id={stay._id} txt={'Reserve'} callBackFunction={onReservePage} />

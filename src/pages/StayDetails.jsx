@@ -13,7 +13,7 @@ import starSvg from '../assets/img/star.svg'
 import { Reservation } from '../cmps/Reservation.jsx'
 import { ReviewPreview } from '../cmps/ReviewPreview.jsx'
 import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
-import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL, SET_APP_MODAL_ABOUT, SET_APP_MODAL_AMENITIES, SET_FOCUSED_MODAL } from '../store/system.reducer.js'
+import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL, SET_APP_MODAL_ABOUT, SET_APP_MODAL_AMENITIES, SET_APP_MODAL_REVIEWS, SET_FOCUSED_MODAL } from '../store/system.reducer.js'
 import { Modal } from '../cmps/Modal.jsx'
 import { useClickOutside } from '../customHooks/useCloseModule.js'
 import { AppHeader } from '../cmps/AppHeader.jsx'
@@ -106,7 +106,9 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
                 <img src={starSvg} />
                 <span className='stay-rating-num'>{stay.rating} •</span>
               </div>
-              <p className='stay-review'>{stay.reviews.length} reviews</p>
+              <div onClick={() => handleShowMore(SET_APP_MODAL_REVIEWS)}>
+                <p className='stay-review'  >{stay.reviews.length} reviews</p>
+              </div>
               <span className='rating-dot'>•</span>
               <p className='stay-loc'>
                 {stay.loc.city}, {stay.loc.country}
