@@ -1,24 +1,37 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { SET_APP_MODAL_LOGIN } from '../store/system.reducer'
+import { SET_APP_MODAL_LOGIN, SET_APP_MODAL_SIGNUP } from '../store/system.reducer'
 import { setAppModal } from '../store/system.action'
+import { logout } from '../store/user.actions'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
-export function UserModal({ setIsDropdownActive }) {
+export function UserModal({ setIsDropdownActive, setIsModalActive }) {
   const loggedInUser = useSelector((storeState) => storeState.userModule.user)
   const appModal = useSelector((storeState) => storeState.userModule.appModal)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  function onOpenModal(ev) {
+  function onOpenModal(ev, modalType) {
+    console.log(modalType);
     ev.preventDefault()
     ev.stopPropagation()
     setIsDropdownActive(false)
-    // dispatch({ type: SET_APP_MODAL_LOGIN })
-
+    dispatch({ type: modalType })
+    setIsModalActive((prevModal) => !prevModal)
+    document.body.classList.add('modal-open')
   }
 
   function onDashboard() {
     return navigate(`/dashboard`)
+  }
+
+  async function onLogout() {
+    try {
+      await logout()
+      showSuccessMsg(`Bye now`)
+    } catch (err) {
+      showErrorMsg('Cannot logout')
+    }
   }
 
   return (
@@ -31,19 +44,19 @@ export function UserModal({ setIsDropdownActive }) {
           <Link className='dropdown-option'>
             <span>Wishlist</span>
           </Link>
-          <Link className='dropdown-option'>
+          <Link to={`/dashboard`} className='dropdown-option'>
             <span>Dashboard</span>
           </Link>
-          <Link className='dropdown-option'>
+          <section onClick={onLogout} className='dropdown-option'>
             <span>Logout</span>
-          </Link>
+          </section>
         </>
       ) : (
         <>
-          <article className='dropdown-option' onClick={(ev) => onOpenModal(ev)}>
+          <article className='dropdown-option' onClick={(ev) => onOpenModal(ev, SET_APP_MODAL_LOGIN)}>
             <span>Log in</span>
           </article>
-          <article className='dropdown-option' onClick={(ev) => onOpenModal(ev)}>
+          <article className='dropdown-option' onClick={(ev) => onOpenModal(ev, SET_APP_MODAL_SIGNUP)}>
             <span>Sign up</span>
           </article>
           <article className='dropdown-option' onClick={() => onDashboard()}>

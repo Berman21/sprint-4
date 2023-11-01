@@ -3,6 +3,9 @@ import { StayPreview } from './StayPreview';
 import { NoMatches } from './NoMatches';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSelector } from 'react-redux';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
+
 
 export function StayList({ stays }) {
   const [visibleStays, setVisibleStays] = useState([]);

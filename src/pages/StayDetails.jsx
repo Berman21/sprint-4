@@ -16,8 +16,9 @@ import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
 import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL, SET_APP_MODAL_ABOUT, SET_APP_MODAL_AMENITIES, SET_FOCUSED_MODAL } from '../store/system.reducer.js'
 import { Modal } from '../cmps/Modal.jsx'
 import { useClickOutside } from '../customHooks/useCloseModule.js'
+import { AppHeader } from '../cmps/AppHeader.jsx'
 
-export function StayDetails() {
+export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const isFocusedModal = useSelector((storeState) => storeState.systemModule.isFocusedModal)
   const [isModalActive, setIsModalActive] = useState(false)
@@ -94,6 +95,8 @@ export function StayDetails() {
       <section className='detail-container'>
         {appModal &&
           <Modal isModalActive={isModalActive} setIsModalActive={setIsModalActive} modalType={appModal} stay={stay} />}
+        <AppHeader filterByToEdit={filterByToEdit} setIsModalActive={setIsModalActive} setFilterByToEdit={setFilterByToEdit} />
+
         <section className='detail-title'>
           <h1>{stay.name}</h1>
 

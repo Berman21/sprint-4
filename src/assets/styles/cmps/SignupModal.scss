@@ -1,0 +1,30 @@
+.modal-signup-container {
+    background-color: white;
+    width: rem(568px);
+    height: 500px;
+    padding: rem(24px);
+    border-top: 1px solid #ebebeb;
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn-reserve {
+        width: 100%;
+        height: rem(48px);
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .signup-title {
+        h1 {
+            font-size: rem(22px);
+            font-family: Airbnb_Cereal-Medium;
+            font-weight: 100;
+        }
+    }
+}

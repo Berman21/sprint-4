@@ -50,7 +50,7 @@ async function update({_id, score}) {
 
 async function login(userCred) {
     const users = await storageService.query('user')
-    const user = users.find(user => user.username === userCred.username)
+    const user = users.find(user => user.username === userCred.username && user.password === userCred.password)
     // const user = await httpService.post('auth/login', userCred)
     if (user) {
         return saveLocalUser(user)

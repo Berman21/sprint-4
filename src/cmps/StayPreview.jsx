@@ -5,6 +5,8 @@ import starSvg from '../assets/img/star.svg'
 import { WishlistIcon } from './WishlistIcon'
 import { PreviewCarousel } from './PreviewCarousel'
 import { showSuccessMsg } from '../services/event-bus.service'
+import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from 'react-loading-skeleton'
 
 export function StayPreview({ stay }) {
 
@@ -30,7 +32,7 @@ export function StayPreview({ stay }) {
       <section className='preview-card'>
 
         <section className='wishlist-btn-container'>
-          <PreviewCarousel stay={stay} />
+          {<PreviewCarousel stay={stay} />}
           <button className='wishlist-icon-btn'>
             <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={setClr} className='preview-wishlist-icon' />
           </button>

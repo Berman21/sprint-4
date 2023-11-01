@@ -33,12 +33,11 @@ export function RootCmp() {
       {isFocusedModal && <div className='gray-viewport' onClick={(ev) => closeBackground(ev)}></div>}
       <div className='app-container'>
         {/* {!isDashboardPage && <AppHeader filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} */}
-        <AppHeader filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />
         <main className='main-app'>
           <Routes>
             <Route path='/' element={<StayIndex filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
             <Route path='dashboard' element={<Dashboard />} />
-            <Route path='stay/:stayId' element={<StayDetails />} />
+            <Route path='stay/:stayId' element={<StayDetails filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
             <Route path='/stay/:stayId/reserve' element={<ReservePage />} />
           </Routes>
         </main>

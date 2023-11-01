@@ -13,13 +13,17 @@ import { Modal } from '../cmps/Modal.jsx'
 
 import filterSvg from '../assets/img/filterSvg.svg'
 import { StayFilter } from '../cmps/StayFilter.jsx'
+import footerImg from '../assets/img/footer.svg'
+import { AppHeader } from '../cmps/AppHeader.jsx'
 
 export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const dispatch = useDispatch()
-  const [isStayFilterOpen,toggleStayFilterOpen] = useState(false)
+  const [isStayFilterOpen, toggleStayFilterOpen] = useState(false)
+  const [isModalActive, setIsModalActive] = useState(false)
+
 
   useEffect(() => {
     loadStays(filterBy)
@@ -85,7 +89,9 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
 
   return (
     <>
-      {appModal && <Modal />}
+      {appModal && <Modal modalHeaderContent={<h3>Log in or sign up</h3>} isModalActive={isModalActive} setIsModalActive={setIsModalActive} modalType={appModal} />}
+      <AppHeader filterByToEdit={filterByToEdit} setIsModalActive={setIsModalActive} setFilterByToEdit={setFilterByToEdit} />
+
       <div>
 
         <section className='category-carousel-container'>
@@ -99,12 +105,15 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
           </section>
 
         </section>
-        {isStayFilterOpen && 
-        <StayFilter toggleStayFilter={toggleStayFilter} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit}/>}
+        {isStayFilterOpen &&
+          <StayFilter toggleStayFilter={toggleStayFilter} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />}
         <main>
           <StayList filterBy={filterBy} stays={stays} />
 
         </main>
+        <footer className='app-footer'>
+          <div><span className='footer-airbnb'>© 2023 Airbnb, Inc.</span> <span className='footer-dot'>·</span> Terms <span className='footer-dot'>·</span> Sitemap <span className='footer-dot'>·</span>  Privacy <span className='footer-dot'>·</span> Your Privacy Choices  <img src={footerImg} /></div>
+        </footer>
       </div>
     </>
 

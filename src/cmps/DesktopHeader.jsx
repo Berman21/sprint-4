@@ -11,7 +11,7 @@ import { UserModal } from './UserModal'
 import { LoginSignup } from './LoginSignup'
 import { useClickOutside } from '../customHooks/useCloseModule'
 
-export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit }) {
+export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, setIsModalActive }) {
   const [selectedExperience, setSelectedExperience] = useState('stays')
   const [selectedFilterBox, setSelectedFilterBox] = useState('where')
   const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
@@ -95,7 +95,7 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit }
             <img className='hamburger' src={hamburger} />
             <img className='user-icon' src={userIcon} />
           </button>
-          {isDropdownActive && <UserModal setIsDropdownActive={setIsDropdownActive} />}
+          {isDropdownActive && <UserModal setIsModalActive={setIsModalActive} setIsDropdownActive={setIsDropdownActive} />}
         </section>
       </header>
 

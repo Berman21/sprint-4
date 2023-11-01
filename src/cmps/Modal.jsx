@@ -4,7 +4,7 @@ import { CLOSE_APP_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer'
 import { DynamicCmp } from './DynamicModal'
 import { useClickOutside } from '../customHooks/useCloseModule'
 
-export function Modal({ stay, modalType, isModalActive, setIsModalActive }) {
+export function Modal({ stay, modalType, isModalActive, setIsModalActive, modalHeaderContent }) {
     const modalRef = useClickOutside(onModalClickOutside)
     const dispatch = useDispatch()
 
@@ -35,9 +35,10 @@ export function Modal({ stay, modalType, isModalActive, setIsModalActive }) {
                             <button className='modal-close-btn' onClick={onClose}>
                                 <img src={closeBtn} />
                             </button>
+                            {modalHeaderContent}
                         </div>
                         <div className="modal-content">
-                            <DynamicCmp stay={stay} modalType={modalType} />
+                            <DynamicCmp stay={stay} modalType={modalType} onClose={onClose} />
                         </div>
 
                     </div>
