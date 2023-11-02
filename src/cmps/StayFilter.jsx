@@ -2,11 +2,24 @@ import { useState } from 'react';
 import closeBtn from '../assets/img/close-btn.svg'
 import { updateFilterBy } from '../store/stay.actions'
 
+import MultiRangeSlider from "multi-range-slider-react";
+
+
 export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit }) {
 
     const [selectedFilterBox, setSelectedFilterBox] = useState('any-type')
+    const [selectedCapBox, setSelectedCapBox] = useState('')
 
     const capacity = ['', 1, 2, 3, 4, 5, 6, 7, 8]
+
+    const [minValue, set_minValue] = useState(filterByToEdit.minPrice);
+    const [maxValue, set_maxValue] = useState(filterByToEdit.maxPrice);
+    const handleInput = (e) => {
+        set_minValue(e.minValue)
+        set_maxValue(e.maxValue)
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, minPrice: minValue, maxPrice: maxValue }))
+
+    }
 
     function handleChange({ target }) {
         console.log(target.name);
@@ -39,9 +52,9 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
         updateFilterBy(filterByToEdit)
     }
 
-    function setCapacity(num, ev) {
-        setFilterByToEdit((prevFilter) => ({ ...prevFilter, capacity: num }))
-        onSetSelectedFilterBox(ev)
+    function setBedrooms(type,num) {
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, type: num }))
+        setSelectedCapBox({[type]:num})
     }
 
     function onSetSelectedFilterBox(ev, name) {
@@ -49,19 +62,26 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
         setSelectedFilterBox(name)
     }
 
+    function clearFilter() {
+        setSelectedFilterBox('any-type')
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, bedrooms:'',bathrooms:'' }))
+        set_minValue(40)
+        set_maxValue(2600)
+    }
+
     return (
         <div>
             <section className="filter-modal">
 
-                <article className="filter-modal-header">
+                <header className="filter-modal-header">
                     <div>
                         <button onClick={toggleStayFilter}><img src={closeBtn} /></button>
                     </div>
                     Filters
-                </article>
+                </header>
 
 
-                <article className="filter-modal-container">
+                <section className="filter-modal-container">
                     <div className='type-filter filter'>
                         <h2>Type of place</h2>
                         <p>Search rooms, entire homes, or any type of place.</p>
@@ -76,7 +96,26 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
                         <h2>Price range</h2>
                         <p>Nightly prices including fees and taxes</p>
                         <div>
-                            <input type="range" />
+                            <MultiRangeSlider
+                                thumbLeftColor={'white'}
+                                thumbRightColor={'white'}
+                                barLeftColor={'white'}
+                                barRightColor={'white'}
+                                barInnerColor={'black'}
+                                ruler={false}
+                                label={false}
+
+                                // baseClassName={"border: 'none', boxShadow: 'none'"}
+
+                                min={40}
+                                max={2600}
+                                step={1}
+                                minValue={minValue}
+                                maxValue={maxValue}
+                                onInput={(e) => {
+                                    handleInput(e);
+                                }}
+                            />
                         </div>
                         <div className='price-input-container'>
 
@@ -87,7 +126,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
                                     id="minPrice"
                                     name="minPrice"
                                     placeholder="By min price"
-                                    value={filterByToEdit.minPrice}
+                                    value={minValue}
                                     onChange={handleChange}
                                 />
                             </div>
@@ -99,7 +138,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
                                     id="maxPrice"
                                     name="maxPrice"
                                     placeholder="By max price"
-                                    value={filterByToEdit.maxPrice}
+                                    value={maxValue}
                                     onChange={handleChange}
                                 />
                             </div>
@@ -107,21 +146,32 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
                     </div>
 
                     <div className='capacity-filter filter'>
-                        <h2>Capacity</h2>
+                        <h2>Rooms and beds</h2>
                         <div>
-                            {capacity.map(capNum =>
-                                <button key={capNum} onClick={() => setCapacity(capNum)}>{capNum ? capNum : 'Any'}</button>
-                            )}
+                            Bedrooms
+                            <div>
+                                {capacity.map(capNum =>
+                                    <button className={selectedCapBox.bedrooms === capNum ? 'active' : ''} key={capNum} onClick={() => setBedrooms('bedrooms',capNum)}>{capNum ? capNum : 'Any'}</button>
+                                )}
+                            </div>
+                        </div>
+                        <div>
+                            Bathrooms
+                            <div>
+                                {capacity.map(capNum =>
+                                    <button className={selectedCapBox.bathrooms === capNum ? 'active' : ''} key={capNum} onClick={() => setBedrooms('bathrooms',capNum)}>{capNum ? capNum : 'Any'}</button>
+                                )}
+                            </div>
                         </div>
                     </div>
 
-                </article>
+                </section>
 
 
-                <article className="filter-modal-footer">
-                    <button>Clear all</button>
+                <footer className="filter-modal-footer">
+                    <button onClick={() => clearFilter()}>Clear all</button>
                     <button onClick={(ev) => onSubmit(ev)}>Show places</button>
-                </article>
+                </footer>
 
 
             </section>
