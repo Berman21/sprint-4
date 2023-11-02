@@ -8,8 +8,8 @@ export function OrderList({ orders, onChangeStatus }) {
 
             <article className="order-list border-bottom">
                 <p>Guest</p>
-                {/* <p>Check-in</p> */}
-                {/* <p>Checkout</p> */}
+                <p>Check-in</p>
+                <p>Checkout</p>
                 <p>Listing</p>
                 <p>Total Price</p>
                 <p>Status</p>
