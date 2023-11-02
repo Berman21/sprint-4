@@ -73,8 +73,8 @@ async function query(filterBy = {}) {
   if (filterBy.minPrice && filterBy.maxPrice) {
     stays = stays.filter((stay) => stay.price <= filterBy.maxPrice && stay.price >= filterBy.minPrice)
   }
-  if(filterBy.capacity){
-    stays = stays.filter((stay) => stay.capacity === filterBy.capacity)
+  if(filterBy.bedrooms){
+    stays = stays.filter((stay) => stay.bedrooms === filterBy.bedrooms)
   }
   return stays
 }

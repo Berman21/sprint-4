@@ -22,15 +22,39 @@
     border-radius: rem(12px);
     padding: 0 rem(24px);
 
-    .filter{
-        padding: rem(40px) 0;
+    font-family: Airbnb_Cereal-Bold;
+
+
+    .filter {
+        padding-block-start: rem(40px);
+    }
+
+    .multi-range-slider {
+        border: none;
+        box-shadow: none;
+        padding: 20px 80px 20px 70px;
+    }
+
+    .multi-range-slider .thumb .caption * {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+    }
+
+    .multi-range-slider .thumb::before {
+        height: 30px;
+        width: 30px;
+        top: -5px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px 0px;
+        border: 1px solid rgb(227, 227, 227);
+
     }
 }
 
 .filter-modal-header {
 
     text-align: center;
-    border-bottom: 1px solid rgb(244, 244, 244);
+    border-bottom: 1px solid rgb(212, 212, 212);
     padding: rem(24px);
 
     button {
@@ -60,17 +84,27 @@
 
 .filter-modal-container {
     padding: rem(24px) 0;
+    overflow: hidden;
 
-    .price-input-container{
+    .price-input-container {
         display: flex;
-        align-items: center;
+        // align-items: center;
+        justify-content: space-around;
+        margin-block-start: 48px;
 
     }
-    .price-input{
-        border: 1px solid rgba(0, 0, 0, 0.14);
+
+    .price-input {
+        border: 1px solid rgba(0, 0, 0, 0.24);
+        border-radius: 12px;
+        padding: 0.5rem;
+
     }
-    input{
+
+    input {
         border: none;
+        margin: 0 12px 6px;
+        font-size: 1em;
     }
 
     .filter-btn-container {
@@ -86,6 +120,16 @@
 
             width: 100%;
             padding: 1rem 0.5rem
+        }
+
+        button:first-child {
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
+
+        button:last-child {
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
         }
 
         .active {
@@ -112,5 +156,25 @@
             border: 1px solid rgba(0, 0, 0, 0.14);
 
         }
+
+        .active {
+            color: white;
+            background-color: rgb(34, 34, 34);
+            box-shadow: rgb(0, 0, 0) 0px 2px 8px 0px inset;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0));
+        }
     }
+
+
+}
+
+.filter-modal-footer {
+    // position: sticky;
+    // bottom: 0;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 1.5rem;
 }
