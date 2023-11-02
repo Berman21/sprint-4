@@ -6,23 +6,21 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function DoughnutChart() {
     const data = {
-        labels: ['Red', 'Blue', 'Green', 'Purple'],
+        labels: ['Pending', 'Approved', 'Rejected'],
         datasets: [
             {
                 label: '# of Votes',
-                data: [12, 19, 7, 2],
+                data: [30, 20, 10],
                 pointStyle: 'circle',
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 166, 0, 0.2)',
+                    'rgba(101, 191, 56, 0.2)',
+                    'rgba(245, 107, 107, 0.2)',
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 166, 0, 1)',
+                    'rgba(101, 191, 56, 1)',
+                    'rgba(245, 107, 107, 1)',
                 ],
                 borderWidth: 1,
             },
@@ -45,8 +43,8 @@ export function DoughnutChart() {
 
     return (
         <div className='doughnut-chart-container'>
-            <div style={{ maxWidth: '90%', maxHeight: '90%' }}>
-                <h1>Reservations status</h1>
+            <h1>Reservations status</h1>
+            <div style={{ maxWidth: '90%', maxHeight: '90%', alignSelf: 'center' }}>
                 <Doughnut data={data} options={options} />
             </div>
             <div className='chart-stats'>
@@ -59,8 +57,8 @@ export function DoughnutChart() {
                     <span>20</span>
                 </article >
                 <article className='rejected-stat'>
-                        <p>rejected</p>
-                        <span>10</span>
+                    <p>rejected</p>
+                    <span>10</span>
                 </article>
             </div>
         </div>

@@ -30,12 +30,12 @@ export function Dashboard() {
                 
                 {/* <div className='dashboard-nav'>
                     <h1>Home</h1>
-                </div>
+                </div> */}
 
                 <div className='flex space-between'>
                     <h1>Dashboard</h1>
                     <img className='dashboard-user-icon' src={userIcon} />
-                </div> */}
+                </div>
 
                 <div className='dashboard-container full'>
 

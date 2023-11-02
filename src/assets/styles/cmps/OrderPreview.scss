@@ -16,10 +16,11 @@
     .dashboard-nav {
         grid-column: 1;
     }
+
 }
 
 .dashboard-user-icon {
-    // width: 50px;
+    width: 50px;
 }
 
 .doughnut-chart-container {
@@ -32,6 +33,15 @@
     .chart-stats {
         grid-column: 2;
         align-self: center;
+
+        span {
+            // padding-inline-start: 20px;
+        }
+
+        
+    }
+    h1 {
+        grid-column: 1/-1;
     }
 
     // }
@@ -40,6 +50,7 @@
         display: flex;
         // justify-content: space-between;
         margin-inline-start: 20px;
+
 
         span {
             justify-content: end;
@@ -59,9 +70,16 @@
             transform: translate(-50%, -50%);
         }
 
+        span {
+            padding-inline-start: 100px;
+        }
+
     }
 
     .approved-stat {
+
+        padding: 7px 0;
+
         &::before {
             content: '';
             position: relative;
@@ -73,6 +91,11 @@
 
             transform: translate(-50%, -50%);
         }
+
+        span {
+            padding-inline-start: 90px;
+        }
+
     }
 
     .rejected-stat {
@@ -87,6 +110,10 @@
             top: 14px;
 
             transform: translate(-50%, -50%);
+        }
+
+        span {
+            padding-inline-start: 100px;
         }
     }
 }
@@ -123,7 +150,7 @@
     h1 {
         font-family: Airbnb_Cereal-Bold;
         color: $clr2;
-        padding-block-end: 10px;
+        // padding-block-end: 10px;
     }
 }
 
@@ -180,6 +207,7 @@
         grid-column: 1;
         // max-width: 90%;
         // max-height: 90%;
+
     }
 }
 
