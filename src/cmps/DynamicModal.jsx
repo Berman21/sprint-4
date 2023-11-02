@@ -12,7 +12,7 @@ export function DynamicCmp({ modalType, stay, onClose }) {
     switch (modalType) {
 
         case SET_APP_MODAL_LOGIN:
-            return <LoginModal />
+            return <SignupModal onClose={onClose} />
         case SET_APP_MODAL_SIGNUP:
             return <SignupModal onClose={onClose} />
         case SET_APP_MODAL_ABOUT:

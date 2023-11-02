@@ -1,4 +1,3 @@
-import { reviewService } from '../services/review.service'
 import { store } from '../store/store.js'
 import { ADD_REVIEW, REMOVE_REVIEW, SET_REVIEWS } from './review.reducer'
 import { SET_SCORE, SET_WATCHED_USER } from './user.reducer'

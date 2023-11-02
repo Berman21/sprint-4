@@ -1,9 +1,20 @@
 .modal-signup-container {
     background-color: white;
     width: rem(568px);
-    height: 500px;
+    height: fit-content;
     padding: rem(24px);
     border-top: 1px solid #ebebeb;
+    border-radius: 0.75rem;
+
+    .change-login {
+        width: 100%;
+        border-radius: 0.5rem;
+        border: 1px solid black;
+        height: rem(48px);
+        background-color: white;
+        font-size: rem(14px);
+        margin-top: rem(20px);
+    }
 
     .form-container {
         display: flex;

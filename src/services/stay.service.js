@@ -119,7 +119,7 @@ export const stayService = {
 }
 window.cs = stayService
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { country: ''}) {
   return httpService.get(STORAGE_KEY, filterBy)
 }
 

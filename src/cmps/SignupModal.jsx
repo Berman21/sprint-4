@@ -4,7 +4,12 @@ import * as React from 'react';
 import { LoginSignup } from "./LoginSignup";
 import { login, signup } from "../store/user.actions";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+import { SET_APP_MODAL_LOGIN, SET_APP_MODAL_SIGNUP } from '../store/system.reducer';
+import { useDispatch, useSelector } from 'react-redux';
 export function SignupModal({ onClose }) {
+    const appModal = useSelector((storeState) => storeState.systemModule.appModal)
+
+    const dispatch = useDispatch()
 
     async function onLoginn(credentials) {
         try {
@@ -23,6 +28,10 @@ export function SignupModal({ onClose }) {
         }
     }
 
+    function changeToLogin(modalType) {
+        dispatch({ type: modalType })
+
+    }
 
 
     return (
@@ -31,6 +40,13 @@ export function SignupModal({ onClose }) {
                 <h1>Welcome to Airbnb</h1>
             </article>
             <LoginSignup onClose={onClose} onSignup={onSignup} />
+            {appModal === SET_APP_MODAL_SIGNUP &&
+                <button className='change-login' onClick={() => changeToLogin(SET_APP_MODAL_LOGIN)}>Log in</button>
+            }
+            {appModal === SET_APP_MODAL_LOGIN &&
+
+                <button className='change-login' onClick={() => changeToLogin(SET_APP_MODAL_SIGNUP)} >Sign up</button>
+            }
             {/* <Input
             value={credentials.fullname}
                 endDecorator={null}

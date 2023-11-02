@@ -2,6 +2,9 @@ import { LoginSignup } from "./LoginSignup";
 
 export function LoginModal() {
     return (
-        <LoginSignup />
+        <section className="signup-container">
+
+            <LoginSignup />
+        </section>
     )
 }

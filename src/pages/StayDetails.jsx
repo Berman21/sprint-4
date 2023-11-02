@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { stayService } from '../services/stay.service.local.js'
+import { stayService } from '../services/stay.service.js'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { LongTxt } from '../cmps/LongTxt.jsx'
@@ -71,7 +71,7 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
   function handleShowMore(modalType) {
     // ev.stopPropagation()
     dispatch({ type: modalType })
-    dispatch({ type: SET_FOCUSED_MODAL })
+    // dispatch({ type: SET_FOCUSED_MODAL })
     setIsModalActive((prevModal) => !prevModal)
     document.body.classList.add('modal-open')
   }
