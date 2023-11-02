@@ -28,18 +28,19 @@ export function BarChart() {
                 grid: {
                     display: false
                 },
-                barThickness: 40,
+                barThickness: 100,
             },
             y: {
                 beginAtZero: true
             }
         },
-        barLayout: {
-            padding: {
-                left: 30,
-            }
-        },
-    }
+        maintainAspectRatio: false
+        // barLayout: {
+        //     padding: {
+        //         left: 30,
+        //     }
+        // },
+    };
 
     const labels = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
 
@@ -52,25 +53,29 @@ export function BarChart() {
                 backgroundColor: 'rgba(255, 56, 92, 0.9)',
             },
         ],
-        borderWidth: 3
+        // borderWidth: 3,
+        // barThickness: 30
     }
 
-    const config = {
-        // type: 'bar',
-        // data: data,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        },
-    };
+    // const config = {
+    // type: 'bar',
+    // data: data,
+    //     options: {
+    //         scales: {
+    //             y: {
+    //                 beginAtZero: true
+    //             }
+    //         }
+    //     },
+    // };
 
     return (
-        <div style={{ maxWidth: '100%', maxHeight: '100%' }} >
-            <Bar options={options} data={data} config={config} />
-        </div >
+        <div>
+            <div style={{ width: '95%', maxHeight: '80%' }} >
+                <h1>Revenue / month</h1>
+                <Bar options={options} data={data} />
+            </div >
+        </div>
     )
 
 }

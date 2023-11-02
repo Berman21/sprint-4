@@ -2,7 +2,7 @@
 
 .dashboard {
     display: grid;
-    grid-template-columns: 300px 1fr 70px;
+    grid-template-columns: 350px 1fr 70px;
 
     // background-color: #606266;
     background-color: #f3f3f3;
@@ -19,7 +19,76 @@
 }
 
 .dashboard-user-icon {
-    width: 50px;
+    // width: 50px;
+}
+
+.doughnut-chart-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    // &>*>* {
+    //     grid-column: 2;
+
+    .chart-stats {
+        grid-column: 2;
+        align-self: center;
+    }
+
+    // }
+
+    .chart-stats>* {
+        display: flex;
+        // justify-content: space-between;
+        margin-inline-start: 20px;
+
+        span {
+            justify-content: end;
+        }
+    }
+
+    .pending-stat {
+        &::before {
+            content: '';
+            position: relative;
+            width: 20px;
+            height: 20px;
+            background-color: #FFA500;
+            border-radius: 50%;
+            top: 14px;
+
+            transform: translate(-50%, -50%);
+        }
+
+    }
+
+    .approved-stat {
+        &::before {
+            content: '';
+            position: relative;
+            width: 20px;
+            height: 20px;
+            background-color: #67C23A;
+            border-radius: 50%;
+            top: 14px;
+
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .rejected-stat {
+
+        &::before {
+            content: '';
+            position: relative;
+            width: 20px;
+            height: 20px;
+            background-color: #F56C6C;
+            border-radius: 50%;
+            top: 14px;
+
+            transform: translate(-50%, -50%);
+        }
+    }
 }
 
 .dashboard-container {
@@ -35,7 +104,7 @@
         gap: 20px;
 
         &:nth-child(1) {
-            grid-template-columns: 1.3fr 3fr;
+            // grid-template-columns: 1.3fr 3fr;
         }
 
         &:nth-child(2) {
@@ -46,9 +115,20 @@
 
 .dashboard-container>*>* {
     background-color: white;
-    padding: 10px;
-    height: 390px;
+    padding: 20px;
+    // height: 390px;
     border-radius: 10px;
+    @include scrollbar;
+
+    h1 {
+        font-family: Airbnb_Cereal-Bold;
+        color: $clr2;
+        padding-block-end: 10px;
+    }
+}
+
+.order-list-container {
+    height: 390px;
 }
 
 .order-count {
@@ -69,9 +149,11 @@
 
 .order-list {
     display: grid;
-    // grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
-    grid-template-columns: 1.5fr 2.5fr 1.3fr 1.3fr 2fr;
+    grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
+    // grid-template-columns: 1.5fr 2.5fr 1.3fr 1.3fr 2fr;
     padding: 10px;
+    margin-inline-end: 6px;
+
 
     p {
         margin: 0;
@@ -80,26 +162,36 @@
         // justify-self: center;
 
         &:first-child {
-            justify-self: start;
+            // justify-self: start;
         }
 
-        &:last-child {
-            justify-self: center;
-            padding-inline-end: 100px;
-        }
+        // &:last-child {
+        //     justify-self: center;
+        //     padding-inline-end: 100px;
+        // }
     }
 }
 
+.doughnut-chart {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 
+    &>* {
+        grid-column: 1;
+        // max-width: 90%;
+        // max-height: 90%;
+    }
+}
 
 
 // preview cmp
 
 .order-preview {
     display: grid;
-    // grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
-    grid-template-columns: 1.5fr 2.5fr 1.3fr 1.3fr 2fr;
+    grid-template-columns: 1.5fr 1.2fr 1.2fr 2.5fr 1.3fr 1.3fr 2fr;
+    // grid-template-columns: 1.5fr 2.5fr 1.3fr 1.3fr 2fr;
     padding: 10px;
+
 
     // align-items: center;
 
@@ -151,11 +243,11 @@
         @include status($clr: #FFA500);
     }
 
-    .approve {
+    .approved {
         @include status($clr: #67C23A);
     }
 
-    .reject {
+    .rejected {
         @include status($clr: #F56C6C);
     }
 
@@ -167,6 +259,13 @@
     .reject-btn {
         @include status-btn($clr: #F56C6C, $percentage: 25%);
         margin-inline-start: 5px;
+    }
+
+    .final-status {
+        img {
+            width: 30px;
+            margin-inline-start: 5px;
+        }
     }
 }
 
@@ -185,18 +284,5 @@
 
     article:first-child {
         margin-block-end: 50px;
-    }
-
-
-    .pending {
-        @include status($clr: #FFA500);
-    }
-
-    .approve {
-        @include status($clr: #67C23A);
-    }
-
-    .reject {
-        @include status($clr: #F56C6C);
     }
 }

@@ -9,6 +9,7 @@ import { loadOrders, updateOrder } from '../store/order.actions';
 import { Fragment, useEffect } from 'react';
 
 import userIcon from '../assets/img/user.svg'
+import { DoughnutChart } from './DoughnutChart';
 
 export function Dashboard() {
 
@@ -40,13 +41,14 @@ export function Dashboard() {
 
                     {/* <p className='order-count'>{orders.length} reservations</p> */}
                     <div>
-                        <StayChart />
-                        <BarChart />
+                        {/* <StayChart /> */}
+                        <OrderList orders={orders} onChangeStatus={onChangeStatus} />
                     </div>
 
                     <div>
-                        <PieChart />
-                        <OrderList orders={orders} onChangeStatus={onChangeStatus} />
+                        {/* <PieChart /> */}
+                        <DoughnutChart />
+                        <BarChart />
                     </div>
 
                 </div>
