@@ -152,7 +152,7 @@ export function LoginSignup(props) {
       </Formik>
       }
       {appModal === SET_APP_MODAL_LOGIN &&
-        <form className='login-form' onSubmit={onLogin}>
+        <form className='login-form' onSubmit={onSubmit}>
           <select name='username' value={credentials.username} onChange={handleChange}>
             <option value=''>Select User</option>
             {users.map((user) => (

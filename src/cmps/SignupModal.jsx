@@ -30,7 +30,7 @@ export function SignupModal({ onClose }) {
             <article className="signup-title">
                 <h1>Welcome to Airbnb</h1>
             </article>
-            <LoginSignup onClose={onClose} onLogin={onLogin} onSignup={onSignup} />
+            <LoginSignup onClose={onClose} onSignup={onSignup} />
             {/* <Input
             value={credentials.fullname}
                 endDecorator={null}
