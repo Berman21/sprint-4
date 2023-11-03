@@ -38,8 +38,9 @@
             // padding-inline-start: 20px;
         }
 
-        
+
     }
+
     h1 {
         grid-column: 1/-1;
     }
@@ -294,23 +295,5 @@
             width: 30px;
             margin-inline-start: 5px;
         }
-    }
-}
-
-.stay-chart {
-    padding: 25px;
-
-    h1 {
-        font-size: 24px;
-        font-family: Airbnb_Cereal-Bold;
-    }
-
-    h2,
-    p {
-        font-size: 18px;
-    }
-
-    article:first-child {
-        margin-block-end: 50px;
     }
 }
