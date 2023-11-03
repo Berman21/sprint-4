@@ -7,7 +7,7 @@
     // background-color: #606266;
     background-color: #f3f3f3;
     // padding-left: 350px;
-    // height: 100vh;
+    height: 100vh;
 
     &>* {
         grid-column: 2;
@@ -19,13 +19,25 @@
 
 }
 
-.dashboard-user-icon {
-    width: 50px;
+.dashboard-header {
+
+    h1 {
+        padding: 20px 0;
+        margin: 0;
+        align-self: center;
+        font-family: Airbnb_Cereal-Book;
+        font-size: 30px;
+        color: $clr2;
+    }
+
+    img {
+        width: 50px;
+    }
 }
 
 .doughnut-chart-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
 
     // &>*>* {
     //     grid-column: 2;
@@ -73,6 +85,7 @@
 
         span {
             padding-inline-start: 100px;
+            // padding-inline-start: calc(min(100px, max(50px, 30px)));
         }
 
     }
@@ -95,6 +108,7 @@
 
         span {
             padding-inline-start: 90px;
+            // padding-inline-start: calc(min(100px, max(40px, 30px)));
         }
 
     }
@@ -115,6 +129,7 @@
 
         span {
             padding-inline-start: 100px;
+            // padding-inline-start: calc(min(100px, max(50px, 30px)));
         }
     }
 }
@@ -124,7 +139,7 @@
     grid-template-rows: 1fr 1fr;
     gap: 20px;
     background-color: #f3f3f3;
-    padding: 20px;
+    padding-block-end: 20px;
     // height: 50vh;
 
     &>* {
