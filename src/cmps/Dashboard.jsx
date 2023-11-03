@@ -32,9 +32,9 @@ export function Dashboard() {
                     <h1>Home</h1>
                 </div> */}
 
-                <div className='flex space-between'>
+                <div className='dashboard-header flex space-between'>
                     <h1>Dashboard</h1>
-                    <img className='dashboard-user-icon' src={userIcon} />
+                    <img src={userIcon} />
                 </div>
 
                 <div className='dashboard-container full'>
