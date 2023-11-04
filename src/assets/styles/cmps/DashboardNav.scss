@@ -1,0 +1,134 @@
+.dashboard-nav {
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    flex-direction: column;
+    gap: 400px;
+
+
+    a {
+        display: flex;
+        color: black;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    img {
+        width: 16px;
+        height: 16px;
+        align-self: center;
+
+    }
+
+    .nav-logout {
+        // margin-top: 500px;
+        margin-left: 50px;
+        font-family: Airbnb_Cereal-Book;
+        font-weight: 400;
+        display: flex;
+
+        span {
+            margin-inline: rem(10px);
+
+
+        }
+
+        :hover {
+            font-weight: bold;
+        }
+    }
+
+    .nav-options {
+        font-family: Airbnb_Cereal-Book;
+        font-weight: 400;
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-content: center;
+        font-size: rem(16px);
+        padding-block: rem(11.21px);
+        gap: 30px;
+        margin-top: 80px;
+
+        article {
+            display: flex;
+            grid-column: 2;
+            width: fit-content;
+            transform: scaleX(1);
+            margin-left: 50px;
+
+
+
+            &:not(.selected):hover {
+                cursor: pointer;
+            }
+
+            img {
+                margin-bottom: 2px;
+
+                &:hover+span::after {
+                    transform: scaleX(1);
+                }
+
+                &:hover+span {
+                    color: #5674FF;
+
+                }
+
+            }
+
+        }
+
+
+        &>* {
+            & span {
+                line-height: 20px;
+                letter-spacing: normal;
+                margin-inline: rem(10px);
+                padding-block: rem(10px);
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    background-color: #002efd;
+                    height: 2px;
+                    width: 100%;
+                    bottom: 0;
+                    left: 0;
+
+                    transition: transform 0.2s ease;
+                    transform: scaleX(0);
+                }
+
+                &:hover {
+                    color: #5674FF;
+
+                    &::after {
+                        transform: scaleX(1);
+                        background-color: #5674FF;
+                    }
+                }
+            }
+
+            &.selected span {
+                color: #002efd;
+
+                &::after {
+                    color: #002efd;
+                    transform: scaleX(1);
+                }
+
+                &:hover {
+                    color: #002efd;
+
+                    &::after {
+                        background-color: #002efd;
+                    }
+                }
+            }
+        }
+    }
+}

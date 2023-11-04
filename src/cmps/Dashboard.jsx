@@ -37,7 +37,7 @@ export function Dashboard() {
                     <h1>Dashboard</h1>
                     <img src={userIcon} />
                 </div>
-                {/* <DashboardNav /> */}
+                <DashboardNav />
                 <div className='dashboard-container full'>
 
                     {/* <p className='order-count'>{orders.length} reservations</p> */}

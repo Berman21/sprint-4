@@ -12,7 +12,6 @@ import { LoginSignup } from './LoginSignup'
 import { useClickOutside } from '../customHooks/useCloseModule'
 
 export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, setIsModalActive }) {
-  const [selectedExperience, setSelectedExperience] = useState('stays')
   const [selectedFilterBox, setSelectedFilterBox] = useState('where')
   const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
   const [isDropdownActive, setIsDropdownActive] = useState(false)
@@ -41,13 +40,7 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
     if (selectedFilterBox !== field) setSelectedFilterBox(field)
   }
 
-  function toggleSelected(ev) {
-    ev.preventDefault()
-    const field = ev.currentTarget.getAttribute('name')
-    const value = ev.currentTarget.getAttribute('class')
-    if (value === selectedExperience) return
-    setSelectedExperience(`${field}`)
-  }
+
 
   return (
     <>
@@ -74,9 +67,9 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
         )}
         {isFilterExpanded && (
           <section className='searchbar'>
-           
-                <span className='experiences'>Search your next trip!</span>
-           
+
+            <span className='experiences'>Search your next trip!</span>
+
           </section>
         )}
         {/* <LoginSignup /> */}
