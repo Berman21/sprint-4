@@ -24,6 +24,7 @@ export function Dashboard() {
             // socketService.on(SOCKET_EVENT_ADD_ORDER, loadOrders)
 
             socketService.on(SOCKET_EVENT_ADD_ORDER, async (order) => {
+                console.log('HHAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
                 await loadOrders()
             })
             
