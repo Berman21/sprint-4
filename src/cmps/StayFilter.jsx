@@ -52,19 +52,22 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
         updateFilterBy(filterByToEdit)
     }
 
-    function setBedrooms(type,num) {
-        setFilterByToEdit((prevFilter) => ({ ...prevFilter, type: num }))
-        setSelectedCapBox({[type]:num})
+    function setRoomTypeCapacity(type, capacity) {
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, [type]: capacity }))
+        setSelectedCapBox({ [type]: capacity })
     }
 
     function onSetSelectedFilterBox(ev, name) {
         ev.preventDefault()
         setSelectedFilterBox(name)
+        if(name === 'any-type') name = ''
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, type: name }))
+
     }
 
     function clearFilter() {
         setSelectedFilterBox('any-type')
-        setFilterByToEdit((prevFilter) => ({ ...prevFilter, bedrooms:'',bathrooms:'' }))
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, bedrooms: '', bathrooms: '' }))
         set_minValue(40)
         set_maxValue(2600)
     }
@@ -151,7 +154,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
                             Bedrooms
                             <div>
                                 {capacity.map(capNum =>
-                                    <button className={selectedCapBox.bedrooms === capNum ? 'active' : ''} key={capNum} onClick={() => setBedrooms('bedrooms',capNum)}>{capNum ? capNum : 'Any'}</button>
+                                    <button className={selectedCapBox.bedrooms === capNum ? 'active' : ''} key={capNum} onClick={() => setRoomTypeCapacity('bedrooms', capNum)}>{capNum ? capNum : 'Any'}</button>
                                 )}
                             </div>
                         </div>
@@ -159,7 +162,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
                             Bathrooms
                             <div>
                                 {capacity.map(capNum =>
-                                    <button className={selectedCapBox.bathrooms === capNum ? 'active' : ''} key={capNum} onClick={() => setBedrooms('bathrooms',capNum)}>{capNum ? capNum : 'Any'}</button>
+                                    <button className={selectedCapBox.bathrooms === capNum ? 'active' : ''} key={capNum} onClick={() => setRoomTypeCapacity('bathrooms', capNum)}>{capNum ? capNum : 'Any'}</button>
                                 )}
                             </div>
                         </div>
