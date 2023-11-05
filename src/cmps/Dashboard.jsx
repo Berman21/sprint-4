@@ -5,8 +5,9 @@ import { OrderList } from './OrderList';
 import { StayChart } from './StayChart';
 
 import { useSelector } from 'react-redux';
-import { loadOrders, updateOrder } from '../store/order.actions';
-import { Fragment, useEffect } from 'react';
+import { loadOrders, updateOrder, loadReserveStats, updateReserveStats } from '../store/order.actions';
+import { orderService } from '../services/order.service.local';
+import { Fragment, useEffect, useState } from 'react';
 
 import userIcon from '../assets/img/user.svg'
 import { DoughnutChart } from './DoughnutChart';
@@ -15,16 +16,20 @@ import { DashboardNav } from './DashboardNav';
 export function Dashboard() {
 
     const orders = useSelector((storeState) => storeState.orderModule.orders)
+    const reserveStats = useSelector((storeState) => storeState.orderModule.stats)
 
     useEffect(() => {
-        loadOrders()
+            loadOrders()
+            loadReserveStats()
     }, [])
 
-    function onChangeStatus(order, status) {
+    async function onChangeStatus(order, status) {
         order.status = status
         updateOrder(order)
+        // updateReserveStats()
     }
 
+    // if (!reserveStats) return <div>Loading...</div>
     return (
         <Fragment>
             <section className='dashboard'>
@@ -48,7 +53,7 @@ export function Dashboard() {
 
                     <div>
                         {/* <PieChart /> */}
-                        <DoughnutChart />
+                        <DoughnutChart reserveStats={reserveStats} />
                         <BarChart />
                     </div>
 
