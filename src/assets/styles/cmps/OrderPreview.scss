@@ -57,6 +57,7 @@
         grid-column: 1/-1;
     }
 
+
     // }
 
     .chart-stats>* {
@@ -132,6 +133,14 @@
             // padding-inline-start: calc(min(100px, max(50px, 30px)));
         }
     }
+}
+
+.bar-chart {
+
+    h1 {
+        margin-block-end: 40px;
+    }
+
 }
 
 .dashboard-container {

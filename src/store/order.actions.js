@@ -2,7 +2,7 @@ import { orderService } from "../services/order.service.local.js";
 import { userService } from "../services/user.service.js";
 import { store } from '../store/store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { ADD_ORDER, REMOVE_ORDER, SET_ORDERS, SET_ORDER, UNDO_REMOVE_ORDER, UPDATE_ORDER } from "./order.reducer.js";
+import { ADD_ORDER, REMOVE_ORDER, SET_ORDERS, SET_ORDER, UNDO_REMOVE_ORDER, UPDATE_ORDER, SET_STATS, UPDATE_STATS } from "./order.reducer.js";
 import { SET_SCORE } from "./user.reducer.js";
 
 // Action Creators:
@@ -25,6 +25,13 @@ export function getActionUpdateOrder(order) {
     }
 }
 
+export function getActionUpdateStats(stats) {
+    return {
+        type: UPDATE_STATS,
+        stats
+    }
+}
+
 export function getActionSetOrder(order) {
     return {
         type: SET_ORDER,
@@ -39,6 +46,22 @@ export async function loadOrders() {
         store.dispatch({
             type: SET_ORDERS,
             orders
+        })
+
+    } catch (err) {
+        console.log('Cannot load orders', err)
+        throw err
+    }
+
+}
+
+export async function loadReserveStats() {
+    try {
+        const stats = await orderService.getReservationStats()
+        // console.log('Orders from DB:', orders)
+        store.dispatch({
+            type: SET_STATS,
+            stats
         })
 
     } catch (err) {
@@ -81,6 +104,24 @@ export function updateOrder(order) {
             console.log('Cannot save order', err)
             throw err
         })
+        .finally(
+            updateReserveStats()
+        )
+}
+
+export async function updateReserveStats() {
+    try {
+        const stats = await orderService.getReservationStats()
+        const newStats = store.dispatch(getActionUpdateStats(stats))
+        // store.dispatch({
+        //     type: UPDATE_STATS,
+        //     stats
+        // })
+        return newStats
+    } catch (err) {
+        console.log('Cannot load orders', err)
+        throw err
+    }
 }
 
 export function updateOrderDetails(order) {

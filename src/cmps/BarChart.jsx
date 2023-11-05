@@ -71,7 +71,7 @@ export function BarChart() {
 
     return (
         <div>
-            <div style={{ width: '95%', maxHeight: '80%' }} >
+            <div className='bar-chart' style={{ width: '95%', maxHeight: '80%' }} >
                 <h1>Revenue / month</h1>
                 <Bar options={options} data={data} />
             </div >

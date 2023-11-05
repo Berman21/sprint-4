@@ -12,6 +12,7 @@ export const orderService = {
     save,
     remove,
     getEmptyOrder,
+    getReservationStats,
     addOrderMsg
 }
 window.cs = orderService
@@ -334,6 +335,16 @@ function _createOrders() {
     }
 }
 
+async function getReservationStats() {
+    let statsCount = [0, 0, 0]
+    let orders = await storageService.query(STORAGE_KEY)
+    orders.map(order => {
+        if (order.status === 'pending') statsCount[0]++
+        else if (order.status === 'approved') statsCount[1]++
+        else statsCount[2]++
+    })
+    return statsCount
+}
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var orders = await storageService.query(STORAGE_KEY)
