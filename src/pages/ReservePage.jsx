@@ -2,7 +2,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
-import { stayService } from "../services/stay.service.local.js"
+import { stayService } from "../services/stay.service.js"
 
 import arrowLeftSvg from '../assets/img/arrow-left.svg'
 import starSvg from '../assets/img/star.svg'

@@ -7,8 +7,12 @@ export const ADD_ORDER = 'ADD_ORDER'
 export const UPDATE_ORDER = 'UPDATE_ORDER'
 export const UNDO_REMOVE_ORDER = 'UNDO_REMOVE_ORDER'
 
+export const SET_STATS = 'SET_STATS'
+export const UPDATE_STATS = 'UPDATE_STATS'
+
 const initialState = {
     orders: [],
+    stats: [],
     order: orderService.getEmptyOrder(),
     lastRemovedOrder: null
 }
@@ -16,13 +20,17 @@ const initialState = {
 export function orderReducer(state = initialState, action) {
     var newState = state
     var orders
+    var stats
     switch (action.type) {
         case SET_ORDER:
-            newState = { ...state,order:{...action.order} }
+            newState = { ...state, order: { ...action.order } }
             console.log(newState.order);
             break
         case SET_ORDERS:
             newState = { ...state, orders: action.orders }
+            break
+        case SET_STATS:
+            newState = { ...state, stats: action.stats }
             break
         case REMOVE_ORDER:
             const lastRemovedOrder = state.orders.find(order => order._id === action.orderId)
@@ -35,6 +43,11 @@ export function orderReducer(state = initialState, action) {
         case UPDATE_ORDER:
             orders = state.orders.map(order => (order._id === action.order._id) ? action.order : order)
             newState = { ...state, orders }
+            break
+        case UPDATE_STATS:
+            // stats = state.stats
+            // newState = { ...state.stats, stats }
+            newState = { ...state, stats: { ...state.stats, ...action.stats } }
             break
         case UNDO_REMOVE_ORDER:
             if (state.lastRemovedOrder) {
