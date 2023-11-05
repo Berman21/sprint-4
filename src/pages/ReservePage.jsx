@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import { stayService } from "../services/stay.service.js"
+import { socketService, SOCKET_EMIT_ADD_ORDER } from "../services/socket.service.js"
 
 import arrowLeftSvg from '../assets/img/arrow-left.svg'
 import starSvg from '../assets/img/star.svg'
@@ -47,6 +48,7 @@ export function ReservePage() {
         try {
             const savedOrder = await updateOrder(order)
             showSuccessMsg(`Order added (id: ${savedOrder._id})`)
+            socketService.emit(SOCKET_EMIT_ADD_ORDER, order)
             navigate('/')
         } catch (err) {
             console.error('Cannot add order', err)

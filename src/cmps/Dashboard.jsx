@@ -12,6 +12,7 @@ import { Fragment, useEffect, useState } from 'react';
 import userIcon from '../assets/img/user.svg'
 import { DoughnutChart } from './DoughnutChart';
 import { DashboardNav } from './DashboardNav';
+import { SOCKET_EVENT_ADD_ORDER, socketService } from '../services/socket.service';
 
 export function Dashboard() {
 
@@ -20,6 +21,7 @@ export function Dashboard() {
 
     useEffect(() => {
             loadOrders()
+            socketService.on(SOCKET_EVENT_ADD_ORDER, loadOrders)
             loadReserveStats()
     }, [])
 
