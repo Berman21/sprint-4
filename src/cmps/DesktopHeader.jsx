@@ -47,7 +47,7 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
       <header className='app-header'>
         <Link to={'/'} className='logo-container'>
           <img className='logo' src={logo} style={{ maxWidth: '100px' }} />
-          <p>airbnb</p>
+          <p>Fairbnb</p>
         </Link>
         {!isFilterExpanded && (
           <section className='any-container' onClick={onExpandedFilter}>
