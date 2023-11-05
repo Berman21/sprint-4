@@ -86,7 +86,6 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
   if (stay) {
     firstTenAmenities = stay.amenities.slice(0, 8)
   }
-
   if (!stay) return <div>loading..</div>
 
   return (

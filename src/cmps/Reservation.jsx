@@ -15,6 +15,7 @@ import { showErrorMsg } from '../services/event-bus.service'
 export function Reservation({ stay, stayId }) {
     const [isOpen, setIsOpen] = useState(false)
     const [dateSelection, setIsDateOpen] = useState(false)
+    const loggedInUser = useSelector((storeState) => storeState.userModule.user)
     const navigate = useNavigate()
 
     const order = useSelector(store => store.orderModule.order)
@@ -99,7 +100,7 @@ export function Reservation({ stay, stayId }) {
                     <div className="reservation-notice">
                         You won't be charged yet
                     </div>
-                    
+
                     <div className='summery flex space-between'>
                         <span>${stay.price} x {utilService.calculateNights(order.startDate, order.endDate)} {utilService.calculateNights(order.startDate, order.endDate) > 1 ? 'nights' : 'night'}</span>
                         <span>${new Intl.NumberFormat('he-IL').format(stay.price * utilService.calculateNights(order.startDate, order.endDate))}</span>

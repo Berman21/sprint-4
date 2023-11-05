@@ -17,7 +17,7 @@ export function OrderList({ orders, onChangeStatus }) {
             </article>
 
             <ul className='order-container clean-list'>
-                {orders.map((order) => (
+                {orders && orders.map((order) => (
                     <li className='order' key={order._id}>
                         <OrderPreview order={order} onChangeStatus={onChangeStatus} />
                     </li>

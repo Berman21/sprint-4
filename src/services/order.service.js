@@ -2,6 +2,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
+import { httpService } from './http.service.js'
 
 const STORAGE_KEY = 'order'
 
@@ -29,19 +30,21 @@ async function query(filterBy = {}) {
     return httpService.get(STORAGE_KEY, filterBy)
 }
 
-async function save(stay) {
-    var savedStay
-    if (stay._id) {
-        savedStay = await httpService.put(STORAGE_KEY, stay)
+async function save(order) {
+    var savedOrder
+    if (order._id) {
+        savedOrder = await httpService.put(STORAGE_KEY, order)
     } else {
-        savedStay = await httpService.post(STORAGE_KEY, stay)
+        savedOrder = await httpService.post(STORAGE_KEY, order)
     }
-    return savedStay
+    console.log('savedOrder', savedOrder,);
+    return savedOrder
 }
 
 function getEmptyOrder() {
     return {
         hostId: 'u102',
+        buyerId: '',
         buyer: {
             _id: 'u101',
             fullname: 'User 1',

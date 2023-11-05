@@ -1,4 +1,4 @@
-import { orderService } from "../services/order.service.local"
+import { orderService } from "../services/order.service"
 
 export const SET_ORDERS = 'SET_ORDERS'
 export const SET_ORDER = 'SET_ORDER'
