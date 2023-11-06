@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { DashboardNav } from "../cmps/DashboardNav"
 import userIcon from '../assets/img/user.svg'
 import { AppHeader } from "../cmps/AppHeader"
+import { SOCKET_EVENT_UPDATE_ORDER, socketService } from "../services/socket.service"
 
 
 
@@ -16,6 +17,14 @@ export function TripsPage({ filterByToEdit, setIsModalActive, setFilterByToEdit 
     useEffect(() => {
         if (!loggedInUser) navigate('/')
         fetchOrderByBuyer()
+        socketService.on(SOCKET_EVENT_UPDATE_ORDER, (order) => {
+            fetchOrderByBuyer()
+        })
+        return () => {
+            socketService.off(SOCKET_EVENT_UPDATE_ORDER, (order) => {
+                fetchOrderByBuyer()
+            })
+        }
     }, [loggedInUser])
 
     async function fetchOrderByBuyer() {

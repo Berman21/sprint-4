@@ -13,7 +13,7 @@ import { Dashboard } from './cmps/Dashboard'
 import { Modal } from './cmps/Modal'
 import { TripsPage } from './pages/TripsPage'
 import { UserMsg } from './cmps/UserMsg'
-import { SOCKET_EVENT_ADD_ORDER, socketService } from './services/socket.service'
+import { SOCKET_EVENT_ADD_ORDER, SOCKET_EVENT_UPDATE_ORDER, socketService } from './services/socket.service'
 import { showSuccessMsg } from './services/event-bus.service'
 // const isDashboardPage = window.location.pathname === '/dashboard';
 
@@ -35,6 +35,10 @@ export function RootCmp() {
   useEffect(() => {
     socketService.on(SOCKET_EVENT_ADD_ORDER, (order) => {
       showSuccessMsg('You got new order')
+    })
+
+    socketService.on(SOCKET_EVENT_UPDATE_ORDER, (order) => {
+      showSuccessMsg('Your order has been approved!')
     })
 
     // socketService.on('order-status-change', (order) => {
