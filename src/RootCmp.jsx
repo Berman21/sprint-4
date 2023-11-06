@@ -56,7 +56,7 @@ export function RootCmp() {
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='stay/:stayId' element={<StayDetails filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
             <Route path='/stay/:stayId/reserve' element={<ReservePage />} />
-            <Route path='/trips' element={<TripsPage />} />
+            <Route path='/trips' element={<TripsPage filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
           </Routes>
         </main>
       </div>
