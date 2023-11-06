@@ -56,3 +56,19 @@ a:hover {
 button {
   cursor: pointer;
 }
+
+li {
+  list-style: none;
+}
+
+.pending {
+  @include status($clr: #FFA500);
+}
+
+.approved {
+  @include status($clr: #67C23A);
+}
+
+.rejected {
+  @include status($clr: #F56C6C);
+}

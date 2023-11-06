@@ -41,11 +41,11 @@ export function ReservePage() {
     }
 
     function onReserve() {
-        const { _id, name, price, imgUrls, } = currStay
+        const { _id, name, price, imgUrls, roomType } = currStay
 
         const hostFullname = currStay.host.fullname
         const { country, city } = currStay.loc
-        order = { ...order, stay: { _id, name, price, imgUrls, hostFullname, country, city } }
+        order = { ...order, stay: { _id, name, price, imgUrls, hostFullname, country, city, roomType } }
         order.hostId = currStay.host.id
         order.totalPrice = order.stay.price * utilService.calculateNights(order.startDate, order.endDate)
         onAddOrder(order)

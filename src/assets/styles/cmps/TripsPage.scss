@@ -1,177 +1,221 @@
-.blog-container {
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: hsla(0, 0, 0, .2) 0 4px 2px -2px;
-    font-family: "adelle-sans", sans-serif;
-    font-weight: 100;
-    margin: 48px auto;
-    width: 20rem;
+.trips-page-container {
 
-    @media screen and (min-width: 480px) {
-        width: 28rem;
+    display: grid;
+    grid-template-columns: 250px 1fr 70px;
+    background-color: rgb(243, 243, 243);
+    height: 100vh;
+
+    .trips-header {
+        grid-column: 2;
+        display: flex;
+        justify-content: space-between;
+
+        h1 {
+            font-size: rem(30px);
+            font-family: Airbnb_Cereal-Book;
+            margin: 0;
+            align-self: center;
+        }
+
+        img {
+            width: rem(50px);
+
+        }
+
     }
 
-    @media screen and (min-width: 767px) {
-        width: 40rem;
+    .dashboard-nav {
+        grid-column: 1;
     }
 
-    @media screen and (min-width: 959px) {
-        width: 50rem;
-    }
-}
+    .trips-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color: white;
+        align-items: center;
+        border-radius: rem(10px);
+        gap: rem(20px);
+        padding: rem(20px);
 
-.blog-container a {
-    color: #4d4dff;
-    text-decoration: none;
-    transition: .25s ease;
+        .blog-container {
+            border-radius: 10px;
+            justify-self: center;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: inset 0px 64px 64px 16px rgba(0, 0, 0, 0.2);
+            ;
+            font-family: "adelle-sans", sans-serif;
+            font-weight: 100;
+            // margin: 48px auto;
+            width: 100%;
+            height: 100%;
+            margin-block: rem(20px);
 
-    &:hover {
-        border-color: #ff4d4d;
-        color: #ff4d4d;
-    }
-}
+        }
 
-// Blog header
-//-------------------------
-.blog-cover {
-    background-size: cover;
-    border-radius: 5px 5px 0 0;
-    height: 15rem;
-    box-shadow: inset hsla(0, 0, 0, .2) 0 64px 64px 16px;
-}
+        .blog-container a {
+            color: #4d4dff;
+            text-decoration: none;
+            transition: .25s ease;
 
-.blog-author,
-.blog-author--no-cover {
-    margin: 0 auto;
-    padding-top: .125rem;
-    width: 80%;
-}
+            &:hover {
+                border-color: #ff4d4d;
+                color: #ff4d4d;
+            }
+        }
 
-.blog-author h3 {
-    color: #fff;
-    font-weight: 100;
-}
+        // Blog header
+        //-------------------------
+        .blog-cover {
+            background-size: cover;
+            border-radius: 5px 5px 0 0;
+            height: 15rem;
+            box-shadow: inset 0 64px 64px 16px rgba(0, 0, 0, 0.2);
 
-.blog-author--no-cover h3 {
-    color: lighten(#333, 40%);
-    font-weight: 100;
-}
 
-// Blog body
-//-------------------------
-.blog-body {
-    margin: 0 auto;
-    width: 80%;
-}
 
-.video-body {
-    height: 100%;
-    width: 100%;
-}
+            img {
+                height: 100%;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+            }
+        }
 
-.blog-title h1 a {
-    color: #333;
-    font-weight: 100;
-}
+        .blog-author,
+        .blog-author--no-cover {
+            margin: 0 auto;
+            padding-top: .125rem;
+            width: 80%;
+        }
 
-.blog-summary p {
-    color: lighten(#333, 10%);
-}
+        .blog-author h3 {
+            color: #fff;
+            font-weight: 100;
+        }
 
-.blog-tags ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    list-style: none;
-    padding-left: 0;
-}
+        .blog-author--no-cover h3 {
+            color: lighten(#333, 40%);
+            font-weight: 100;
+        }
 
-.blog-tags li+li {
-    margin-left: .5rem;
-}
+        // Blog body
+        //-------------------------
+        .blog-body {
+            margin: 0 auto;
+            width: 80%;
+        }
 
-.blog-tags a {
-    border: 1px solid lighten(#333, 40%);
-    border-radius: 3px;
-    color: lighten(#333, 40%);
-    font-size: .75rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    letter-spacing: 1px;
-    padding: 0 .5rem;
-    text-align: center;
-    text-transform: uppercase;
-    white-space: nowrap;
-    width: 5rem;
-}
+        .video-body {
+            height: 100%;
+            width: 100%;
+        }
 
-// Blog footer
-//-------------------------
-.blog-footer {
-    border-top: 1px solid lighten(#333, 70%);
-    margin: 0 auto;
-    padding-bottom: .125rem;
-    width: 80%;
-}
+        .blog-title h1 {
+            color: #333;
+            font-weight: 100;
+            font-family: Airbnb_Cereal-Bold;
 
-.blog-footer ul {
-    list-style: none;
-    display: flex;
-    flex: row wrap;
-    justify-content: flex-end;
-    padding-left: 0;
-}
+        }
 
-.blog-footer li:first-child {
-    margin-right: auto;
-}
+        .blog-summary p {
+            color: lighten(#333, 10%);
+        }
 
-.blog-footer li+li {
-    margin-left: .5rem;
-}
+        .blog-tags ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            list-style: none;
+            padding-left: 0;
+        }
 
-.blog-footer li {
-    color: lighten(#333, 40%);
-    font-size: .75rem;
-    height: 1.5rem;
-    letter-spacing: 1px;
-    line-height: 1.5rem;
-    text-align: center;
-    text-transform: uppercase;
-    position: relative;
-    white-space: nowrap;
+        .blog-tags li+li {
+            margin-left: .5rem;
+        }
 
-    & a {
-        color: lighten(#333, 40%);
-    }
-}
+        .blog-tags a {
+            border: 1px solid lighten(#333, 40%);
+            border-radius: 3px;
+            color: lighten(#333, 40%);
+            font-size: .75rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            letter-spacing: 1px;
+            padding: 0 .5rem;
+            text-align: center;
+            text-transform: uppercase;
+            white-space: nowrap;
+            width: 5rem;
+        }
 
-.comments {
-    margin-right: 1rem;
-}
+        // Blog footer
+        //-------------------------
+        .blog-footer {
+            border-top: 1px solid lighten(#333, 70%);
+            margin: 0 auto;
+            padding-bottom: .125rem;
+            width: 80%;
+        }
 
-.published-date {
-    border: 1px solid lighten(#333, 40%);
-    border-radius: 3px;
-    padding: 0 .5rem;
-}
+        .blog-footer ul {
+            list-style: none;
+            display: flex;
+            flex: row wrap;
+            justify-content: flex-end;
+            padding-left: 0;
+        }
 
-.numero {
-    position: relative;
-    top: -0.5rem;
-}
+        .blog-footer li:first-child {
+            margin-right: auto;
+        }
 
-// Icons
-//-------------------------
-.icon-star,
-.icon-bubble {
-    fill: lighten(#333, 40%);
-    height: 24px;
-    margin-right: .5rem;
-    transition: .25s ease;
-    width: 24px;
+        .blog-footer li+li {
+            margin-left: .5rem;
+        }
 
-    &:hover {
-        fill: #ff4d4d;
+        .blog-footer li {
+            font-size: .75rem;
+            height: 1.5rem;
+            letter-spacing: 1px;
+            line-height: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            white-space: nowrap;
+
+            & a {
+                color: lighten(#333, 40%);
+            }
+        }
+
+        .comments {
+            margin-right: 1rem;
+        }
+
+        .published-date {
+            border: 1px solid lighten(#333, 40%);
+            border-radius: 3px;
+            padding: 0 .5rem;
+        }
+
+        .numero {
+            position: relative;
+            top: -0.5rem;
+        }
+
+        // Icons
+        //-------------------------
+        .icon-star,
+        .icon-bubble {
+            fill: lighten(#333, 40%);
+            height: 24px;
+            margin-right: .5rem;
+            transition: .25s ease;
+            width: 24px;
+
+            &:hover {
+                fill: #ff4d4d;
+            }
+        }
     }
 }

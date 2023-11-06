@@ -8,7 +8,7 @@ import wishlist from '../assets/img/nav-heart.svg'
 import logoutIcon from '../assets/img/nav-logout.svg'
 import { Link } from "react-router-dom"
 export function DashboardNav() {
-    const [selectedExperience, setSelectedExperience] = useState('dashboard')
+    const [selectedExperience, setSelectedExperience] = useState('')
 
     async function onLogout() {
         try {
@@ -23,8 +23,12 @@ export function DashboardNav() {
         ev.preventDefault()
         const field = ev.currentTarget.getAttribute('name')
         const value = ev.currentTarget.getAttribute('class')
-        if (value === selectedExperience) return
-        setSelectedExperience(`${field}`)
+        if (value === selectedExperience) {
+            setSelectedExperience(null)
+        } else {
+
+            setSelectedExperience(`${field}`)
+        }
     }
 
     return (
@@ -39,8 +43,10 @@ export function DashboardNav() {
                 </article>
 
                 <article className={selectedExperience === 'dashboard' ? 'selected' : ''} name='dashboard' onClick={toggleSelected}>
-                    <img src={chart} />
-                    <span>Dashboard</span>
+                    <Link to={'/dashboard'}>
+                        <img src={chart} />
+                        <span>Dashboard</span>
+                    </Link>
                 </article>
 
                 <article className={selectedExperience === 'wishlist' ? 'selected' : ''} name='wishlist' onClick={toggleSelected}>
@@ -50,8 +56,10 @@ export function DashboardNav() {
                 </article>
 
                 <article className={selectedExperience === 'trips' ? 'selected' : ''} name='trips' onClick={toggleSelected}>
-                    <img src={trips} />
-                    <span>Trips</span>
+                    <Link to={'/trips'}>
+                        <img src={trips} />
+                        <span>Trips</span>
+                    </Link>
                 </article>
             </section>
             <article className="nav-logout" onClick={onLogout}>
