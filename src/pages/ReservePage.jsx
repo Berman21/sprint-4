@@ -18,7 +18,10 @@ export function ReservePage() {
     const { stayId } = useParams()
     const [currStay, setCurrStay] = useState(null)
     const navigate = useNavigate()
+
+    const user = useSelector((storeState) => storeState.userModule.user)
     let order = useSelector(store => store.orderModule.order)
+
     useEffect(() => {
         loadStay()
     }, [])
@@ -39,9 +42,11 @@ export function ReservePage() {
 
     function onReserve() {
         const { _id, name, price, imgUrls, } = currStay
+
         const hostFullname = currStay.host.fullname
         const { country, city } = currStay.loc
         order = { ...order, stay: { _id, name, price, imgUrls, hostFullname, country, city } }
+        order.hostId = currStay.host.id
         order.totalPrice = order.stay.price * utilService.calculateNights(order.startDate, order.endDate)
         onAddOrder(order)
     }
@@ -50,7 +55,7 @@ export function ReservePage() {
         try {
             const savedOrder = await updateOrder(order)
             showSuccessMsg(`Order added (id: ${savedOrder._id})`)
-            socketService.emit(SOCKET_EMIT_ADD_ORDER, order)
+            // socketService.emit(SOCKET_EMIT_ADD_ORDER, order)
             navigate('/')
         } catch (err) {
             console.error('Cannot add order', err)

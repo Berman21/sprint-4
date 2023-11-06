@@ -34,6 +34,7 @@ async function query(filterBy = {}) {
 async function save(order) {
     var savedOrder
     if (order._id) {
+        // socketService.emit('new-order', order)
         savedOrder = await httpService.put(STORAGE_KEY, order)
     } else {
         savedOrder = await httpService.post(STORAGE_KEY, order)
@@ -55,14 +56,12 @@ async function getOrderByBuyer(buyerId) {
 
 function getEmptyOrder() {
     return {
-        hostId: 'u102',
-        buyerId: '',
+        // hostId: '',
+        // buyerId: '',
         buyer: {
             _id: 'u101',
             fullname: 'User 1',
         },
-        // startDate: 'Select',
-        // endDate: 'Select',
         guests: {
             adults: 1,
             children: 0,
