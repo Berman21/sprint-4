@@ -5,10 +5,10 @@
     gap: 400px;
     width: rem(250px);
 
-
     a {
         display: flex;
         color: black;
+        align-items: center;
 
         &:hover {
             text-decoration: none;
@@ -23,7 +23,6 @@
     }
 
     .nav-logout {
-        // margin-top: 500px;
         margin-left: 50px;
         font-family: Airbnb_Cereal-Book;
         font-weight: 400;
@@ -31,8 +30,6 @@
 
         span {
             margin-inline: rem(10px);
-
-
         }
 
         :hover {
@@ -60,7 +57,27 @@
             transform: scaleX(1);
             margin-left: 50px;
 
+            :hover svg {
+                stroke: #5674FF;
+            }
 
+            :hover span {
+                color: #5674FF;
+
+            }
+
+            :hover span:after {
+                transform: scaleX(1);
+            }
+
+            svg {
+                width: rem(19px);
+                height: rem(19px);
+                fill: rgb(243, 243, 243);
+                stroke-width: 50;
+                stroke: rgb(178, 178, 187);
+
+            }
 
             &:not(.selected):hover {
                 cursor: pointer;
@@ -77,11 +94,8 @@
                     color: #5674FF;
 
                 }
-
             }
-
         }
-
 
         &>* {
             & span {
@@ -129,6 +143,11 @@
                         background-color: #002efd;
                     }
                 }
+            }
+
+            &.selected svg {
+                stroke: #5674FF;
+
             }
         }
     }

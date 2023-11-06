@@ -34,6 +34,8 @@
         border-radius: rem(10px);
         gap: rem(20px);
         padding: rem(20px);
+        margin-block-end: rem(20px);
+        height: rem(840px);
 
     }
 
@@ -54,7 +56,6 @@
         }
 
         .destination-cell img {
-            width: 60px;
             height: 60px;
             margin-right: 10px;
         }

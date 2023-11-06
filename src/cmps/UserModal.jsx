@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { SET_APP_MODAL_LOGIN, SET_APP_MODAL_SIGNUP } from '../store/system.reducer'
+import { SET_APP_MODAL_LOGIN, SET_APP_MODAL_SIGNUP, SET_NAV_DASHBOARD, SET_NAV_TRIPS, SET_NAV_WISHLIST } from '../store/system.reducer'
 import { setAppModal } from '../store/system.action'
 import { logout } from '../store/user.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -10,6 +10,7 @@ export function UserModal({ setIsDropdownActive, setIsModalActive }) {
   const appModal = useSelector((storeState) => storeState.userModule.appModal)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const dashNav = useSelector((storeState) => storeState.systemModule.dashNav)
 
   function onOpenModal(ev, modalType) {
     console.log(modalType);
@@ -38,13 +39,13 @@ export function UserModal({ setIsDropdownActive, setIsModalActive }) {
     <section className='dropdown-modal flex'>
       {loggedInUser ? (
         <>
-          <Link to={'/trips'} className='dropdown-option'>
+          <Link to={'/trips'} className='dropdown-option' onClick={() => dispatch({ type: SET_NAV_TRIPS })}>
             <span>Trips</span>
           </Link>
-          <Link className='dropdown-option'>
+          <Link className='dropdown-option' onClick={() => dispatch({ type: SET_NAV_WISHLIST })} >
             <span>Wishlist</span>
           </Link>
-          <Link to={`/dashboard`} className='dropdown-option'>
+          <Link to={`/dashboard`} className='dropdown-option' onClick={() => dispatch({ type: SET_NAV_DASHBOARD })}>
             <span>Dashboard</span>
           </Link>
           <section onClick={onLogout} className='dropdown-option'>
