@@ -24,7 +24,6 @@ export function Dashboard() {
         loadOrders()
         socketService.on(SOCKET_EVENT_ADD_ORDER, (order) => {
             loadOrders()
-            showUserMsg('New order arrived')
         })
 
         loadReserveStats()
