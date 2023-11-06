@@ -13,6 +13,7 @@ import userIcon from '../assets/img/user.svg'
 import { DoughnutChart } from './DoughnutChart';
 import { DashboardNav } from './DashboardNav';
 import { SOCKET_EVENT_ADD_ORDER, socketService } from '../services/socket.service';
+import { showUserMsg } from '../services/event-bus.service';
 
 export function Dashboard() {
 
@@ -23,6 +24,7 @@ export function Dashboard() {
         loadOrders()
         socketService.on(SOCKET_EVENT_ADD_ORDER, (order) => {
             loadOrders()
+            showUserMsg('New order arrived')
         })
 
         loadReserveStats()
