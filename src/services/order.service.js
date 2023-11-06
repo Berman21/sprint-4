@@ -11,6 +11,7 @@ export const orderService = {
     save,
     getEmptyOrder,
     getReservationStats,
+    getOrderByBuyer
 }
 window.cs = orderService
 
@@ -39,6 +40,17 @@ async function save(order) {
     }
     console.log('savedOrder', savedOrder,);
     return savedOrder
+}
+
+async function getOrderByBuyer(buyerId) {
+    try {
+        const buyer = {buyer: buyerId}
+        const orders = await query(buyer)
+        return orders.filter(order => order.buyer._id === buyerId)
+    }
+    catch (err) {
+        console.log('Cant get order by buyer',err);
+    }
 }
 
 function getEmptyOrder() {
