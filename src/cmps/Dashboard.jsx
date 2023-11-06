@@ -20,15 +20,17 @@ export function Dashboard() {
     const reserveStats = useSelector((storeState) => storeState.orderModule.stats)
 
     useEffect(() => {
+        loadOrders()
+        socketService.on(SOCKET_EVENT_ADD_ORDER, (order) => {
             loadOrders()
-            // socketService.on(SOCKET_EVENT_ADD_ORDER, loadOrders)
+        })
 
-            socketService.on(SOCKET_EVENT_ADD_ORDER, async (order) => {
-                console.log('HHAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
-                await loadOrders()
+        loadReserveStats()
+        return () => {
+            socketService.off(SOCKET_EVENT_ADD_ORDER, (order) => {
+                loadOrders()
             })
-            
-            loadReserveStats()
+        }
     }, [])
 
     async function onChangeStatus(order, status) {

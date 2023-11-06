@@ -120,7 +120,7 @@ export const stayService = {
 window.cs = stayService
 
 async function query(filterBy = {}) {
-  console.log(filterBy);
+  // console.log(filterBy);
   return httpService.get(STORAGE_KEY, filterBy)
 }
 
@@ -154,5 +154,5 @@ function getEmptyStay() {
 }
 
 function getDefaultFilter() {
-  return { country: '', labels: '',minPrice:40,maxPrice:2600,capacity:''}
+  return { country: '', labels: '',minPrice:0,maxPrice:2600,capacity:''}
 }

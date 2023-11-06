@@ -6,9 +6,12 @@ import { SET_FILTER_BY } from '../store/stay.reducer'
 import { DesktopHeader } from './DesktopHeader'
 import { UserMsg } from './UserMsg'
 
+
 export function AppHeader({ filterByToEdit, setFilterByToEdit, setIsModalActive }) {
   const dispatch = useDispatch()
   const user = useSelector((storeState) => storeState.userModule.user)
+
+ 
 
   async function onLogin(credentials) {
     try {
@@ -27,6 +30,7 @@ export function AppHeader({ filterByToEdit, setFilterByToEdit, setIsModalActive 
       showErrorMsg('Cannot signup')
     }
   }
+
 
 
   function onSetFilter(filterBy) {
