@@ -38,7 +38,7 @@ export function UserModal({ setIsDropdownActive, setIsModalActive }) {
     <section className='dropdown-modal flex'>
       {loggedInUser ? (
         <>
-          <Link className='dropdown-option'>
+          <Link to={'/trips'} className='dropdown-option'>
             <span>Trips</span>
           </Link>
           <Link className='dropdown-option'>

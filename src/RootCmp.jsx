@@ -11,6 +11,7 @@ import { store } from './store/store'
 import { CLOSE_APP_MODAL, CLOSE_EXPANDED_HEADER, REMOVE_FOCUSED_MODAL } from './store/system.reducer'
 import { Dashboard } from './cmps/Dashboard'
 import { Modal } from './cmps/Modal'
+import { TripsPage } from './pages/TripsPage'
 // const isDashboardPage = window.location.pathname === '/dashboard';
 
 export function RootCmp() {
@@ -39,6 +40,7 @@ export function RootCmp() {
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='stay/:stayId' element={<StayDetails filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
             <Route path='/stay/:stayId/reserve' element={<ReservePage />} />
+            <Route path='/trips' element={<TripsPage />} />
           </Routes>
         </main>
       </div>
