@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router'
 
 import { AppHeader } from './cmps/AppHeader'
@@ -12,6 +12,9 @@ import { CLOSE_APP_MODAL, CLOSE_EXPANDED_HEADER, REMOVE_FOCUSED_MODAL } from './
 import { Dashboard } from './cmps/Dashboard'
 import { Modal } from './cmps/Modal'
 import { TripsPage } from './pages/TripsPage'
+import { UserMsg } from './cmps/UserMsg'
+import { SOCKET_EVENT_ADD_ORDER, socketService } from './services/socket.service'
+import { showSuccessMsg } from './services/event-bus.service'
 // const isDashboardPage = window.location.pathname === '/dashboard';
 
 export function RootCmp() {
@@ -29,8 +32,21 @@ export function RootCmp() {
     dispatch({ type: CLOSE_APP_MODAL })
   }
 
+  useEffect(() => {
+    socketService.on(SOCKET_EVENT_ADD_ORDER, (order) => {
+      showSuccessMsg('You got new order')
+    })
+
+    // socketService.on('order-status-change', (order) => {
+    //   showSuccessMsg('Your order has been Approved!')
+    // })
+
+  }, [])
+
+
   return (
     <>
+      <UserMsg />
       {isFocusedModal && <div className='gray-viewport' onClick={(ev) => closeBackground(ev)}></div>}
       <div className='app-container'>
         {/* {!isDashboardPage && <AppHeader filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} */}
