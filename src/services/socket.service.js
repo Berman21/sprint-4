@@ -10,8 +10,8 @@ export const SOCKET_EMIT_ADD_ORDER = 'add-order'
 export const SOCKET_EVENT_ADD_ORDER = 'order-added'
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-// export const socketService = createSocketService()
-export const socketService = createDummySocketService()
+export const socketService = createSocketService()
+// export const socketService = createDummySocketService()
 
 // for debugging from console
 window.socketService = socketService
@@ -39,6 +39,7 @@ function createSocketService() {
       socket.emit(eventName, data)
     },
     login(userId) {
+      console.log('SOCKET_EMIT_LOGIN',SOCKET_EMIT_LOGIN, 'userId', userId);
       socket.emit(SOCKET_EMIT_LOGIN, userId)
     },
     logout() {
