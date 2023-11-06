@@ -3,7 +3,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { httpService } from './http.service.js'
-import { socketService } from './socket.service.js'
+import { SOCKET_EMIT_ADD_ORDER, socketService } from './socket.service.js'
 
 const STORAGE_KEY = 'order'
 
@@ -33,15 +33,14 @@ async function query(filterBy = {}) {
 }
 
 async function save(order) {
+    console.log(order);
     var savedOrder
     if (order._id) {
-        // socketService.emit('new-order', order)
         savedOrder = await httpService.put(STORAGE_KEY, order)
     } else {
         savedOrder = await httpService.post(STORAGE_KEY, order)
     }
-    socketService.emit('add-order',savedOrder)
-    console.log('savedOrder', savedOrder,);
+    socketService.emit(SOCKET_EMIT_ADD_ORDER,savedOrder)
     return savedOrder
 }
 
