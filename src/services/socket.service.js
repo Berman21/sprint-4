@@ -39,7 +39,7 @@ function createSocketService() {
       socket.emit(eventName, data)
     },
     login(userId) {
-      console.log('SOCKET_EMIT_LOGIN',SOCKET_EMIT_LOGIN, 'userId', userId);
+      console.log(SOCKET_EMIT_LOGIN, 'userId', userId);
       socket.emit(SOCKET_EMIT_LOGIN, userId)
     },
     logout() {
