@@ -17,10 +17,14 @@ export function DetailsHeaderMobile({ onWishlistIcon, setClr }) {
         setIsDateOpen(!dateSelection)
     }
 
+    function onPrevPage() {
+        return navigate(`/`)
+    }
+
     return (
         <section className="detail-header-mobile">
 
-            <article className='prev-page-btn'>
+            <article className='prev-page-btn' onClick={onPrevPage}>
                 <img src={arrowLeftSvg} alt="" />
                 <span> Homes</span>
             </article>

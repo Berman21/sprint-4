@@ -124,10 +124,10 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
               </p>
             </div>
 
-            <button className='btn-wish-list' onClick={() => onWishlistIcon()}>
+            {!isMobile && <button className='btn-wish-list' onClick={() => onWishlistIcon()}>
               <WishlistIcon onWishlistIcon={onWishlistIcon} setClr={clr} className='detail-wishlist-icon' />
               {btnTxt}
-            </button>
+            </button>}
           </div>
         </section>
 
@@ -148,16 +148,13 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
 
                 <article>
                   <p>{stay.capacity} {stay.capacity > 1 ? 'guests' : 'guest'}</p>
-                  {/* <span>•</span> */}
                   <p><span>•</span> {stay.bedrooms} {stay.bedrooms > 1 ? 'bedrooms' : 'bedroom'}</p>
-                  {/* <span>•</span> */}
                   <p><span>•</span> {stay.capacity} {stay.capacity > 1 ? 'beds' : 'bed'}</p>
-                  {/* <span>•</span> */}
                   <p><span>•</span> 2 baths</p>
                 </article>
               </div>
 
-              <img className='user-icon' src={userIcon} />
+              <img className='user-icon' src={stay.host.thumbnailUrl} />
             </div>
 
             <div className='stay-highlights border-bottom'>
