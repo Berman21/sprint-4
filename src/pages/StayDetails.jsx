@@ -99,14 +99,14 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
         {appModal &&
           <Modal isModalActive={isModalActive} setIsModalActive={setIsModalActive} modalType={appModal} stay={stay} />}
         {!isMobile && <AppHeader filterByToEdit={filterByToEdit} setIsModalActive={setIsModalActive} setFilterByToEdit={setFilterByToEdit} />}
-        {isMobile && <DetailsHeaderMobile onWishlistIcon={onWishlistIcon} setClr={clr} /> }
+        {isMobile && <DetailsHeaderMobile onWishlistIcon={onWishlistIcon} setClr={clr} />}
 
-        {isMobile && 
-        <div className='detail-gallery-mobile'>
+        {isMobile &&
+          <div className='detail-gallery-mobile'>
             <img src={stay.imgUrls[0]} alt='' />
-        </div>}
+          </div>}
 
-        <section className='detail-title'>
+        <section className={isMobile ? 'detail-title border-bottom detail-padding-bottom' : 'detail-title'}>
           <h1>{stay.name}</h1>
 
           <div className='flex space-between'>
