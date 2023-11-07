@@ -17,12 +17,16 @@ import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODA
 import { Modal } from '../cmps/Modal.jsx'
 import { useClickOutside } from '../customHooks/useCloseModule.js'
 import { AppHeader } from '../cmps/AppHeader.jsx'
+import useIsMobile from '../customHooks/useIsMobile.js'
+import { ReservationMobile } from '../cmps/ReservationMobile.jsx'
+import { DetailsHeaderMobile } from '../cmps/DetailsHeaderMobile.jsx'
 
 export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const isFocusedModal = useSelector((storeState) => storeState.systemModule.isFocusedModal)
   const [isModalActive, setIsModalActive] = useState(false)
-
+  const isMobile = useIsMobile()
+  console.log(isMobile);
   const dispatch = useDispatch()
   useEffect(() => {
     function handleScroll() {
@@ -94,7 +98,13 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
       <section className='detail-container'>
         {appModal &&
           <Modal isModalActive={isModalActive} setIsModalActive={setIsModalActive} modalType={appModal} stay={stay} />}
-        <AppHeader filterByToEdit={filterByToEdit} setIsModalActive={setIsModalActive} setFilterByToEdit={setFilterByToEdit} />
+        {!isMobile && <AppHeader filterByToEdit={filterByToEdit} setIsModalActive={setIsModalActive} setFilterByToEdit={setFilterByToEdit} />}
+        {isMobile && <DetailsHeaderMobile onWishlistIcon={onWishlistIcon} setClr={clr} /> }
+
+        {isMobile && 
+        <div className='detail-gallery-mobile'>
+            <img src={stay.imgUrls[0]} alt='' />
+        </div>}
 
         <section className='detail-title'>
           <h1>{stay.name}</h1>
@@ -121,28 +131,31 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
           </div>
         </section>
 
-        <div className='detail-gallery'>
+        {!isMobile && <div className='detail-gallery'>
           {stay.imgUrls.map((imgUrl, idx) => (
             <img key={idx} src={imgUrl} alt='' />
           ))}
-        </div>
+        </div>}
 
         <section className='mid-section'>
           <div className='stay-details'>
             <div className='about-host border-bottom'>
-              <h2>
-                Entire {stay.type} hosted by {stay.host.fullname}
-              </h2>
 
-              <article>
-                <p>{stay.capacity} {stay.capacity > 1 ? 'guests' : 'guest'}</p>
-                <span>•</span>
-                <p>{stay.bedrooms} {stay.bedrooms > 1 ? 'bedrooms' : 'bedroom'}</p>
-                <span>•</span>
-                <p>{stay.capacity} {stay.capacity > 1 ? 'beds' : 'bed'}</p>
-                <span>•</span>
-                <p>2 baths</p>
-              </article>
+              <div className='about-host-text'>
+                <h2>
+                  Entire {stay.type} hosted by {stay.host.fullname}
+                </h2>
+
+                <article>
+                  <p>{stay.capacity} {stay.capacity > 1 ? 'guests' : 'guest'}</p>
+                  {/* <span>•</span> */}
+                  <p><span>•</span> {stay.bedrooms} {stay.bedrooms > 1 ? 'bedrooms' : 'bedroom'}</p>
+                  {/* <span>•</span> */}
+                  <p><span>•</span> {stay.capacity} {stay.capacity > 1 ? 'beds' : 'bed'}</p>
+                  {/* <span>•</span> */}
+                  <p><span>•</span> 2 baths</p>
+                </article>
+              </div>
 
               <img className='user-icon' src={userIcon} />
             </div>
@@ -190,7 +203,7 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
             </section>
           </div>
 
-          <Reservation stay={stay} stayId={stayId} />
+          {!isMobile ? <Reservation stay={stay} stayId={stayId} /> : <ReservationMobile stay={stay} stayId={stayId} />}
         </section>
         <ReviewPreview handleShowMore={handleShowMore} stay={stay} />
       </section>

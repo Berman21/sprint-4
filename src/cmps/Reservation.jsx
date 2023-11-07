@@ -50,7 +50,6 @@ export function Reservation({ stay, stayId }) {
                         </div>
 
                         <div className='rating'>
-                            <img src={starSvg} alt="" />
                             <span>{stay.rating || '5.0'} •</span>
                             <span>{stay.reviews.length} reviews</span>
                         </div>

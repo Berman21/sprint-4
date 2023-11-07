@@ -1,6 +1,7 @@
 .reservation-container {
     position: sticky;
     top: 7rem;
+    min-width: 18vw;
 
     border-radius: rem(12px);
     border: 1px solid rgb(221, 221, 221);
@@ -53,7 +54,7 @@
             text-decoration: none;
             margin: 1rem 0;
 
-            min-width: 322px;
+            // width: 15vw;
             min-height: 48px;
 
             font-size: 16px;
