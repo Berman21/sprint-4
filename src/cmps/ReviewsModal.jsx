@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import starSvg from '../assets/img/star.svg'
-import closeFilter from '../assets/img/close-filter.svg'
-import reviewsSearch from '../assets/img/reviews-search.svg'
 
 export function ReviewsModal({ stay }) {
     const [searchTerm, setSearchTerm] = useState('')
@@ -46,13 +43,13 @@ export function ReviewsModal({ stay }) {
     return (
         <section className="modal-reviews-container">
             <section className='modal-reviews-score'>
-                <img src={starSvg} alt="Star" />
+                <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218791/star_pjyvxm.svg' alt="Star" />
                 <span>{stay.rating} · {stay.reviews.length} reviews</span>
             </section>
             <section className='modal-reviews-list'>
                 <section>
                     <div className='review-search'>
-                        <img src={reviewsSearch} />
+                        <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218789/reviews-search_lrhaze.svg' />
                         <input
                             type="text"
                             placeholder="Search reviews"
@@ -61,7 +58,7 @@ export function ReviewsModal({ stay }) {
                             onKeyPress={handleKeyPress}
                         />
                         {tempSearchTerm &&
-                            <button className='btn-clear-filter' onClick={handleClear}><img src={closeFilter} /></button>}
+                            <button className='btn-clear-filter' onClick={handleClear}><img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218785/close-filter_sjmrkr.svg' /></button>}
                     </div>
                 </section>
                 <div>

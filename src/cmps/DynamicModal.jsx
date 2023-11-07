@@ -1,8 +1,6 @@
 import { SET_APP_MODAL_ABOUT, SET_APP_MODAL_AMENITIES, SET_APP_MODAL_LOGIN, SET_APP_MODAL_REVIEWS, SET_APP_MODAL_SIGNUP } from "../store/system.reducer";
 import { AboutModal } from "./AboutModal";
 import { AmenitiesModal } from "./AmenitiesModal";
-import { LoginModal } from "./LoginModal";
-import { Modal } from "./Modal";
 import { ReviewsModal } from "./ReviewsModal";
 import { SignupModal } from "./SignupModal";
 

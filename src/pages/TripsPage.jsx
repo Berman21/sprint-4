@@ -2,12 +2,8 @@ import { useSelector } from "react-redux"
 import { orderService } from "../services/order.service"
 import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
-import { DashboardNav } from "../cmps/DashboardNav"
-import userIcon from '../assets/img/user.svg'
 import { AppHeader } from "../cmps/AppHeader"
 import { SOCKET_EVENT_UPDATE_ORDER, socketService } from "../services/socket.service"
-
-
 
 export function TripsPage({ filterByToEdit, setIsModalActive, setFilterByToEdit }) {
     const loggedInUser = useSelector((storeState) => storeState.userModule.user)
@@ -45,12 +41,6 @@ export function TripsPage({ filterByToEdit, setIsModalActive, setFilterByToEdit 
         <>
             <section className="trips-page-container">
                 <AppHeader filterByToEdit={filterByToEdit} setIsModalActive={setIsModalActive} setFilterByToEdit={setFilterByToEdit} />
-
-                {/* <section className="trips-header">
-                    <h1>Trips</h1>
-                    <img src={userIcon} alt="User Icon" />
-                </section> */}
-                {/* <DashboardNav /> */}
                 <section className="trips-container">
                     <table className="trip-table">
                         <thead>

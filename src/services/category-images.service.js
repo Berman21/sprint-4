@@ -1,283 +1,226 @@
-import windmills from '../assets/img/categories/windmills.jpg'
-import vineyards from '../assets/img/categories/vineyards.jpg'
-import trulli from '../assets/img/categories/trulli.jpg'
-import tropical from '../assets/img/categories/tropical.jpg'
-import trending from '../assets/img/categories/trending.jpg'
-import treehouses from '../assets/img/categories/treehouses.jpg'
-import towers from '../assets/img/categories/towers.jpg'
-import totw from '../assets/img/categories/top-of-the-world.jpg'
-import skiing from '../assets/img/categories/skiing.jpg'
-import ryokans from '../assets/img/categories/ryokans.jpg'
-import play from '../assets/img/categories/play.jpg'
-import otg from '../assets/img/categories/off-the-grid.jpg'
-import omg from '../assets/img/categories/omg.jpg'
-import parks from '../assets/img/categories/national-parks.jpg'
-import mansions from '../assets/img/categories/mansions.jpg'
-import lakefront from '../assets/img/categories/lakefront.jpg'
-import islands from '../assets/img/categories/islands.jpg'
-import cities from '../assets/img/categories/iconic-cities.jpg'
-import historical from '../assets/img/categories/historical-homes.jpg'
-import piano from '../assets/img/categories/grand-piano.jpg'
-import golfing from '../assets/img/categories/golfing.jpg'
-import adapted from '../assets/img/categories/adapted.jpg'
-import aFrames from '../assets/img/categories/a-frames.jpg'
-import amazingPools from '../assets/img/categories/amazing-pools.jpg'
-import amazingViews from '../assets/img/categories/amazing-views.jpg'
-import arctics from '../assets/img/categories/arctics.jpg'
-import beach from '../assets/img/categories/beach.jpg'
-import beachfront from '../assets/img/categories/beachfront.jpg'
-import boats from '../assets/img/categories/boats.jpg'
-import breakfast from '../assets/img/categories/breakfast.jpg'
-import casasParticulares from '../assets/img/categories/casas-particulares.jpg'
-import castles from '../assets/img/categories/castles.jpg'
-import caves from '../assets/img/categories/caves.jpg'
-import chefsKitchen from '../assets/img/categories/chefs-kitchen.jpg'
-import container from '../assets/img/categories/container.jpg'
-import countryside from '../assets/img/categories/countryside.jpg'
-import creativeSpaces from '../assets/img/categories/creative-spaces.jpg'
-import desert from '../assets/img/categories/desert.jpg'
-import farms from '../assets/img/categories/farms.jpg'
-import barns from '../assets/img/categories/barns.jpg'
-import campers from '../assets/img/categories/campers.jpg'
-import camping from '../assets/img/categories/camping.jpg'
-import dammusi from '../assets/img/categories/dammusi.jpg'
-import domes from '../assets/img/categories/domes.jpg'
-import hankos from '../assets/img/categories/hankos.jpg'
-import houseboats from '../assets/img/categories/houseboats.jpg'
-import lake from '../assets/img/categories/lake.jpg'
-import luxe from '../assets/img/categories/luxe.jpg'
-import minsus from '../assets/img/categories/minsus.jpg'
-import news from '../assets/img/categories/new.jpg'
-import riads from '../assets/img/categories/riads.jpg'
-import shepherdsHut from '../assets/img/categories/shepherds-huts.jpg'
-import skiInOut from '../assets/img/categories/ski-in-out.jpg'
-import surfing from '../assets/img/categories/surfing.jpg'
-import yurts from '../assets/img/categories/yurts.jpg'
-import earthHomes from '../assets/img/categories/earth-homes.jpg'
-
 export const categoryImages = [
   {
     label: 'Windmills',
-    imgSrc: windmills,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389305/categories/windmills_w3vhf0.png',
   },
   {
     label: 'Vineyards',
-    imgSrc: vineyards,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389305/categories/vineyards_sncj7b.png',
   },
   {
     label: 'Trulli',
-    imgSrc: trulli,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389304/categories/trulli_zrbree.png',
   },
   {
     label: 'Tropical',
-    imgSrc: tropical,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389306/categories/tropical_mm3pay.png',
   },
   {
     label: 'Trending',
-    imgSrc: trending,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389306/categories/trending_biwv7z.png',
   },
   {
     label: 'Treehouses',
-    imgSrc: treehouses,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389310/categories/treehouses_ibcbkj.png',
   },
   {
     label: 'Top of the world',
-    imgSrc: totw,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389310/categories/top-of-the-world_tkz2oj.png',
   },
   {
     label: 'Skiing',
-    imgSrc: skiing,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389309/categories/skiing_dzzvek.png',
   },
   {
     label: 'Ryokans',
-    imgSrc: ryokans,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389309/categories/ryokans_u9ttti.png',
   },
   {
     label: 'Play',
-    imgSrc: play,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389309/categories/play_ob15se.png',
   },
   {
     label: 'OMG!',
-    imgSrc: omg,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389309/categories/omg_k799gw.png',
   },
   {
     label: 'Off-the-grid',
-    imgSrc: otg,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389309/categories/off-the-grid_sp3rxf.png',
   },
   {
     label: 'National parks',
-    imgSrc: parks,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389308/categories/national-parks_v4840m.png',
   },
   {
     label: 'Mansions',
-    imgSrc: mansions,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389308/categories/mansions_djibz4.png',
   },
   {
     label: 'Lakefront',
-    imgSrc: lakefront,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389308/categories/lakefront_ts7hqm.png',
   },
   {
     label: 'Islands',
-    imgSrc: islands,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389308/categories/islands_ie5rjh.png',
   },
   {
     label: 'Iconic cities',
-    imgSrc: cities,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389298/categories/iconic-cities_ntvyrx.png',
   },
   {
     label: 'Historical homes',
-    imgSrc: historical,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389298/categories/historical-homes_x4xpbj.png',
   },
   {
     label: 'Grand piano',
-    imgSrc: piano,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389298/categories/grand-piano_qpamz1.png',
   },
   {
     label: 'Golfing',
-    imgSrc: golfing,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389298/categories/golfing_nh8qsb.png',
   },
   {
     label: 'Farms',
-    imgSrc: farms,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389298/categories/farms_ks0esw.png',
   },
   {
     label: 'Towers',
-    imgSrc: towers,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389310/categories/towers_zcxnhk.png',
   },
   {
     label: 'Adapted',
-    imgSrc: adapted,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389301/categories/adapted_wlqwsm.png',
   },
   {
     label: 'A-frames',
-    imgSrc: aFrames,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389306/categories/a-frames_gljixz.png',
   },
   {
     label: 'Amazing pools',
-    imgSrc: amazingPools,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389301/categories/amazing-pools_za9hhr.png',
   },
   {
     label: 'Amazing views',
-    imgSrc: amazingViews,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389301/categories/amazing-views_dncatp.png',
   },
   {
     label: 'Arctics',
-    imgSrc: arctics,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389302/categories/arctics_obddis.png',
   },
   {
     label: 'Beach',
-    imgSrc: beach,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389302/categories/beach_xi1cym.png',
   },
   {
     label: 'Beachfront',
-    imgSrc: beachfront,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389297/categories/beachfront_xom171.png',
   },
   {
     label: 'Boats',
-    imgSrc: boats,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389297/categories/boats_rkcsfb.png',
   },
   {
     label: 'Casas particulares',
-    imgSrc: casasParticulares,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389307/categories/casas-particulares_yxyvrb.png',
   },
   {
     label: 'Castles',
-    imgSrc: castles,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389307/categories/castles_m3wowt.png',
   },
   {
     label: 'Caves',
-    imgSrc: caves,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389298/categories/caves_eutvxo.png',
   },
   {
     label: "Chef's kitchen",
-    imgSrc: chefsKitchen,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389298/categories/chefs-kitchen_qaimjy.png',
   },
   {
     label: 'Container',
-    imgSrc: container,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389297/categories/container_v3whf0.png',
   },
   {
     label: 'Countryside',
-    imgSrc: countryside,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389298/categories/countryside_tnxojc.png',
   },
   {
     label: 'Creative spaces',
-    imgSrc: creativeSpaces,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389307/categories/creative-spaces_w0oeib.png',
   },
   {
     label: 'Desert',
-    imgSrc: desert,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389298/categories/desert_wywn4q.png',
   },
   {
     label: 'Breakfast',
-    imgSrc: breakfast,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389297/categories/breakfast_pfxe38.png',
   },
   {
     label: 'Barns',
-    imgSrc: barns,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389304/categories/barns_ihwvj1.png',
   },
   {
     label: 'Campers',
-    imgSrc: campers,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389304/categories/campers_pf0l61.png',
   },
   {
     label: 'Camping',
-    imgSrc: camping,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389304/categories/camping_ey4e7f.png',
   },
   {
     label: 'Dammusi',
-    imgSrc: dammusi,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389304/categories/dammusi_h63def.png',
   },
   {
     label: 'Domes',
-    imgSrc: domes,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389306/categories/Domes_ggguui.png',
   },
   {
     label: 'Hankos',
-    imgSrc: hankos,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389302/categories/hankos_lc4zwk.png',
   },
   {
     label: 'Houseboats',
-    imgSrc: houseboats,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389302/categories/houseboats_fxt2mb.png',
   },
   {
     label: 'Lake',
-    imgSrc: lake,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389302/categories/lake_kou7rg.png',
   },
   {
     label: 'Luxe',
-    imgSrc: luxe,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389304/categories/luxe_o7l56c.png',
   },
   {
     label: 'Minsus',
-    imgSrc: minsus,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389306/categories/Minsus_jdsay3.png',
   },
   {
     label: 'New',
-    imgSrc: news,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389306/categories/new_hkqqtv.png',
   },
   {
     label: 'Riads',
-    imgSrc: riads,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389302/categories/riads_vjjkqt.png',
   },
   {
     label: "Shepherd's huts",
-    imgSrc: shepherdsHut,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389302/categories/shepherds-huts_xnvu43.png',
   },
   {
     label: 'Ski-in/out',
-    imgSrc: skiInOut,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389311/categories/ski-in-out_jwyiei.png',
   },
   {
     label: 'Surfing',
-    imgSrc: surfing,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389304/categories/surfing_pufu9e.png',
   },
   {
     label: 'Yurts',
-    imgSrc: yurts,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389304/categories/yurts_vhr1ss.png',
   },
   {
     label: 'Earth homes',
-    imgSrc: earthHomes,
+    imgSrc: 'https://res.cloudinary.com/do0a92wpm/image/upload/v1699389308/categories/earth-homes_sdtdvd.png',
   },
 ]

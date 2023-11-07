@@ -1,6 +1,4 @@
 import { LongTxt } from "./LongTxt"
-import starSvg from '../assets/img/star.svg'
-import rightArrow from '../assets/img/right-arrow.svg'
 import { SET_APP_MODAL_REVIEWS } from "../store/system.reducer";
 
 export function ReviewPreview({ stay, handleShowMore }) {
@@ -9,22 +7,9 @@ export function ReviewPreview({ stay, handleShowMore }) {
   return (
     <div className="stay-review-container">
       <section className="stay-review-header">
-        <img src={starSvg} />
+        <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218791/star_pjyvxm.svg' />
         <p>5.0 · {stay.reviews.length} reviews</p>
       </section>
-      {/* <section className="review-score-list">
-        {reviewCategories.map((category, index) => (
-          <section className="review-score-preview" key={index}>
-            <div className="review-score-name">{category}</div>
-            <section className="review-score">
-              <section className="score-bar-container">
-                <div className="score-bar"></div>
-              </section>
-              <span className="review-score-average"></span>
-            </section>
-          </section>
-        ))}
-      </section> */}
       <div className='stay-review-list'>
         {firstSixReviews.map((review, idx) => {
           const reviewDate = new Date(review.at)
@@ -45,7 +30,7 @@ export function ReviewPreview({ stay, handleShowMore }) {
                 </section>
               </article>
               <article className="review-content">
-                <LongTxt img={rightArrow} txt={review.txt} length='179' />
+                <LongTxt img='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218790/right-arrow_pxdlnj.svg' txt={review.txt} length='179' />
               </article>
             </section>
           )

@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
-import closeBtn from '../assets/img/close-btn.svg'
-import { loadStays, updateFilterBy } from '../store/stay.actions'
-import { stayService } from '../services/stay.service';
+import { useState } from 'react';
+import { updateFilterBy } from '../store/stay.actions'
 
 import MultiRangeSlider from "multi-range-slider-react";
 
@@ -22,6 +20,8 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, minPrice: minValue, maxPrice: maxValue }))
 
     }
+
+
 
     function handleChange({ target }) {
         console.log(target.name);
@@ -82,7 +82,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
 
                 <header className="filter-modal-header">
                     <div>
-                        <button onClick={toggleStayFilter}><img src={closeBtn} /></button>
+                        <button onClick={toggleStayFilter}><img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218785/close-btn_xugogt.svg' /></button>
                     </div>
                     Filters
                 </header>

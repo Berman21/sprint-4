@@ -1,13 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CLOSE_EXPANDED_HEADER_MODAL, OPEN_EXPANDED_HEADER_MODAL } from '../store/system.reducer'
-import { format } from 'date-fns'
 import { useClickOutside } from '../customHooks/useCloseModule'
-import { store } from '../store/store'
-import { LongTxt } from './LongTxt'
 import { StayDate } from './StayDate'
 import { StayLocation } from './StayLocation'
-import searchFilter from '../assets/img/search-filter.svg'
 import { StayGusts } from './StayGuests'
 import { CountryFilter } from './CountryFilter'
 import { updateFilterBy } from '../store/stay.actions'
@@ -128,12 +124,12 @@ export function FilterExpanded({ filterByToEdit, setFilterByToEdit, onSetFilter,
             <section className='btn-search-container'>
               <AirbnbBtn callBackFunction={(ev) => onSubmit(ev)}>
                 <section className='btn-search-content'>
-                  <img src={searchFilter} />
+                  <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218790/search-filter_gjckwb.svg' />
                   <span className='search-txt'>Search</span>
                 </section>
               </AirbnbBtn>
               <button onClick={(ev) => onSubmit(ev)} className='btn-filter'>
-                <img src={searchFilter} />
+                <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218790/search-filter_gjckwb.svg' />
               </button>
             </section>
           </section>

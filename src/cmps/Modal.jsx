@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux'
-import closeBtn from '../assets/img/close-btn.svg'
 import { CLOSE_APP_MODAL, REMOVE_FOCUSED_MODAL } from '../store/system.reducer'
 import { DynamicCmp } from './DynamicModal'
 import { useClickOutside } from '../customHooks/useCloseModule'
@@ -33,7 +32,7 @@ export function Modal({ stay, modalType, isModalActive, setIsModalActive, modalH
                     <div className="modal" onClick={onModalClick}>
                         <div className="modal-header">
                             <button className='modal-close-btn' onClick={onClose}>
-                                <img src={closeBtn} />
+                                <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218785/close-btn_xugogt.svg' />
                             </button>
                             {modalHeaderContent}
                         </div>

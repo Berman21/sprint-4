@@ -1,11 +1,6 @@
 import { useState } from "react"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { logout } from "../store/user.actions"
-import homePage from '../assets/img/nav-home.svg'
-import chart from '../assets/img/nav-chart.svg'
-import trips from '../assets/img/nav-trips.svg'
-import wishlist from '../assets/img/nav-heart.svg'
-import logoutIcon from '../assets/img/nav-logout.svg'
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { SET_NAV_DASHBOARD, SET_NAV_HOMEPAGE, SET_NAV_TRIPS, SET_NAV_WISHLIST } from "../store/system.reducer"
@@ -81,7 +76,7 @@ export function DashboardNav() {
             </section>
             <article className="nav-logout" onClick={onLogout}>
                 <Link to={'/'}>
-                    <img src={logoutIcon} />
+                    <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699391244/nav-logout_jptwao.svg' />
                     <span>Logout</span>
                 </Link>
             </article>

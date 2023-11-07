@@ -33,8 +33,6 @@ export function UserMsg() {
     setMsg(null)
   }
 
-  
-
   if (!msg) return <span></span>
   return (
     <section className={`user-msg ${msg.type}`}>

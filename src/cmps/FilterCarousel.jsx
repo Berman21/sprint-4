@@ -1,20 +1,12 @@
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { categoryImages } from '../services/category-images.service'
-import leftArrow from '../assets/img/left-arrow.svg'
-import rightArrow from '../assets/img/right-arrow.svg'
-import { useEffect, useState } from 'react'
-import { SET_FILTER_BY } from '../store/stay.reducer'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateFilterBy } from '../store/stay.actions'
 
 export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) {
   const [selectedCategory, setSelectedCategory] = useState({ labels: '', ...filterBy })
-  const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   onSetFilter(filterByToEdit)
-  // }, [filterByToEdit])
 
   function handleClick(ev, label) {
     ev.preventDefault()
@@ -27,14 +19,10 @@ export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) 
 
   }
 
-  function onSetFilter(filterBy) {
-    dispatch({ type: SET_FILTER_BY, filterBy })
-  }
-
   const CustomLeftArrow = ({ onClick }) => (
     <section className='custom-arrow-container left'>
       <button className='custom-arrow left' onClick={onClick}>
-        <img src={leftArrow} />
+        <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218785/left-arrow_ap8jfr.svg' />
       </button>
     </section>
   )
@@ -42,7 +30,7 @@ export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) 
   const CustomRightArrow = ({ onClick }) => (
     <section className='custom-arrow-container right'>
       <button className='custom-arrow right' onClick={onClick}>
-        <img src={rightArrow} />
+        <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218790/right-arrow_pxdlnj.svg' />
       </button>
     </section>
   )
