@@ -3,7 +3,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { httpService } from './http.service.js'
-import { SOCKET_EMIT_ADD_ORDER, socketService } from './socket.service.js'
+import { SOCKET_EMIT_ADD_ORDER, SOCKET_EMIT_UPDATE_ORDER, socketService } from './socket.service.js'
 
 const STORAGE_KEY = 'order'
 
@@ -32,15 +32,27 @@ async function query(filterBy = {}) {
     return httpService.get(STORAGE_KEY, filterBy)
 }
 
+async function add(orderToAdd) {
+    socketService.emit(SOCKET_EMIT_ADD_ORDER, orderToAdd)
+    return httpService.post(STORAGE_KEY, orderToAdd)
+}
+
+async function update(orderToUpdate) {
+    socketService.emit(SOCKET_EMIT_UPDATE_ORDER, orderToUpdate)
+    return httpService.put(STORAGE_KEY, orderToUpdate)
+}
+
 async function save(order) {
     console.log(order);
     var savedOrder
     if (order._id) {
         savedOrder = await httpService.put(STORAGE_KEY, order)
+        socketService.emit(SOCKET_EMIT_UPDATE_ORDER,savedOrder)
     } else {
         savedOrder = await httpService.post(STORAGE_KEY, order)
+        socketService.emit(SOCKET_EMIT_ADD_ORDER,savedOrder)
     }
-    socketService.emit(SOCKET_EMIT_ADD_ORDER,savedOrder)
+    // socketService.emit(SOCKET_EMIT_ADD_ORDER,savedOrder)
     return savedOrder
 }
 
