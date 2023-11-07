@@ -39,8 +39,8 @@ export function AppHeader({ filterByToEdit, setFilterByToEdit, setIsModalActive 
   return (
     <div className='app-header-container'>
       {/* <UserMsg /> */}
-      {/* <DesktopHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} /> */}
-      <MobileHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} />
+      <DesktopHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} />
+      {/* <MobileHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} /> */}
       {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
     </div>
   )
