@@ -174,7 +174,7 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
               <div>
                 {firstTenAmenities.map((amenity, idx) => (
                   <article key={idx}>
-                    <img className='self-check-in' src={`/src/assets/img/amenities/${amenity}.svg`} />
+                    <img className='self-check-in' src={`/src/assets/img/${amenity}.svg`} />
                     <p>{amenity}</p>
                   </article>
                 ))}
