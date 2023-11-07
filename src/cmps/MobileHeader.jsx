@@ -1,7 +1,6 @@
 import filterSvg from '../assets/img/filterSvg.svg'
 import searchMobile from '../assets/img/search-mobile.svg'
-import { FilterCarousel } from './FilterCarousel'
-export function MobileHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, setIsModalActive }) {
+export function MobileHeader() {
     return (
         <section className="mobile-header-container">
             <section className='any-container' >

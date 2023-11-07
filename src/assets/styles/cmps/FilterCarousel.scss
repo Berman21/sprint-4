@@ -4,7 +4,7 @@
   padding: 0;
   margin-block-start: 0;
   position: sticky;
-  top: 80px;
+  top: 70px;
   z-index: 40;
   background-color: white;
   height: rem(78px);
@@ -15,6 +15,8 @@
     padding-inline: rem(40px);
     margin-block-start: rem(20px);
     box-shadow: none;
+    top: 80px;
+
   }
 
   @include for-extra-large-layout {

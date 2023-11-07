@@ -6,12 +6,13 @@ import { SET_FILTER_BY } from '../store/stay.reducer'
 import { DesktopHeader } from './DesktopHeader'
 import { UserMsg } from './UserMsg'
 import { MobileHeader } from './MobileHeader.jsx'
+import useIsMobile from '../customHooks/useIsMobile.js'
 
 
 export function AppHeader({ filterByToEdit, setFilterByToEdit, setIsModalActive }) {
   const dispatch = useDispatch()
   const user = useSelector((storeState) => storeState.userModule.user)
-
+  const isMobile = useIsMobile()
 
 
   async function onLogin(credentials) {
@@ -39,9 +40,10 @@ export function AppHeader({ filterByToEdit, setFilterByToEdit, setIsModalActive 
   return (
     <div className='app-header-container'>
       {/* <UserMsg /> */}
-      <DesktopHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} />
-      {/* <MobileHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} /> */}
-      {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
+      {!isMobile && <DesktopHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} />
+      }
+      {isMobile && <MobileHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} />
+      }
     </div>
   )
 }

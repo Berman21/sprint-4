@@ -15,6 +15,7 @@ import filterSvg from '../assets/img/filterSvg.svg'
 import { StayFilter } from '../cmps/StayFilter.jsx'
 import footerImg from '../assets/img/footer.svg'
 import { AppHeader } from '../cmps/AppHeader.jsx'
+import useIsMobile from '../customHooks/useIsMobile.js'
 
 export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
@@ -23,6 +24,7 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const dispatch = useDispatch()
   const [isStayFilterOpen, toggleStayFilterOpen] = useState(false)
   const [isModalActive, setIsModalActive] = useState(false)
+  const isMobile = useIsMobile()
 
 
   useEffect(() => {
@@ -100,9 +102,10 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
             <FilterCarousel setFilterByToEdit={setFilterByToEdit} filterByToEdit={filterByToEdit} filterBy={filterBy} />
           </section>
 
-          <section className='filter-btn-container'>
+          {!isMobile && <section className='filter-btn-container'>
             <button className='filter-btn' onClick={toggleStayFilter}><img src={filterSvg} />Filters</button>
           </section>
+          }
 
         </section>
         {isStayFilterOpen &&
@@ -111,9 +114,14 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
           <StayList filterBy={filterBy} stays={stays} />
 
         </main>
-        <footer className='app-footer'>
+        {!isMobile && <footer className='app-footer'>
           <div><span className='footer-airbnb'>© 2023 Airbnb, Inc.</span> <span className='footer-dot'>·</span> Terms <span className='footer-dot'>·</span> Sitemap <span className='footer-dot'>·</span>  Privacy <span className='footer-dot'>·</span> Your Privacy Choices  <img src={footerImg} /></div>
         </footer>
+        }
+
+        {isMobile && <footer className='mobile-footer'>
+
+        </footer>}
       </div>
     </>
 
