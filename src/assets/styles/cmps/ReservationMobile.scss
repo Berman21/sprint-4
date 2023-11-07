@@ -2,14 +2,17 @@
     display: grid;
     grid-template-columns: 10fr 1fr;
     align-items: center;
-    
+
     height: 64px;
 
     .prev-page-btn {
-        
+        @include for-mobile-layout {
+            padding-inline: 10px;
+        }
+
+
         img {
             width: 16px;
-            align-self: center;
         }
     }
 
@@ -37,6 +40,10 @@
     border-top: 1px solid rgb(221, 221, 221);
     z-index: 9;
     align-items: center;
+
+    @include for-mobile-layout {
+        padding-inline: 10px;
+    }
 
     .price {
         color: $clr2;
@@ -70,6 +77,6 @@
         border-radius: 10px;
         border: none;
 
-        margin-inline-end: 50px;
+        margin-inline-end: 10px;
     }
 }
