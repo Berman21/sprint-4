@@ -71,15 +71,15 @@ export async function loadReserveStats() {
 
 }
 
-// export async function removeOrder(orderId) {
-//     try {
-//         await orderService.remove(orderId)
-//         store.dispatch(getActionRemoveOrder(orderId))
-//     } catch (err) {
-//         console.log('Cannot remove order', err)
-//         throw err
-//     }
-// }
+export async function removeOrder(orderId) {
+    try {
+        await orderService.remove(orderId)
+        store.dispatch(getActionRemoveOrder(orderId))
+    } catch (err) {
+        console.log('Cannot remove order', err)
+        throw err
+    }
+}
 
 export async function addOrder(order) {
     try {
@@ -131,22 +131,22 @@ export function updateOrderDetails(order) {
 
 // Demo for Optimistic Mutation 
 // (IOW - Assuming the server call will work, so updating the UI first)
-// export function onRemoveOrderOptimistic(orderId) {
-//     store.dispatch({
-//         type: REMOVE_ORDER,
-//         orderId
-//     })
-//     showSuccessMsg('Order removed')
+export function onRemoveOrderOptimistic(orderId) {
+    store.dispatch({
+        type: REMOVE_ORDER,
+        orderId
+    })
+    showSuccessMsg('Order removed')
 
-//     orderService.remove(orderId)
-//         .then(() => {
-//             console.log('Server Reported - Deleted Succesfully');
-//         })
-//         .catch(err => {
-//             showErrorMsg('Cannot remove order')
-//             console.log('Cannot load orders', err)
-//             store.dispatch({
-//                 type: UNDO_REMOVE_ORDER,
-//             })
-//         })
-// }
+    orderService.remove(orderId)
+        .then(() => {
+            console.log('Server Reported - Deleted Succesfully');
+        })
+        .catch(err => {
+            showErrorMsg('Cannot remove order')
+            console.log('Cannot load orders', err)
+            store.dispatch({
+                type: UNDO_REMOVE_ORDER,
+            })
+        })
+}

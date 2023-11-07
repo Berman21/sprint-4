@@ -5,13 +5,14 @@ import { login, logout, signup } from '../store/user.actions.js'
 import { SET_FILTER_BY } from '../store/stay.reducer'
 import { DesktopHeader } from './DesktopHeader'
 import { UserMsg } from './UserMsg'
+import { MobileHeader } from './MobileHeader.jsx'
 
 
 export function AppHeader({ filterByToEdit, setFilterByToEdit, setIsModalActive }) {
   const dispatch = useDispatch()
   const user = useSelector((storeState) => storeState.userModule.user)
 
- 
+
 
   async function onLogin(credentials) {
     try {
@@ -31,8 +32,6 @@ export function AppHeader({ filterByToEdit, setFilterByToEdit, setIsModalActive 
     }
   }
 
-
-
   function onSetFilter(filterBy) {
     dispatch({ type: SET_FILTER_BY, filterBy })
   }
@@ -41,6 +40,7 @@ export function AppHeader({ filterByToEdit, setFilterByToEdit, setIsModalActive 
     <div className='app-header-container'>
       {/* <UserMsg /> */}
       <DesktopHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} />
+      {/* <MobileHeader setIsModalActive={setIsModalActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} onSetFilter={onSetFilter} /> */}
       {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
     </div>
   )
