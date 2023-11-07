@@ -109,13 +109,13 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
 
         </section>
         {isStayFilterOpen &&
-          <StayFilter toggleStayFilter={toggleStayFilter} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} stays={stays}/>}
+          <StayFilter toggleStayFilter={toggleStayFilter} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} stays={stays} />}
         <main>
           <StayList filterBy={filterBy} stays={stays} />
 
         </main>
         {!isMobile && <footer className='app-footer'>
-          <div><span className='footer-airbnb'>© 2023 Airbnb, Inc.</span> <span className='footer-dot'>·</span> Terms <span className='footer-dot'>·</span> Sitemap <span className='footer-dot'>·</span>  Privacy <span className='footer-dot'>·</span> Your Privacy Choices  <img src={footerImg} /></div>
+          <div><span className='footer-airbnb'>© 2023 Fairbnb, Inc.</span> <span className='footer-dot'>·</span> Terms <span className='footer-dot'>·</span> Sitemap <span className='footer-dot'>·</span>  Privacy <span className='footer-dot'>·</span> Your Privacy Choices  <img src={footerImg} /></div>
         </footer>
         }
 
