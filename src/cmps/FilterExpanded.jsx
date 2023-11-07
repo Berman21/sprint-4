@@ -98,7 +98,7 @@ export function FilterExpanded({ filterByToEdit, setFilterByToEdit, onSetFilter,
         >
           <section className='check-in'>
             <h3>Check in</h3>
-            <span>{order.startDate || 'Add Date'}</span>
+            <span>{order.startDate || 'Add date'}</span>
           </section>
         </article>
 
@@ -109,7 +109,7 @@ export function FilterExpanded({ filterByToEdit, setFilterByToEdit, onSetFilter,
         >
           <section className='check-out'>
             <h3>Check out</h3>
-            <span>{order.endDate || 'Add Date'}</span>
+            <span>{order.endDate || 'Add date'}</span>
           </section>
         </article>
 
