@@ -89,7 +89,7 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
             <img src={stay.imgUrls[0]} alt='' />
           </div>}
 
-        <section className='detail-title'>
+        <section className={isMobile ? 'detail-title border-bottom detail-padding-bottom' : 'detail-title'}>
           <h1>{stay.name}</h1>
 
           <div className='flex space-between'>
