@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: '../sprint4-backend/fairbnb-backend/public',
+    outDir: '../fairbnb-backend/public',
     emptyOutDir: true,
   },
 })
