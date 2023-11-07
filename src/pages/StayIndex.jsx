@@ -10,12 +10,17 @@ import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODA
 import { useDispatch } from 'react-redux'
 import { FilterCarousel } from '../cmps/FilterCarousel.jsx'
 import { Modal } from '../cmps/Modal.jsx'
+import footerSearch from '../assets/img/footer-search.svg'
+import footerWishlist from '../assets/img/footer-wishlist.svg'
+import footerTrips from '../assets/img/footer-trips.svg'
+import footerProfile from '../assets/img/footer-profile.svg'
 
 import filterSvg from '../assets/img/filterSvg.svg'
 import { StayFilter } from '../cmps/StayFilter.jsx'
 import footerImg from '../assets/img/footer.svg'
 import { AppHeader } from '../cmps/AppHeader.jsx'
 import useIsMobile from '../customHooks/useIsMobile.js'
+import { Link } from 'react-router-dom'
 
 export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
@@ -121,7 +126,28 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
 
         {isMobile && <footer className='mobile-footer'>
 
-        </footer>}
+          <Link className='footer-search footer-options' to={'/'}>
+            <img src={footerSearch} />
+            <span>Explore</span>
+          </Link>
+
+          <section className='footer-wishlist footer-options'>
+            <img src={footerWishlist} />
+            <span>Wishlists</span>
+          </section>
+
+          <Link to={'/trips'} className='footer-trips footer-options'>
+            <img src={footerTrips} />
+            <span>Trips</span>
+          </Link>
+
+          <Link to={'/'} className='footer-profile footer-options'>
+            <img src={footerProfile} />
+            <span>Profile</span>
+          </Link>
+
+        </footer>
+        }
       </div>
     </>
 
