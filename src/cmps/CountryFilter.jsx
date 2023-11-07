@@ -1,5 +1,3 @@
-import location from '../assets/img/location.svg'
-
 export function CountryFilter({ handleItemClick }) {
   return (
     <div className='country-filter-container'>

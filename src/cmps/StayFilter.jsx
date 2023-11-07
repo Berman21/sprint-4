@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import closeBtn from '../assets/img/close-btn.svg'
 import { updateFilterBy } from '../store/stay.actions'
 
 import MultiRangeSlider from "multi-range-slider-react";
@@ -83,7 +82,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
 
                 <header className="filter-modal-header">
                     <div>
-                        <button onClick={toggleStayFilter}><img src={closeBtn} /></button>
+                        <button onClick={toggleStayFilter}><img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218785/close-btn_xugogt.svg' /></button>
                     </div>
                     Filters
                 </header>

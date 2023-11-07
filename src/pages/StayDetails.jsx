@@ -164,7 +164,7 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
 
               <div>
                 <button onClick={() => handleShowMore(SET_APP_MODAL_ABOUT)}>Show more</button>
-                <img className='self-check-in' src='/src/assets/img/arrow-right.svg' />
+                <img className='self-check-in' src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218790/right-arrow_pxdlnj.svg' />
               </div>
             </div>
 
