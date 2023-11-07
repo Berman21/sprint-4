@@ -36,9 +36,15 @@
     }
 
     .stay-review-list {
-        display: grid;
-        grid-column-gap: rem(8px);
-        grid-template-columns: repeat(2, minmax(rem(300px), 1fr));
+        
+        display: flex;
+        flex-direction: column;
+  
+        @include for-large-list {
+            display: grid;
+            grid-column-gap: rem(8px);
+            grid-template-columns: repeat(2, minmax(rem(300px), 1fr));
+        }
 
         .stay-review-preview {
             margin-block-end: rem(40px);
