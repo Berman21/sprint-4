@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { addDays, format, isBefore, isSameDay } from 'date-fns'
+import { addDays, isBefore, isSameDay } from 'date-fns'
 import { DayPicker } from 'react-day-picker'
 import { useSelector } from 'react-redux'
 import 'react-day-picker/dist/style.css'

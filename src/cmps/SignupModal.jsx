@@ -1,6 +1,4 @@
 import * as React from 'react';
-
-
 import { LoginSignup } from "./LoginSignup";
 import { login, signup } from "../store/user.actions";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
@@ -11,14 +9,6 @@ export function SignupModal({ onClose }) {
 
     const dispatch = useDispatch()
 
-    async function onLoginn(credentials) {
-        try {
-            const user = await login(credentials)
-            showSuccessMsg(`Welcome: ${user.fullname}`)
-        } catch (err) {
-            showErrorMsg('Cannot login')
-        }
-    }
     async function onSignup(credentials) {
         try {
             const user = await signup(credentials)
@@ -47,36 +37,6 @@ export function SignupModal({ onClose }) {
 
                 <button className='change-login' onClick={() => changeToLogin(SET_APP_MODAL_SIGNUP)} >Sign up</button>
             }
-            {/* <Input
-            value={credentials.fullname}
-                endDecorator={null}
-                slots={{ input: InnerInput }}
-                slotProps={{ input: { label: 'Fullname', placeholder: '' } }}
-                sx={{
-                    '--Input-minHeight': '56px',
-                    '--Input-radius': '6px',
-                }}
-            />
-            <Input
-            value={credentials.username}
-                endDecorator={null}
-                slots={{ input: InnerInput }}
-                slotProps={{ input: { placeholder: '', label: 'Username' } }}
-                sx={{
-                    '--Input-minHeight': '56px',
-                    '--Input-radius': '6px',
-                }}
-            />
-            <Input
-            value={credentials.password}
-                endDecorator={null}
-                slots={{ input: InnerInput }}
-                slotProps={{ input: { placeholder: '', label: 'Password', type: 'password' } }}
-                sx={{
-                    '--Input-minHeight': '56px',
-                    '--Input-radius': '6px',
-                }}
-            /> */}
         </section>
     )
 }

@@ -1,14 +1,9 @@
 import { useSelector } from 'react-redux'
-
 import { updateOrderDetails } from '../store/order.actions'
-
-import plus from '../assets/img/plus.svg'
-import minus from '../assets/img/minus.svg'
 
 export function StayGusts({ width = 326 }) {
 
   const order = useSelector(store => store.orderModule.order)
-
 
   function onAddGuest(type, diff) {
     order.guests[type] += diff
@@ -20,7 +15,6 @@ export function StayGusts({ width = 326 }) {
     updateOrderDetails(order)
   }
 
-
   return (
     <section className='guests-preview-container'>
       <article className='guests-preview' style={{ width: `${width}px` }}>
@@ -31,11 +25,11 @@ export function StayGusts({ width = 326 }) {
 
         <section className='guests-counter'>
           <button className={order.guests.adults < 2 ? 'disabled' : ''} onClick={() => onAddGuest('adults', -1)}>
-            <img src={minus} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218787/minus_xuvjzr.svg' />
           </button>
           <span>{order.guests.adults}</span>
           <button onClick={() => onAddGuest('adults', 1)}>
-            <img src={plus} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218788/plus_jnyuxe.svg' />
           </button>
         </section>
       </article>
@@ -48,11 +42,11 @@ export function StayGusts({ width = 326 }) {
 
         <section className='guests-counter'>
           <button className={order.guests.children < 1 ? 'disabled' : ''} onClick={() => onAddGuest('children', -1)}>
-            <img src={minus} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218787/minus_xuvjzr.svg' />
           </button>
           <span>{order.guests.children}</span>
           <button onClick={() => onAddGuest('children', 1)}>
-            <img src={plus} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218788/plus_jnyuxe.svg' />
           </button>
         </section>
       </article>
@@ -65,11 +59,11 @@ export function StayGusts({ width = 326 }) {
 
         <section className='guests-counter'>
           <button className={order.guests.infants < 1 ? 'disabled' : ''} onClick={() => onAddGuest('infants', -1)}>
-            <img src={minus} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218787/minus_xuvjzr.svg' />
           </button>
           <span>{order.guests.infants}</span>
           <button onClick={() => onAddGuest('infants', 1)}>
-            <img src={plus} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218788/plus_jnyuxe.svg' />
           </button>
         </section>
       </article>
@@ -82,11 +76,11 @@ export function StayGusts({ width = 326 }) {
 
         <section className='guests-counter'>
           <button className={order.guests.pets < 1 ? 'disabled' : ''} onClick={() => onAddGuest('pets', -1)}>
-            <img src={minus} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218787/minus_xuvjzr.svg' />
           </button>
           <span>{order.guests.pets}</span>
           <button onClick={() => onAddGuest('pets', 1)}>
-            <img src={plus} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218788/plus_jnyuxe.svg' />
           </button>
         </section>
 

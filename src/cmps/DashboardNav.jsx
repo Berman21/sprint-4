@@ -1,10 +1,6 @@
 import { useState } from "react"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { logout } from "../store/user.actions"
-import homePage from '../assets/img/nav-home.svg'
-import chart from '../assets/img/nav-chart.svg'
-import trips from '../assets/img/nav-trips.svg'
-import wishlist from '../assets/img/nav-heart.svg'
 import logoutIcon from '../assets/img/nav-logout.svg'
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"

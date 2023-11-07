@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import closeBtn from '../assets/img/close-btn.svg'
-import { loadStays, updateFilterBy } from '../store/stay.actions'
-import { stayService } from '../services/stay.service';
+import { updateFilterBy } from '../store/stay.actions'
 
 import MultiRangeSlider from "multi-range-slider-react";
 
 
-export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit,stays }) {
+export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit, stays }) {
 
     const [selectedFilterBox, setSelectedFilterBox] = useState('any-type')
     const [selectedCapBox, setSelectedCapBox] = useState('')
@@ -22,7 +21,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
 
     }
 
-    
+
 
     function handleChange({ target }) {
         console.log(target.name);
@@ -63,7 +62,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
     function onSetSelectedFilterBox(ev, name) {
         ev.preventDefault()
         setSelectedFilterBox(name)
-        if(name === 'any-type') name = ''
+        if (name === 'any-type') name = ''
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, roomType: name }))
 
     }

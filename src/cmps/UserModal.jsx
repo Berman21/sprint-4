@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { SET_APP_MODAL_LOGIN, SET_APP_MODAL_SIGNUP, SET_NAV_DASHBOARD, SET_NAV_TRIPS, SET_NAV_WISHLIST } from '../store/system.reducer'
-import { setAppModal } from '../store/system.action'
 import { logout } from '../store/user.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 

@@ -1,21 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { stayService } from '../services/stay.service.js'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
+import { showErrorMsg } from '../services/event-bus.service.js'
 import { useDispatch, useSelector } from 'react-redux'
 import { LongTxt } from '../cmps/LongTxt.jsx'
-import userIcon from '../assets/img/user.svg'
-import checkInIcon from '../assets/img/self-check-in.svg'
-import superhostIcon from '../assets/img/superhost.svg'
-import cancellationIcon from '../assets/img/free-cancellation.svg'
-import starSvg from '../assets/img/star.svg'
-
 import { Reservation } from '../cmps/Reservation.jsx'
 import { ReviewPreview } from '../cmps/ReviewPreview.jsx'
 import { WishlistIcon } from '../cmps/WishlistIcon.jsx'
 import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODAL, SET_APP_MODAL_ABOUT, SET_APP_MODAL_AMENITIES, SET_APP_MODAL_REVIEWS, SET_FOCUSED_MODAL } from '../store/system.reducer.js'
 import { Modal } from '../cmps/Modal.jsx'
-import { useClickOutside } from '../customHooks/useCloseModule.js'
 import { AppHeader } from '../cmps/AppHeader.jsx'
 import useIsMobile from '../customHooks/useIsMobile.js'
 import { ReservationMobile } from '../cmps/ReservationMobile.jsx'
@@ -23,7 +16,6 @@ import { DetailsHeaderMobile } from '../cmps/DetailsHeaderMobile.jsx'
 
 export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
-  const isFocusedModal = useSelector((storeState) => storeState.systemModule.isFocusedModal)
   const [isModalActive, setIsModalActive] = useState(false)
   const isMobile = useIsMobile()
   console.log(isMobile);
@@ -73,17 +65,9 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
   }
 
   function handleShowMore(modalType) {
-    // ev.stopPropagation()
     dispatch({ type: modalType })
-    // dispatch({ type: SET_FOCUSED_MODAL })
     setIsModalActive((prevModal) => !prevModal)
     document.body.classList.add('modal-open')
-  }
-
-  function closeBackground(ev) {
-    ev.preventDefault()
-    ev.stopPropagation()
-    dispatch({ type: REMOVE_FOCUSED_MODAL })
   }
 
   let firstTenAmenities
@@ -94,17 +78,16 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
 
   return (
     <>
-      {/* {isFocusedModal && <div className='gray-viewport' onClick={(ev) => closeBackground(ev)}></div>} */}
       <section className='detail-container'>
         {appModal &&
           <Modal isModalActive={isModalActive} setIsModalActive={setIsModalActive} modalType={appModal} stay={stay} />}
         {!isMobile && <AppHeader filterByToEdit={filterByToEdit} setIsModalActive={setIsModalActive} setFilterByToEdit={setFilterByToEdit} />}
-        {isMobile && <DetailsHeaderMobile onWishlistIcon={onWishlistIcon} setClr={clr} /> }
+        {isMobile && <DetailsHeaderMobile onWishlistIcon={onWishlistIcon} setClr={clr} />}
 
-        {isMobile && 
-        <div className='detail-gallery-mobile'>
+        {isMobile &&
+          <div className='detail-gallery-mobile'>
             <img src={stay.imgUrls[0]} alt='' />
-        </div>}
+          </div>}
 
         <section className='detail-title'>
           <h1>{stay.name}</h1>
@@ -112,7 +95,7 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
           <div className='flex space-between'>
             <div className='detail-subtitle'>
               <div className='stay-rating'>
-                <img src={starSvg} />
+                <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218791/star_pjyvxm.svg' />
                 <span className='stay-rating-num'>{stay.rating} •</span>
               </div>
               <div onClick={() => handleShowMore(SET_APP_MODAL_REVIEWS)}>
@@ -159,7 +142,7 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
 
             <div className='stay-highlights border-bottom'>
               <article>
-                <img src={checkInIcon} />
+                <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218790/self-check-in_azdjp4.svg' />
                 <h4>Self check-in</h4>
                 <p>Check yourself in with the lockbox.</p>
               </article>
@@ -167,11 +150,11 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
               <article>
                 <h4>{stay.host.fullname} is a Superhost</h4>
                 <p>Superhosts are experienced, highly rated Hosts.</p>
-                <img src={superhostIcon} />
+                <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218791/superhost_oigndz.svg' />
               </article>
 
               <article>
-                <img src={cancellationIcon} />
+                <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218782/free-cancellation_kxuyql.svg' />
                 <h4 className='one-rows'>Free cancellation before Nov 24.</h4>
               </article>
             </div>

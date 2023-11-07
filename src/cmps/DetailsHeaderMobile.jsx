@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 
 import { WishlistIcon } from './WishlistIcon'
-import arrowLeftSvg from '../assets/img/arrow-left.svg'
 
 export function DetailsHeaderMobile({ onWishlistIcon, setClr }) {
 
@@ -25,7 +24,7 @@ export function DetailsHeaderMobile({ onWishlistIcon, setClr }) {
         <section className="detail-header-mobile">
 
             <article className='prev-page-btn' onClick={onPrevPage}>
-                <img src={arrowLeftSvg} alt="" />
+                <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218783/arrow-left_ivj8mx.svg' alt="" />
                 <span> Homes</span>
             </article>
 

@@ -10,14 +10,7 @@ import { CLOSE_EXPANDED_HEADER, CLOSE_EXPANDED_HEADER_MODAL, REMOVE_FOCUSED_MODA
 import { useDispatch } from 'react-redux'
 import { FilterCarousel } from '../cmps/FilterCarousel.jsx'
 import { Modal } from '../cmps/Modal.jsx'
-import footerSearch from '../assets/img/footer-search.svg'
-import footerWishlist from '../assets/img/footer-wishlist.svg'
-import footerTrips from '../assets/img/footer-trips.svg'
-import footerProfile from '../assets/img/footer-profile.svg'
-
-import filterSvg from '../assets/img/filterSvg.svg'
 import { StayFilter } from '../cmps/StayFilter.jsx'
-import footerImg from '../assets/img/footer.svg'
 import { AppHeader } from '../cmps/AppHeader.jsx'
 import useIsMobile from '../customHooks/useIsMobile.js'
 import { Link } from 'react-router-dom'
@@ -108,7 +101,7 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
           </section>
 
           {!isMobile && <section className='filter-btn-container'>
-            <button className='filter-btn' onClick={toggleStayFilter}><img src={filterSvg} />Filters</button>
+            <button className='filter-btn' onClick={toggleStayFilter}><img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699388798/filterSvg_pvzh1i.svg' />Filters</button>
           </section>
           }
 
@@ -120,29 +113,29 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
 
         </main>
         {!isMobile && <footer className='app-footer'>
-          <div><span className='footer-airbnb'>© 2023 Fairbnb, Inc.</span> <span className='footer-dot'>·</span> Terms <span className='footer-dot'>·</span> Sitemap <span className='footer-dot'>·</span>  Privacy <span className='footer-dot'>·</span> Your Privacy Choices  <img src={footerImg} /></div>
+          <div><span className='footer-airbnb'>© 2023 Fairbnb, Inc.</span> <span className='footer-dot'>·</span> Terms <span className='footer-dot'>·</span> Sitemap <span className='footer-dot'>·</span>  Privacy <span className='footer-dot'>·</span> Your Privacy Choices  <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699388912/footer_neulmg.svg' /></div>
         </footer>
         }
 
         {isMobile && <footer className='mobile-footer'>
 
           <Link className='footer-search footer-options' to={'/'}>
-            <img src={footerSearch} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699388931/footer-search_usghb6.svg' />
             <span>Explore</span>
           </Link>
 
           <section className='footer-wishlist footer-options'>
-            <img src={footerWishlist} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699388919/footer-wishlist_penqoe.svg' />
             <span>Wishlists</span>
           </section>
 
           <Link to={'/trips'} className='footer-trips footer-options'>
-            <img src={footerTrips} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699388938/footer-trips_lvf3go.svg' />
             <span>Trips</span>
           </Link>
 
           <Link to={'/'} className='footer-profile footer-options'>
-            <img src={footerProfile} />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699388925/footer-profile_eqe6vs.svg' />
             <span>Profile</span>
           </Link>
 

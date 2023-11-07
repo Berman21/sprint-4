@@ -3,26 +3,20 @@ import { useState } from "react"
 import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 
-import starSvg from '../assets/img/star.svg'
-import arrowDownSvg from '../assets/img/arrow-down.svg'
-import arrowUpSvg from '../assets/img/arrow-up.svg'
 import { AirbnbBtn } from './AirbnbBtn'
 import { StayGusts } from './StayGuests'
 import { StayDate } from './StayDate'
 import { utilService } from '../services/util.service'
-import { showErrorMsg } from '../services/event-bus.service'
 
 export function Reservation({ stay, stayId }) {
     const [isOpen, setIsOpen] = useState(false)
     const [dateSelection, setIsDateOpen] = useState(false)
-    const loggedInUser = useSelector((storeState) => storeState.userModule.user)
     const navigate = useNavigate()
 
     const order = useSelector(store => store.orderModule.order)
 
     function onOpenModal() {
         setIsOpen(!isOpen)
-
     }
 
     function onOpenDateModal() {
@@ -75,8 +69,8 @@ export function Reservation({ stay, stayId }) {
                                 <div>{order.guests.adults + order.guests.children + order.guests.infants} {order.guests.adults + order.guests.children + order.guests.infants > 1 ? 'guests' : 'guest'}</div>
                             </div>
                             <div>
-                                {!isOpen && <img src={arrowDownSvg} alt="" />}
-                                {isOpen && <img src={arrowUpSvg} alt="" />}
+                                {!isOpen && <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218783/arrow-down_kcazn4.svg' alt="" />}
+                                {isOpen && <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218784/arrow-up_sna2sl.svg' alt="" />}
                             </div>
                         </div>
                     </div>

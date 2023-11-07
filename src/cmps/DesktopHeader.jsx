@@ -1,6 +1,4 @@
-import logo from '../assets/img/Airbnb-logo.png'
-import search from '../assets/img/search.svg'
-import hamburger from '../assets/img/hamburger.svg'
+// import logo from '../assets/img/Airbnb-logo.png'
 import userIcon from '../assets/img/user.svg'
 import { OPEN_EXPANDED_HEADER, OPEN_EXPANDED_HEADER_MODAL, SET_FOCUSED_MODAL } from '../store/system.reducer'
 import { useState } from 'react'
@@ -46,7 +44,7 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
     <>
       <header className='app-header'>
         <Link to={'/'} className='logo-container'>
-          <img className='logo' src={logo} style={{ maxWidth: '100px' }} />
+          <img className='logo' src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218793/Airbnb-logo_rofejj.png' style={{ maxWidth: '100px' }} />
           <p>Fairbnb</p>
         </Link>
         {!isFilterExpanded && (
@@ -59,7 +57,7 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
               <div className='guests search-txt'>Add guests </div>
               <div className='search-container'>
                 <div className='btn-search'>
-                  <img src={search} />
+                  <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218790/search_aptykj.svg' />
                 </div>
               </div>
             </button>
@@ -75,7 +73,7 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
         {/* <LoginSignup /> */}
         <section className='user-container' onClick={(ev) => toggleDropdown(ev)} ref={dropdownRef}>
           <button className='user-btn'>
-            <img className='hamburger' src={hamburger} />
+            <img className='hamburger' src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218783/hamburger_gzxzmt.svg' />
             <img className='user-icon' src={userIcon} />
           </button>
           {isDropdownActive && <UserModal setIsModalActive={setIsModalActive} setIsDropdownActive={setIsDropdownActive} />}

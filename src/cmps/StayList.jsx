@@ -1,11 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { StayPreview } from './StayPreview';
 import { NoMatches } from './NoMatches';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSelector } from 'react-redux';
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
-
 
 export function StayList({ stays }) {
   const [visibleStays, setVisibleStays] = useState([]);
@@ -30,12 +27,6 @@ export function StayList({ stays }) {
 
   if (isLoading) return <div>loading...</div>
   return (
-    // <InfiniteScroll
-    //   dataLength={visibleStays.length}
-    //   next={loadMoreStays}
-    //   hasMore={visibleStays.length < stays.length}
-    //   loader={<h4>Loading...</h4>}
-    // >
     <Fragment>
       {stays.length < 1 && <NoMatches />}
       <ul className='stays-list clean-list'>
@@ -46,6 +37,5 @@ export function StayList({ stays }) {
         ))}
       </ul>
     </Fragment>
-    // {/* </InfiniteScroll> */ }
   )
 }

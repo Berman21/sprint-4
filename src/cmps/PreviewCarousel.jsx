@@ -2,20 +2,17 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 
-import arrowLeftSvg from '../assets/img/preview-left-arrow.svg'
-import arrowRightSvg from '../assets/img/preview-right-arrow.svg'
-
 export function PreviewCarousel({ stay }) {
 
     const CustomLeftArrow = ({ onClick }) => (
         <button className='custom-arrow left' onClick={onClick}  >
-            <img src={arrowLeftSvg} alt="" />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218789/preview-left-arrow_eftw6l.svg' alt="" />
         </button >
     )
 
     const CustomRightArrow = ({ onClick }) => (
         <button className='custom-arrow right' onClick={onClick}  >
-            <img src={arrowRightSvg} alt="" />
+            <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218789/preview-right-arrow_zty6ze.svg' alt="" />
         </button >
     )
 

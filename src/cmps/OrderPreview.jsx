@@ -1,7 +1,5 @@
 
 import userIcon from '../assets/img/user.svg'
-import checkMark from '../assets/img/check-mark.png'
-import xMark from '../assets/img/x-mark.png'
 
 export function OrderPreview({ order, onChangeStatus }) {
 
@@ -24,9 +22,6 @@ export function OrderPreview({ order, onChangeStatus }) {
             </div>}
 
             {order.status !== 'pending' && <div className='final-status'>
-                {/* <span>Order complete</span> */}
-                {/* {order.status === 'approved' && <img src={checkMark} alt="" />} */}
-                {/* {order.status === 'rejected' && <img src={xMark} alt="" />} */}
             </div>}
 
         </section>
