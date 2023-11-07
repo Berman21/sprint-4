@@ -54,9 +54,9 @@ export function ReservePage() {
     async function onAddOrder(order) {
         try {
             const savedOrder = await updateOrder(order)
-            showSuccessMsg(`Order added (id: ${savedOrder._id})`)
+            showSuccessMsg('Order sent')
             // socketService.emit(SOCKET_EMIT_ADD_ORDER, order)
-            navigate('/')
+            navigate('/trips')
         } catch (err) {
             console.error('Cannot add order', err)
             showErrorMsg('Cannot add order')

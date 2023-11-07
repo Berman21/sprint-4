@@ -6,10 +6,11 @@ import { stayService } from '../services/stay.service';
 import MultiRangeSlider from "multi-range-slider-react";
 
 
-export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit,stays }) {
+export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit, stays }) {
 
     const [selectedFilterBox, setSelectedFilterBox] = useState('any-type')
     const [selectedCapBox, setSelectedCapBox] = useState('')
+
 
     const capacity = ['', 1, 2, 3, 4, 5, 6, 7, 8]
 
@@ -21,8 +22,6 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, minPrice: minValue, maxPrice: maxValue }))
 
     }
-
-    
 
     function handleChange({ target }) {
         console.log(target.name);
@@ -53,17 +52,18 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
     function onSubmit(ev) {
         ev.preventDefault()
         updateFilterBy(filterByToEdit)
+        toggleStayFilter()
     }
 
     function setRoomTypeCapacity(type, capacity) {
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [type]: capacity }))
-        setSelectedCapBox({ [type]: capacity })
+        setSelectedCapBox({ ...selectedCapBox, [type]: capacity })
     }
 
     function onSetSelectedFilterBox(ev, name) {
         ev.preventDefault()
         setSelectedFilterBox(name)
-        if(name === 'any-type') name = ''
+        if (name === 'any-type') name = ''
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, roomType: name }))
 
     }
@@ -114,8 +114,8 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
 
                                 // baseClassName={"border: 'none', boxShadow: 'none'"}
 
-                                min={40}
-                                max={2600}
+                                min={0}
+                                max={2000}
                                 step={1}
                                 minValue={minValue}
                                 maxValue={maxValue}
@@ -170,14 +170,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
                                 )}
                             </div>
                         </div>
-                        <div>
-                            Beds
-                            <div className='btn-container'>
-                                {capacity.map(capNum =>
-                                    <button className={selectedCapBox.bathrooms === capNum ? 'active' : ''} key={capNum} onClick={() => setRoomTypeCapacity('bathrooms', capNum)}>{capNum ? capNum : 'Any'}</button>
-                                )}
-                            </div>
-                        </div>
+
                     </div>
 
                 </section>
@@ -185,7 +178,7 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
 
                 <footer className="filter-modal-footer">
                     <button onClick={() => clearFilter()}>Clear all</button>
-                    <button onClick={(ev) => onSubmit(ev)}>Show {stays.length} places</button>
+                    <button onClick={(ev) => onSubmit(ev)}>Show places</button>
                 </footer>
 
 

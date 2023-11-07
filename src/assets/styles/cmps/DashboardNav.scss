@@ -2,8 +2,9 @@
     background-color: rgb(243, 243, 243);
     display: flex;
     flex-direction: column;
-    gap: 400px;
+    justify-content: space-between;
     width: rem(250px);
+    padding:0 0 2rem;
 
     a {
         display: flex;
@@ -48,7 +49,7 @@
         font-size: rem(16px);
         padding-block: rem(11.21px);
         gap: 30px;
-        margin-top: 80px;
+        // margin-top: 80px;
 
         article {
             display: flex;
@@ -58,11 +59,11 @@
             margin-left: 50px;
 
             :hover svg {
-                stroke: #5674FF;
+                stroke: $clr1;
             }
 
             :hover span {
-                color: #5674FF;
+                color: $clr1;
 
             }
 
@@ -91,7 +92,7 @@
                 }
 
                 &:hover+span {
-                    color: #5674FF;
+                    color: $clr1;
 
                 }
             }
@@ -108,7 +109,7 @@
                 &::after {
                     content: '';
                     position: absolute;
-                    background-color: #002efd;
+                    background-color: $clr1;
                     height: 2px;
                     width: 100%;
                     bottom: 0;
@@ -123,30 +124,30 @@
 
                     &::after {
                         transform: scaleX(1);
-                        background-color: #5674FF;
+                        background-color: $clr1;
                     }
                 }
             }
 
             &.selected span {
-                color: #002efd;
+                color: $clr1;
 
                 &::after {
-                    color: #002efd;
+                    color: $clr1;
                     transform: scaleX(1);
                 }
 
                 &:hover {
-                    color: #002efd;
+                    color: $clr1;
 
                     &::after {
-                        background-color: #002efd;
+                        background-color: $clr1;
                     }
                 }
             }
 
             &.selected svg {
-                stroke: #5674FF;
+                stroke: $clr1;
 
             }
         }
