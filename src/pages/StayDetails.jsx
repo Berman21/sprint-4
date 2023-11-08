@@ -13,6 +13,7 @@ import { AppHeader } from '../cmps/AppHeader.jsx'
 import useIsMobile from '../customHooks/useIsMobile.js'
 import { ReservationMobile } from '../cmps/ReservationMobile.jsx'
 import { DetailsHeaderMobile } from '../cmps/DetailsHeaderMobile.jsx'
+import { Loader } from '../cmps/Loader.jsx'
 
 export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
@@ -70,11 +71,18 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
     document.body.classList.add('modal-open')
   }
 
-  let firstTenAmenities
+  let firstEightAmenities
   if (stay) {
-    firstTenAmenities = stay.amenities.slice(0, 8)
+    firstEightAmenities = stay.amenities.slice(0, 8)
   }
-  if (!stay) return <div>loading..</div>
+
+  myArray: [
+    { number: 1, title: 'Users', image: '../../../assets/images/website/homepage/users.png' },
+    { number: 2, title: 'Clients', image: '../../../assets/images/website/homepage/clients.png' },
+    { number: 3, title: 'Admin', image: '../../../assets/images/website/homepage/admins.png' },
+  ]
+
+  if (!stay) return <Loader />
 
   return (
     <>
@@ -172,9 +180,9 @@ export function StayDetails({ filterByToEdit, setFilterByToEdit }) {
               <h2>What this place offers</h2>
 
               <div>
-                {firstTenAmenities.map((amenity, idx) => (
+                {firstEightAmenities.map((amenity, idx) => (
                   <article key={idx}>
-                    <img className='self-check-in' src={`/src/assets/img/${amenity}.svg`} />
+                    <img className='self-check-in' src={`../src/assets/img/${amenity}.svg`} />
                     <p>{amenity}</p>
                   </article>
                 ))}

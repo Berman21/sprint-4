@@ -7,5 +7,6 @@ export default defineConfig({
   build: {
     outDir: '../fairbnb-backend/public',
     emptyOutDir: true,
+    assetsDir: './src/assets'
   },
 })
