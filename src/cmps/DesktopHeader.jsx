@@ -9,13 +9,17 @@ import { UserModal } from './UserModal'
 import { LoginSignup } from './LoginSignup'
 import { useClickOutside } from '../customHooks/useCloseModule'
 
-export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, setIsModalActive, setIsDropdownActive, isDropdownActive, toggleDropdown }) {
+export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, setIsModalActive }) {
   const [selectedFilterBox, setSelectedFilterBox] = useState('where')
   const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
+  const [isDropdownActive, setIsDropdownActive] = useState(false)
   const dropdownRef = useClickOutside(onDropdownClickOutside)
 
   const dispatch = useDispatch()
-
+  function toggleDropdown(ev) {
+    ev.preventDefault()
+    setIsDropdownActive((prevDropdown) => !prevDropdown)
+  }
 
   function onDropdownClickOutside() {
     setIsDropdownActive(false)
