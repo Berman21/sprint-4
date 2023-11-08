@@ -10,6 +10,7 @@ import { updateOrder } from "../store/order.actions.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { useSelector } from "react-redux"
 import { utilService } from "../services/util.service.js"
+import useIsMobile from "../customHooks/useIsMobile.js"
 import { Loader } from "../cmps/Loader.jsx"
 
 
@@ -17,6 +18,7 @@ export function ReservePage() {
     const { stayId } = useParams()
     const [currStay, setCurrStay] = useState(null)
     const navigate = useNavigate()
+    const isMobile = useIsMobile()
 
     let order = useSelector(store => store.orderModule.order)
 
@@ -66,14 +68,38 @@ export function ReservePage() {
 
         <section className="reserve-container">
 
-            <div className="reserve-header">
+            {isMobile && <div className="reserve-header-mobile">
+                <button onClick={onPrevPage}>
+                    <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218783/arrow-left_ivj8mx.svg' alt="" />
+                </button>
+
+                <span>Confirm and pay</span>
+            </div>}
+
+            {isMobile &&
+                <section className="summary-card card">
+                    <div className="summary-stay border-bottom">
+                        <img className="stay-img" src={currStay.imgUrls[0]} />
+                        <article>
+                            <p>Cycladic home</p>
+                            <p>Rising Sun Villa, near Naousa and the beach, Paros home</p>
+
+                            <div className='rating'>
+                                <img className="star-img" src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218791/star_pjyvxm.svg' alt="" />
+                                <p>{currStay.rating} <span>(1 reviews)</span></p>
+                            </div>
+
+                        </article>
+                    </div>
+                </section>}
+
+            {!isMobile && <div className="reserve-header">
                 <button onClick={onPrevPage}>
                     <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218783/arrow-left_ivj8mx.svg' alt="" />
                 </button>
 
                 <h1>Confirm and pay</h1>
-            </div>
-
+            </div>}
             {/* <section className="mid-section"> */}
             <section>
 
@@ -99,7 +125,8 @@ export function ReservePage() {
             </section>
 
             <section className="summary-card card">
-                <div className="summary-stay border-bottom">
+
+                {!isMobile && <div className="summary-stay border-bottom">
                     <img className="stay-img" src={currStay.imgUrls[0]} />
                     <article>
                         <p>Cycladic home</p>
@@ -111,7 +138,7 @@ export function ReservePage() {
                         </div>
 
                     </article>
-                </div>
+                </div>}
 
                 <div className="price-details border-bottom">
                     <h1>Price details</h1>
@@ -133,7 +160,9 @@ export function ReservePage() {
                 </div>
             </section>
 
-            <AirbnbBtn txt={'Confirm and pay'} callBackFunction={onReserve} />
+            <div className="reserve-btn-container">
+                <AirbnbBtn txt={'Confirm and pay'} callBackFunction={onReserve} />
+            </div>
 
 
         </section >

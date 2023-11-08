@@ -14,7 +14,7 @@ import { Modal } from './cmps/Modal'
 import { DesktopTrips } from './pages/DesktopTrips'
 import { UserMsg } from './cmps/UserMsg'
 import { SOCKET_EVENT_ADD_ORDER, SOCKET_EVENT_UPDATE_ORDER, socketService } from './services/socket.service'
-import { showSuccessMsg } from './services/event-bus.service'
+import { showErrorMsg, showSuccessMsg } from './services/event-bus.service'
 import { TripsPage } from './pages/TripsPage'
 // const isDashboardPage = window.location.pathname === '/dashboard';
 
@@ -45,7 +45,7 @@ export function RootCmp() {
     })
 
     socketService.on(SOCKET_EVENT_UPDATE_ORDER, (order) => {
-      showSuccessMsg('Your order has been approved!')
+      (order.status === 'approved') ? showSuccessMsg(`Your order has been ${order.status}!`) : showErrorMsg(`Your order has been ${order.status}!`)
     })
 
     // socketService.on('order-status-change', (order) => {
