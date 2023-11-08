@@ -14,6 +14,7 @@ import { StayFilter } from '../cmps/StayFilter.jsx'
 import { AppHeader } from '../cmps/AppHeader.jsx'
 import useIsMobile from '../customHooks/useIsMobile.js'
 import { Link } from 'react-router-dom'
+import { UserModal } from '../cmps/UserModal.jsx'
 
 export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
@@ -22,6 +23,8 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const dispatch = useDispatch()
   const [isStayFilterOpen, toggleStayFilterOpen] = useState(false)
   const [isModalActive, setIsModalActive] = useState(false)
+  const [isDropdownActive, setIsDropdownActive] = useState(false)
+
   const isMobile = useIsMobile()
 
 
@@ -49,6 +52,11 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
     } catch (err) {
       showErrorMsg('Cannot remove stay')
     }
+  }
+
+  function toggleDropdown(ev) {
+    ev.preventDefault()
+    setIsDropdownActive((prevDropdown) => !prevDropdown)
   }
 
   async function onAddStay() {
@@ -117,6 +125,10 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
         </footer>
         }
 
+        {isDropdownActive && isMobile && <section className='footer-user-modal'>
+          <UserModal setIsModalActive={setIsModalActive} setIsDropdownActive={setIsDropdownActive} />
+        </section>
+        }
         {isMobile && <footer className='mobile-footer'>
 
           <Link className='footer-search footer-options' to={'/'}>
@@ -134,10 +146,10 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
             <span>Trips</span>
           </Link>
 
-          <Link to={'/'} className='footer-profile footer-options'>
+          <section onClick={(ev) => toggleDropdown(ev)} className='footer-profile footer-options'>
             <img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699388925/footer-profile_eqe6vs.svg' />
             <span>Profile</span>
-          </Link>
+          </section>
 
         </footer>
         }
