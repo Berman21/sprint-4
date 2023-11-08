@@ -25,8 +25,8 @@ export function TripsPage({ filterByToEdit, setFilterByToEdit, toggleDropdown, i
 
     return (
         <>
-            {isMobile && <MobileTrips filterByToEdit={filterByToEdit} orders={orders} fetchOrderByBuyer={fetchOrderByBuyer} setFilterByToEdit={setFilterByToEdit} />}
-            {!isMobile && <DesktopTrips filterByToEdit={filterByToEdit} orders={orders} fetchOrderByBuyer={fetchOrderByBuyer} setFilterByToEdit={setFilterByToEdit} />}
+            {/* {isMobile && <MobileTrips filterByToEdit={filterByToEdit} orders={orders} fetchOrderByBuyer={fetchOrderByBuyer} setFilterByToEdit={setFilterByToEdit} />} */}
+            <DesktopTrips filterByToEdit={filterByToEdit} orders={orders} fetchOrderByBuyer={fetchOrderByBuyer} setFilterByToEdit={setFilterByToEdit} />
 
             <MobileFooter toggleDropdown={toggleDropdown} isDropdownActive={isDropdownActive} setIsModalActive={setIsModalActive} setIsDropdownActive={setIsDropdownActive} />
         </>
