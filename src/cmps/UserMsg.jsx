@@ -36,8 +36,8 @@ export function UserMsg() {
   if (!msg) return <span></span>
   return (
     <section className={`user-msg ${msg.type}`}>
-      <button onClick={closeMsg}>x</button>
       {msg.txt}
+      <button onClick={closeMsg}><img src="https://res.cloudinary.com/do0a92wpm/image/upload/v1699218785/close-btn_xugogt.svg" alt="" /></button>
     </section>
   )
 }
