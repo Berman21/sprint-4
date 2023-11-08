@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { updateFilterBy } from '../store/stay.actions'
+import { useQueryParams } from '../customHooks/useQueryParams'
 
 import MultiRangeSlider from "multi-range-slider-react";
+import { useSelector } from 'react-redux';
 
 
 export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit, stays }) {
 
     const [selectedFilterBox, setSelectedFilterBox] = useState('any-type')
     const [selectedCapBox, setSelectedCapBox] = useState('')
+    let [newFilterBy, updateParams] = useQueryParams()
+    const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
 
 
     const capacity = ['', 1, 2, 3, 4, 5, 6, 7, 8]
@@ -52,6 +56,8 @@ export function StayFilter({ toggleStayFilter, filterByToEdit, setFilterByToEdit
     function onSubmit(ev) {
         ev.preventDefault()
         updateFilterBy(filterByToEdit)
+        newFilterBy = {...filterBy}
+        updateParams(newFilterBy)
         toggleStayFilter()
     }
 

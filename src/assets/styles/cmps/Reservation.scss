@@ -1,7 +1,8 @@
 .reservation-container {
     position: sticky;
     top: 7rem;
-    min-width: 18vw;
+    width: 22vw;
+    min-width: 240px;
 
     border-radius: rem(12px);
     border: 1px solid rgb(221, 221, 221);
@@ -120,20 +121,7 @@
         }
     }
 
-    .guest-list {
-        position: absolute;
-        top: 200px;
-        width: 89%;
-        z-index: 999;
-
-        background-color: white;
-        border-radius: 0.5rem;
-        border: 1px solid rgb(221, 221, 221);
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
-        align-items: center;
-
-        padding: 1rem;
-    }
+    
 
     .reservation-notice {
         color: $clr2;
