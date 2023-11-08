@@ -3,7 +3,6 @@
 @import 'setup/functions';
 @import 'setup/mixins';
 @import 'setup/typography';
-@import 'setup/media-queries';
 
 // Basics
 @import 'basics/helpers';
@@ -50,6 +49,7 @@
 @import 'cmps/MobileHeader.scss';
 @import 'cmps/MobileFooter.scss';
 @import 'cmps/PreviewSkeleton.scss';
+@import 'cmps/MobileTrips';
 // @import 'cmps/StayList';
 @import 'cmps/SearchBar.scss'; // @import 'cmps/StayList';
 @import 'cmps/StayPreview';

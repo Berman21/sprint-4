@@ -31,41 +31,42 @@ export function MobileTrips({ filterByToEdit, setIsModalActive, setFilterByToEdi
         <>
             <section className="trips-page-container">
                 <AppHeader filterByToEdit={filterByToEdit} setIsModalActive={setIsModalActive} setFilterByToEdit={setFilterByToEdit} />
-                <section className="trips-container">
-                    <table className="trip-table">
-                        <thead>
-                            <tr>
-                                <th>Destination</th>
-                                <th>Host</th>
-                                <th>Check-in</th>
-                                <th>Check-out</th>
-                                <th>Total</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                    </table>
+                <section className="mobile-trips-container">
+                    {orders && orders.map((order, idx) => (
+                        <div key={idx} onClick={() => handleClick(order.stay._id)} className="mobile-trip">
+                            <section className="mobile-destination">
+                                <img src={order.stay.imgUrls[0]} alt="Stay Image" />
+                                <section className="reservation-info">
+
+                                    <div className="reservation-header">
+                                        <div className="stay-name">{order.stay.name}</div>
+                                        <div className="trips-host-name">Hosted by {order.stay.hostFullname}</div>
+                                    </div>
+
+                                    <section className="reservation-footer">
+                                        <section className="reservation-date">
+                                            <div className="trips-start-date">{order.startDate}</div>
+                                            <div className="trips-end-date">{order.endDate}</div>
+                                        </section>
+                                        <section className="trips-location">
+                                            <div className="trips-city">{order.stay.city}</div>
+                                            <div className="trips-country">{order.stay.country}</div>
+                                        </section>
+                                        <section className="trips-status">
+                                            <div className={order.status}>{order.status}</div>
+                                            <div className="trips-price">${order.totalPrice}</div>
+
+                                        </section>
+                                    </section>
+                                </section>
+                            </section>
+
+                        </div>
+                    ))}
+
                 </section>
             </section >
         </>
 
     );
 }
-// <tbody>
-
-//     {orders && orders.map((order, idx) => (
-//         <tr key={idx} onClick={() => handleClick(order.stay._id)}>
-//             <td className="destination-cell">
-//                 <img src={order.stay.imgUrls[0]} alt="Stay Image" />
-//                 <div>
-//                     <div className="stay-name">{order.stay.name}</div>
-//                     <div className="stay-city">{order.stay.city}</div>
-//                 </div>
-//             </td>
-//             <td className="trips-host-name">{order.stay.hostFullname}</td>
-//             <td className="trips-start-date">{order.startDate}</td>
-//             <td className="trips-end-date">{order.endDate}</td>
-//             <td className="trips-price">${order.totalPrice}</td>
-//             <td className={order.status}>{order.status}</td>
-//         </tr>
-//     ))}
-// </tbody>
