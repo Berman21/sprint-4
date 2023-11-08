@@ -1,6 +1,10 @@
 .reserve-container {
-    display: grid;
-    grid-template-columns: 1fr repeat(2, 560px) 1fr;
+
+
+    @include for-normal-layout {
+        display: grid;
+        grid-template-columns: 1fr repeat(2, 560px) 1fr;
+    }
 
     >* {
         grid-column: 2;
@@ -42,6 +46,17 @@
     }
 
     .trip-details {
+
+        @include for-mobile-layout {
+            padding-inline: rem(10px);
+            padding-block-start: 20px;
+        }
+
+        @include for-narrow-layout {
+            padding-inline: rem(20px);
+            padding-block-start: 20px;
+        }
+
         padding-block-end: 20px;
 
         h3 {
@@ -74,12 +89,34 @@
     }
 
     .summary-card {
-        border: 1px solid #dedede;
+        
+
+        @include for-mobile-layout {
+            padding-inline: rem(10px);
+            padding-block-start: 20px;
+        }
+
+        @include for-narrow-layout {
+            margin: 0;
+            padding: 0;
+            border: none;
+            padding-block-start: 20px;
+        }
+
+        @include for-normal-layout {
+            margin-inline-start: 94px;
+            padding: 20px;
+            border: 1px solid #dedede;
+        }
+
         border-radius: 10px;
-        margin-inline-start: 94px;
-        padding: 20px;
 
         .summary-stay {
+
+            @include for-narrow-layout {
+                padding-inline: rem(20px);
+            }
+
             display: grid;
             padding-block-end: 20px;
 
@@ -134,9 +171,23 @@
         }
 
         .price-details {
+
+            @include for-mobile-layout {
+                padding-block-end: 20px;
+                padding-block-start: 20px;
+            }
+
+            @include for-narrow-layout {
+                padding-block-end: 20px;
+                padding-inline: rem(20px);
+            }
+
+            @include for-normal-layout {
+                padding: 20px 0;
+            }
+
             font-family: Airbnb_Cereal-Book;
             color: $clr2;
-            padding: 20px 0;
 
             h1 {
                 font-family: Airbnb_Cereal-Bold;
@@ -150,25 +201,46 @@
         }
 
         .total-price {
+
+            // @include for-mobile-layout {
+            //     padding-inline: rem(10px);
+            // }
+    
+            @include for-narrow-layout {
+                padding-inline: rem(20px);
+            }
+
             padding-block-start: 20px;
         }
     }
 
-    .btn-reserve {
-        color: white;
-        text-decoration: none;
-        margin: 1rem 0;
+    .reserve-btn-container {
 
-        width: 100%;
-        min-height: 56px;
+        @include for-mobile-layout {
+            padding-inline: rem(10px);
+        }
 
-        font-size: 16px;
-        font-weight: 600;
-        font-family: Airbnb_Cereal-Bold;
-        border: none;
-        border-radius: 10px;
+        @include for-narrow-layout {
+            padding-inline: rem(20px);
+        }
 
-        justify-self: start;
+
+        .btn-reserve {
+            color: white;
+            text-decoration: none;
+            margin: 1rem 0;
+
+            width: 100%;
+            min-height: 56px;
+
+            font-size: 16px;
+            font-weight: 600;
+            font-family: Airbnb_Cereal-Bold;
+            border: none;
+            border-radius: 10px;
+
+            justify-self: start;
+        }
     }
 
 }
