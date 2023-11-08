@@ -9,7 +9,7 @@ import { updateOrderDetails } from '../store/order.actions'
 
 const pastMonth = new Date()
 
-export function StayDate() {
+export function StayDate({ setSelectedFilterBox }) {
   const [numberOfMonths, setNumberOfMonths] = useState(window.innerWidth >= 850 ? 2 : 1)
   const order = useSelector(store => store.orderModule.order)
   const [range, setRange] = useState()

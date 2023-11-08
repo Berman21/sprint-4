@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FilterExpanded } from './FilterExpanded'
 import { Link } from 'react-router-dom'
 import { UserModal } from './UserModal'
-import { LoginSignup } from './LoginSignup'
 import { useClickOutside } from '../customHooks/useCloseModule'
 
 export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, setIsModalActive }) {
@@ -14,6 +13,8 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
   const isFilterExpanded = useSelector((storeState) => storeState.systemModule.isFilterExpanded)
   const [isDropdownActive, setIsDropdownActive] = useState(false)
   const dropdownRef = useClickOutside(onDropdownClickOutside)
+  const user = useSelector((storeState) => storeState.userModule.user)
+
 
   const dispatch = useDispatch()
   function toggleDropdown(ev) {
@@ -37,8 +38,6 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
     const field = ev.currentTarget.getAttribute('name')
     if (selectedFilterBox !== field) setSelectedFilterBox(field)
   }
-
-
 
   return (
     <>
@@ -74,7 +73,8 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
         <section className='user-container' onClick={(ev) => toggleDropdown(ev)} ref={dropdownRef}>
           <button className='user-btn'>
             <img className='hamburger' src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218783/hamburger_gzxzmt.svg' />
-            <img className='user-icon' src={userIcon} />
+            {user && <img className='user-icon' src={user.imgUrl} />}
+            {!user && <img className='user-ico' src={userIcon} />}
           </button>
           {isDropdownActive && <UserModal setIsModalActive={setIsModalActive} setIsDropdownActive={setIsDropdownActive} />}
         </section>

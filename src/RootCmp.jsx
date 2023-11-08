@@ -63,11 +63,11 @@ export function RootCmp() {
         {/* {!isDashboardPage && <AppHeader filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} */}
         <main className='main-app'>
           <Routes>
-            <Route path='/' element={<StayIndex toggleDropdown={toggleDropdown} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
+            <Route path='/' element={<StayIndex toggleDropdown={toggleDropdown} isDropdownActive={isDropdownActive} setIsDropdownActive={setIsDropdownActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='stay/:stayId' element={<StayDetails filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
             <Route path='/stay/:stayId/reserve' element={<ReservePage />} />
-            <Route path='/trips' element={<TripsPage setIsDropdownActive={setIsDropdownActive} toggleDropdown={toggleDropdown} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
+            <Route path='/trips' element={<TripsPage toggleDropdown={toggleDropdown} isDropdownActive={isDropdownActive} setIsDropdownActive={setIsDropdownActive} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
           </Routes>
         </main>
       </div>

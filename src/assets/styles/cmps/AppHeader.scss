@@ -258,6 +258,7 @@
         color: $clr1;
         font-size: rem(21px);
         display: block;
+        font-family: Airbnb_Cereal-Bold;
 
         @include for-large-list-max {
           display: none;

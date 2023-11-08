@@ -143,7 +143,7 @@ export function FilterExpanded({ filterByToEdit, setFilterByToEdit, onSetFilter,
                   <CountryFilter handleItemClick={handleItemClick} /> <StayLocation handleItemClick={handleItemClick} />
                 </>
               )}
-              {(selectedFilterBox === 'check-in' || selectedFilterBox === 'check-out') && <StayDate />}
+              {(selectedFilterBox === 'check-in' || selectedFilterBox === 'check-out') && <StayDate setSelectedFilterBox={setSelectedFilterBox} />}
               {selectedFilterBox === 'who' && <StayGusts />}
             </div>
           )}
