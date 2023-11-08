@@ -11,16 +11,18 @@ import { store } from './store/store'
 import { CLOSE_APP_MODAL, CLOSE_EXPANDED_HEADER, REMOVE_FOCUSED_MODAL } from './store/system.reducer'
 import { Dashboard } from './cmps/Dashboard'
 import { Modal } from './cmps/Modal'
-import { TripsPage } from './pages/TripsPage'
+import { DesktopTrips } from './pages/DesktopTrips'
 import { UserMsg } from './cmps/UserMsg'
 import { SOCKET_EVENT_ADD_ORDER, SOCKET_EVENT_UPDATE_ORDER, socketService } from './services/socket.service'
 import { showSuccessMsg } from './services/event-bus.service'
+import { TripsPage } from './pages/TripsPage'
 // const isDashboardPage = window.location.pathname === '/dashboard';
 
 export function RootCmp() {
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
   const isFocusedModal = useSelector((storeState) => storeState.systemModule.isFocusedModal)
   const [filterByToEdit, setFilterByToEdit] = useState({ country: '', labels: '', ...filterBy })
+  const [isDropdownActive, setIsDropdownActive] = useState(false)
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
   const dispatch = useDispatch()
 
@@ -30,6 +32,11 @@ export function RootCmp() {
     dispatch({ type: CLOSE_EXPANDED_HEADER })
     dispatch({ type: REMOVE_FOCUSED_MODAL })
     dispatch({ type: CLOSE_APP_MODAL })
+  }
+
+  function toggleDropdown(ev) {
+    ev.preventDefault()
+    setIsDropdownActive((prevDropdown) => !prevDropdown)
   }
 
   useEffect(() => {
@@ -56,11 +63,11 @@ export function RootCmp() {
         {/* {!isDashboardPage && <AppHeader filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} */}
         <main className='main-app'>
           <Routes>
-            <Route path='/' element={<StayIndex filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
+            <Route path='/' element={<StayIndex toggleDropdown={toggleDropdown} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='stay/:stayId' element={<StayDetails filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
             <Route path='/stay/:stayId/reserve' element={<ReservePage />} />
-            <Route path='/trips' element={<TripsPage filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
+            <Route path='/trips' element={<TripsPage setIsDropdownActive={setIsDropdownActive} toggleDropdown={toggleDropdown} filterByToEdit={filterByToEdit} setFilterByToEdit={setFilterByToEdit} />} />
           </Routes>
         </main>
       </div>

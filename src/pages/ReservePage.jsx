@@ -10,6 +10,7 @@ import { updateOrder } from "../store/order.actions.js"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { useSelector } from "react-redux"
 import { utilService } from "../services/util.service.js"
+import { Loader } from "../cmps/Loader.jsx"
 
 
 export function ReservePage() {
@@ -60,7 +61,7 @@ export function ReservePage() {
         }
     }
 
-    if (!currStay) return <h4>loading...</h4>
+    if (!currStay) return <Loader />
     return (
 
         <section className="reserve-container">

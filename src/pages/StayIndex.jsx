@@ -20,10 +20,12 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const filterBy = useSelector((storeState) => storeState.stayModule.filterBy)
   const appModal = useSelector((storeState) => storeState.systemModule.appModal)
+  const loggedInUser = useSelector((storeState) => storeState.userModule.user)
   const dispatch = useDispatch()
   const [isStayFilterOpen, toggleStayFilterOpen] = useState(false)
   const [isModalActive, setIsModalActive] = useState(false)
   const [isDropdownActive, setIsDropdownActive] = useState(false)
+
 
   const isMobile = useIsMobile()
 
@@ -101,7 +103,6 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
       <AppHeader filterByToEdit={filterByToEdit} setIsModalActive={setIsModalActive} setFilterByToEdit={setFilterByToEdit} />
 
       <div>
-
         <section className='category-carousel-container'>
 
           <section className='category-carousel'>
@@ -125,7 +126,7 @@ export function StayIndex({ filterByToEdit, setFilterByToEdit }) {
         </footer>
         }
 
-        {isDropdownActive && isMobile && <section className='footer-user-modal'>
+        {isDropdownActive && isMobile && <section className={loggedInUser ? 'footer-user-modal' : 'footer-user-big'}>
           <UserModal setIsModalActive={setIsModalActive} setIsDropdownActive={setIsDropdownActive} />
         </section>
         }

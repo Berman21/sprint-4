@@ -16,7 +16,7 @@
         color: #717171;
         font-weight: 100;
         font-size: 10px;
-        justify-items: center;
+        align-items: center;
     }
 
     img {
@@ -31,4 +31,11 @@
     bottom: 181px;
     right: 0;
     z-index: 100;
+}
+
+.footer-user-big {
+    position: sticky;
+    right: 0;
+    z-index: 100;
+    bottom: 224px;
 }

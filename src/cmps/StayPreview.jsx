@@ -5,6 +5,7 @@ import { WishlistIcon } from './WishlistIcon'
 import { PreviewCarousel } from './PreviewCarousel'
 import { showSuccessMsg } from '../services/event-bus.service'
 import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from 'react-loading-skeleton'
 
 export function StayPreview({ stay }) {
 
@@ -38,7 +39,7 @@ export function StayPreview({ stay }) {
 
         <article className='stay-preview' onClick={() => onStay(stay._id)} >
 
-          <div className='stay-loc'>{stay.loc.city}, {stay.loc.country}</div>
+          {<div className='stay-loc'>{stay.loc.city}, {stay.loc.country}</div> || <Skeleton />}
 
           <div className='stay-rating'><img src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218791/star_pjyvxm.svg' />{stay.rating}</div>
           <p className='stay-distance'>3,267 kilometers away</p>

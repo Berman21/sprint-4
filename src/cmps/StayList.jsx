@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { StayPreview } from './StayPreview';
 import { NoMatches } from './NoMatches';
 import { useSelector } from 'react-redux';
-import 'react-loading-skeleton/dist/skeleton.css'
+import { Loader } from './Loader';
 
 export function StayList({ stays }) {
   const [visibleStays, setVisibleStays] = useState([]);
@@ -25,9 +25,10 @@ export function StayList({ stays }) {
     setVisibleStays([...visibleStays, ...nextVisibleStays]);
   };
 
-  if (isLoading) return <div>loading...</div>
+  if (isLoading) return <Loader />
   return (
     <Fragment>
+
       {stays.length < 1 && <NoMatches />}
       <ul className='stays-list clean-list'>
         {stays.map((stay) => (

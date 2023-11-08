@@ -1,8 +1,11 @@
+import Skeleton from "react-loading-skeleton";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export function PreviewCarousel({ stay }) {
+    const isLoading = useSelector(storeState => storeState.systemModule.isLoading)
 
     const CustomLeftArrow = ({ onClick }) => (
         <button className='custom-arrow left' onClick={onClick}  >
@@ -78,6 +81,7 @@ export function PreviewCarousel({ stay }) {
                     {
                         stay.imgUrls.map((img, index) =>
                             <Link key={index} to={`/stay/${stay._id}`}>
+                                {isLoading && <Skeleton />}
                                 <img className="preview-img"
                                     src={img}
                                     alt={`stay-pic-${index}`}

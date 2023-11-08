@@ -7,7 +7,7 @@ export function AmenitiesModal({ stay }) {
             <section>
                 {stay.amenities.map((amenity, idx) => (
                     <article className="amenities-container" key={idx}>
-                        <img src={`/src/assets/img/${amenity}.svg`} />
+                        <img src={`../assets/img/${amenity}.svg`} />
                         <p>{amenity}</p>
                     </article>
                 ))}

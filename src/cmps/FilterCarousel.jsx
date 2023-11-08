@@ -4,9 +4,11 @@ import { categoryImages } from '../services/category-images.service'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateFilterBy } from '../store/stay.actions'
+import useIsMobile from '../customHooks/useIsMobile'
 
 export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) {
   const [selectedCategory, setSelectedCategory] = useState({ labels: '', ...filterBy })
+  const isMobile = useIsMobile()
 
   function handleClick(ev, label) {
     ev.preventDefault()
@@ -105,6 +107,7 @@ export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) 
   return (
     <Carousel
       draggable={false}
+      arrows={isMobile ? false : true}
       customLeftArrow={<CustomLeftArrow />}
       customRightArrow={<CustomRightArrow />}
       minimumTouchDrag={80}
@@ -113,6 +116,7 @@ export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) 
       itemClass='category-item width-100-percent'
       responsive={responsive}
       swipeable={true}
+
     >
       {categoryImages.map((img, index) => (
         <section
