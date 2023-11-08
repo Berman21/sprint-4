@@ -1,8 +1,8 @@
 import { OrderPreview } from './OrderPreview'
 
-export function OrderList({ orders, onChangeStatus }) {
+export function OrderList({ hostOrders, onChangeStatus }) {
 
-    if (!orders) return <div>Loading...</div>
+    if (!hostOrders) return <div>Loading...</div>
     return (
         <section className='order-list-container'>
 
@@ -17,7 +17,7 @@ export function OrderList({ orders, onChangeStatus }) {
             </article>
 
             <ul className='order-container clean-list'>
-                {orders && orders.map((order) => (
+                {hostOrders && hostOrders.map((order) => (
                     <li className='order' key={order._id}>
                         <OrderPreview order={order} onChangeStatus={onChangeStatus} />
                     </li>

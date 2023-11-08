@@ -4,13 +4,13 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export function DoughnutChart({ reserveStats }) {
+export function DoughnutChart({ ordersStatus }) {
     const data = {
         labels: ['Pending', 'Approved', 'Rejected'],
         datasets: [
             {
                 label: '# of Votes',
-                data: reserveStats,
+                data: ordersStatus,
                 pointStyle: 'circle',
                 backgroundColor: [
                     'rgba(255, 166, 0, 0.8)',
@@ -50,15 +50,15 @@ export function DoughnutChart({ reserveStats }) {
             <div className='chart-stats'>
                 <article className='pending-stat'>
                     <p>pending</p>
-                    <span>{reserveStats[0]}</span>
+                    <span>{ordersStatus[0]}</span>
                 </article>
                 <article className='approved-stat'>
                     <p>approved</p>
-                    <span>{reserveStats[1]}</span>
+                    <span>{ordersStatus[1]}</span>
                 </article >
                 <article className='rejected-stat'>
                     <p>rejected</p>
-                    <span>{reserveStats[2]}</span>
+                    <span>{ordersStatus[2]}</span>
                 </article>
             </div>
         </div>

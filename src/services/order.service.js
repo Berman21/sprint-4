@@ -12,7 +12,8 @@ export const orderService = {
     save,
     getEmptyOrder,
     getReservationStats,
-    getOrderByBuyer
+    getOrderByBuyer,
+    getOrderByHost
 }
 window.cs = orderService
 
@@ -64,6 +65,18 @@ async function getOrderByBuyer(buyerId) {
     }
     catch (err) {
         console.log('Cant get order by buyer',err);
+    }
+}
+
+async function getOrderByHost(hostId) {
+    console.log(hostId);
+    try {
+        const host = {host: hostId}
+        const orders = await query(host)
+        return orders.filter(order => order.hostId === hostId)
+    }
+    catch (err) {
+        console.log('Cant get order by host',err);
     }
 }
 

@@ -14,7 +14,7 @@ ChartJS.register(
     BarElement,
 )
 
-export function BarChart() {
+export function BarChart({nums}) {
 
     const options = {
         responsive: true,
@@ -49,7 +49,7 @@ export function BarChart() {
         datasets: [
             {
                 label: 'Dataset 1',
-                data: [3700, 5100, 2000, 3500, 4100, 2500, 4000, 1600, 3100, 4050, 2000, 4800,],
+                data: nums,
                 backgroundColor: 'rgba(255, 56, 92, 0.9)',
             },
         ],
