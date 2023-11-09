@@ -31,7 +31,7 @@ export function Dashboard() {
         socketService.on(SOCKET_EVENT_ADD_ORDER, (order) => {
             fetchOrderByHost()
         })
-        socketService.on(SOCKET_EVENT_UPDATE_ORDER, (order) => {
+        socketService.on('order-status-updated', (order) => {
             fetchOrderByHost()
         })
         // loadReserveStats()
