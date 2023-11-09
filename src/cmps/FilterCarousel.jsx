@@ -102,6 +102,14 @@ export function FilterCarousel({ filterBy, filterByToEdit, setFilterByToEdit }) 
       items: 3,
       slidesToSlide: 2,
     },
+    mobileExtraSmall: {
+      breakpoint: {
+        max: 400,
+        min: 300,
+      },
+      items: 3,
+      slidesToSlide: 2,
+    },
   }
 
   return (

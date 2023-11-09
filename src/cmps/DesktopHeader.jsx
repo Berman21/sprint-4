@@ -74,7 +74,7 @@ export function DesktopHeader({ onSetFilter, setFilterByToEdit, filterByToEdit, 
           <button className='user-btn'>
             <img className='hamburger' src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218783/hamburger_gzxzmt.svg' />
             {user && <img className='user-icon' src={user.imgUrl} />}
-            {!user && <img className='user-ico' src={userIcon} />}
+            {!user && <img className='user-icon' src={userIcon} />}
           </button>
           {isDropdownActive && <UserModal setIsModalActive={setIsModalActive} setIsDropdownActive={setIsDropdownActive} />}
         </section>
