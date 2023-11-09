@@ -2,7 +2,7 @@
 
 .dashboard {
     display: grid;
-    grid-template-columns: 200px 1fr 70px;
+    grid-template-columns: 250px 1fr 70px;
 
     // background-color: #606266;
     background-color: #f3f3f3;
@@ -146,7 +146,7 @@
 .dashboard-container {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    gap: 20px;
+    gap: 5px;
     background-color: #f3f3f3;
     padding-block-end: 20px;
     // height: 50vh;
