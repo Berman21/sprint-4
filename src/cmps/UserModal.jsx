@@ -64,9 +64,6 @@ export function UserModal({ setIsDropdownActive, setIsModalActive }) {
           <article className='dropdown-option' onClick={(ev) => onOpenModal(ev, SET_APP_MODAL_SIGNUP)}>
             <span>Sign up</span>
           </article>
-          <article className='dropdown-option' onClick={() => onDashboard()}>
-            <span>Dashboard</span>
-          </article>
         </>
       )}
     </section>

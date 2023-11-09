@@ -104,7 +104,7 @@ export function Dashboard() {
 
                 <div className='dashboard-header flex space-between'>
                     <h1>Dashboard</h1>
-                    <img src={userIcon} />
+                    <img src={loggedInUser.imgUrl} />
                 </div>
                 <DashboardNav />
                 <div className='dashboard-container full'>
