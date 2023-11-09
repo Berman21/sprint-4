@@ -81,12 +81,12 @@ export function ReservePage() {
                     <div className="summary-stay border-bottom">
                         <img className="stay-img" src={currStay.imgUrls[0]} />
                         <article>
-                            <p>Cycladic home</p>
-                            <p>Rising Sun Villa, near Naousa and the beach, Paros home</p>
+                            <p>{currStay.name}</p>
+                            <p>Entire {currStay.type} hosted by {currStay.host.fullname}</p>
 
                             <div className='rating'>
                                 <img className="star-img" src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218791/star_pjyvxm.svg' alt="" />
-                                <p>{currStay.rating} <span>(1 reviews)</span></p>
+                                <p>{currStay.rating} <span>• {currStay.reviews.length} reviews</span></p>
                             </div>
 
                         </article>
@@ -108,7 +108,7 @@ export function ReservePage() {
                     <div className="flex space-between">
                         <article>
                             <p>Dates</p>
-                            <p>21-23 Dec 2023</p>
+                            <p>{order.startDate} - {order.endDate}</p>
                         </article>
                         <button>Edit</button>
                     </div>
@@ -129,12 +129,12 @@ export function ReservePage() {
                 {!isMobile && <div className="summary-stay border-bottom">
                     <img className="stay-img" src={currStay.imgUrls[0]} />
                     <article>
-                        <p>Cycladic home</p>
-                        <p>Rising Sun Villa, near Naousa and the beach, Paros home</p>
+                        <p>{currStay.name}</p>
+                        <p>Entire {currStay.type} hosted by {currStay.host.fullname}</p>
 
                         <div className='rating'>
                             <img className="star-img" src='https://res.cloudinary.com/do0a92wpm/image/upload/v1699218791/star_pjyvxm.svg' alt="" />
-                            <p>{currStay.rating} <span>(1 reviews)</span></p>
+                            <p>{currStay.rating} <span>• {currStay.reviews.length} reviews</span></p>
                         </div>
 
                     </article>
